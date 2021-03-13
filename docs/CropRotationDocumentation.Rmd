@@ -1,0 +1,48 @@
+---
+title: "Crop Rotation Documentation"
+author: "José Fortuny"
+date: "3/12/2021"
+output:
+  pdf_document: default
+  word_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Synopsis
+
+The Crop Rotation model attempts to allocate crops to fields such that the consumption needs of the
+user are satisfied while adhering to a set of constraints, described below.
+
+
+## Elements of the model
+
+There are some basic components of the model that are required for the model to exist. These are:
+
+* A Farm, which is a collection of Fields
+* Fields in the farm. The fields can be used in the determination of the rotation or can be set aside. The fields have 
+a _measure_, which is under user control and there is an amount of that _measure_ in each field. In a vegetable crop
+setting, the measure will likely be _length_ of row (feet or meters of beds or rows, depending on setup); in a farm crop setting, the measure will likely be _surface_ of each field (acres or hectares in each field).
+
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
