@@ -21,10 +21,31 @@ user are satisfied while adhering to a set of constraints, described below.
 
 There are some basic components of the model that are required for the model to exist. These are:
 
-* A Farm, which is a collection of Fields
-* Fields in the farm. The fields can be used in the determination of the rotation or can be set aside. The fields have 
-a _measure_, which is under user control and there is an amount of that _measure_ in each field. In a vegetable crop
-setting, the measure will likely be _length_ of row (feet or meters of beds or rows, depending on setup); in a farm crop setting, the measure will likely be _surface_ of each field (acres or hectares in each field).
+* A **Farm**, which is a collection of Fields
+* **Fields** in the farm. A field is defined, in this model,
+as the unit of land that will be planted, as a whole, with a single
+crop. Thus it is the minimal, indivisible, planting unit.
+The fields can be used in the determination of the rotation or can be set aside. 
+The fields have a _measure_, which is under user control and there is an amount of that _measure_ in 
+each field. In a vegetable crop setting, the measure will likely be _length_ of row (feet or meters of beds or rows, 
+depending on setup); in a farm crop setting, the measure will likely be _surface_ of each field (acres or hectares in each field).
+
+
+## Importing Farm Data
+
+The model accepts its data from an Excel spreadsheet with tab names that identify the elements of the model 
+and tab columns that identify the attributes of the element. Both tab names and column structure must adhere
+to the standard format that follows. Three tabs are required in the model:
+
+* Farmland
+* Crops
+* Demand
+
+The spreadsheet must have at least three tabs renamed with the labels listed; without them the data import will fail.
+
+### Farmland
+
+The **Farmland** tab identifies the **Fields** in the **Farm** by name, their _Measure_ and how much land is _Available_, and whether or not they should be _Included_ in the rotation.
 
 
 ## R Markdown
