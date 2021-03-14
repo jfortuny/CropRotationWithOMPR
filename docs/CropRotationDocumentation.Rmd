@@ -38,14 +38,33 @@ and tab columns that identify the attributes of the element. Both tab names and 
 to the standard format that follows. Three tabs are required in the model:
 
 * Farmland
-* Crops
 * Demand
+* Crops
 
-The spreadsheet must have at least three tabs renamed with the labels listed; without them the data import will fail.
+The spreadsheet must have at least three tabs named with the labels listed; without them the data import will fail.
 
 ### Farmland
 
-The **Farmland** tab identifies the **Fields** in the **Farm** by name, their _Measure_ and how much land is _Available_, and whether or not they should be _Included_ in the rotation.
+The **Farmland** tab identifies the **Fields** in the **Farm** by name, their _Measure_ and how much land is _Available_, and whether or not they should be _Included_ in the rotation (acceptable values are Y or N).
+The contents of the **Farmland** tab looks like this:
+
+![Farmland Tab](images/Farmland Tab.png)\ 
+
+
+### Demand
+
+The **Demand** tab identifies the Crop using a measure called **Is Same Crop As** (described under the Crop tab)
+and the amount of the crop required for a year or **Yearly Demand**. The unit of measure of the **Yearly Demand**
+is determined by the user and it requires consistency with the measure of yield in the Crop and by reference to the
+**Field** . The contents of the **Demand** Tab looks like follows:
+
+![Demand Tab](images/Demand Tab.png)\ 
+
+
+### Crops
+
+
+![Crops Tab](images/Crops Tab.png)\ 
 
 
 ## R Markdown
