@@ -48,41 +48,51 @@ The spreadsheet must have at least three tabs named with the labels listed; with
 The **Farmland** tab identifies the **Fields** in the **Farm** by name, their _Measure_ and how much land is _Available_, and whether or not they should be _Included_ in the rotation (acceptable values are Y or N).
 The contents of the **Farmland** tab looks like this:
 
-![Farmland Tab](images/Farmland Tab.png)\ 
 
+```{r fig.align = 'center', echo=FALSE}
+library(knitr)
+knitr::include_graphics('images/Farmland Tab.png')
+```
 
 ### Demand
 
 The **Demand** tab identifies the Crop using a measure called **Is Same Crop As** (described under the Crop tab)
 and the amount of the crop required for a year or **Yearly Demand**. The unit of measure of the **Yearly Demand**
 is determined by the user and it requires consistency with the measure of yield in the Crop and by reference to the
-**Field** . The contents of the **Demand** Tab looks like follows:
+**Field** unit of measure; i.e., if the crop yields are expressed in pounds per foot of row then the demand should be expressed in pounds per year and the fields should be measured in row feet. 
+The contents of the **Demand** Tab looks like follows:
 
-![Demand Tab](images/Demand Tab.png)\ 
+```{r fig.align = 'center', echo=FALSE}
+library(knitr)
+knitr::include_graphics('images/Demand Tab.png')
+```
 
 
 ### Crops
 
+The **Crops** tab identifies the crops the user considers planting and a large collection of attributes about those crops. It also indicates whether a crop is to be planted or not in column **Plant?**. 
+The contents of the **Crops** tab that follows shows the columns of the spreadsheet in three images for clarity.
 
-![Crops Tab](images/Crops Tab.png)\ 
-
-
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
+```{r fig.align = 'center', echo=FALSE}
+library(knitr)
+knitr::include_graphics('images/Crops Tab Left.png')
 ```
 
-## Including Plots
+The tab above collects the name of the **Crop**, its botanical **Family**, whether the crop **Is Annual or Perennial?**, although the model currently excludes perennial crops from the rotation and whether the crop contributes to meet the user demand as other crops, column **Is Same Crop As**. In the image you can see how both bush beans and pole beans produce the same product: bean.
 
-You can also embed plots, for example:
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+```{r fig.align = 'center', echo=FALSE}
+library(knitr)
+knitr::include_graphics('images/Crops Tab Middle.png')
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+The tab above repeats the  **Crop**, as well as adding some attributes of the crop itself (**Is Heavy Feeder?, Is Weed Contributor?, Is Cover Crop?**, which the model will attempt to plant to keep the soil from laying bare) and constraints that the user wants to impose on the crop (**Years between plantings on the same field**). Finally, column J identifies **Yield per Unit of Field**, which represents the amount of product that the field will produce of the crop in the same units of measure as in the **Demand** tab and the **Farmland** tab.
+
+
+```{r fig.align = 'center', echo=FALSE}
+library(knitr)
+knitr::include_graphics('images/Crops Tab Right.png')
+```
+
+The tab above repeats the  **Crop**, as well as adding attributes related to the planting season of the crop in your plant zone (columns K throuhg V), in this example Zone 7.The **Days to Maturity** identifies how long the specific crop the user has selected will stay in the ground before harvest, thus releasing the field for the next crop. The last column, **Plant?** identifies whether the crop is to be included in the rotation or excluded from it.
+
