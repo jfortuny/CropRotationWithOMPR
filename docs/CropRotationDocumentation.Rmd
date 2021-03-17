@@ -29,6 +29,8 @@ The fields can be used in the determination of the rotation or can be set aside.
 The fields have a _measure_, which is under user control and there is an amount of that _measure_ in 
 each field. In a vegetable crop setting, the measure will likely be _length_ of row (feet or meters of beds or rows, 
 depending on setup); in a farm crop setting, the measure will likely be _surface_ of each field (acres or hectares in each field).
+* **Demand** is defined as the amount of each product that the user wants to produce in one year.
+* The most complex component of the model are the **Crops** which are to be planted in **Fields** to meet the **Demand** for products. In the rotation model one of the more important characteristics of **Crops** is the month(s) in which they can be planted in the **Field** for the specific plant zone in which the **Farm** is located as well as the duration the **Crops** occupy the **Field** before releasing it potentially for the next **Crops**.
 
 
 ## Importing Farm Data
@@ -94,5 +96,19 @@ library(knitr)
 knitr::include_graphics('images/Crops Tab Right.png')
 ```
 
-The tab above repeats the  **Crop**, as well as adding attributes related to the planting season of the crop in your plant zone (columns K throuhg V), in this example Zone 7.The **Days to Maturity** identifies how long the specific crop the user has selected will stay in the ground before harvest, thus releasing the field for the next crop. The last column, **Plant?** identifies whether the crop is to be included in the rotation or excluded from it.
+The tab above repeats the  **Crop**, as well as adding attributes related to the planting season of the crop in your plant zone (columns K through V), in this example Zone 7.The **Days to Maturity** identifies how long the specific crop the user has selected will stay in the ground before harvest, thus releasing the field for the next crop. The last column, **Plant?** identifies whether the crop is to be included in the rotation or excluded from it.
 
+\newpage
+
+# The Model
+
+The model we use to generate a crop rotation is a mixed integer linear programming model of the general form:
+
+$$
+\begin{aligned}
+\text  {Min} &\sum c X + d Y \\ 
+\text {s.t.} &\sum A X + \sum B Y = 0 \\ 
+             &X \ge 0\\ 
+             &Y \in \{0,1\}
+\end{aligned}
+$$
