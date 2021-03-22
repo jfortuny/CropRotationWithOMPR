@@ -9,11 +9,11 @@ v <- c('a', 'b')
 n <- c(1,2,3)
 
 results <- MILPModel() %>% 
-  add_variable(x[i], i = n , type = 'binary') %>%
+  add_variable(crop[i], i = n , type = 'binary') %>%
 #  variable_keys() %>%
-  set_objective(sum_expr(x[i], i = n)) %>%
-  add_constraint(sum_expr(x[i], i = n) <= 2) %>%
+  set_objective(sum_expr(crop[i], i = n)) %>%
+  add_constraint(sum_expr(crop[i], i = n) <= 2) %>%
 #  extract_constraints() %>%
   solve_model(with_ROI(solver = "lpsolve")) %>%
 #  objective_value() %>%
-  get_solution(x[i]) 
+  get_solution(crop[i]) 

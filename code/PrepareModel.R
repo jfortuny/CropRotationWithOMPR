@@ -32,12 +32,39 @@ cropPlantingMonths <- cropsIncluded %>%
   left_join(cropFieldOccupation, by = 'Crop') 
 cropPlantingMonths <- cropPlantingMonths %>%
   mutate(plantingFieldMonth = match(cropPlantingMonths$PlantingMonth,month.abb)) %>%
-  mutate(releaseFieldMonth = match(cropPlantingMonths$PlantingMonth,month.abb) + cropPlantingMonths$`Months In Field`) 
+  mutate(releaseFieldMonth = match(cropPlantingMonths$PlantingMonth,month.abb) + 
+           cropPlantingMonths$`Months In Field`) 
 cropPlantingMonths <- cropPlantingMonths %>%
   mutate('Release Field Month' = month.abb[cropPlantingMonths$releaseFieldMonth]) %>%
-  mutate('Crop-PlantingMonth' = paste(cropPlantingMonths$Crop, '-', cropPlantingMonths$PlantingMonth, sep = ''))
+  mutate('CropMonth' = paste(cropPlantingMonths$Crop, '-', 
+                             cropPlantingMonths$PlantingMonth, sep = ''))
+cropPlantingMonths <- cropPlantingMonths %>%
+  mutate(SameYearRelease = (match(cropPlantingMonths$PlantingMonth,m) <= 
+                              match(cropPlantingMonths$`Release Field Month`,m)))
+
 
 # Variables related to Crop Plantings over time
-varCropsPlantingMonthYear <- merge(cropPlantingMonths$`Crop-PlantingMonth`, as.character(y))
+varCropsPlantingMonthYear <- merge(cropPlantingMonths$`Crop-PlantingMonth`, as.character(y), by = NULL)
 varCropsPlantingMonthYear <- varCropsPlantingMonthYear %>%
-  mutate(CropMonthYear = paste(varCropsPlantingMonthYear$x, '-', varCropsPlantingMonthYear$y, sep=''))
+  mutate(CropMonthYear = paste(varCropsPlantingMonthYear$x, '-', varCropsPlantingMonthYear$y, sep='')) %>%
+  rename(CropMonth = x, Year = y)
+varCropsPlantingMonthYearField <- merge(varCropsPlantingMonthYear$CropMonthYear, f)
+varCropsPlantingMonthYearField <- varCropsPlantingMonthYearField %>%
+  mutate(CropMonthYearField = paste(varCropsPlantingMonthYearField$x, '-', varCropsPlantingMonthYearField$y, sep = '')) %>%
+  rename(CropMonthYear = x, Field = y)
+
+# Variables related to field/land not used in a certain month and year
+varUnusedFieldYear <- merge(f, as.character(y), by = NULL)
+varUnusedFieldYear <- varUnusedFieldYear %>%
+  mutate(FieldYear = paste(varUnusedFieldYear$x, '-', varUnusedFieldYear$y, sep = '')) %>%
+  rename(Field = x, Year = y)
+varUnusedFieldYearMonth <- merge(varUnusedFieldYear, m, by = NULL)
+varUnusedFieldYearMonth <- varUnusedFieldYearMonth %>%
+  mutate(FieldYearMonth = paste(FieldYear, '-', y, sep = '')) %>%
+  rename(Month = y)
+
+# Variables related to field released from a harvested crop in a certain month and year
+
+
+# Constraints related to field transfers and allocations to crops
+
