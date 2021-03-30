@@ -16,12 +16,16 @@ farmland <- read_excel(filePath, sheet = 'Farmland')
 # Keep only included fields
 fieldsIncluded <- subset(as.data.frame(farmland), farmland$'Include?' == 'Y')
 
-# Read demand
-demand <- read_excel(filePath, sheet = 'Demand')
-
 # Read crops (skip first row which only contains the label Planting Dates)
 crops <- read_excel(filePath, sheet = 'Crops', skip = 1)
 
 # Keep only selected fields
 cropsIncluded <- subset(as.data.frame(crops), crops$'Plant?' == 'Y')
 
+# Read demand
+demand <- read_excel(filePath, sheet = 'Demand')
+# Demand can be met only if crops that satisfy it are included; keep only same as crops
+# whose demand can be met as well as cover crops that can be planted (which should have a zero demand)
+demandMeetable <- cropsIncluded %>%
+  select('Crop', 'Is Same Crop As', 'Is Cover Crop?', 'Yield per Unit of Field')
+demandMeetable <- merge(demandMeetable, demand, by = 'Is Same Crop As')
