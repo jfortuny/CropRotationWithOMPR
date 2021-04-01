@@ -26,9 +26,11 @@ There are some basic components of the model that are required for the model to 
 as the unit of land that will be planted, as a whole, with a single
 crop. Thus it is the minimal, indivisible, planting unit.
 The fields can be used in the determination of the rotation or can be set aside. 
-The fields have a _measure_, which is under user control and there is an amount of that _measure_ in 
-each field. In a vegetable crop setting, the measure will likely be _length_ of row (feet or meters of beds or rows, 
-depending on setup); in a farm crop setting, the measure will likely be _surface_ of each field (acres or hectares in each field).
+The fields have a _measure_ to determine how we calculate yield and produce amount, 
+which is under user control and there is an amount of that _measure_ in 
+each field. In a vegetable crop setting, the measure will likely be _length_ of row 
+(feet or meters of beds or rows, depending on setup); in a farm crop setting, the measure 
+will likely be _surface_ of each field (acres or hectares in each field).
 * **Demand** is defined as the amount of each product that the user wants to produce in one year.
 * The most complex component of the model are the **Crops** which are to be planted in **Fields** to meet the **Demand** for products. In the rotation model one of the more important characteristics of **Crops** is the month(s) in which they can be planted in the **Field** for the specific plant zone in which the **Farm** is located as well as the duration the **Crops** occupy the **Field** before releasing it potentially for the next **Crops**.
 

@@ -62,8 +62,29 @@ varCropsPlantingMonthYearFieldFull <- inner_join(varCropsPlantingMonthYearField,
                                              by = 'CropMonth') %>%
   select(Crop, PlantingMonth, 'Release Field Month', SameYearRelease, CropMonth, CropMonthRelease,
          Field, Year, CropMonthYear, CropMonthYearField)
+varCropsPlantingMonthYearFieldFull <-
+  varCropsPlantingMonthYearFieldFull %>%
+  mutate(FieldYearMonthRelease =
+           if_else(
+             SameYearRelease,
+             paste(
+               Field,
+               '-',
+               Year,
+               '-',
+               varCropsPlantingMonthYearFieldFull$'Release Field Month',
+               sep = ''
+             ),
+             paste(
+               Field,
+               '-',
+               Year,
+               '-',
+               varCropsPlantingMonthYearFieldFull$'Release Field Month',
+               sep = ''
+             )
+           ))
 
-################################################################################
 # Variables related to field/land not used in a certain month and year
 varUnusedFieldYear <- merge(f, as.character(y), by = NULL)
 varUnusedFieldYear <- varUnusedFieldYear %>%
