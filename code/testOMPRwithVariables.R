@@ -17,3 +17,5 @@ results <- MILPModel() %>%
   solve_model(with_ROI(solver = "lpsolve")) %>%
 #  objective_value() %>%
   get_solution(crop[i]) 
+# print results
+print(results)

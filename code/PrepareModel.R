@@ -1,10 +1,10 @@
 library(tidyr)
 library(dplyr)
 
-baseDir <- getwd()
-codeDir <- paste(baseDir, '/code', sep = '')
-filePath <- file.path(paste(codeDir, '/ReadSpreadsheet.R', sep = ''))
-source(filePath)
+# baseDir <- getwd()
+# codeDir <- paste(baseDir, '/code', sep = '')
+# filePath <- file.path(paste(codeDir, '/ReadSpreadsheet.R', sep = ''))
+# source(filePath)
 
 # To construct model variables we'll use the following naming convention:
 # Suffixes: c = crop; f = field, y = year, m = month
@@ -83,7 +83,11 @@ varCropsPlantingMonthYearFieldFull <-
                varCropsPlantingMonthYearFieldFull$'Release Field Month',
                sep = ''
              )
-           ))
+           )) %>%
+  mutate(varID = paste('cpmy', as.character(row_number()), sep = '_'))
+# Clean up unneeded variables
+rm(varCropsPlantingMonthYear)
+rm(varCropsPlantingMonthYearField)
 
 # Variables related to field/land not used in a certain month and year
 varUnusedFieldYear <- merge(f, as.character(y), by = NULL)
@@ -93,7 +97,10 @@ varUnusedFieldYear <- varUnusedFieldYear %>%
 varUnusedFieldYearMonth <- merge(varUnusedFieldYear, m, by = NULL)
 varUnusedFieldYearMonth <- varUnusedFieldYearMonth %>%
   mutate(FieldYearMonth = paste(FieldYear, '-', y, sep = '')) %>%
-  rename(Month = y)
+  rename(Month = y) %>%
+  mutate(varID = paste('uf', as.character(row_number()), sep = '_'))
+# Clean up unneeded variables
+rm(varUnusedFieldYear)
 
 # Variables related to unmet demand for "Is Same Crop As" product
 varUnmetDemandProductYear <- merge(demandMeetable, as.character(y), by = NULL)
@@ -101,8 +108,25 @@ varUnmetDemandProductYear <- varUnmetDemandProductYear %>%
   rename(Year = y)
 varUnmetDemandProductYear <- varUnmetDemandProductYear %>%
   mutate(UnmetDemandProductYear = paste(varUnmetDemandProductYear$'Is Same Crop As', '-', 
-                                        varUnmetDemandProductYear$Year, sep = ''))
+                                        varUnmetDemandProductYear$Year, sep = '')) %>%
+  mutate(varID = paste('ud', as.character(row_number()), sep = '_'))
   
+# # Variables for Constraints for field transfers over time (Field-Year-Month)
+# varConstraintFieldYearMonth <- merge(f, as.character(y), by = NULL)
+# varConstraintFieldYearMonth <- varConstraintFieldYearMonth %>%
+#   mutate(FieldYear = paste(varConstraintFieldYearMonth$x, '-', varConstraintFieldYearMonth$y, sep = '')) %>%
+#   rename(Field = x, Year = y)
+# varConstraintFieldYearMonth <- merge(varConstraintFieldYearMonth, m, by = NULL)
+# varConstraintFieldYearMonth <- varConstraintFieldYearMonth %>%
+#   mutate(FieldYearMonth = paste(FieldYear, '-', y, sep = '')) %>%
+#   rename(Month = y)
 
-# Constraints related to field transfers and allocations to crops
+# Variables related to Crops Planted in Year 1 month 1
+varCropsPlantedInFirstMonthFirstYear <- varCropsPlantingMonthYearFieldFull %>% 
+  filter(Year == "1" & PlantingMonth == "Jan") %>%
+  select(CropMonthYearField)
+# Variables related to Fields Unused, not planted, in Year 1 Month 1
+varFieldsUnusedInFirstMonthFirstYear <- varUnusedFieldYearMonth %>% 
+  filter(Year == "1" & Month == "Jan") %>% 
+  select(FieldYearMonth)
 
