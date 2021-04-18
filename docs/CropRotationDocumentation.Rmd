@@ -108,9 +108,43 @@ The model we use to generate a crop rotation is a mixed integer linear programmi
 
 $$
 \begin{aligned}
-\text  {Min} &\sum c X + d Y \\ 
-\text {s.t.} &\sum A X + \sum B Y = 0 \\ 
+\text  {Min} &\sum d X + e Y + fZ\\ 
+\text {s.t.} &\sum A X + \sum B Y + \sum C Z= 0 \\ 
              &X \ge 0\\ 
-             &Y \in \{0,1\}
+             &Y \in \{0,1\}\\
+             &Z \in I
 \end{aligned}
 $$
+In this type of model we optimize (maximize or minimize) a linear function subject to a set of constraints over a collection of variables, some of which are continuous and some of which are discrete, either integer or binary.
+
+## Objective Function
+
+In general terms, we try to minimize the unmet demand, i.e., we want to produce as much of each crop as needed and, if it isn't possible to produce all that is needed, then we minimize the gap. In addition, we want to always have something planted in the field, so we will encourage the use of cover crops or crops in general at any point in time.
+
+## Variables
+
+The variables that interest us the most have to do with the crops planted and the demand we have not met. In addition, we will use other variables to interconnect all the elements of the model.
+
+Because the model's time is set to months, and the indivisible unit of land is the field, the key crop variables are represented by $Y_{cfym}$, which indicate whether a crop (c) is planted in a field (f) on a certain year (y) and month (m). The variable will be 1 if the field is planted to the crop and 0 otherwise.
+
+The unmet demand will be represented by the variables that identify the product whose demand is not met in a certain year: $X_{py}$. This unmet demand can be any non-negative value, $X\ge0$, that identifies the product (p) and the year(y) in which the demand was not met.
+
+
+## Constraints
+
+There are a number of types of constraints that we will implement to manage the rotation. Fundamental to the rotation is the transfer of land (fields) used by a crop or unused from period to period.The set of constraints that define land transfers are the most complex in this model and will be addressed first.
+
+### Constraints that manage land transfers/availability over time periods
+
+Succinctly, every field in the farm can be either planted or not planted in every month of every year; if it is planted, it will become available again once the crop is harvested and, if it is not planted, the field will be available for planting next month. Thus, we will have constraints $C_{fym}$ for each field in each month and year to represent the balance of land in the field: the sum of Field f freed in year y month m + Field f not planted in year y month m-1 must equal the Field f not planted in year y month m + the sum of field f planted in crop c in year y and month m. In mathematical terms:
+
+$$
+\begin{aligned}
+\text C_{fym} : \quad & - \sum_f F - \sum_{y(m-1)} N + \sum_{ym} N + \sum_{c} P = 0 \qquad\forall fym\\ 
+             &F: Freed \\ 
+             &N: Not-planted\\
+             &P: Planted
+\end{aligned}
+$$
+
+

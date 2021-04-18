@@ -1,0 +1,161 @@
+\* Crop Rotation 2021 *\
+
+minimize
+Z:
+ + 100 ud_1 + 100 ud_2 + 100 ud_3 + 100 ud_4 + 100 ud_5 + 100 ud_6 + 100 ud_7 + 100 ud_8
+
+binary
+ cpmy_1
+ cpmy_2
+ cpmy_3
+ cpmy_4
+ cpmy_5
+ cpmy_6
+ cpmy_7
+ cpmy_8
+ cpmy_9
+ cpmy_10
+ cpmy_11
+ cpmy_12
+ cpmy_13
+ cpmy_14
+ cpmy_15
+ cpmy_16
+ cpmy_17
+ cpmy_18
+ cpmy_19
+ cpmy_20
+ cpmy_21
+ cpmy_22
+ cpmy_23
+ cpmy_24
+ cpmy_25
+ cpmy_26
+ cpmy_27
+ cpmy_28
+ cpmy_29
+ cpmy_30
+ cpmy_31
+ cpmy_32
+ cpmy_33
+ cpmy_34
+ cpmy_35
+ cpmy_36
+ cpmy_37
+ cpmy_38
+ cpmy_39
+ cpmy_40
+ cpmy_41
+ cpmy_42
+ cpmy_43
+ cpmy_44
+ cpmy_45
+ cpmy_46
+ cpmy_47
+ cpmy_48
+uf_1
+uf_2
+uf_3
+uf_4
+uf_5
+uf_6
+uf_7
+uf_8
+uf_9
+uf_10
+uf_11
+uf_12
+uf_13
+uf_14
+uf_15
+uf_16
+uf_17
+uf_18
+uf_19
+uf_20
+uf_21
+uf_22
+uf_23
+uf_24
+uf_25
+uf_26
+uf_27
+uf_28
+uf_29
+uf_30
+uf_31
+uf_32
+uf_33
+uf_34
+uf_35
+uf_36
+uf_37
+uf_38
+uf_39
+uf_40
+uf_41
+uf_42
+uf_43
+uf_44
+uf_45
+uf_46
+uf_47
+uf_48
+uf_49
+uf_50
+uf_51
+uf_52
+uf_53
+uf_54
+uf_55
+uf_56
+uf_57
+uf_58
+uf_59
+uf_60
+uf_61
+uf_62
+uf_63
+uf_64
+uf_65
+uf_66
+uf_67
+uf_68
+uf_69
+uf_70
+uf_71
+uf_72
+uf_73
+uf_74
+uf_75
+uf_76
+uf_77
+uf_78
+uf_79
+uf_80
+uf_81
+uf_82
+uf_83
+uf_84
+uf_85
+uf_86
+uf_87
+uf_88
+uf_89
+uf_90
+uf_91
+uf_92
+uf_93
+uf_94
+uf_95
+uf_96
+
+general
+ud_1
+ud_2
+ud_3
+ud_4
+ud_5
+ud_6
+ud_7
+ud_8
