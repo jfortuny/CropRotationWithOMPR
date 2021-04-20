@@ -38,78 +38,113 @@ objective <- c(objective, ZrowSingle)
 
 # BUILD CONSTRAINTS
 # Land transfers: field, year and month
-# Crops Planted this period
-cp <-
-  varCropsPlantingMonthYearFieldFull %>% 
-  mutate(YearMonth = paste(varCropsPlantingMonthYearFieldFull$Year, 
-                           "-", 
-                           varCropsPlantingMonthYearFieldFull$PlantingMonth, 
-                           sep = "")) %>%
-  select(YearMonth, varID) %>%
-  mutate(cp_varID = varID) %>%
-  select(YearMonth, cp_varID)
-# Fields Unused this period
-fu <-
-  varUnusedFieldYearMonth %>% mutate(YearMonth = paste(
-    varUnusedFieldYearMonth$Y,
-    "-",
-    varUnusedFieldYearMonth$Month,
-    sep = ""
-  )) %>%
-  select(YearMonth, varID) %>%
-  mutate(fu_varID = varID) %>%
-  select(YearMonth, fu_varID)
-
-#left_join(fu, cp, by = "YearMonth")
-
-# Fields unused last period (will be available this period)
-fulp <- varUnusedFieldYearMonth %>%
-  mutate(AvailableInMonthNumeric = match(varUnusedFieldYearMonth$Month, month.abb)+1
-         ) %>%
-  mutate(AvailableInYear =
-           if_else(AvailableInMonthNumeric != 13, Year, as.character(as.numeric(Year) + 1))) %>%
-  mutate(AvailableInMonthNumeric2 = if_else(AvailableInMonthNumeric==13,1,AvailableInMonthNumeric)
-         ) %>%
-  mutate(AvailableInMonth = month.abb[AvailableInMonthNumeric2]) %>%
-  mutate(AvailableInYearMonth = paste(AvailableInYear,"-",AvailableInMonth,sep = "")) %>%
-  mutate(YearMonth = if_else(AvailableInYear == "5", NA_character_, paste(AvailableInYear, "-", Month, sep = "")
-                             )
-         ) %>%
-  filter(AvailableInYear!="5") %>%
-  select(YearMonth, AvailableInYearMonth, varID)
-
-# Fields Freed by crops this period
-ff <- varCropsPlantingMonthYearFieldFull %>%
-  mutate(
-    YearMonth = paste(
-      varCropsPlantingMonthYearFieldFull$Year,
-      "-",
-      varCropsPlantingMonthYearFieldFull$PlantingMonth,
-      sep = ''
-    )
-  ) %>%
-  mutate(ReleaseYear =
-           if_else(SameYearRelease, Year,
-                   as.character(as.numeric(Year) + 1))) %>%
-  mutate(
-    ReleaseYearMonth =
-      paste(
-        ReleaseYear,
-        '-',
-        varCropsPlantingMonthYearFieldFull$`Release Field Month`
-        ,
-        sep = ''
-      )
-  ) %>%
-  select(YearMonth, ReleaseYearMonth, varID) %>%
-  mutate(ff_varID = varID) %>%
-  select(YearMonth, ReleaseYearMonth, ff_varID)
-
-# left_join(fu, ff, by = "YearMonth")
 
 
+# Build empty dataframe for matrix #############################################
+dfColNames <- c(varCropsPlantingMonthYearFieldFull$varID, varUnusedFieldYearMonth$varID)
+dfRowNames <- paste("c_", varUnusedFieldYearMonth$varID, sep = "")
+# Add column for the RHS
+dfMatrix <- data.frame(matrix(0, nrow = length(dfRowNames), ncol = 1 + length(dfColNames)), stringsAsFactors = FALSE)
+colnames(dfMatrix) <- c(dfColNames, "RHS")
+row.names(dfMatrix) <- dfRowNames
+
+# Set unused fields in Year 1 Month 1 ##########################################
+irows <- varUnusedFieldYearMonth %>% filter(Year == "1" & Month == "Jan") %>% select(varID)
+for (i in 1:nrow(irows)) {
+  j <- paste("c_", irows[i, "varID"], sep = "")
+  dfMatrix[j, irows[i, "varID"]] <- 1
+  dfMatrix[j, "RHS"] <- 1
+}
+# Set unused fields for Year <> 1 and Month <> 1 ###############################
+irows <- varUnusedFieldYearMonth %>% filter(!(Year == "1" & Month == "Jan")) %>% select(varID)
+for (i in 1:nrow(irows)) {
+  print(i)
+  # j <- paste("c_", irows[i, "varID"], sep = "")
+  # dfMatrix[j, irows[i, "varID"]] <- 1
+  # dfMatrix[j, "RHS"] <- 1
+}
 
 
+write.csv(dfMatrix, file = paste(dataDir, "/dfMatrix.csv", sep = ""))
+
+
+# ##############################################################################################################################
+# # Crops Planted this period
+# cp <-
+#   varCropsPlantingMonthYearFieldFull %>% 
+#   mutate(YearMonth = paste(varCropsPlantingMonthYearFieldFull$Year, 
+#                            "-", 
+#                            varCropsPlantingMonthYearFieldFull$PlantingMonth, 
+#                            sep = "")) %>%
+#   select(YearMonth, varID) %>%
+#   mutate(cp_varID = varID) %>%
+#   select(YearMonth, cp_varID)
+# # Fields Unused this period
+# fu <-
+#   varUnusedFieldYearMonth %>% mutate(YearMonth = paste(
+#     varUnusedFieldYearMonth$Y,
+#     "-",
+#     varUnusedFieldYearMonth$Month,
+#     sep = ""
+#   )) %>%
+#   select(YearMonth, FieldYearMonth, varID) %>%
+#   mutate(fu_varID = varID) %>%
+#   select(YearMonth, FieldYearMonth, fu_varID)
+# 
+# #left_join(fu, cp, by = "YearMonth")
+# 
+# # Fields unused last period (will be available this period)
+# fulp <- varUnusedFieldYearMonth %>%
+#   mutate(AvailableInMonthNumeric = match(varUnusedFieldYearMonth$Month, month.abb)+1
+#          ) %>%
+#   mutate(AvailableInYear =
+#            if_else(AvailableInMonthNumeric != 13, Year, as.character(as.numeric(Year) + 1))) %>%
+#   mutate(AvailableInMonthNumeric2 = if_else(AvailableInMonthNumeric==13,1,AvailableInMonthNumeric)
+#          ) %>%
+#   mutate(AvailableInMonth = month.abb[AvailableInMonthNumeric2]) %>%
+#   mutate(AvailableInYearMonth = paste(AvailableInYear,"-",AvailableInMonth,sep = "")) %>%
+#   mutate(YearMonth = paste(Year, "-", Month, sep = "")) %>%
+#   filter(AvailableInYear!="5") %>%
+#   mutate(fulp_varID = varID) %>% 
+#   select(YearMonth, AvailableInYearMonth, fulp_varID)
+# 
+# # left_join(fu, fulp, by = "YearMonth")
+# 
+# # Fields Freed by crops this period
+# ff <- varCropsPlantingMonthYearFieldFull %>%
+#   mutate(
+#     YearMonth = paste(
+#       varCropsPlantingMonthYearFieldFull$Year,
+#       "-",
+#       varCropsPlantingMonthYearFieldFull$PlantingMonth,
+#       sep = ''
+#     )
+#   ) %>%
+#   mutate(ReleaseYear =
+#            if_else(SameYearRelease, Year,
+#                    as.character(as.numeric(Year) + 1))) %>%
+#   mutate(
+#     ReleaseYearMonth =
+#       paste(
+#         ReleaseYear,
+#         '-',
+#         varCropsPlantingMonthYearFieldFull$`Release Field Month`
+#         ,
+#         sep = ''
+#       )
+#   ) %>%
+#   select(YearMonth, ReleaseYearMonth, varID) %>%
+#   mutate(ff_varID = varID) %>%
+#   select(YearMonth, ReleaseYearMonth, ff_varID)
+# 
+# # left_join(fu, ff, by = "YearMonth")
+# landTransfers <- left_join(fu, fulp, by = c("YearMonth", "fu_varID" = "fulp_varID"))
+# landTransfers <-left_join(landTransfers, cp, by = "YearMonth")
+# 
+#   left_join(ff, by = "YearMonth")
+#
+
+##############################################################################################################################
 # WRITE TO FILE
 # Write the title with overwrite
 write(title, file = filePath, ncolumns = 1, append = FALSE)
