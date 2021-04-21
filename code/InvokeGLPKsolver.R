@@ -73,6 +73,26 @@ for (i in 1:nrow(dfPredecessors)) {
       as.character(as.numeric(dfPredecessors[i, "Year"]) - 1)
     dfPredecessors[i, "previousMonth"] <- "Dec"
   }
+<<<<<<< HEAD
+=======
+}
+dfPredecessors <-
+  left_join(
+    dfPredecessors,
+    varUnusedFieldYearMonth,
+    by = c(
+      "Field",
+      "previousYear" = "Year",
+      "previousMonth" = "Month"
+    )
+  ) %>% select("varID.x", "varID.y") %>% mutate(constraint = paste("c_", varID.x, sep = ""))
+
+for (i in 1:nrow(dfPredecessors)) {
+  dfMatrix[dfPredecessors[i, "constraint"], dfPredecessors[i, "varID.x"]] <- "- 1"
+  dfMatrix[dfPredecessors[i, "constraint"], dfPredecessors[i, "varID.y"]] <- "+ 1"
+  dfMatrix[dfPredecessors[i, "constraint"], "RHS"] <= 0
+  dfMatrix[dfPredecessors[i, "constraint"], "Sense"] <= "="
+>>>>>>> 6e46de0c0e1ee45ff735067f909d7927862519d3
 }
 dfPredecessors <-
   left_join(
@@ -94,6 +114,9 @@ for (i in 1:nrow(dfPredecessors)) {
 
 # Set Field Use for Planted Crops ##############################################
  
+
+# Set Field Use for Planted Crops ##############################################
+
 
 
 # Write it temporarily here ####################################################
