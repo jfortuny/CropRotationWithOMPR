@@ -47,24 +47,56 @@ dfRowNames <- paste("c_", varUnusedFieldYearMonth$varID, sep = "")
 dfMatrix <- data.frame(matrix(0, nrow = length(dfRowNames), ncol = 1 + length(dfColNames)), stringsAsFactors = FALSE)
 colnames(dfMatrix) <- c(dfColNames, "RHS")
 row.names(dfMatrix) <- dfRowNames
+# Add column for the Sense of the constraint
+dfMatrix$Sense <- rep("=", length(dfRowNames))
 
 # Set unused fields in Year 1 Month 1 ##########################################
 irows <- varUnusedFieldYearMonth %>% filter(Year == "1" & Month == "Jan") %>% select(varID)
 for (i in 1:nrow(irows)) {
   j <- paste("c_", irows[i, "varID"], sep = "")
   dfMatrix[j, irows[i, "varID"]] <- 1
+  dfMatrix[j, "Sense"] <- "="
   dfMatrix[j, "RHS"] <- 1
 }
+
 # Set unused fields for Year <> 1 and Month <> 1 ###############################
 irows <- varUnusedFieldYearMonth %>% filter(!(Year == "1" & Month == "Jan")) %>% select(varID)
-for (i in 1:nrow(irows)) {
-  print(i)
-  # j <- paste("c_", irows[i, "varID"], sep = "")
-  # dfMatrix[j, irows[i, "varID"]] <- 1
-  # dfMatrix[j, "RHS"] <- 1
+dfPredecessors <- left_join(irows, varUnusedFieldYearMonth, by = "varID") %>% select(c("varID", "Field", "Year", "Month"))
+
+for (i in 1:nrow(dfPredecessors)) {
+  if (dfPredecessors[i, "Month"] != "Jan") {
+    dfPredecessors[i, "previousYear"] <- dfPredecessors[i, "Year"]
+    dfPredecessors[i, "previousMonth"] <-
+      month.abb[match(dfPredecessors[i,"Month"], month.abb) - 1]
+  } else {
+    dfPredecessors[i, "previousYear"] <-
+      as.character(as.numeric(dfPredecessors[i, "Year"]) - 1)
+    dfPredecessors[i, "previousMonth"] <- "Dec"
+  }
+}
+dfPredecessors <-
+  left_join(
+    dfPredecessors,
+    varUnusedFieldYearMonth,
+    by = c(
+      "Field",
+      "previousYear" = "Year",
+      "previousMonth" = "Month"
+    )
+  ) %>% select("varID.x", "varID.y") %>% mutate(constraint = paste("c_", varID.x, sep = ""))
+
+for (i in 1:nrow(dfPredecessors)) {
+  dfMatrix[dfPredecessors[i, "constraint"], dfPredecessors[i, "varID.x"]] <- "- 1"
+  dfMatrix[dfPredecessors[i, "constraint"], dfPredecessors[i, "varID.y"]] <- "+ 1"
+  dfMatrix[dfPredecessors[i, "constraint"], "RHS"] <= 0
+  dfMatrix[dfPredecessors[i, "constraint"], "Sense"] <= "="
 }
 
+# Set Field Use for Planted Crops ##############################################
+ 
 
+
+# Write it temporarily here ####################################################
 write.csv(dfMatrix, file = paste(dataDir, "/dfMatrix.csv", sep = ""))
 
 
