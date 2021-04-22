@@ -14,6 +14,7 @@ filePath <- file.path(paste(dataDir, '/', fileName, '.lp', sep = ''))
 # Create the stub for the problem sections
 title = paste('\\* Crop Rotation ', as.character(lubridate::year(Sys.Date())), ' *\\', sep = '')
 objective = c('', 'minimize', 'Z:')
+constraints = c('', 'st')
 constraintsLand = ''
 constraintsDemand = ''
 bounds = ''
@@ -54,9 +55,9 @@ dfMatrix$Sense <- rep("=", length(dfRowNames))
 irows <- varUnusedFieldYearMonth %>% filter(Year == "1" & Month == "Jan") %>% select(varID)
 for (i in 1:nrow(irows)) {
   j <- paste("c_", irows[i, "varID"], sep = "")
-  dfMatrix[j, irows[i, "varID"]] <- 1
+  dfMatrix[j, irows[i, "varID"]] <- '+ 1'
   dfMatrix[j, "Sense"] <- "="
-  dfMatrix[j, "RHS"] <- 1
+  dfMatrix[j, "RHS"] <- '1'
 }
 
 # Set unused fields for Year <> 1 and Month <> 1 ###############################
@@ -73,8 +74,6 @@ for (i in 1:nrow(dfPredecessors)) {
       as.character(as.numeric(dfPredecessors[i, "Year"]) - 1)
     dfPredecessors[i, "previousMonth"] <- "Dec"
   }
-<<<<<<< HEAD
-=======
 }
 dfPredecessors <-
   left_join(
@@ -90,9 +89,8 @@ dfPredecessors <-
 for (i in 1:nrow(dfPredecessors)) {
   dfMatrix[dfPredecessors[i, "constraint"], dfPredecessors[i, "varID.x"]] <- "- 1"
   dfMatrix[dfPredecessors[i, "constraint"], dfPredecessors[i, "varID.y"]] <- "+ 1"
-  dfMatrix[dfPredecessors[i, "constraint"], "RHS"] <= 0
-  dfMatrix[dfPredecessors[i, "constraint"], "Sense"] <= "="
->>>>>>> 6e46de0c0e1ee45ff735067f909d7927862519d3
+  dfMatrix[dfPredecessors[i, "constraint"], "RHS"] <- '0'
+  dfMatrix[dfPredecessors[i, "constraint"], "Sense"] <- "="
 }
 dfPredecessors <-
   left_join(
@@ -108,16 +106,47 @@ dfPredecessors <-
 for (i in 1:nrow(dfPredecessors)) {
   dfMatrix[dfPredecessors[i, "constraint"], dfPredecessors[i, "varID.x"]] <- "- 1"
   dfMatrix[dfPredecessors[i, "constraint"], dfPredecessors[i, "varID.y"]] <- "+ 1"
-  dfMatrix[dfPredecessors[i, "constraint"], "RHS"] <= 0
-  dfMatrix[dfPredecessors[i, "constraint"], "Sense"] <= "="
+  dfMatrix[dfPredecessors[i, "constraint"], "RHS"] <- '0'
+  dfMatrix[dfPredecessors[i, "constraint"], "Sense"] <- "="
 }
 
 # Set Field Use for Planted Crops ##############################################
- 
+# Since the unused field settings are already taken care of, the only variables we
+# need to worry about here are the "Crops Planted" variables (cmpy_i) both as they
+# use a field and as they release the field for the next crop.
+# Field occupation/planting
+irows <- left_join(varCropsPlantingMonthYearFieldFull, varUnusedFieldYearMonth, 
+                   by = c("Field", "Year", "PlantingMonth" = "Month")) %>%
+  select(varID.x, varID.y) %>% mutate(constraint = paste("c_", varID.y, sep = ""))
+for (i in 1:nrow(irows)) {
+  dfMatrix[irows[i, "constraint"], irows[i,"varID.x"]] <- "+ 1"
+  # dfMatrix[irows[i, "constraint"], "RHS"] <- '0'
+  # dfMatrix[irows[i, "constraint"], "Sense"] <- "="
+}
+# Field harvesting/release
+irows <- left_join(varCropsPlantingMonthYearFieldFull, varUnusedFieldYearMonth,
+                   by = c("FieldYearMonthRelease" = "FieldYearMonth")) %>%
+  select(varID.x, varID.y) %>% mutate(constraint = paste("c_", varID.y, sep = ""))
+for (i in 1:nrow(irows)) {
+  dfMatrix[irows[i, "constraint"], irows[i,"varID.x"]] <- "- 1"
+  # dfMatrix[irows[i, "constraint"], "RHS"] <- '0'
+  # dfMatrix[irows[i, "constraint"], "Sense"] <- "="
+}
+# 
 
-# Set Field Use for Planted Crops ##############################################
 
-
+# BUILD LAND TRANSFERS CONSTRAINTS #############################################
+for (i in 1:nrow(dfMatrix)) {
+  thisRow = rownames(dfMatrix)[i]
+  for (j in 1:ncol(dfMatrix)) {
+    thisColumn <- colnames(dfMatrix)[j]
+    if (dfMatrix[i,j] != "0") {
+      thisConstraint <- c(thisConstraint, dfMatrix[i,j], ' ', 
+                          ####################
+                          )
+    }
+  }
+}
 
 # Write it temporarily here ####################################################
 write.csv(dfMatrix, file = paste(dataDir, "/dfMatrix.csv", sep = ""))
@@ -212,3 +241,6 @@ write(binary, file = filePath, ncolumns = 1, append = TRUE)
 
 # Append Continuous/general Variables
 write(general, file = filePath, ncolumns = 1, append = TRUE)
+
+# Append constraints header
+write(constraints, file = filePath, ncolumns = 1, append = TRUE)
