@@ -134,22 +134,35 @@ for (i in 1:nrow(irows)) {
 }
 # 
 
+# Write it temporarily here ####################################################
+# write.csv(dfMatrix, file = paste(dataDir, "/dfMatrix.csv", sep = ""))
+
 
 # BUILD LAND TRANSFERS CONSTRAINTS #############################################
 for (i in 1:nrow(dfMatrix)) {
-  thisRow = rownames(dfMatrix)[i]
+  thisConstraint <- paste(rownames(dfMatrix)[i], ": ", sep = "")
+  thiConstraintSingle <- ""
   for (j in 1:ncol(dfMatrix)) {
     thisColumn <- colnames(dfMatrix)[j]
-    if (dfMatrix[i,j] != "0") {
-      thisConstraint <- c(thisConstraint, dfMatrix[i,j], ' ', 
-                          ####################
-                          )
+    if (thisColumn == "RHS") {
+      thisRHS <- dfMatrix[i, j]
+    } else if (thisColumn == "Sense") {
+      thisSense <- dfMatrix[i, j]
+    } else {
+      if (dfMatrix[i, j] != "0") {
+        thisConstraint <-
+          paste(thisConstraint, dfMatrix[i, j], " ", thisColumn, " ", sep = "")
+      }
     }
   }
+  thisConstraint <-
+    paste(thisConstraint, " ", thisSense, " ", thisRHS, sep = "")
+  thisConstraintSingle <- paste(thisConstraint, collapse = "")
+  constraintsLand <- c(constraintsLand, thisConstraintSingle)
 }
 
-# Write it temporarily here ####################################################
-write.csv(dfMatrix, file = paste(dataDir, "/dfMatrix.csv", sep = ""))
+# BUILD DEMAND CONSTRAINTS #####################################################
+# CODE HERE!
 
 
 # ##############################################################################################################################
