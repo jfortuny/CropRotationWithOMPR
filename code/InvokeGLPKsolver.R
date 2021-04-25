@@ -14,7 +14,7 @@ filePath <- file.path(paste(dataDir, '/', fileName, '.lp', sep = ''))
 # Create the stub for the problem sections
 title = paste('\\* Crop Rotation ', as.character(lubridate::year(Sys.Date())), ' *\\', sep = '')
 objective = c('', 'minimize', 'Z:')
-constraints = c('', 'st')
+constraints = c('', 'Subject to')
 constraintsLand = ''
 constraintsDemand = ''
 bounds = ''
@@ -27,10 +27,10 @@ binary = c('', 'binary')
 binary = c(binary, paste(' ', varCropsPlantingMonthYearFieldFull$varID, sep = ''))
 
 # Add variables related to fields not planted: varUnusedFieldYearMonth$varID
-binary = c(binary, varUnusedFieldYearMonth$varID)
+binary = c(binary, paste(" ", varUnusedFieldYearMonth$varID, sep = ""))
 
 # Add variables related to unmet demand: varUnmetDemandProductYear$varID
-general <- c(general, varUnmetDemandProductYear$varID)
+general <- c(general, paste(" ", varUnmetDemandProductYear$varID, sep = ""))
 
 # BUILD OBJECTIVE FUNCTION
 Zrow <- paste(' + ', as.character(penaltyForUnmetDemand), ' ', varUnmetDemandProductYear$varID, sep = '')
@@ -156,7 +156,7 @@ for (i in 1:nrow(dfMatrix)) {
     }
   }
   thisConstraint <-
-    paste(thisConstraint, " ", thisSense, " ", thisRHS, sep = "")
+    paste(" ", thisConstraint, " ", thisSense, " ", thisRHS, sep = "")
   thisConstraintSingle <- paste(thisConstraint, collapse = "")
   constraintsLand <- c(constraintsLand, thisConstraintSingle)
 }
@@ -221,10 +221,10 @@ for (i in 1:nrow(dfMatrix)) {
 #            if_else(SameYearRelease, Year,
 #                    as.character(as.numeric(Year) + 1))) %>%
 #   mutate(
+#         '-',
 #     ReleaseYearMonth =
 #       paste(
 #         ReleaseYear,
-#         '-',
 #         varCropsPlantingMonthYearFieldFull$`Release Field Month`
 #         ,
 #         sep = ''
@@ -249,11 +249,14 @@ write(title, file = filePath, ncolumns = 1, append = FALSE)
 # Append the Objective function
 write(objective, file = filePath, ncolumns = 1, append = TRUE)
 
+# Append constraints header
+constraints <- c(constraints, constraintsLand)
+write(constraints, file = filePath, ncolumns = 1, append = TRUE)
+
 # Append Binary Variables
 write(binary, file = filePath, ncolumns = 1, append = TRUE)
 
 # Append Continuous/general Variables
 write(general, file = filePath, ncolumns = 1, append = TRUE)
 
-# Append constraints header
-write(constraints, file = filePath, ncolumns = 1, append = TRUE)
+
