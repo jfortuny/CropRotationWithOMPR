@@ -92,23 +92,23 @@ for (i in 1:nrow(dfPredecessors)) {
   dfMatrix[dfPredecessors[i, "constraint"], "RHS"] <- '0'
   dfMatrix[dfPredecessors[i, "constraint"], "Sense"] <- "="
 }
-dfPredecessors <-
-  left_join(
-    dfPredecessors,
-    varUnusedFieldYearMonth,
-    by = c(
-      "Field",
-      "previousYear" = "Year",
-      "previousMonth" = "Month"
-    )
-  ) %>% select("varID.x", "varID.y") %>% mutate(constraint = paste("c_", varID.x, sep = ""))
-
-for (i in 1:nrow(dfPredecessors)) {
-  dfMatrix[dfPredecessors[i, "constraint"], dfPredecessors[i, "varID.x"]] <- "- 1"
-  dfMatrix[dfPredecessors[i, "constraint"], dfPredecessors[i, "varID.y"]] <- "+ 1"
-  dfMatrix[dfPredecessors[i, "constraint"], "RHS"] <- '0'
-  dfMatrix[dfPredecessors[i, "constraint"], "Sense"] <- "="
-}
+# dfPredecessors <-
+#   left_join(
+#     dfPredecessors,
+#     varUnusedFieldYearMonth,
+#     by = c(
+#       "Field",
+#       "previousYear" = "Year",
+#       "previousMonth" = "Month"
+#     )
+#   ) %>% select("varID.x", "varID.y") %>% mutate(constraint = paste("c_", varID.x, sep = ""))
+# 
+# for (i in 1:nrow(dfPredecessors)) {
+#   dfMatrix[dfPredecessors[i, "constraint"], dfPredecessors[i, "varID.x"]] <- "- 1"
+#   dfMatrix[dfPredecessors[i, "constraint"], dfPredecessors[i, "varID.y"]] <- "+ 1"
+#   dfMatrix[dfPredecessors[i, "constraint"], "RHS"] <- '0'
+#   dfMatrix[dfPredecessors[i, "constraint"], "Sense"] <- "="
+# }
 
 # Set Field Use for Planted Crops ##############################################
 # Since the unused field settings are already taken care of, the only variables we

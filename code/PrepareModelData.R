@@ -13,7 +13,8 @@ f <- fieldsIncluded[,'Field']
 y <- seq(1:4)
 m <- month.abb
 
-# Crops planted variables: a crop can be planted on a field in a year and a month; we need to create
+# Crops planted variables: #####################################################
+# A crop can be planted on a field in a year and a month; we need to create
 # the binary variables that represent possible planting dates
 # Identify the month from planting when the crop will release the field: this is the month after the harvest
 cropFieldOccupation <- cropsIncluded %>%
@@ -43,9 +44,15 @@ cropPlantingMonths <- cropPlantingMonths %>%
                               match(cropPlantingMonths$`Release Field Month`,m)))
 cropPlantingMonths <- cropPlantingMonths %>%
   mutate('CropMonthRelease' = paste(cropPlantingMonths$Crop, '-', cropPlantingMonths$`Release Field Month`, sep = ''))
+cropPlantingMonths <- left_join(cropPlantingMonths, crops, by = 'Crop')
+cropPlantingMonths <- cropPlantingMonths %>%
+  select('Crop', 'PlantingMonth', 'Days To Maturity.x', 'Months In Field',
+         'plantingFieldMonth', 'releaseFieldMonth', 'Release Field Month',
+         'CropMonth', 'SameYearRelease', 'CropMonthRelease', 'Yield per Unit of Field')
+cropPlantingMonths <- cropPlantingMonths %>% 
+  rename(DaysToMaturity = 'Days To Maturity.x', YieldPerUnitOfField = 'Yield per Unit of Field')
 
-
-# Variables related to Crop Plantings over time
+# Variables related to Crop Plantings over time ################################
 varCropsPlantingMonthYear <- merge(cropPlantingMonths$`CropMonth`, as.character(y), by = NULL)
 varCropsPlantingMonthYear <- varCropsPlantingMonthYear %>%
   mutate(CropMonthYear = paste(varCropsPlantingMonthYear$x, '-', varCropsPlantingMonthYear$y, sep='')) %>%
@@ -85,11 +92,17 @@ varCropsPlantingMonthYearFieldFull <-
              )
            )) %>%
   mutate(varID = paste('cpmy', as.character(row_number()), sep = '_'))
+varCropsPlantingMonthYearFieldFull <- left_join(varCropsPlantingMonthYearFieldFull, fieldsIncluded,
+                                                by = 'Field') 
+varCropsPlantingMonthYearFieldFull <- varCropsPlantingMonthYearFieldFull %>%
+  select('Crop', 'PlantingMonth', 'Release Field Month', 'SameYearRelease', 'CropMonth',
+         'CropMonthRelease', 'Field', 'Available', 'Year', 'CropMonthYear', 'CropMonthYearField',
+         'FieldYearMonthRelease', 'varID')
 # Clean up unneeded variables
 rm(varCropsPlantingMonthYear)
 rm(varCropsPlantingMonthYearField)
 
-# Variables related to field/land not used in a certain month and year
+# Variables related to field/land not used in a certain month and year #########
 varUnusedFieldYear <- merge(f, as.character(y), by = NULL)
 varUnusedFieldYear <- varUnusedFieldYear %>%
   mutate(FieldYear = paste(varUnusedFieldYear$x, '-', varUnusedFieldYear$y, sep = '')) %>%
@@ -102,7 +115,7 @@ varUnusedFieldYearMonth <- varUnusedFieldYearMonth %>%
 # Clean up unneeded variables
 rm(varUnusedFieldYear)
 
-# Variables related to unmet demand for "Is Same Crop As" product
+# Variables related to unmet demand for "Is Same Crop As" product ##############
 varUnmetDemandProductYear <- merge(demandMeetable, as.character(y), by = NULL)
 varUnmetDemandProductYear <- varUnmetDemandProductYear %>%
   rename(Year = y)
@@ -121,7 +134,7 @@ varUnmetDemandProductYear <- varUnmetDemandProductYear %>%
 #   mutate(FieldYearMonth = paste(FieldYear, '-', y, sep = '')) %>%
 #   rename(Month = y)
 
-# Variables related to Crops Planted in Year 1 month 1
+# Variables related to Crops Planted in Year 1 month 1 #########################
 varCropsPlantedInFirstMonthFirstYear <- varCropsPlantingMonthYearFieldFull %>% 
   filter(Year == "1" & PlantingMonth == "Jan") %>%
   select(CropMonthYearField)
