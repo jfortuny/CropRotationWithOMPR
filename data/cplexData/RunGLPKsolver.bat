@@ -1,0 +1,1 @@
+glpsol --lp model-2021-04-30.lpt --output glpkResults.txt 

@@ -1,0 +1,69 @@
+Problem:    
+Rows:       13
+Columns:    15 (15 integer, 14 binary)
+Non-zeros:  30
+Status:     INTEGER EMPTY
+Objective:  Z = 0 (MINimum)
+
+   No.   Row name        Activity     Lower bound   Upper bound
+------ ------------    ------------- ------------- -------------
+     1 c_uf_1_1_1_Jan
+                                   0                           1 
+     2 c_uf_2_1_1_Feb
+                                   0                           0 
+     3 c_uf_3_1_1_Mar
+                                   0                           0 
+     4 c_uf_4_1_1_Apr
+                                   0                           0 
+     5 c_uf_5_1_1_May
+                                   0                           0 
+     6 c_uf_6_1_1_Jun
+                                   0                           0 
+     7 c_uf_7_1_1_Jul
+                                   0                           0 
+     8 c_uf_8_1_1_Aug
+                                   0                           0 
+     9 c_uf_9_1_1_Sep
+                                   0                           0 
+    10 c_uf_10_1_1_Oct
+                                   0                           0 
+    11 c_uf_11_1_1_Nov
+                                   0                           0 
+    12 c_uf_12_1_1_Dec
+                                   0                           0 
+    13 c_ud_1_Be_1                 0            30             = 
+
+   No. Column name       Activity     Lower bound   Upper bound
+------ ------------    ------------- ------------- -------------
+     1 ud_1_Be_1    *              0             0               
+     2 uf_1_1_1_Jan *              0             0             1 
+     3 uf_2_1_1_Feb *              0             0             1 
+     4 uf_3_1_1_Mar *              0             0             1 
+     5 cpmy_1_Be_1_1_Apr
+                    *              0             0             1 
+     6 uf_4_1_1_Apr *              0             0             1 
+     7 cpmy_2_Be_1_1_May
+                    *              0             0             1 
+     8 uf_5_1_1_May *              0             0             1 
+     9 uf_6_1_1_Jun *              0             0             1 
+    10 uf_7_1_1_Jul *              0             0             1 
+    11 uf_8_1_1_Aug *              0             0             1 
+    12 uf_9_1_1_Sep *              0             0             1 
+    13 uf_10_1_1_Oct
+                    *              0             0             1 
+    14 uf_11_1_1_Nov
+                    *              0             0             1 
+    15 uf_12_1_1_Dec
+                    *              0             0             1 
+
+Integer feasibility conditions:
+
+KKT.PE: max.abs.err = 0.00e+00 on row 0
+        max.rel.err = 0.00e+00 on row 0
+        High quality
+
+KKT.PB: max.abs.err = 3.00e+01 on row 13
+        max.rel.err = 9.68e-01 on row 13
+        SOLUTION IS INFEASIBLE
+
+End of output

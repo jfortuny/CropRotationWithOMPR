@@ -1,0 +1,43 @@
+\* Crop Rotation 2021 *\
+
+minimize
+Z:
+ + 1000 ud_1_Be_1
+
+Subject to
+
+ c_uf_1_1_1_Jan: + 1 uf_1_1_1_Jan  <= 1
+ c_uf_2_1_1_Feb: - 1 uf_1_1_1_Jan + 1 uf_2_1_1_Feb  <= 0
+ c_uf_3_1_1_Mar: - 1 uf_2_1_1_Feb + 1 uf_3_1_1_Mar  <= 0
+ c_uf_4_1_1_Apr: + 1 cpmy_1_Be_1_1_Apr - 1 uf_3_1_1_Mar + 1 uf_4_1_1_Apr  <= 0
+ c_uf_5_1_1_May: + 1 cpmy_2_Be_1_1_May - 1 uf_4_1_1_Apr + 1 uf_5_1_1_May  <= 0
+ c_uf_6_1_1_Jun: - 1 cpmy_1_Be_1_1_Apr - 1 uf_5_1_1_May + 1 uf_6_1_1_Jun  <= 0
+ c_uf_7_1_1_Jul: - 1 cpmy_2_Be_1_1_May - 1 uf_6_1_1_Jun + 1 uf_7_1_1_Jul  <= 0
+ c_uf_8_1_1_Aug: - 1 uf_7_1_1_Jul + 1 uf_8_1_1_Aug  <= 0
+ c_uf_9_1_1_Sep: - 1 uf_8_1_1_Aug + 1 uf_9_1_1_Sep  <= 0
+ c_uf_10_1_1_Oct: - 1 uf_9_1_1_Sep + 1 uf_10_1_1_Oct  <= 0
+ c_uf_11_1_1_Nov: - 1 uf_10_1_1_Oct + 1 uf_11_1_1_Nov  <= 0
+ c_uf_12_1_1_Dec: - 1 uf_11_1_1_Nov + 1 uf_12_1_1_Dec  <= 0
+
+ c_ud_1_Be_1: + 18.75 cpmy_1_Be_1_1_Apr + 18.75 cpmy_2_Be_1_1_May -1 ud_1_Be_1  = 30
+
+binary
+ cpmy_1_Be_1_1_Apr
+ cpmy_2_Be_1_1_May
+ uf_1_1_1_Jan
+ uf_2_1_1_Feb
+ uf_3_1_1_Mar
+ uf_4_1_1_Apr
+ uf_5_1_1_May
+ uf_6_1_1_Jun
+ uf_7_1_1_Jul
+ uf_8_1_1_Aug
+ uf_9_1_1_Sep
+ uf_10_1_1_Oct
+ uf_11_1_1_Nov
+ uf_12_1_1_Dec
+
+general
+ ud_1_Be_1
+END
+

@@ -14,8 +14,9 @@ filePath <- file.path(paste(codeDir, '/PrepareModelData.R', sep = ''))
 source(filePath)
 
 # Set hard coded parameters
-penaltyForUnmetDemand <- 100
+penaltyForUnmetDemand <- 1000
 valueOfCoverCrop <- penaltyForUnmetDemand/5
 
 # Invoke a solver
-
+filePath <- file.path(paste(codeDir, '/InvokeGLPKsolver.R', sep = ''))
+source(filePath)

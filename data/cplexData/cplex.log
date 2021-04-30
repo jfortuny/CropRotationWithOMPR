@@ -1,0 +1,413 @@
+
+Log started (V12.8.0.0) Thu Apr 29 07:42:18 2021
+
+Warning: 'End' missing.
+
+Problem 'model-2021-04-28.lp' read.
+Read time = 0.02 sec. (0.01 ticks)
+Row 'c_uf_25' infeasible, all entries at implied bounds.
+Presolve time = 0.00 sec. (0.13 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.02 sec. (0.14 ticks)
+Parallel b&c, 4 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.02 sec. (0.14 ticks)
+
+
+MIP - Integer infeasible.
+Current MIP best bound =  0.0000000000e+00 (gap is infinite)
+Solution time =    0.03 sec.  Iterations = 0  Nodes = 0
+Deterministic time = 0.14 ticks  (4.60 ticks/sec)
+
+No integer feasible solution exists.
+
+Log started (V12.8.0.0) Thu Apr 29 07:43:33 2021
+
+No problem exists.
+No file read.
+No problem exists.
+
+Log started (V12.8.0.0) Thu Apr 29 07:44:40 2021
+
+File 'model-04-28.lp' not found.
+No file read.
+No problem exists.
+No problem exists.
+
+Log started (V12.8.0.0) Thu Apr 29 07:44:52 2021
+
+File 'model04-28.lp' not found.
+No file read.
+No problem exists.
+No problem exists.
+
+Log started (V12.8.0.0) Thu Apr 29 07:45:10 2021
+
+Warning: 'End' missing.
+
+Problem 'model04-28LP.lp' read.
+Read time = 0.02 sec. (0.01 ticks)
+Tried aggregator 2 times.
+MIP Presolve eliminated 2 rows and 42 columns.
+MIP Presolve modified 8 coefficients.
+Aggregator did 94 substitutions.
+Reduced MIP has 8 rows, 16 columns, and 16 nonzeros.
+Reduced MIP has 0 binaries, 16 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (0.18 ticks)
+Found incumbent of value 600000.000000 after 0.03 sec. (0.24 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.03 sec. (0.25 ticks)
+Parallel b&c, 4 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.03 sec. (0.25 ticks)
+
+Solution pool: 1 solution saved.
+
+MIP - Integer optimal solution:  Objective =  6.0000000000e+05
+Solution time =    0.03 sec.  Iterations = 0  Nodes = 0 (1)
+Deterministic time = 0.25 ticks  (8.07 ticks/sec)
+
+
+Log started (V12.8.0.0) Thu Apr 29 07:46:29 2021
+
+File 'model04-28.lp' not found.
+No file read.
+No problem exists.
+No problem exists.
+
+Log started (V12.8.0.0) Thu Apr 29 07:46:47 2021
+
+Warning: 'End' missing.
+
+Problem 'model04-28LP.lp' read.
+Read time = 0.00 sec. (0.01 ticks)
+Tried aggregator 2 times.
+MIP Presolve eliminated 2 rows and 42 columns.
+MIP Presolve modified 8 coefficients.
+Aggregator did 94 substitutions.
+Reduced MIP has 8 rows, 16 columns, and 16 nonzeros.
+Reduced MIP has 0 binaries, 16 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.18 ticks)
+Found incumbent of value 600000.000000 after 0.00 sec. (0.24 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.02 sec. (0.25 ticks)
+Parallel b&c, 4 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.02 sec. (0.25 ticks)
+
+Solution pool: 1 solution saved.
+
+MIP - Integer optimal solution:  Objective =  6.0000000000e+05
+Solution time =    0.02 sec.  Iterations = 0  Nodes = 0 (1)
+Deterministic time = 0.25 ticks  (15.63 ticks/sec)
+
+
+Incumbent solution
+Variable Name           Solution Value
+ud_1                         45.000000
+ud_2                        105.000000
+ud_3                         45.000000
+ud_4                        105.000000
+ud_5                         45.000000
+ud_6                        105.000000
+ud_7                         45.000000
+ud_8                        105.000000
+cpmy_1                        4.000000
+cpmy_2                        2.000000
+uf_25                         6.000000
+cpmy_32                       2.000000
+uf_28                         2.000000
+cpmy_14                       2.000000
+uf_29                         2.000000
+cpmy_37                       4.000000
+uf_30                         4.000000
+uf_33                         6.000000
+cpmy_9                        4.000000
+uf_35                         4.000000
+uf_36                         2.000000
+uf_37                         2.000000
+uf_38                         4.000000
+cpmy_21                       4.000000
+cpmy_22                       2.000000
+uf_39                         6.000000
+uf_41                         2.000000
+uf_43                         4.000000
+uf_44                         2.000000
+uf_45                         2.000000
+uf_47                         6.000000
+uf_49                         2.000000
+uf_52                         2.000000
+uf_53                         2.000000
+uf_55                         2.000000
+uf_63                         2.000000
+All other variables in the range 1-150 are 0.
+
+Log started (V12.8.0.0) Thu Apr 29 09:21:42 2021
+
+Warning: 'End' missing.
+
+Problem 'model-2021-04-29.lp' read.
+Read time = 0.00 sec. (0.01 ticks)
+Row 'c_uf_25' infeasible, all entries at implied bounds.
+Presolve time = 0.02 sec. (0.13 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.02 sec. (0.14 ticks)
+Parallel b&c, 4 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.02 sec. (0.14 ticks)
+
+
+MIP - Integer infeasible.
+Current MIP best bound =  0.0000000000e+00 (gap is infinite)
+Solution time =    0.02 sec.  Iterations = 0  Nodes = 0
+Deterministic time = 0.14 ticks  (8.97 ticks/sec)
+
+No integer feasible solution exists.
+
+Log started (V12.8.0.0) Thu Apr 29 09:22:21 2021
+
+Warning: 'End' missing.
+
+Problem 'model-2021-04-29.lp' read.
+Read time = 0.00 sec. (0.01 ticks)
+Tried aggregator 2 times.
+MIP Presolve eliminated 2 rows and 42 columns.
+MIP Presolve modified 8 coefficients.
+Aggregator did 94 substitutions.
+Reduced MIP has 8 rows, 16 columns, and 16 nonzeros.
+Reduced MIP has 0 binaries, 16 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.19 ticks)
+Found incumbent of value 600000.000000 after 0.00 sec. (0.24 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.25 ticks)
+Parallel b&c, 4 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.25 ticks)
+
+Solution pool: 1 solution saved.
+
+MIP - Integer optimal solution:  Objective =  6.0000000000e+05
+Solution time =    0.02 sec.  Iterations = 0  Nodes = 0 (1)
+Deterministic time = 0.25 ticks  (15.71 ticks/sec)
+
+
+Incumbent solution
+Variable Name             Solution Value
+ud_1                           45.000000
+ud_2                          105.000000
+ud_3                           45.000000
+ud_4                          105.000000
+ud_5                           45.000000
+ud_6                          105.000000
+ud_7                           45.000000
+ud_8                          105.000000
+cpmy_1_Be_1_1_Apr               4.000000
+cpmy_2_To_1_1_Apr               2.000000
+uf_25                           6.000000
+cpmy_32_To_2_2_Apr              2.000000
+uf_28                           2.000000
+cpmy_14_To_1_3_Apr              2.000000
+uf_29                           2.000000
+cpmy_37_Be_2_3_Apr              4.000000
+uf_30                           4.000000
+uf_33                           6.000000
+cpmy_9_Be_1_2_May               4.000000
+uf_35                           4.000000
+uf_36                           2.000000
+uf_37                           2.000000
+uf_38                           4.000000
+cpmy_21_Be_1_4_May              4.000000
+cpmy_22_To_1_4_May              2.000000
+uf_39                           6.000000
+uf_41                           2.000000
+uf_43                           4.000000
+uf_44                           2.000000
+uf_45                           2.000000
+uf_47                           6.000000
+uf_49                           2.000000
+uf_52                           2.000000
+uf_53                           2.000000
+uf_55                           2.000000
+uf_63                           2.000000
+All other variables in the range 1-150 are 0.
+
+Log started (V12.8.0.0) Fri Apr 30 06:54:31 2021
+
+No problem exists.
+No problem exists.
+
+Log started (V12.8.0.0) Fri Apr 30 06:57:07 2021
+
+No problem exists.
+No file read.
+No problem exists.
+
+Log started (V12.8.0.0) Fri Apr 30 06:57:40 2021
+
+Warning: 'End' missing.
+
+Problem 'model-2021-04-30.lp' read.
+Read time = 0.01 sec. (0.00 ticks)
+Row 'c_uf_17_1_1_May' infeasible, all entries at implied bounds.
+Presolve time = 0.02 sec. (0.01 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.02 sec. (0.02 ticks)
+Parallel b&c, 4 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.02 sec. (0.02 ticks)
+
+
+MIP - Integer infeasible.
+Current MIP best bound =  0.0000000000e+00 (gap is infinite)
+Solution time =    0.05 sec.  Iterations = 0  Nodes = 0
+Deterministic time = 0.02 ticks  (0.46 ticks/sec)
+
+No integer feasible solution exists.
+
+Log started (V12.8.0.0) Fri Apr 30 07:11:47 2021
+
+No problem exists.
+No problem exists.
+
+Log started (V12.8.0.0) Fri Apr 30 07:12:45 2021
+
+No problem exists.
+No problem exists.
+
+Log started (V12.8.0.0) Fri Apr 30 07:13:22 2021
+
+No problem exists.
+No problem exists.
+
+Log started (V12.8.0.0) Fri Apr 30 07:14:13 2021
+
+No problem exists.
+No problem exists.
+
+Log started (V12.8.0.0) Fri Apr 30 07:15:27 2021
+
+No problem exists.
+No problem exists.
+
+Log started (V12.8.0.0) Fri Apr 30 07:16:22 2021
+
+No problem exists.
+No problem exists.
+
+Log started (V12.8.0.0) Fri Apr 30 07:17:09 2021
+
+No problem exists.
+No problem exists.
+
+Log started (V12.8.0.0) Fri Apr 30 07:18:26 2021
+
+No problem exists.
+No problem exists.
+
+Log started (V12.8.0.0) Fri Apr 30 07:18:55 2021
+
+No problem exists.
+No problem exists.
+
+Log started (V12.8.0.0) Fri Apr 30 07:19:15 2021
+
+No problem exists.
+No problem exists.
+
+Log started (V12.8.0.0) Fri Apr 30 07:19:31 2021
+
+
+Log started (V12.8.0.0) Fri Apr 30 07:26:48 2021
+
+No problem exists.
+No problem exists.
+
+Log started (V12.8.0.0) Fri Apr 30 08:06:23 2021
+
+No problem exists.
+No problem exists.
+
+Log started (V12.8.0.0) Fri Apr 30 08:09:32 2021
+
+No problem exists.
+No problem exists.
+
+Log started (V12.8.0.0) Fri Apr 30 08:10:13 2021
+
+No problem exists.
+No problem exists.
+
+Log started (V12.8.0.0) Fri Apr 30 08:10:21 2021
+
+
+Problem 'model-2021-04-30.lp' read.
+Read time = 0.02 sec. (0.00 ticks)
+Row 'c_uf_17_1_1_May' infeasible, all entries at implied bounds.
+Presolve time = 0.00 sec. (0.01 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.00 sec. (0.02 ticks)
+Parallel b&c, 4 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.00 sec. (0.02 ticks)
+
+
+MIP - Integer infeasible.
+Current MIP best bound =  0.0000000000e+00 (gap is infinite)
+Solution time =    0.05 sec.  Iterations = 0  Nodes = 0
+Deterministic time = 0.02 ticks  (0.46 ticks/sec)
+
+
+Log started (V12.8.0.0) Fri Apr 30 08:34:08 2021
+
+
+Problem 'model-2021-04-30.lpt' read.
+Read time = 0.00 sec. (0.00 ticks)
+
+Problem 'model-2021-04-30lp.lp' read.
+Read time = 0.02 sec. (0.00 ticks)
+Row 'c_uf_5_1_1_May' infeasible, all entries at implied bounds.
+Presolve time = 0.02 sec. (0.00 ticks)
+
+Root node processing (before b&c):
+  Real time             =    0.02 sec. (0.01 ticks)
+Parallel b&c, 4 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.02 sec. (0.01 ticks)
+
+
+MIP - Integer infeasible.
+Current MIP best bound =  0.0000000000e+00 (gap is infinite)
+Solution time =    0.05 sec.  Iterations = 0  Nodes = 0
+Deterministic time = 0.01 ticks  (0.16 ticks/sec)
+

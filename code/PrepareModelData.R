@@ -11,6 +11,7 @@ library(dplyr)
 c <- cropsIncluded[,'Crop']
 f <- fieldsIncluded[,'Field']
 y <- seq(1:4)
+y <- 1
 m <- month.abb
 
 # Crops planted variables: #####################################################
@@ -68,7 +69,7 @@ varCropsPlantingMonthYearField <- inner_join(varCropsPlantingMonthYearField, var
 varCropsPlantingMonthYearFieldFull <- inner_join(varCropsPlantingMonthYearField, cropPlantingMonths,
                                              by = 'CropMonth') %>%
   select(Crop, PlantingMonth, 'Release Field Month', SameYearRelease, CropMonth, CropMonthRelease,
-         Field, Year, CropMonthYear, CropMonthYearField)
+         YieldPerUnitOfField, Field, Year, CropMonthYear, CropMonthYearField)
 varCropsPlantingMonthYearFieldFull <-
   varCropsPlantingMonthYearFieldFull %>%
   mutate(FieldYearMonthRelease =
@@ -96,8 +97,23 @@ varCropsPlantingMonthYearFieldFull <- left_join(varCropsPlantingMonthYearFieldFu
                                                 by = 'Field') 
 varCropsPlantingMonthYearFieldFull <- varCropsPlantingMonthYearFieldFull %>%
   select('Crop', 'PlantingMonth', 'Release Field Month', 'SameYearRelease', 'CropMonth',
-         'CropMonthRelease', 'Field', 'Available', 'Year', 'CropMonthYear', 'CropMonthYearField',
-         'FieldYearMonthRelease', 'varID')
+         'CropMonthRelease', 'YieldPerUnitOfField', 'Field', 'Available', 'Year', 'CropMonthYear', 
+         'CropMonthYearField', 'FieldYearMonthRelease', 'varID')
+varCropsPlantingMonthYearFieldFull <- left_join(varCropsPlantingMonthYearFieldFull, fieldsIncluded, by = "Field")
+varCropsPlantingMonthYearFieldFull <- varCropsPlantingMonthYearFieldFull %>%
+  rename('Available' = 'Available.x') %>%
+  select('Crop', 'PlantingMonth', 'Release Field Month', 'SameYearRelease', 'CropMonth',
+         'CropMonthRelease', 'YieldPerUnitOfField', 'Field', 'Measure', 'Available', 'Year', 'CropMonthYear', 
+         'CropMonthYearField', 'FieldYearMonthRelease', 'varID')
+# Long variable names **********************************************************
+varCropsPlantingMonthYearFieldFull <- varCropsPlantingMonthYearFieldFull %>%
+  mutate(varIDlong = paste(varID, "_", substr(Crop, 1, 2), "_", substr(Field, 5,5), "_", Year, "_", PlantingMonth, sep = ""))
+varCropsPlantingMonthYearFieldFull <- varCropsPlantingMonthYearFieldFull %>%
+    select('Crop', 'PlantingMonth', 'Release Field Month', 'SameYearRelease', 'CropMonth',
+         'CropMonthRelease', 'YieldPerUnitOfField', 'Field', 'Measure', 'Available', 'Year', 'CropMonthYear', 
+         'CropMonthYearField', 'FieldYearMonthRelease', 'varIDlong') %>%
+  rename('varID' = 'varIDlong')
+# Long variable names **********************************************************
 # Clean up unneeded variables
 rm(varCropsPlantingMonthYear)
 rm(varCropsPlantingMonthYearField)
@@ -112,6 +128,13 @@ varUnusedFieldYearMonth <- varUnusedFieldYearMonth %>%
   mutate(FieldYearMonth = paste(FieldYear, '-', y, sep = '')) %>%
   rename(Month = y) %>%
   mutate(varID = paste('uf', as.character(row_number()), sep = '_'))
+# Long variable names **********************************************************
+varUnusedFieldYearMonth <- varUnusedFieldYearMonth %>%
+  mutate (varIDlong = paste(varID, "_", substr(Field, 5,5), "_", Year, "_", Month, sep = ""))
+varUnusedFieldYearMonth <- varUnusedFieldYearMonth %>%
+  select ('Field', 'Year', 'FieldYear', 'Month', 'FieldYearMonth', 'varIDlong') %>%
+  rename('varID' = 'varIDlong')
+# Long variable names **********************************************************
 # Clean up unneeded variables
 rm(varUnusedFieldYear)
 
@@ -123,7 +146,15 @@ varUnmetDemandProductYear <- varUnmetDemandProductYear %>%
   mutate(UnmetDemandProductYear = paste(varUnmetDemandProductYear$'Is Same Crop As', '-', 
                                         varUnmetDemandProductYear$Year, sep = '')) %>%
   mutate(varID = paste('ud', as.character(row_number()), sep = '_'))
-  
+# Long variable names **********************************************************
+varUnmetDemandProductYear <- varUnmetDemandProductYear %>%
+  mutate(varIDlong = paste(varID, "_", substr(Crop, 1, 2), "_", Year, sep = ""))
+varUnmetDemandProductYear <- varUnmetDemandProductYear %>%
+  select('Is Same Crop As', 'Crop', 'Is Cover Crop?', 'Yield per Unit of Field',
+         'Yearly Demand', 'Year', 'UnmetDemandProductYear', 'varIDlong') %>%
+  rename('varID' = 'varIDlong')
+# Long variable names **********************************************************
+
 # # Variables for Constraints for field transfers over time (Field-Year-Month)
 # varConstraintFieldYearMonth <- merge(f, as.character(y), by = NULL)
 # varConstraintFieldYearMonth <- varConstraintFieldYearMonth %>%

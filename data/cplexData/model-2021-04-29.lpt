@@ -1,0 +1,125 @@
+\* Crop Rotation 2021 *\
+
+minimize
+Z:
+ + 1000 ud_1 + 1000 ud_2 + 1000 ud_3 + 1000 ud_4
+
+Subject to
+
+ c_uf_1: + 1 uf_1  <= 1
+ c_uf_2: - 1 uf_2 + 1 uf_45  = 0
+ c_uf_3: - 1 uf_3 + 1 uf_46  = 0
+ c_uf_4: - 1 uf_4 + 1 uf_47  = 0
+ c_uf_5: + 1 uf_1 - 1 uf_5  = 0
+ c_uf_6: + 1 uf_2 - 1 uf_6  = 0
+ c_uf_7: + 1 uf_3 - 1 uf_7  = 0
+ c_uf_8: + 1 uf_4 - 1 uf_8  = 0
+ c_uf_9: + 1 uf_5 - 1 uf_9  = 0
+ c_uf_10: + 1 uf_6 - 1 uf_10  = 0
+ c_uf_11: + 1 uf_7 - 1 uf_11  = 0
+ c_uf_12: + 1 uf_8 - 1 uf_12  = 0
+ c_uf_13: + 1 cpmy_1_Be_1_1_Apr + 1 uf_9 - 1 uf_13  = 0
+ c_uf_14: + 1 cpmy_3_Be_1_2_Apr + 1 uf_10 - 1 uf_14  = 0
+ c_uf_15: + 1 cpmy_5_Be_1_3_Apr + 1 uf_11 - 1 uf_15  = 0
+ c_uf_16: + 1 cpmy_7_Be_1_4_Apr + 1 uf_12 - 1 uf_16  = 0
+ c_uf_17: + 1 cpmy_2_Be_1_1_May + 1 uf_13 - 1 uf_17  = 0
+ c_uf_18: + 1 cpmy_4_Be_1_2_May + 1 uf_14 - 1 uf_18  = 0
+ c_uf_19: + 1 cpmy_6_Be_1_3_May + 1 uf_15 - 1 uf_19  = 0
+ c_uf_20: + 1 cpmy_8_Be_1_4_May + 1 uf_16 - 1 uf_20  = 0
+ c_uf_21: - 1 cpmy_1_Be_1_1_Apr + 1 uf_17 - 1 uf_21  = 0
+ c_uf_22: - 1 cpmy_3_Be_1_2_Apr + 1 uf_18 - 1 uf_22  = 0
+ c_uf_23: - 1 cpmy_5_Be_1_3_Apr + 1 uf_19 - 1 uf_23  = 0
+ c_uf_24: - 1 cpmy_7_Be_1_4_Apr + 1 uf_20 - 1 uf_24  = 0
+ c_uf_25: - 1 cpmy_2_Be_1_1_May + 1 uf_21 - 1 uf_25  = 0
+ c_uf_26: - 1 cpmy_4_Be_1_2_May + 1 uf_22 - 1 uf_26  = 0
+ c_uf_27: - 1 cpmy_6_Be_1_3_May + 1 uf_23 - 1 uf_27  = 0
+ c_uf_28: - 1 cpmy_8_Be_1_4_May + 1 uf_24 - 1 uf_28  = 0
+ c_uf_29: + 1 uf_25 - 1 uf_29  = 0
+ c_uf_30: + 1 uf_26 - 1 uf_30  = 0
+ c_uf_31: + 1 uf_27 - 1 uf_31  = 0
+ c_uf_32: + 1 uf_28 - 1 uf_32  = 0
+ c_uf_33: + 1 uf_29 - 1 uf_33  = 0
+ c_uf_34: + 1 uf_30 - 1 uf_34  = 0
+ c_uf_35: + 1 uf_31 - 1 uf_35  = 0
+ c_uf_36: + 1 uf_32 - 1 uf_36  = 0
+ c_uf_37: + 1 uf_33 - 1 uf_37  = 0
+ c_uf_38: + 1 uf_34 - 1 uf_38  = 0
+ c_uf_39: + 1 uf_35 - 1 uf_39  = 0
+ c_uf_40: + 1 uf_36 - 1 uf_40  = 0
+ c_uf_41: + 1 uf_37 - 1 uf_41  = 0
+ c_uf_42: + 1 uf_38 - 1 uf_42  = 0
+ c_uf_43: + 1 uf_39 - 1 uf_43  = 0
+ c_uf_44: + 1 uf_40 - 1 uf_44  = 0
+ c_uf_45: + 1 uf_41 - 1 uf_45  = 0
+ c_uf_46: + 1 uf_42 - 1 uf_46  = 0
+ c_uf_47: + 1 uf_43 - 1 uf_47  = 0
+ c_uf_48: + 1 uf_44 - 1 uf_48  = 0
+
+ c_ud_1: + 18.75 cpmy_1_Be_1_1_Apr + 18.75 cpmy_2_Be_1_1_May -1 ud_1  = 30
+ c_ud_2: + 18.75 cpmy_3_Be_1_2_Apr + 18.75 cpmy_4_Be_1_2_May -1 ud_2  = 30
+ c_ud_3: + 18.75 cpmy_5_Be_1_3_Apr + 18.75 cpmy_6_Be_1_3_May -1 ud_3  = 30
+ c_ud_4: + 18.75 cpmy_7_Be_1_4_Apr + 18.75 cpmy_8_Be_1_4_May -1 ud_4  = 30
+
+binary
+ cpmy_1_Be_1_1_Apr
+ cpmy_2_Be_1_1_May
+ cpmy_3_Be_1_2_Apr
+ cpmy_4_Be_1_2_May
+ cpmy_5_Be_1_3_Apr
+ cpmy_6_Be_1_3_May
+ cpmy_7_Be_1_4_Apr
+ cpmy_8_Be_1_4_May
+ uf_1
+ uf_2
+ uf_3
+ uf_4
+ uf_5
+ uf_6
+ uf_7
+ uf_8
+ uf_9
+ uf_10
+ uf_11
+ uf_12
+ uf_13
+ uf_14
+ uf_15
+ uf_16
+ uf_17
+ uf_18
+ uf_19
+ uf_20
+ uf_21
+ uf_22
+ uf_23
+ uf_24
+ uf_25
+ uf_26
+ uf_27
+ uf_28
+ uf_29
+ uf_30
+ uf_31
+ uf_32
+ uf_33
+ uf_34
+ uf_35
+ uf_36
+ uf_37
+ uf_38
+ uf_39
+ uf_40
+ uf_41
+ uf_42
+ uf_43
+ uf_44
+ uf_45
+ uf_46
+ uf_47
+ uf_48
+
+general
+ ud_1
+ ud_2
+ ud_3
+ ud_4

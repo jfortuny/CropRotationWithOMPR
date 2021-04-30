@@ -1,0 +1,1 @@
+cplex -c "model-2021-04-30.lpt" "optimize" "display solution variables 1-100"
