@@ -110,6 +110,7 @@ $$
 \begin{aligned}
 \text  {Min} &\sum d X + e Y + fZ\\ 
 \text {s.t.} &\sum A X + \sum B Y + \sum C Z= 0 \\ 
+             &X \in R \\
              &X \ge 0\\ 
              &Y \in \{0,1\}\\
              &Z \in I
@@ -142,9 +143,20 @@ $$
 \begin{aligned}
 \text C_{fym} : \quad & - \sum_f F - \sum_{y(m-1)} N + \sum_{ym} N + \sum_{c} P = 0 \qquad\forall fym\\ 
              &F: Freed \\ 
-             &N: Not-planted\\
+             &N: Not \ Planted\\
              &P: Planted
 \end{aligned}
 $$
 
+### Constraints that manage unmet demand for the year
+
+Every field planted will eventually produce a crop that meets the demand for one of the **Is Same Crop As** crops. These constraints summarize the production balance of those crops by all fields for every year: the crop **Yield per Unit of Field** of all fields that produce a similar crop during the year y plus the **Unmet Demand** for the year must be greater than the **Demand** for the product loaded from the data spreadsheet. In mathematical terms:
+
+$$
+\begin{aligned}
+\text C_{cy} : \quad & \sum_c Y + \sum_{c} U \geq D_{c} \qquad\forall cy\\
+                     &Y: Yields \ of \ planted \ "same \ as" crops \\
+                     &U: Unmet \ Demand \ of \ "same \ as" crops
+\end{aligned}
+$$
 

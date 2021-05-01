@@ -1,0 +1,79 @@
+\* Crop Rotation 2021 *\
+
+minimize
+Z:
+ + 1000 ud_1_Be_1 + 1000 ud_2_To_1
+
+Subject to
+
+ c_uf_1_1_1_Jan: + 1 uf_1_1_1_Jan  <= 1
+ c_uf_2_2_1_Jan: + 1 uf_2_2_1_Jan  <= 1
+ c_uf_3_1_1_Feb: - 1 uf_1_1_1_Jan + 1 uf_3_1_1_Feb  <= 0
+ c_uf_4_2_1_Feb: - 1 uf_2_2_1_Jan + 1 uf_4_2_1_Feb  <= 0
+ c_uf_5_1_1_Mar: - 1 uf_3_1_1_Feb + 1 uf_5_1_1_Mar  <= 0
+ c_uf_6_2_1_Mar: - 1 uf_4_2_1_Feb + 1 uf_6_2_1_Mar  <= 0
+ c_uf_7_1_1_Apr: + 1 cpmy_1_Be_1_1_Apr + 1 cpmy_2_To_1_1_Apr - 1 uf_5_1_1_Mar + 1 uf_7_1_1_Apr  <= 0
+ c_uf_8_2_1_Apr: + 1 cpmy_7_Be_2_1_Apr + 1 cpmy_8_To_2_1_Apr - 1 uf_6_2_1_Mar + 1 uf_8_2_1_Apr  <= 0
+ c_uf_9_1_1_May: + 1 cpmy_3_Be_1_1_May + 1 cpmy_4_To_1_1_May - 1 uf_7_1_1_Apr + 1 uf_9_1_1_May  <= 0
+ c_uf_10_2_1_May: + 1 cpmy_9_Be_2_1_May + 1 cpmy_10_To_2_1_May - 1 uf_8_2_1_Apr + 1 uf_10_2_1_May  <= 0
+ c_uf_11_1_1_Jun: - 1 cpmy_1_Be_1_1_Apr + 1 cpmy_5_To_1_1_Jun - 1 uf_9_1_1_May + 1 uf_11_1_1_Jun  <= 0
+ c_uf_12_2_1_Jun: - 1 cpmy_7_Be_2_1_Apr + 1 cpmy_11_To_2_1_Jun - 1 uf_10_2_1_May + 1 uf_12_2_1_Jun  <= 0
+ c_uf_13_1_1_Jul: - 1 cpmy_3_Be_1_1_May + 1 cpmy_6_To_1_1_Jul - 1 uf_11_1_1_Jun + 1 uf_13_1_1_Jul  <= 0
+ c_uf_14_2_1_Jul: - 1 cpmy_9_Be_2_1_May + 1 cpmy_12_To_2_1_Jul - 1 uf_12_2_1_Jun + 1 uf_14_2_1_Jul  <= 0
+ c_uf_15_1_1_Aug: - 1 cpmy_2_To_1_1_Apr - 1 uf_13_1_1_Jul + 1 uf_15_1_1_Aug  <= 0
+ c_uf_16_2_1_Aug: - 1 cpmy_8_To_2_1_Apr - 1 uf_14_2_1_Jul + 1 uf_16_2_1_Aug  <= 0
+ c_uf_17_1_1_Sep: - 1 cpmy_4_To_1_1_May - 1 uf_15_1_1_Aug + 1 uf_17_1_1_Sep  <= 0
+ c_uf_18_2_1_Sep: - 1 cpmy_10_To_2_1_May - 1 uf_16_2_1_Aug + 1 uf_18_2_1_Sep  <= 0
+ c_uf_19_1_1_Oct: - 1 cpmy_5_To_1_1_Jun - 1 uf_17_1_1_Sep + 1 uf_19_1_1_Oct  <= 0
+ c_uf_20_2_1_Oct: - 1 cpmy_11_To_2_1_Jun - 1 uf_18_2_1_Sep + 1 uf_20_2_1_Oct  <= 0
+ c_uf_21_1_1_Nov: - 1 cpmy_6_To_1_1_Jul - 1 uf_19_1_1_Oct + 1 uf_21_1_1_Nov  <= 0
+ c_uf_22_2_1_Nov: - 1 cpmy_12_To_2_1_Jul - 1 uf_20_2_1_Oct + 1 uf_22_2_1_Nov  <= 0
+ c_uf_23_1_1_Dec: - 1 uf_21_1_1_Nov + 1 uf_23_1_1_Dec  <= 0
+ c_uf_24_2_1_Dec: - 1 uf_22_2_1_Nov + 1 uf_24_2_1_Dec  <= 0
+
+ c_ud_1_Be_1: + 18.75 cpmy_1_Be_1_1_Apr + 18.75 cpmy_3_Be_1_1_May + 18.75 cpmy_7_Be_2_1_Apr + 18.75 cpmy_9_Be_2_1_May + 1 ud_1_Be_1  >= 30
+ c_ud_2_To_1: + 62.5 cpmy_2_To_1_1_Apr + 62.5 cpmy_4_To_1_1_May + 62.5 cpmy_5_To_1_1_Jun + 62.5 cpmy_6_To_1_1_Jul + 62.5 cpmy_8_To_2_1_Apr + 62.5 cpmy_10_To_2_1_May + 62.5 cpmy_11_To_2_1_Jun + 62.5 cpmy_12_To_2_1_Jul + 1 ud_2_To_1  >= 20
+
+binary
+ cpmy_1_Be_1_1_Apr
+ cpmy_2_To_1_1_Apr
+ cpmy_3_Be_1_1_May
+ cpmy_4_To_1_1_May
+ cpmy_5_To_1_1_Jun
+ cpmy_6_To_1_1_Jul
+ cpmy_7_Be_2_1_Apr
+ cpmy_8_To_2_1_Apr
+ cpmy_9_Be_2_1_May
+ cpmy_10_To_2_1_May
+ cpmy_11_To_2_1_Jun
+ cpmy_12_To_2_1_Jul
+ uf_1_1_1_Jan
+ uf_2_2_1_Jan
+ uf_3_1_1_Feb
+ uf_4_2_1_Feb
+ uf_5_1_1_Mar
+ uf_6_2_1_Mar
+ uf_7_1_1_Apr
+ uf_8_2_1_Apr
+ uf_9_1_1_May
+ uf_10_2_1_May
+ uf_11_1_1_Jun
+ uf_12_2_1_Jun
+ uf_13_1_1_Jul
+ uf_14_2_1_Jul
+ uf_15_1_1_Aug
+ uf_16_2_1_Aug
+ uf_17_1_1_Sep
+ uf_18_2_1_Sep
+ uf_19_1_1_Oct
+ uf_20_2_1_Oct
+ uf_21_1_1_Nov
+ uf_22_2_1_Nov
+ uf_23_1_1_Dec
+ uf_24_2_1_Dec
+
+general
+ ud_1_Be_1
+ ud_2_To_1
+END
+
