@@ -1,4 +1,5 @@
 library(dplyr)
+library(Rglpk)
 # library(glue)
 # library(fs)
 
@@ -109,7 +110,7 @@ for (i in 1:nrow(irows)) {
   # dfMatrix[irows[i, "constraint"], "RHS"] <- '0'
   # dfMatrix[irows[i, "constraint"], "Sense"] <- "="
 }
-# Field harvesting/release
+# Field harvesting/release **** PROBLEM IN NEXT BLOCK ****
 irows <- left_join(varCropsPlantingMonthYearFieldFull, varUnusedFieldYearMonth,
                    by = c("FieldYearMonthRelease" = "FieldYearMonth")) %>%
   select(varID.x, varID.y) %>% mutate(constraint = paste("c_", varID.y, sep = ""))
@@ -119,7 +120,6 @@ for (i in 1:nrow(irows)) {
   # dfMatrix[irows[i, "constraint"], "Sense"] <- "="
 }
 # 
-
 
 
 
@@ -163,12 +163,15 @@ for (i in varUnmetDemandProductYear$varID) {
   thisRow <- paste('c_', i, sep = "")
   dfMatrix2[thisRow, i] <- "+ 1"
 }
+
 # Set the RHS  to the demand for product and year
 for (i in varUnmetDemandProductYear$varID) {
   thisRow <- paste('c_', i, sep = "")
   dfMatrix2[thisRow, "Sense"] <- ">="
   dfMatrix2[thisRow, "RHS"] <- filter(varUnmetDemandProductYear, varID == i) %>% select('Yearly Demand')
 }
+
+# CONTINUE WORK HERE ******************************************************************************
 # Set the crop production values to + YieldPerUnitOfField * Available for the appropriate field and year
 for (i in 1:nrow(varCropsPlantingMonthYearFieldFull)) {
   thisColumn <- varCropsPlantingMonthYearFieldFull[i, 'varID']
@@ -185,6 +188,9 @@ for (i in 1:nrow(varCropsPlantingMonthYearFieldFull)) {
     thisRow <- filter(varUnmetDemandProductYear, Year == thisYear & Crop == thisCrop) %>%
       select(varID)
     thisRow <- paste("c_", thisRow, sep = "")
+    if(substr(thisRow, 1,4) != "c_ud") {
+      print(sprintf("Bad Row: Year = %s, Crop = %s, Column = %s, Row = %s", thisYear, thisCrop, thisColumn, thisRow))
+    }
     dfMatrix2[thisRow, thisColumn] <- thisCoefficient
   } else {
     next
@@ -237,4 +243,27 @@ write(binary, file = filePath, ncolumns = 1, append = TRUE)
 write(general, file = filePath, ncolumns = 1, append = TRUE)
 
 # Append terminator
-write(c("END", ""), file = filePath, ncolumns = 1, append = TRUE)
+write(c("end", ""), file = filePath, ncolumns = 1, append = TRUE)
+
+# SOLVER INVOCATION ############################################################
+glpkData <- Rglpk_read_file(filePath, type = "CPLEX_LP")
+glpkResults <- Rglpk_solve_LP(glpkData$objective, 
+                              glpkData$constraints[[1]], 
+                              glpkData$constraints[[2]], 
+                              glpkData$constraints[[3]],
+                              bounds = NULL,
+                              types = glpkData$types,
+                              max = glpkData$maximum)
+# Examine the results
+if (glpkResults$status != 0) {
+  print("Optimal solution NOT FOUND")
+} else {
+  glpkResults$solution
+}
+
+attr(x = glpkData, which = 'names')
+vars <- attributes(x = glpkData)$objective_vars_names
+values <- glpkResults$solution
+results <- data.frame(vars, values)
+resultsNonZero <- results %>% filter(values != 0)
+print(resultsNonZero)

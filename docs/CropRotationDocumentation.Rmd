@@ -154,8 +154,8 @@ Every field planted will eventually produce a crop that meets the demand for one
 
 $$
 \begin{aligned}
-\text C_{cy} : \quad & \sum_c Y + \sum_{c} U \geq D_{c} \qquad\forall cy\\
-                     &Y: Yields \ of \ planted \ "same \ as" crops \\
+\text C_{cy} : \quad & \sum_c yC + \sum_{s} U \geq d_{c} \qquad\forall cy\\
+                     &y: Yields \ of \ planted \ "same \ as" crops \\
                      &U: Unmet \ Demand \ of \ "same \ as" crops
 \end{aligned}
 $$

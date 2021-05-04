@@ -11,7 +11,7 @@ library(dplyr)
 c <- cropsIncluded[,'Crop']
 f <- fieldsIncluded[,'Field']
 y <- seq(1:4)
-y <- 1
+# y <- 1
 m <- month.abb
 
 # Crops planted variables: #####################################################
@@ -35,23 +35,46 @@ cropPlantingMonths <- cropsIncluded %>%
 cropPlantingMonths <- cropPlantingMonths %>%
   mutate(plantingFieldMonth = match(cropPlantingMonths$PlantingMonth,month.abb)) %>%
   mutate(releaseFieldMonth = match(cropPlantingMonths$PlantingMonth,month.abb) + 
-           cropPlantingMonths$`Months In Field`) 
-cropPlantingMonths <- cropPlantingMonths %>%
-  mutate('Release Field Month' = month.abb[cropPlantingMonths$releaseFieldMonth]) %>%
+           cropPlantingMonths$`Months In Field`)
+# Same Year Release calculation
+cropPlantingMonths <- cropPlantingMonths %>% 
   mutate('CropMonth' = paste(cropPlantingMonths$Crop, '-', 
-                             cropPlantingMonths$PlantingMonth, sep = ''))
+                             cropPlantingMonths$PlantingMonth, sep = '')) %>%
+  mutate('Release Field Month' = as.integer(cropPlantingMonths$releaseFieldMonth %% 12))
 cropPlantingMonths <- cropPlantingMonths %>%
-  mutate(SameYearRelease = (match(cropPlantingMonths$PlantingMonth,m) <= 
-                              match(cropPlantingMonths$`Release Field Month`,m)))
+  mutate(SameYearRelease = cropPlantingMonths$plantingFieldMonth <=
+           cropPlantingMonths$`Release Field Month`)
+#
 cropPlantingMonths <- cropPlantingMonths %>%
-  mutate('CropMonthRelease' = paste(cropPlantingMonths$Crop, '-', cropPlantingMonths$`Release Field Month`, sep = ''))
+  mutate('CropMonthRelease' = paste(cropPlantingMonths$Crop, '-', 
+                                    cropPlantingMonths$`Release Field Month`, 
+                                    sep = ''))
+# If 'Release Field Month' == 0 then make 'Release Field Month' = releaseFieldMonth
+# and SameYearRelease = TRUE
+cropPlantingMonths <- cropPlantingMonths %>%
+  mutate('x' = ifelse(cropPlantingMonths$'Release Field Month' == 0, 
+                      TRUE, 
+                      cropPlantingMonths$'SameYearRelease')
+         ) %>%
+  mutate('y' = ifelse(cropPlantingMonths$'Release Field Month' == 0,
+                      12,
+                      cropPlantingMonths$'Release Field Month')
+         )
 cropPlantingMonths <- left_join(cropPlantingMonths, crops, by = 'Crop')
 cropPlantingMonths <- cropPlantingMonths %>%
   select('Crop', 'PlantingMonth', 'Days To Maturity.x', 'Months In Field',
-         'plantingFieldMonth', 'releaseFieldMonth', 'Release Field Month',
-         'CropMonth', 'SameYearRelease', 'CropMonthRelease', 'Yield per Unit of Field')
+         'plantingFieldMonth', 'releaseFieldMonth', 'y',
+         'CropMonth', 'x', 'CropMonthRelease', 'Yield per Unit of Field')
 cropPlantingMonths <- cropPlantingMonths %>% 
-  rename(DaysToMaturity = 'Days To Maturity.x', YieldPerUnitOfField = 'Yield per Unit of Field')
+  rename(DaysToMaturity = 'Days To Maturity.x', 
+         YieldPerUnitOfField = 'Yield per Unit of Field', 
+         SameYearRelease = x)
+cropPlantingMonths <- cropPlantingMonths %>%
+  mutate('Release Field Month' = month.abb[y])
+cropPlantingMonths <- cropPlantingMonths %>%
+  select('Crop', 'PlantingMonth', 'DaysToMaturity', 'Months In Field', 'plantingFieldMonth',
+         'releaseFieldMonth', 'CropMonth', 'SameYearRelease', 'CropMonthRelease',
+         'YieldPerUnitOfField', 'Release Field Month')
 
 # Variables related to Crop Plantings over time ################################
 varCropsPlantingMonthYear <- merge(cropPlantingMonths$`CropMonth`, as.character(y), by = NULL)

@@ -1,0 +1,1975 @@
+\* Crop Rotation 2021 *\
+
+minimize
+Z:
+ + 1000 ud_1_Be_1 + 1000 ud_2_Br_1 + 1000 ud_3_Br_1 + 1000 ud_4_Br_1 + 1000 ud_5_Ca_1 + 1000 ud_6_Po_1 + 1000 ud_7_Po_1 + 1000 ud_8_Ru_1 + 1000 ud_9_To_1 + 1000 ud_10_To_1 + 1000 ud_11_Be_2 + 1000 ud_12_Br_2 + 1000 ud_13_Br_2 + 1000 ud_14_Br_2 + 1000 ud_15_Ca_2 + 1000 ud_16_Po_2 + 1000 ud_17_Po_2 + 1000 ud_18_Ru_2 + 1000 ud_19_To_2 + 1000 ud_20_To_2 + 1000 ud_21_Be_3 + 1000 ud_22_Br_3 + 1000 ud_23_Br_3 + 1000 ud_24_Br_3 + 1000 ud_25_Ca_3 + 1000 ud_26_Po_3 + 1000 ud_27_Po_3 + 1000 ud_28_Ru_3 + 1000 ud_29_To_3 + 1000 ud_30_To_3 + 1000 ud_31_Be_4 + 1000 ud_32_Br_4 + 1000 ud_33_Br_4 + 1000 ud_34_Br_4 + 1000 ud_35_Ca_4 + 1000 ud_36_Po_4 + 1000 ud_37_Po_4 + 1000 ud_38_Ru_4 + 1000 ud_39_To_4 + 1000 ud_40_To_4
+
+Subject to
+
+ c_uf_1_1_1_Jan: - 1 cpmy_22_Br_1_1_Aug + 1 uf_1_1_1_Jan  <= 1
+ c_uf_2_2_1_Jan: - 1 cpmy_114_Br_2_1_Aug + 1 uf_2_2_1_Jan  <= 1
+ c_uf_3_3_1_Jan: - 1 cpmy_206_Br_3_1_Aug + 1 uf_3_3_1_Jan  <= 1
+ c_uf_4_4_1_Jan: - 1 cpmy_298_Br_4_1_Aug + 1 uf_4_4_1_Jan  <= 1
+ c_uf_5_5_1_Jan: - 1 cpmy_390_Br_5_1_Aug + 1 uf_5_5_1_Jan  <= 1
+ c_uf_6_6_1_Jan: - 1 cpmy_482_Br_6_1_Aug + 1 uf_6_6_1_Jan  <= 1
+ c_uf_7_7_1_Jan: - 1 cpmy_574_Br_7_1_Aug + 1 uf_7_7_1_Jan  <= 1
+ c_uf_8_8_1_Jan: - 1 cpmy_666_Br_8_1_Aug + 1 uf_8_8_1_Jan  <= 1
+ c_uf_9_9_1_Jan: - 1 cpmy_758_Br_9_1_Aug + 1 uf_9_9_1_Jan  <= 1
+ c_uf_10_A_1_Jan: - 1 cpmy_850_Br_A_1_Aug + 1 uf_10_A_1_Jan  <= 1
+ c_uf_11_1_2_Jan: - 1 cpmy_45_Br_1_2_Aug + 1 uf_11_1_2_Jan - 1 uf_441_1_1_Dec  <= 0
+ c_uf_12_2_2_Jan: - 1 cpmy_137_Br_2_2_Aug + 1 uf_12_2_2_Jan - 1 uf_442_2_1_Dec  <= 0
+ c_uf_13_3_2_Jan: - 1 cpmy_229_Br_3_2_Aug + 1 uf_13_3_2_Jan - 1 uf_443_3_1_Dec  <= 0
+ c_uf_14_4_2_Jan: - 1 cpmy_321_Br_4_2_Aug + 1 uf_14_4_2_Jan - 1 uf_444_4_1_Dec  <= 0
+ c_uf_15_5_2_Jan: - 1 cpmy_413_Br_5_2_Aug + 1 uf_15_5_2_Jan - 1 uf_445_5_1_Dec  <= 0
+ c_uf_16_6_2_Jan: - 1 cpmy_505_Br_6_2_Aug + 1 uf_16_6_2_Jan - 1 uf_446_6_1_Dec  <= 0
+ c_uf_17_7_2_Jan: - 1 cpmy_597_Br_7_2_Aug + 1 uf_17_7_2_Jan - 1 uf_447_7_1_Dec  <= 0
+ c_uf_18_8_2_Jan: - 1 cpmy_689_Br_8_2_Aug + 1 uf_18_8_2_Jan - 1 uf_448_8_1_Dec  <= 0
+ c_uf_19_9_2_Jan: - 1 cpmy_781_Br_9_2_Aug + 1 uf_19_9_2_Jan - 1 uf_449_9_1_Dec  <= 0
+ c_uf_20_A_2_Jan: - 1 cpmy_873_Br_A_2_Aug + 1 uf_20_A_2_Jan - 1 uf_450_A_1_Dec  <= 0
+ c_uf_21_1_3_Jan: - 1 cpmy_68_Br_1_3_Aug + 1 uf_21_1_3_Jan - 1 uf_451_1_2_Dec  <= 0
+ c_uf_22_2_3_Jan: - 1 cpmy_160_Br_2_3_Aug + 1 uf_22_2_3_Jan - 1 uf_452_2_2_Dec  <= 0
+ c_uf_23_3_3_Jan: - 1 cpmy_252_Br_3_3_Aug + 1 uf_23_3_3_Jan - 1 uf_453_3_2_Dec  <= 0
+ c_uf_24_4_3_Jan: - 1 cpmy_344_Br_4_3_Aug + 1 uf_24_4_3_Jan - 1 uf_454_4_2_Dec  <= 0
+ c_uf_25_5_3_Jan: - 1 cpmy_436_Br_5_3_Aug + 1 uf_25_5_3_Jan - 1 uf_455_5_2_Dec  <= 0
+ c_uf_26_6_3_Jan: - 1 cpmy_528_Br_6_3_Aug + 1 uf_26_6_3_Jan - 1 uf_456_6_2_Dec  <= 0
+ c_uf_27_7_3_Jan: - 1 cpmy_620_Br_7_3_Aug + 1 uf_27_7_3_Jan - 1 uf_457_7_2_Dec  <= 0
+ c_uf_28_8_3_Jan: - 1 cpmy_712_Br_8_3_Aug + 1 uf_28_8_3_Jan - 1 uf_458_8_2_Dec  <= 0
+ c_uf_29_9_3_Jan: - 1 cpmy_804_Br_9_3_Aug + 1 uf_29_9_3_Jan - 1 uf_459_9_2_Dec  <= 0
+ c_uf_30_A_3_Jan: - 1 cpmy_896_Br_A_3_Aug + 1 uf_30_A_3_Jan - 1 uf_460_A_2_Dec  <= 0
+ c_uf_31_1_4_Jan: - 1 cpmy_91_Br_1_4_Aug + 1 uf_31_1_4_Jan - 1 uf_461_1_3_Dec  <= 0
+ c_uf_32_2_4_Jan: - 1 cpmy_183_Br_2_4_Aug + 1 uf_32_2_4_Jan - 1 uf_462_2_3_Dec  <= 0
+ c_uf_33_3_4_Jan: - 1 cpmy_275_Br_3_4_Aug + 1 uf_33_3_4_Jan - 1 uf_463_3_3_Dec  <= 0
+ c_uf_34_4_4_Jan: - 1 cpmy_367_Br_4_4_Aug + 1 uf_34_4_4_Jan - 1 uf_464_4_3_Dec  <= 0
+ c_uf_35_5_4_Jan: - 1 cpmy_459_Br_5_4_Aug + 1 uf_35_5_4_Jan - 1 uf_465_5_3_Dec  <= 0
+ c_uf_36_6_4_Jan: - 1 cpmy_551_Br_6_4_Aug + 1 uf_36_6_4_Jan - 1 uf_466_6_3_Dec  <= 0
+ c_uf_37_7_4_Jan: - 1 cpmy_643_Br_7_4_Aug + 1 uf_37_7_4_Jan - 1 uf_467_7_3_Dec  <= 0
+ c_uf_38_8_4_Jan: - 1 cpmy_735_Br_8_4_Aug + 1 uf_38_8_4_Jan - 1 uf_468_8_3_Dec  <= 0
+ c_uf_39_9_4_Jan: - 1 cpmy_827_Br_9_4_Aug + 1 uf_39_9_4_Jan - 1 uf_469_9_3_Dec  <= 0
+ c_uf_40_A_4_Jan: - 1 cpmy_919_Br_A_4_Aug + 1 uf_40_A_4_Jan - 1 uf_470_A_3_Dec  <= 0
+ c_uf_41_1_1_Feb: - 1 uf_1_1_1_Jan + 1 uf_41_1_1_Feb  <= 0
+ c_uf_42_2_1_Feb: - 1 uf_2_2_1_Jan + 1 uf_42_2_1_Feb  <= 0
+ c_uf_43_3_1_Feb: - 1 uf_3_3_1_Jan + 1 uf_43_3_1_Feb  <= 0
+ c_uf_44_4_1_Feb: - 1 uf_4_4_1_Jan + 1 uf_44_4_1_Feb  <= 0
+ c_uf_45_5_1_Feb: - 1 uf_5_5_1_Jan + 1 uf_45_5_1_Feb  <= 0
+ c_uf_46_6_1_Feb: - 1 uf_6_6_1_Jan + 1 uf_46_6_1_Feb  <= 0
+ c_uf_47_7_1_Feb: - 1 uf_7_7_1_Jan + 1 uf_47_7_1_Feb  <= 0
+ c_uf_48_8_1_Feb: - 1 uf_8_8_1_Jan + 1 uf_48_8_1_Feb  <= 0
+ c_uf_49_9_1_Feb: - 1 uf_9_9_1_Jan + 1 uf_49_9_1_Feb  <= 0
+ c_uf_50_A_1_Feb: - 1 uf_10_A_1_Jan + 1 uf_50_A_1_Feb  <= 0
+ c_uf_51_1_2_Feb: - 1 uf_11_1_2_Jan + 1 uf_51_1_2_Feb  <= 0
+ c_uf_52_2_2_Feb: - 1 uf_12_2_2_Jan + 1 uf_52_2_2_Feb  <= 0
+ c_uf_53_3_2_Feb: - 1 uf_13_3_2_Jan + 1 uf_53_3_2_Feb  <= 0
+ c_uf_54_4_2_Feb: - 1 uf_14_4_2_Jan + 1 uf_54_4_2_Feb  <= 0
+ c_uf_55_5_2_Feb: - 1 uf_15_5_2_Jan + 1 uf_55_5_2_Feb  <= 0
+ c_uf_56_6_2_Feb: - 1 uf_16_6_2_Jan + 1 uf_56_6_2_Feb  <= 0
+ c_uf_57_7_2_Feb: - 1 uf_17_7_2_Jan + 1 uf_57_7_2_Feb  <= 0
+ c_uf_58_8_2_Feb: - 1 uf_18_8_2_Jan + 1 uf_58_8_2_Feb  <= 0
+ c_uf_59_9_2_Feb: - 1 uf_19_9_2_Jan + 1 uf_59_9_2_Feb  <= 0
+ c_uf_60_A_2_Feb: - 1 uf_20_A_2_Jan + 1 uf_60_A_2_Feb  <= 0
+ c_uf_61_1_3_Feb: - 1 uf_21_1_3_Jan + 1 uf_61_1_3_Feb  <= 0
+ c_uf_62_2_3_Feb: - 1 uf_22_2_3_Jan + 1 uf_62_2_3_Feb  <= 0
+ c_uf_63_3_3_Feb: - 1 uf_23_3_3_Jan + 1 uf_63_3_3_Feb  <= 0
+ c_uf_64_4_3_Feb: - 1 uf_24_4_3_Jan + 1 uf_64_4_3_Feb  <= 0
+ c_uf_65_5_3_Feb: - 1 uf_25_5_3_Jan + 1 uf_65_5_3_Feb  <= 0
+ c_uf_66_6_3_Feb: - 1 uf_26_6_3_Jan + 1 uf_66_6_3_Feb  <= 0
+ c_uf_67_7_3_Feb: - 1 uf_27_7_3_Jan + 1 uf_67_7_3_Feb  <= 0
+ c_uf_68_8_3_Feb: - 1 uf_28_8_3_Jan + 1 uf_68_8_3_Feb  <= 0
+ c_uf_69_9_3_Feb: - 1 uf_29_9_3_Jan + 1 uf_69_9_3_Feb  <= 0
+ c_uf_70_A_3_Feb: - 1 uf_30_A_3_Jan + 1 uf_70_A_3_Feb  <= 0
+ c_uf_71_1_4_Feb: - 1 uf_31_1_4_Jan + 1 uf_71_1_4_Feb  <= 0
+ c_uf_72_2_4_Feb: - 1 uf_32_2_4_Jan + 1 uf_72_2_4_Feb  <= 0
+ c_uf_73_3_4_Feb: - 1 uf_33_3_4_Jan + 1 uf_73_3_4_Feb  <= 0
+ c_uf_74_4_4_Feb: - 1 uf_34_4_4_Jan + 1 uf_74_4_4_Feb  <= 0
+ c_uf_75_5_4_Feb: - 1 uf_35_5_4_Jan + 1 uf_75_5_4_Feb  <= 0
+ c_uf_76_6_4_Feb: - 1 uf_36_6_4_Jan + 1 uf_76_6_4_Feb  <= 0
+ c_uf_77_7_4_Feb: - 1 uf_37_7_4_Jan + 1 uf_77_7_4_Feb  <= 0
+ c_uf_78_8_4_Feb: - 1 uf_38_8_4_Jan + 1 uf_78_8_4_Feb  <= 0
+ c_uf_79_9_4_Feb: - 1 uf_39_9_4_Jan + 1 uf_79_9_4_Feb  <= 0
+ c_uf_80_A_4_Feb: - 1 uf_40_A_4_Jan + 1 uf_80_A_4_Feb  <= 0
+ c_uf_81_1_1_Mar: + 1 cpmy_1_Br_1_1_Mar + 1 cpmy_2_Ca_1_1_Mar + 1 cpmy_3_Po_1_1_Mar + 1 cpmy_4_Po_1_1_Mar - 1 uf_41_1_1_Feb + 1 uf_81_1_1_Mar  <= 0
+ c_uf_82_2_1_Mar: + 1 cpmy_93_Br_2_1_Mar + 1 cpmy_94_Ca_2_1_Mar + 1 cpmy_95_Po_2_1_Mar + 1 cpmy_96_Po_2_1_Mar - 1 uf_42_2_1_Feb + 1 uf_82_2_1_Mar  <= 0
+ c_uf_83_3_1_Mar: + 1 cpmy_185_Br_3_1_Mar + 1 cpmy_186_Ca_3_1_Mar + 1 cpmy_187_Po_3_1_Mar + 1 cpmy_188_Po_3_1_Mar - 1 uf_43_3_1_Feb + 1 uf_83_3_1_Mar  <= 0
+ c_uf_84_4_1_Mar: + 1 cpmy_277_Br_4_1_Mar + 1 cpmy_278_Ca_4_1_Mar + 1 cpmy_279_Po_4_1_Mar + 1 cpmy_280_Po_4_1_Mar - 1 uf_44_4_1_Feb + 1 uf_84_4_1_Mar  <= 0
+ c_uf_85_5_1_Mar: + 1 cpmy_369_Br_5_1_Mar + 1 cpmy_370_Ca_5_1_Mar + 1 cpmy_371_Po_5_1_Mar + 1 cpmy_372_Po_5_1_Mar - 1 uf_45_5_1_Feb + 1 uf_85_5_1_Mar  <= 0
+ c_uf_86_6_1_Mar: + 1 cpmy_461_Br_6_1_Mar + 1 cpmy_462_Ca_6_1_Mar + 1 cpmy_463_Po_6_1_Mar + 1 cpmy_464_Po_6_1_Mar - 1 uf_46_6_1_Feb + 1 uf_86_6_1_Mar  <= 0
+ c_uf_87_7_1_Mar: + 1 cpmy_553_Br_7_1_Mar + 1 cpmy_554_Ca_7_1_Mar + 1 cpmy_555_Po_7_1_Mar + 1 cpmy_556_Po_7_1_Mar - 1 uf_47_7_1_Feb + 1 uf_87_7_1_Mar  <= 0
+ c_uf_88_8_1_Mar: + 1 cpmy_645_Br_8_1_Mar + 1 cpmy_646_Ca_8_1_Mar + 1 cpmy_647_Po_8_1_Mar + 1 cpmy_648_Po_8_1_Mar - 1 uf_48_8_1_Feb + 1 uf_88_8_1_Mar  <= 0
+ c_uf_89_9_1_Mar: + 1 cpmy_737_Br_9_1_Mar + 1 cpmy_738_Ca_9_1_Mar + 1 cpmy_739_Po_9_1_Mar + 1 cpmy_740_Po_9_1_Mar - 1 uf_49_9_1_Feb + 1 uf_89_9_1_Mar  <= 0
+ c_uf_90_A_1_Mar: + 1 cpmy_829_Br_A_1_Mar + 1 cpmy_830_Ca_A_1_Mar + 1 cpmy_831_Po_A_1_Mar + 1 cpmy_832_Po_A_1_Mar - 1 uf_50_A_1_Feb + 1 uf_90_A_1_Mar  <= 0
+ c_uf_91_1_2_Mar: + 1 cpmy_24_Br_1_2_Mar + 1 cpmy_25_Ca_1_2_Mar + 1 cpmy_26_Po_1_2_Mar + 1 cpmy_27_Po_1_2_Mar - 1 uf_51_1_2_Feb + 1 uf_91_1_2_Mar  <= 0
+ c_uf_92_2_2_Mar: + 1 cpmy_116_Br_2_2_Mar + 1 cpmy_117_Ca_2_2_Mar + 1 cpmy_118_Po_2_2_Mar + 1 cpmy_119_Po_2_2_Mar - 1 uf_52_2_2_Feb + 1 uf_92_2_2_Mar  <= 0
+ c_uf_93_3_2_Mar: + 1 cpmy_208_Br_3_2_Mar + 1 cpmy_209_Ca_3_2_Mar + 1 cpmy_210_Po_3_2_Mar + 1 cpmy_211_Po_3_2_Mar - 1 uf_53_3_2_Feb + 1 uf_93_3_2_Mar  <= 0
+ c_uf_94_4_2_Mar: + 1 cpmy_300_Br_4_2_Mar + 1 cpmy_301_Ca_4_2_Mar + 1 cpmy_302_Po_4_2_Mar + 1 cpmy_303_Po_4_2_Mar - 1 uf_54_4_2_Feb + 1 uf_94_4_2_Mar  <= 0
+ c_uf_95_5_2_Mar: + 1 cpmy_392_Br_5_2_Mar + 1 cpmy_393_Ca_5_2_Mar + 1 cpmy_394_Po_5_2_Mar + 1 cpmy_395_Po_5_2_Mar - 1 uf_55_5_2_Feb + 1 uf_95_5_2_Mar  <= 0
+ c_uf_96_6_2_Mar: + 1 cpmy_484_Br_6_2_Mar + 1 cpmy_485_Ca_6_2_Mar + 1 cpmy_486_Po_6_2_Mar + 1 cpmy_487_Po_6_2_Mar - 1 uf_56_6_2_Feb + 1 uf_96_6_2_Mar  <= 0
+ c_uf_97_7_2_Mar: + 1 cpmy_576_Br_7_2_Mar + 1 cpmy_577_Ca_7_2_Mar + 1 cpmy_578_Po_7_2_Mar + 1 cpmy_579_Po_7_2_Mar - 1 uf_57_7_2_Feb + 1 uf_97_7_2_Mar  <= 0
+ c_uf_98_8_2_Mar: + 1 cpmy_668_Br_8_2_Mar + 1 cpmy_669_Ca_8_2_Mar + 1 cpmy_670_Po_8_2_Mar + 1 cpmy_671_Po_8_2_Mar - 1 uf_58_8_2_Feb + 1 uf_98_8_2_Mar  <= 0
+ c_uf_99_9_2_Mar: + 1 cpmy_760_Br_9_2_Mar + 1 cpmy_761_Ca_9_2_Mar + 1 cpmy_762_Po_9_2_Mar + 1 cpmy_763_Po_9_2_Mar - 1 uf_59_9_2_Feb + 1 uf_99_9_2_Mar  <= 0
+ c_uf_100_A_2_Mar: + 1 cpmy_852_Br_A_2_Mar + 1 cpmy_853_Ca_A_2_Mar + 1 cpmy_854_Po_A_2_Mar + 1 cpmy_855_Po_A_2_Mar - 1 uf_60_A_2_Feb + 1 uf_100_A_2_Mar  <= 0
+ c_uf_101_1_3_Mar: + 1 cpmy_47_Br_1_3_Mar + 1 cpmy_48_Ca_1_3_Mar + 1 cpmy_49_Po_1_3_Mar + 1 cpmy_50_Po_1_3_Mar - 1 uf_61_1_3_Feb + 1 uf_101_1_3_Mar  <= 0
+ c_uf_102_2_3_Mar: + 1 cpmy_139_Br_2_3_Mar + 1 cpmy_140_Ca_2_3_Mar + 1 cpmy_141_Po_2_3_Mar + 1 cpmy_142_Po_2_3_Mar - 1 uf_62_2_3_Feb + 1 uf_102_2_3_Mar  <= 0
+ c_uf_103_3_3_Mar: + 1 cpmy_231_Br_3_3_Mar + 1 cpmy_232_Ca_3_3_Mar + 1 cpmy_233_Po_3_3_Mar + 1 cpmy_234_Po_3_3_Mar - 1 uf_63_3_3_Feb + 1 uf_103_3_3_Mar  <= 0
+ c_uf_104_4_3_Mar: + 1 cpmy_323_Br_4_3_Mar + 1 cpmy_324_Ca_4_3_Mar + 1 cpmy_325_Po_4_3_Mar + 1 cpmy_326_Po_4_3_Mar - 1 uf_64_4_3_Feb + 1 uf_104_4_3_Mar  <= 0
+ c_uf_105_5_3_Mar: + 1 cpmy_415_Br_5_3_Mar + 1 cpmy_416_Ca_5_3_Mar + 1 cpmy_417_Po_5_3_Mar + 1 cpmy_418_Po_5_3_Mar - 1 uf_65_5_3_Feb + 1 uf_105_5_3_Mar  <= 0
+ c_uf_106_6_3_Mar: + 1 cpmy_507_Br_6_3_Mar + 1 cpmy_508_Ca_6_3_Mar + 1 cpmy_509_Po_6_3_Mar + 1 cpmy_510_Po_6_3_Mar - 1 uf_66_6_3_Feb + 1 uf_106_6_3_Mar  <= 0
+ c_uf_107_7_3_Mar: + 1 cpmy_599_Br_7_3_Mar + 1 cpmy_600_Ca_7_3_Mar + 1 cpmy_601_Po_7_3_Mar + 1 cpmy_602_Po_7_3_Mar - 1 uf_67_7_3_Feb + 1 uf_107_7_3_Mar  <= 0
+ c_uf_108_8_3_Mar: + 1 cpmy_691_Br_8_3_Mar + 1 cpmy_692_Ca_8_3_Mar + 1 cpmy_693_Po_8_3_Mar + 1 cpmy_694_Po_8_3_Mar - 1 uf_68_8_3_Feb + 1 uf_108_8_3_Mar  <= 0
+ c_uf_109_9_3_Mar: + 1 cpmy_783_Br_9_3_Mar + 1 cpmy_784_Ca_9_3_Mar + 1 cpmy_785_Po_9_3_Mar + 1 cpmy_786_Po_9_3_Mar - 1 uf_69_9_3_Feb + 1 uf_109_9_3_Mar  <= 0
+ c_uf_110_A_3_Mar: + 1 cpmy_875_Br_A_3_Mar + 1 cpmy_876_Ca_A_3_Mar + 1 cpmy_877_Po_A_3_Mar + 1 cpmy_878_Po_A_3_Mar - 1 uf_70_A_3_Feb + 1 uf_110_A_3_Mar  <= 0
+ c_uf_111_1_4_Mar: + 1 cpmy_70_Br_1_4_Mar + 1 cpmy_71_Ca_1_4_Mar + 1 cpmy_72_Po_1_4_Mar + 1 cpmy_73_Po_1_4_Mar - 1 uf_71_1_4_Feb + 1 uf_111_1_4_Mar  <= 0
+ c_uf_112_2_4_Mar: + 1 cpmy_162_Br_2_4_Mar + 1 cpmy_163_Ca_2_4_Mar + 1 cpmy_164_Po_2_4_Mar + 1 cpmy_165_Po_2_4_Mar - 1 uf_72_2_4_Feb + 1 uf_112_2_4_Mar  <= 0
+ c_uf_113_3_4_Mar: + 1 cpmy_254_Br_3_4_Mar + 1 cpmy_255_Ca_3_4_Mar + 1 cpmy_256_Po_3_4_Mar + 1 cpmy_257_Po_3_4_Mar - 1 uf_73_3_4_Feb + 1 uf_113_3_4_Mar  <= 0
+ c_uf_114_4_4_Mar: + 1 cpmy_346_Br_4_4_Mar + 1 cpmy_347_Ca_4_4_Mar + 1 cpmy_348_Po_4_4_Mar + 1 cpmy_349_Po_4_4_Mar - 1 uf_74_4_4_Feb + 1 uf_114_4_4_Mar  <= 0
+ c_uf_115_5_4_Mar: + 1 cpmy_438_Br_5_4_Mar + 1 cpmy_439_Ca_5_4_Mar + 1 cpmy_440_Po_5_4_Mar + 1 cpmy_441_Po_5_4_Mar - 1 uf_75_5_4_Feb + 1 uf_115_5_4_Mar  <= 0
+ c_uf_116_6_4_Mar: + 1 cpmy_530_Br_6_4_Mar + 1 cpmy_531_Ca_6_4_Mar + 1 cpmy_532_Po_6_4_Mar + 1 cpmy_533_Po_6_4_Mar - 1 uf_76_6_4_Feb + 1 uf_116_6_4_Mar  <= 0
+ c_uf_117_7_4_Mar: + 1 cpmy_622_Br_7_4_Mar + 1 cpmy_623_Ca_7_4_Mar + 1 cpmy_624_Po_7_4_Mar + 1 cpmy_625_Po_7_4_Mar - 1 uf_77_7_4_Feb + 1 uf_117_7_4_Mar  <= 0
+ c_uf_118_8_4_Mar: + 1 cpmy_714_Br_8_4_Mar + 1 cpmy_715_Ca_8_4_Mar + 1 cpmy_716_Po_8_4_Mar + 1 cpmy_717_Po_8_4_Mar - 1 uf_78_8_4_Feb + 1 uf_118_8_4_Mar  <= 0
+ c_uf_119_9_4_Mar: + 1 cpmy_806_Br_9_4_Mar + 1 cpmy_807_Ca_9_4_Mar + 1 cpmy_808_Po_9_4_Mar + 1 cpmy_809_Po_9_4_Mar - 1 uf_79_9_4_Feb + 1 uf_119_9_4_Mar  <= 0
+ c_uf_120_A_4_Mar: + 1 cpmy_898_Br_A_4_Mar + 1 cpmy_899_Ca_A_4_Mar + 1 cpmy_900_Po_A_4_Mar + 1 cpmy_901_Po_A_4_Mar - 1 uf_80_A_4_Feb + 1 uf_120_A_4_Mar  <= 0
+ c_uf_121_1_1_Apr: + 1 cpmy_5_Be_1_1_Apr + 1 cpmy_6_Br_1_1_Apr + 1 cpmy_7_Ca_1_1_Apr + 1 cpmy_8_Po_1_1_Apr + 1 cpmy_9_Po_1_1_Apr + 1 cpmy_10_To_1_1_Apr + 1 cpmy_11_To_1_1_Apr - 1 uf_81_1_1_Mar + 1 uf_121_1_1_Apr  <= 0
+ c_uf_122_2_1_Apr: + 1 cpmy_97_Be_2_1_Apr + 1 cpmy_98_Br_2_1_Apr + 1 cpmy_99_Ca_2_1_Apr + 1 cpmy_100_Po_2_1_Apr + 1 cpmy_101_Po_2_1_Apr + 1 cpmy_102_To_2_1_Apr + 1 cpmy_103_To_2_1_Apr - 1 uf_82_2_1_Mar + 1 uf_122_2_1_Apr  <= 0
+ c_uf_123_3_1_Apr: + 1 cpmy_189_Be_3_1_Apr + 1 cpmy_190_Br_3_1_Apr + 1 cpmy_191_Ca_3_1_Apr + 1 cpmy_192_Po_3_1_Apr + 1 cpmy_193_Po_3_1_Apr + 1 cpmy_194_To_3_1_Apr + 1 cpmy_195_To_3_1_Apr - 1 uf_83_3_1_Mar + 1 uf_123_3_1_Apr  <= 0
+ c_uf_124_4_1_Apr: + 1 cpmy_281_Be_4_1_Apr + 1 cpmy_282_Br_4_1_Apr + 1 cpmy_283_Ca_4_1_Apr + 1 cpmy_284_Po_4_1_Apr + 1 cpmy_285_Po_4_1_Apr + 1 cpmy_286_To_4_1_Apr + 1 cpmy_287_To_4_1_Apr - 1 uf_84_4_1_Mar + 1 uf_124_4_1_Apr  <= 0
+ c_uf_125_5_1_Apr: + 1 cpmy_373_Be_5_1_Apr + 1 cpmy_374_Br_5_1_Apr + 1 cpmy_375_Ca_5_1_Apr + 1 cpmy_376_Po_5_1_Apr + 1 cpmy_377_Po_5_1_Apr + 1 cpmy_378_To_5_1_Apr + 1 cpmy_379_To_5_1_Apr - 1 uf_85_5_1_Mar + 1 uf_125_5_1_Apr  <= 0
+ c_uf_126_6_1_Apr: + 1 cpmy_465_Be_6_1_Apr + 1 cpmy_466_Br_6_1_Apr + 1 cpmy_467_Ca_6_1_Apr + 1 cpmy_468_Po_6_1_Apr + 1 cpmy_469_Po_6_1_Apr + 1 cpmy_470_To_6_1_Apr + 1 cpmy_471_To_6_1_Apr - 1 uf_86_6_1_Mar + 1 uf_126_6_1_Apr  <= 0
+ c_uf_127_7_1_Apr: + 1 cpmy_557_Be_7_1_Apr + 1 cpmy_558_Br_7_1_Apr + 1 cpmy_559_Ca_7_1_Apr + 1 cpmy_560_Po_7_1_Apr + 1 cpmy_561_Po_7_1_Apr + 1 cpmy_562_To_7_1_Apr + 1 cpmy_563_To_7_1_Apr - 1 uf_87_7_1_Mar + 1 uf_127_7_1_Apr  <= 0
+ c_uf_128_8_1_Apr: + 1 cpmy_649_Be_8_1_Apr + 1 cpmy_650_Br_8_1_Apr + 1 cpmy_651_Ca_8_1_Apr + 1 cpmy_652_Po_8_1_Apr + 1 cpmy_653_Po_8_1_Apr + 1 cpmy_654_To_8_1_Apr + 1 cpmy_655_To_8_1_Apr - 1 uf_88_8_1_Mar + 1 uf_128_8_1_Apr  <= 0
+ c_uf_129_9_1_Apr: + 1 cpmy_741_Be_9_1_Apr + 1 cpmy_742_Br_9_1_Apr + 1 cpmy_743_Ca_9_1_Apr + 1 cpmy_744_Po_9_1_Apr + 1 cpmy_745_Po_9_1_Apr + 1 cpmy_746_To_9_1_Apr + 1 cpmy_747_To_9_1_Apr - 1 uf_89_9_1_Mar + 1 uf_129_9_1_Apr  <= 0
+ c_uf_130_A_1_Apr: + 1 cpmy_833_Be_A_1_Apr + 1 cpmy_834_Br_A_1_Apr + 1 cpmy_835_Ca_A_1_Apr + 1 cpmy_836_Po_A_1_Apr + 1 cpmy_837_Po_A_1_Apr + 1 cpmy_838_To_A_1_Apr + 1 cpmy_839_To_A_1_Apr - 1 uf_90_A_1_Mar + 1 uf_130_A_1_Apr  <= 0
+ c_uf_131_1_2_Apr: + 1 cpmy_28_Be_1_2_Apr + 1 cpmy_29_Br_1_2_Apr + 1 cpmy_30_Ca_1_2_Apr + 1 cpmy_31_Po_1_2_Apr + 1 cpmy_32_Po_1_2_Apr + 1 cpmy_33_To_1_2_Apr + 1 cpmy_34_To_1_2_Apr - 1 uf_91_1_2_Mar + 1 uf_131_1_2_Apr  <= 0
+ c_uf_132_2_2_Apr: + 1 cpmy_120_Be_2_2_Apr + 1 cpmy_121_Br_2_2_Apr + 1 cpmy_122_Ca_2_2_Apr + 1 cpmy_123_Po_2_2_Apr + 1 cpmy_124_Po_2_2_Apr + 1 cpmy_125_To_2_2_Apr + 1 cpmy_126_To_2_2_Apr - 1 uf_92_2_2_Mar + 1 uf_132_2_2_Apr  <= 0
+ c_uf_133_3_2_Apr: + 1 cpmy_212_Be_3_2_Apr + 1 cpmy_213_Br_3_2_Apr + 1 cpmy_214_Ca_3_2_Apr + 1 cpmy_215_Po_3_2_Apr + 1 cpmy_216_Po_3_2_Apr + 1 cpmy_217_To_3_2_Apr + 1 cpmy_218_To_3_2_Apr - 1 uf_93_3_2_Mar + 1 uf_133_3_2_Apr  <= 0
+ c_uf_134_4_2_Apr: + 1 cpmy_304_Be_4_2_Apr + 1 cpmy_305_Br_4_2_Apr + 1 cpmy_306_Ca_4_2_Apr + 1 cpmy_307_Po_4_2_Apr + 1 cpmy_308_Po_4_2_Apr + 1 cpmy_309_To_4_2_Apr + 1 cpmy_310_To_4_2_Apr - 1 uf_94_4_2_Mar + 1 uf_134_4_2_Apr  <= 0
+ c_uf_135_5_2_Apr: + 1 cpmy_396_Be_5_2_Apr + 1 cpmy_397_Br_5_2_Apr + 1 cpmy_398_Ca_5_2_Apr + 1 cpmy_399_Po_5_2_Apr + 1 cpmy_400_Po_5_2_Apr + 1 cpmy_401_To_5_2_Apr + 1 cpmy_402_To_5_2_Apr - 1 uf_95_5_2_Mar + 1 uf_135_5_2_Apr  <= 0
+ c_uf_136_6_2_Apr: + 1 cpmy_488_Be_6_2_Apr + 1 cpmy_489_Br_6_2_Apr + 1 cpmy_490_Ca_6_2_Apr + 1 cpmy_491_Po_6_2_Apr + 1 cpmy_492_Po_6_2_Apr + 1 cpmy_493_To_6_2_Apr + 1 cpmy_494_To_6_2_Apr - 1 uf_96_6_2_Mar + 1 uf_136_6_2_Apr  <= 0
+ c_uf_137_7_2_Apr: + 1 cpmy_580_Be_7_2_Apr + 1 cpmy_581_Br_7_2_Apr + 1 cpmy_582_Ca_7_2_Apr + 1 cpmy_583_Po_7_2_Apr + 1 cpmy_584_Po_7_2_Apr + 1 cpmy_585_To_7_2_Apr + 1 cpmy_586_To_7_2_Apr - 1 uf_97_7_2_Mar + 1 uf_137_7_2_Apr  <= 0
+ c_uf_138_8_2_Apr: + 1 cpmy_672_Be_8_2_Apr + 1 cpmy_673_Br_8_2_Apr + 1 cpmy_674_Ca_8_2_Apr + 1 cpmy_675_Po_8_2_Apr + 1 cpmy_676_Po_8_2_Apr + 1 cpmy_677_To_8_2_Apr + 1 cpmy_678_To_8_2_Apr - 1 uf_98_8_2_Mar + 1 uf_138_8_2_Apr  <= 0
+ c_uf_139_9_2_Apr: + 1 cpmy_764_Be_9_2_Apr + 1 cpmy_765_Br_9_2_Apr + 1 cpmy_766_Ca_9_2_Apr + 1 cpmy_767_Po_9_2_Apr + 1 cpmy_768_Po_9_2_Apr + 1 cpmy_769_To_9_2_Apr + 1 cpmy_770_To_9_2_Apr - 1 uf_99_9_2_Mar + 1 uf_139_9_2_Apr  <= 0
+ c_uf_140_A_2_Apr: + 1 cpmy_856_Be_A_2_Apr + 1 cpmy_857_Br_A_2_Apr + 1 cpmy_858_Ca_A_2_Apr + 1 cpmy_859_Po_A_2_Apr + 1 cpmy_860_Po_A_2_Apr + 1 cpmy_861_To_A_2_Apr + 1 cpmy_862_To_A_2_Apr - 1 uf_100_A_2_Mar + 1 uf_140_A_2_Apr  <= 0
+ c_uf_141_1_3_Apr: + 1 cpmy_51_Be_1_3_Apr + 1 cpmy_52_Br_1_3_Apr + 1 cpmy_53_Ca_1_3_Apr + 1 cpmy_54_Po_1_3_Apr + 1 cpmy_55_Po_1_3_Apr + 1 cpmy_56_To_1_3_Apr + 1 cpmy_57_To_1_3_Apr - 1 uf_101_1_3_Mar + 1 uf_141_1_3_Apr  <= 0
+ c_uf_142_2_3_Apr: + 1 cpmy_143_Be_2_3_Apr + 1 cpmy_144_Br_2_3_Apr + 1 cpmy_145_Ca_2_3_Apr + 1 cpmy_146_Po_2_3_Apr + 1 cpmy_147_Po_2_3_Apr + 1 cpmy_148_To_2_3_Apr + 1 cpmy_149_To_2_3_Apr - 1 uf_102_2_3_Mar + 1 uf_142_2_3_Apr  <= 0
+ c_uf_143_3_3_Apr: + 1 cpmy_235_Be_3_3_Apr + 1 cpmy_236_Br_3_3_Apr + 1 cpmy_237_Ca_3_3_Apr + 1 cpmy_238_Po_3_3_Apr + 1 cpmy_239_Po_3_3_Apr + 1 cpmy_240_To_3_3_Apr + 1 cpmy_241_To_3_3_Apr - 1 uf_103_3_3_Mar + 1 uf_143_3_3_Apr  <= 0
+ c_uf_144_4_3_Apr: + 1 cpmy_327_Be_4_3_Apr + 1 cpmy_328_Br_4_3_Apr + 1 cpmy_329_Ca_4_3_Apr + 1 cpmy_330_Po_4_3_Apr + 1 cpmy_331_Po_4_3_Apr + 1 cpmy_332_To_4_3_Apr + 1 cpmy_333_To_4_3_Apr - 1 uf_104_4_3_Mar + 1 uf_144_4_3_Apr  <= 0
+ c_uf_145_5_3_Apr: + 1 cpmy_419_Be_5_3_Apr + 1 cpmy_420_Br_5_3_Apr + 1 cpmy_421_Ca_5_3_Apr + 1 cpmy_422_Po_5_3_Apr + 1 cpmy_423_Po_5_3_Apr + 1 cpmy_424_To_5_3_Apr + 1 cpmy_425_To_5_3_Apr - 1 uf_105_5_3_Mar + 1 uf_145_5_3_Apr  <= 0
+ c_uf_146_6_3_Apr: + 1 cpmy_511_Be_6_3_Apr + 1 cpmy_512_Br_6_3_Apr + 1 cpmy_513_Ca_6_3_Apr + 1 cpmy_514_Po_6_3_Apr + 1 cpmy_515_Po_6_3_Apr + 1 cpmy_516_To_6_3_Apr + 1 cpmy_517_To_6_3_Apr - 1 uf_106_6_3_Mar + 1 uf_146_6_3_Apr  <= 0
+ c_uf_147_7_3_Apr: + 1 cpmy_603_Be_7_3_Apr + 1 cpmy_604_Br_7_3_Apr + 1 cpmy_605_Ca_7_3_Apr + 1 cpmy_606_Po_7_3_Apr + 1 cpmy_607_Po_7_3_Apr + 1 cpmy_608_To_7_3_Apr + 1 cpmy_609_To_7_3_Apr - 1 uf_107_7_3_Mar + 1 uf_147_7_3_Apr  <= 0
+ c_uf_148_8_3_Apr: + 1 cpmy_695_Be_8_3_Apr + 1 cpmy_696_Br_8_3_Apr + 1 cpmy_697_Ca_8_3_Apr + 1 cpmy_698_Po_8_3_Apr + 1 cpmy_699_Po_8_3_Apr + 1 cpmy_700_To_8_3_Apr + 1 cpmy_701_To_8_3_Apr - 1 uf_108_8_3_Mar + 1 uf_148_8_3_Apr  <= 0
+ c_uf_149_9_3_Apr: + 1 cpmy_787_Be_9_3_Apr + 1 cpmy_788_Br_9_3_Apr + 1 cpmy_789_Ca_9_3_Apr + 1 cpmy_790_Po_9_3_Apr + 1 cpmy_791_Po_9_3_Apr + 1 cpmy_792_To_9_3_Apr + 1 cpmy_793_To_9_3_Apr - 1 uf_109_9_3_Mar + 1 uf_149_9_3_Apr  <= 0
+ c_uf_150_A_3_Apr: + 1 cpmy_879_Be_A_3_Apr + 1 cpmy_880_Br_A_3_Apr + 1 cpmy_881_Ca_A_3_Apr + 1 cpmy_882_Po_A_3_Apr + 1 cpmy_883_Po_A_3_Apr + 1 cpmy_884_To_A_3_Apr + 1 cpmy_885_To_A_3_Apr - 1 uf_110_A_3_Mar + 1 uf_150_A_3_Apr  <= 0
+ c_uf_151_1_4_Apr: + 1 cpmy_74_Be_1_4_Apr + 1 cpmy_75_Br_1_4_Apr + 1 cpmy_76_Ca_1_4_Apr + 1 cpmy_77_Po_1_4_Apr + 1 cpmy_78_Po_1_4_Apr + 1 cpmy_79_To_1_4_Apr + 1 cpmy_80_To_1_4_Apr - 1 uf_111_1_4_Mar + 1 uf_151_1_4_Apr  <= 0
+ c_uf_152_2_4_Apr: + 1 cpmy_166_Be_2_4_Apr + 1 cpmy_167_Br_2_4_Apr + 1 cpmy_168_Ca_2_4_Apr + 1 cpmy_169_Po_2_4_Apr + 1 cpmy_170_Po_2_4_Apr + 1 cpmy_171_To_2_4_Apr + 1 cpmy_172_To_2_4_Apr - 1 uf_112_2_4_Mar + 1 uf_152_2_4_Apr  <= 0
+ c_uf_153_3_4_Apr: + 1 cpmy_258_Be_3_4_Apr + 1 cpmy_259_Br_3_4_Apr + 1 cpmy_260_Ca_3_4_Apr + 1 cpmy_261_Po_3_4_Apr + 1 cpmy_262_Po_3_4_Apr + 1 cpmy_263_To_3_4_Apr + 1 cpmy_264_To_3_4_Apr - 1 uf_113_3_4_Mar + 1 uf_153_3_4_Apr  <= 0
+ c_uf_154_4_4_Apr: + 1 cpmy_350_Be_4_4_Apr + 1 cpmy_351_Br_4_4_Apr + 1 cpmy_352_Ca_4_4_Apr + 1 cpmy_353_Po_4_4_Apr + 1 cpmy_354_Po_4_4_Apr + 1 cpmy_355_To_4_4_Apr + 1 cpmy_356_To_4_4_Apr - 1 uf_114_4_4_Mar + 1 uf_154_4_4_Apr  <= 0
+ c_uf_155_5_4_Apr: + 1 cpmy_442_Be_5_4_Apr + 1 cpmy_443_Br_5_4_Apr + 1 cpmy_444_Ca_5_4_Apr + 1 cpmy_445_Po_5_4_Apr + 1 cpmy_446_Po_5_4_Apr + 1 cpmy_447_To_5_4_Apr + 1 cpmy_448_To_5_4_Apr - 1 uf_115_5_4_Mar + 1 uf_155_5_4_Apr  <= 0
+ c_uf_156_6_4_Apr: + 1 cpmy_534_Be_6_4_Apr + 1 cpmy_535_Br_6_4_Apr + 1 cpmy_536_Ca_6_4_Apr + 1 cpmy_537_Po_6_4_Apr + 1 cpmy_538_Po_6_4_Apr + 1 cpmy_539_To_6_4_Apr + 1 cpmy_540_To_6_4_Apr - 1 uf_116_6_4_Mar + 1 uf_156_6_4_Apr  <= 0
+ c_uf_157_7_4_Apr: + 1 cpmy_626_Be_7_4_Apr + 1 cpmy_627_Br_7_4_Apr + 1 cpmy_628_Ca_7_4_Apr + 1 cpmy_629_Po_7_4_Apr + 1 cpmy_630_Po_7_4_Apr + 1 cpmy_631_To_7_4_Apr + 1 cpmy_632_To_7_4_Apr - 1 uf_117_7_4_Mar + 1 uf_157_7_4_Apr  <= 0
+ c_uf_158_8_4_Apr: + 1 cpmy_718_Be_8_4_Apr + 1 cpmy_719_Br_8_4_Apr + 1 cpmy_720_Ca_8_4_Apr + 1 cpmy_721_Po_8_4_Apr + 1 cpmy_722_Po_8_4_Apr + 1 cpmy_723_To_8_4_Apr + 1 cpmy_724_To_8_4_Apr - 1 uf_118_8_4_Mar + 1 uf_158_8_4_Apr  <= 0
+ c_uf_159_9_4_Apr: + 1 cpmy_810_Be_9_4_Apr + 1 cpmy_811_Br_9_4_Apr + 1 cpmy_812_Ca_9_4_Apr + 1 cpmy_813_Po_9_4_Apr + 1 cpmy_814_Po_9_4_Apr + 1 cpmy_815_To_9_4_Apr + 1 cpmy_816_To_9_4_Apr - 1 uf_119_9_4_Mar + 1 uf_159_9_4_Apr  <= 0
+ c_uf_160_A_4_Apr: + 1 cpmy_902_Be_A_4_Apr + 1 cpmy_903_Br_A_4_Apr + 1 cpmy_904_Ca_A_4_Apr + 1 cpmy_905_Po_A_4_Apr + 1 cpmy_906_Po_A_4_Apr + 1 cpmy_907_To_A_4_Apr + 1 cpmy_908_To_A_4_Apr - 1 uf_120_A_4_Mar + 1 uf_160_A_4_Apr  <= 0
+ c_uf_161_1_1_May: + 1 cpmy_12_Be_1_1_May + 1 cpmy_13_Po_1_1_May + 1 cpmy_14_Po_1_1_May + 1 cpmy_15_To_1_1_May + 1 cpmy_16_To_1_1_May - 1 uf_121_1_1_Apr + 1 uf_161_1_1_May  <= 0
+ c_uf_162_2_1_May: + 1 cpmy_104_Be_2_1_May + 1 cpmy_105_Po_2_1_May + 1 cpmy_106_Po_2_1_May + 1 cpmy_107_To_2_1_May + 1 cpmy_108_To_2_1_May - 1 uf_122_2_1_Apr + 1 uf_162_2_1_May  <= 0
+ c_uf_163_3_1_May: + 1 cpmy_196_Be_3_1_May + 1 cpmy_197_Po_3_1_May + 1 cpmy_198_Po_3_1_May + 1 cpmy_199_To_3_1_May + 1 cpmy_200_To_3_1_May - 1 uf_123_3_1_Apr + 1 uf_163_3_1_May  <= 0
+ c_uf_164_4_1_May: + 1 cpmy_288_Be_4_1_May + 1 cpmy_289_Po_4_1_May + 1 cpmy_290_Po_4_1_May + 1 cpmy_291_To_4_1_May + 1 cpmy_292_To_4_1_May - 1 uf_124_4_1_Apr + 1 uf_164_4_1_May  <= 0
+ c_uf_165_5_1_May: + 1 cpmy_380_Be_5_1_May + 1 cpmy_381_Po_5_1_May + 1 cpmy_382_Po_5_1_May + 1 cpmy_383_To_5_1_May + 1 cpmy_384_To_5_1_May - 1 uf_125_5_1_Apr + 1 uf_165_5_1_May  <= 0
+ c_uf_166_6_1_May: + 1 cpmy_472_Be_6_1_May + 1 cpmy_473_Po_6_1_May + 1 cpmy_474_Po_6_1_May + 1 cpmy_475_To_6_1_May + 1 cpmy_476_To_6_1_May - 1 uf_126_6_1_Apr + 1 uf_166_6_1_May  <= 0
+ c_uf_167_7_1_May: + 1 cpmy_564_Be_7_1_May + 1 cpmy_565_Po_7_1_May + 1 cpmy_566_Po_7_1_May + 1 cpmy_567_To_7_1_May + 1 cpmy_568_To_7_1_May - 1 uf_127_7_1_Apr + 1 uf_167_7_1_May  <= 0
+ c_uf_168_8_1_May: + 1 cpmy_656_Be_8_1_May + 1 cpmy_657_Po_8_1_May + 1 cpmy_658_Po_8_1_May + 1 cpmy_659_To_8_1_May + 1 cpmy_660_To_8_1_May - 1 uf_128_8_1_Apr + 1 uf_168_8_1_May  <= 0
+ c_uf_169_9_1_May: + 1 cpmy_748_Be_9_1_May + 1 cpmy_749_Po_9_1_May + 1 cpmy_750_Po_9_1_May + 1 cpmy_751_To_9_1_May + 1 cpmy_752_To_9_1_May - 1 uf_129_9_1_Apr + 1 uf_169_9_1_May  <= 0
+ c_uf_170_A_1_May: + 1 cpmy_840_Be_A_1_May + 1 cpmy_841_Po_A_1_May + 1 cpmy_842_Po_A_1_May + 1 cpmy_843_To_A_1_May + 1 cpmy_844_To_A_1_May - 1 uf_130_A_1_Apr + 1 uf_170_A_1_May  <= 0
+ c_uf_171_1_2_May: + 1 cpmy_35_Be_1_2_May + 1 cpmy_36_Po_1_2_May + 1 cpmy_37_Po_1_2_May + 1 cpmy_38_To_1_2_May + 1 cpmy_39_To_1_2_May - 1 uf_131_1_2_Apr + 1 uf_171_1_2_May  <= 0
+ c_uf_172_2_2_May: + 1 cpmy_127_Be_2_2_May + 1 cpmy_128_Po_2_2_May + 1 cpmy_129_Po_2_2_May + 1 cpmy_130_To_2_2_May + 1 cpmy_131_To_2_2_May - 1 uf_132_2_2_Apr + 1 uf_172_2_2_May  <= 0
+ c_uf_173_3_2_May: + 1 cpmy_219_Be_3_2_May + 1 cpmy_220_Po_3_2_May + 1 cpmy_221_Po_3_2_May + 1 cpmy_222_To_3_2_May + 1 cpmy_223_To_3_2_May - 1 uf_133_3_2_Apr + 1 uf_173_3_2_May  <= 0
+ c_uf_174_4_2_May: + 1 cpmy_311_Be_4_2_May + 1 cpmy_312_Po_4_2_May + 1 cpmy_313_Po_4_2_May + 1 cpmy_314_To_4_2_May + 1 cpmy_315_To_4_2_May - 1 uf_134_4_2_Apr + 1 uf_174_4_2_May  <= 0
+ c_uf_175_5_2_May: + 1 cpmy_403_Be_5_2_May + 1 cpmy_404_Po_5_2_May + 1 cpmy_405_Po_5_2_May + 1 cpmy_406_To_5_2_May + 1 cpmy_407_To_5_2_May - 1 uf_135_5_2_Apr + 1 uf_175_5_2_May  <= 0
+ c_uf_176_6_2_May: + 1 cpmy_495_Be_6_2_May + 1 cpmy_496_Po_6_2_May + 1 cpmy_497_Po_6_2_May + 1 cpmy_498_To_6_2_May + 1 cpmy_499_To_6_2_May - 1 uf_136_6_2_Apr + 1 uf_176_6_2_May  <= 0
+ c_uf_177_7_2_May: + 1 cpmy_587_Be_7_2_May + 1 cpmy_588_Po_7_2_May + 1 cpmy_589_Po_7_2_May + 1 cpmy_590_To_7_2_May + 1 cpmy_591_To_7_2_May - 1 uf_137_7_2_Apr + 1 uf_177_7_2_May  <= 0
+ c_uf_178_8_2_May: + 1 cpmy_679_Be_8_2_May + 1 cpmy_680_Po_8_2_May + 1 cpmy_681_Po_8_2_May + 1 cpmy_682_To_8_2_May + 1 cpmy_683_To_8_2_May - 1 uf_138_8_2_Apr + 1 uf_178_8_2_May  <= 0
+ c_uf_179_9_2_May: + 1 cpmy_771_Be_9_2_May + 1 cpmy_772_Po_9_2_May + 1 cpmy_773_Po_9_2_May + 1 cpmy_774_To_9_2_May + 1 cpmy_775_To_9_2_May - 1 uf_139_9_2_Apr + 1 uf_179_9_2_May  <= 0
+ c_uf_180_A_2_May: + 1 cpmy_863_Be_A_2_May + 1 cpmy_864_Po_A_2_May + 1 cpmy_865_Po_A_2_May + 1 cpmy_866_To_A_2_May + 1 cpmy_867_To_A_2_May - 1 uf_140_A_2_Apr + 1 uf_180_A_2_May  <= 0
+ c_uf_181_1_3_May: + 1 cpmy_58_Be_1_3_May + 1 cpmy_59_Po_1_3_May + 1 cpmy_60_Po_1_3_May + 1 cpmy_61_To_1_3_May + 1 cpmy_62_To_1_3_May - 1 uf_141_1_3_Apr + 1 uf_181_1_3_May  <= 0
+ c_uf_182_2_3_May: + 1 cpmy_150_Be_2_3_May + 1 cpmy_151_Po_2_3_May + 1 cpmy_152_Po_2_3_May + 1 cpmy_153_To_2_3_May + 1 cpmy_154_To_2_3_May - 1 uf_142_2_3_Apr + 1 uf_182_2_3_May  <= 0
+ c_uf_183_3_3_May: + 1 cpmy_242_Be_3_3_May + 1 cpmy_243_Po_3_3_May + 1 cpmy_244_Po_3_3_May + 1 cpmy_245_To_3_3_May + 1 cpmy_246_To_3_3_May - 1 uf_143_3_3_Apr + 1 uf_183_3_3_May  <= 0
+ c_uf_184_4_3_May: + 1 cpmy_334_Be_4_3_May + 1 cpmy_335_Po_4_3_May + 1 cpmy_336_Po_4_3_May + 1 cpmy_337_To_4_3_May + 1 cpmy_338_To_4_3_May - 1 uf_144_4_3_Apr + 1 uf_184_4_3_May  <= 0
+ c_uf_185_5_3_May: + 1 cpmy_426_Be_5_3_May + 1 cpmy_427_Po_5_3_May + 1 cpmy_428_Po_5_3_May + 1 cpmy_429_To_5_3_May + 1 cpmy_430_To_5_3_May - 1 uf_145_5_3_Apr + 1 uf_185_5_3_May  <= 0
+ c_uf_186_6_3_May: + 1 cpmy_518_Be_6_3_May + 1 cpmy_519_Po_6_3_May + 1 cpmy_520_Po_6_3_May + 1 cpmy_521_To_6_3_May + 1 cpmy_522_To_6_3_May - 1 uf_146_6_3_Apr + 1 uf_186_6_3_May  <= 0
+ c_uf_187_7_3_May: + 1 cpmy_610_Be_7_3_May + 1 cpmy_611_Po_7_3_May + 1 cpmy_612_Po_7_3_May + 1 cpmy_613_To_7_3_May + 1 cpmy_614_To_7_3_May - 1 uf_147_7_3_Apr + 1 uf_187_7_3_May  <= 0
+ c_uf_188_8_3_May: + 1 cpmy_702_Be_8_3_May + 1 cpmy_703_Po_8_3_May + 1 cpmy_704_Po_8_3_May + 1 cpmy_705_To_8_3_May + 1 cpmy_706_To_8_3_May - 1 uf_148_8_3_Apr + 1 uf_188_8_3_May  <= 0
+ c_uf_189_9_3_May: + 1 cpmy_794_Be_9_3_May + 1 cpmy_795_Po_9_3_May + 1 cpmy_796_Po_9_3_May + 1 cpmy_797_To_9_3_May + 1 cpmy_798_To_9_3_May - 1 uf_149_9_3_Apr + 1 uf_189_9_3_May  <= 0
+ c_uf_190_A_3_May: + 1 cpmy_886_Be_A_3_May + 1 cpmy_887_Po_A_3_May + 1 cpmy_888_Po_A_3_May + 1 cpmy_889_To_A_3_May + 1 cpmy_890_To_A_3_May - 1 uf_150_A_3_Apr + 1 uf_190_A_3_May  <= 0
+ c_uf_191_1_4_May: + 1 cpmy_81_Be_1_4_May + 1 cpmy_82_Po_1_4_May + 1 cpmy_83_Po_1_4_May + 1 cpmy_84_To_1_4_May + 1 cpmy_85_To_1_4_May - 1 uf_151_1_4_Apr + 1 uf_191_1_4_May  <= 0
+ c_uf_192_2_4_May: + 1 cpmy_173_Be_2_4_May + 1 cpmy_174_Po_2_4_May + 1 cpmy_175_Po_2_4_May + 1 cpmy_176_To_2_4_May + 1 cpmy_177_To_2_4_May - 1 uf_152_2_4_Apr + 1 uf_192_2_4_May  <= 0
+ c_uf_193_3_4_May: + 1 cpmy_265_Be_3_4_May + 1 cpmy_266_Po_3_4_May + 1 cpmy_267_Po_3_4_May + 1 cpmy_268_To_3_4_May + 1 cpmy_269_To_3_4_May - 1 uf_153_3_4_Apr + 1 uf_193_3_4_May  <= 0
+ c_uf_194_4_4_May: + 1 cpmy_357_Be_4_4_May + 1 cpmy_358_Po_4_4_May + 1 cpmy_359_Po_4_4_May + 1 cpmy_360_To_4_4_May + 1 cpmy_361_To_4_4_May - 1 uf_154_4_4_Apr + 1 uf_194_4_4_May  <= 0
+ c_uf_195_5_4_May: + 1 cpmy_449_Be_5_4_May + 1 cpmy_450_Po_5_4_May + 1 cpmy_451_Po_5_4_May + 1 cpmy_452_To_5_4_May + 1 cpmy_453_To_5_4_May - 1 uf_155_5_4_Apr + 1 uf_195_5_4_May  <= 0
+ c_uf_196_6_4_May: + 1 cpmy_541_Be_6_4_May + 1 cpmy_542_Po_6_4_May + 1 cpmy_543_Po_6_4_May + 1 cpmy_544_To_6_4_May + 1 cpmy_545_To_6_4_May - 1 uf_156_6_4_Apr + 1 uf_196_6_4_May  <= 0
+ c_uf_197_7_4_May: + 1 cpmy_633_Be_7_4_May + 1 cpmy_634_Po_7_4_May + 1 cpmy_635_Po_7_4_May + 1 cpmy_636_To_7_4_May + 1 cpmy_637_To_7_4_May - 1 uf_157_7_4_Apr + 1 uf_197_7_4_May  <= 0
+ c_uf_198_8_4_May: + 1 cpmy_725_Be_8_4_May + 1 cpmy_726_Po_8_4_May + 1 cpmy_727_Po_8_4_May + 1 cpmy_728_To_8_4_May + 1 cpmy_729_To_8_4_May - 1 uf_158_8_4_Apr + 1 uf_198_8_4_May  <= 0
+ c_uf_199_9_4_May: + 1 cpmy_817_Be_9_4_May + 1 cpmy_818_Po_9_4_May + 1 cpmy_819_Po_9_4_May + 1 cpmy_820_To_9_4_May + 1 cpmy_821_To_9_4_May - 1 uf_159_9_4_Apr + 1 uf_199_9_4_May  <= 0
+ c_uf_200_A_4_May: + 1 cpmy_909_Be_A_4_May + 1 cpmy_910_Po_A_4_May + 1 cpmy_911_Po_A_4_May + 1 cpmy_912_To_A_4_May + 1 cpmy_913_To_A_4_May - 1 uf_160_A_4_Apr + 1 uf_200_A_4_May  <= 0
+ c_uf_201_1_1_Jun: - 1 cpmy_1_Br_1_1_Mar - 1 cpmy_2_Ca_1_1_Mar - 1 cpmy_3_Po_1_1_Mar - 1 cpmy_5_Be_1_1_Apr + 1 cpmy_17_To_1_1_Jun + 1 cpmy_18_To_1_1_Jun - 1 uf_161_1_1_May + 1 uf_201_1_1_Jun  <= 0
+ c_uf_202_2_1_Jun: - 1 cpmy_93_Br_2_1_Mar - 1 cpmy_94_Ca_2_1_Mar - 1 cpmy_95_Po_2_1_Mar - 1 cpmy_97_Be_2_1_Apr + 1 cpmy_109_To_2_1_Jun + 1 cpmy_110_To_2_1_Jun - 1 uf_162_2_1_May + 1 uf_202_2_1_Jun  <= 0
+ c_uf_203_3_1_Jun: - 1 cpmy_185_Br_3_1_Mar - 1 cpmy_186_Ca_3_1_Mar - 1 cpmy_187_Po_3_1_Mar - 1 cpmy_189_Be_3_1_Apr + 1 cpmy_201_To_3_1_Jun + 1 cpmy_202_To_3_1_Jun - 1 uf_163_3_1_May + 1 uf_203_3_1_Jun  <= 0
+ c_uf_204_4_1_Jun: - 1 cpmy_277_Br_4_1_Mar - 1 cpmy_278_Ca_4_1_Mar - 1 cpmy_279_Po_4_1_Mar - 1 cpmy_281_Be_4_1_Apr + 1 cpmy_293_To_4_1_Jun + 1 cpmy_294_To_4_1_Jun - 1 uf_164_4_1_May + 1 uf_204_4_1_Jun  <= 0
+ c_uf_205_5_1_Jun: - 1 cpmy_369_Br_5_1_Mar - 1 cpmy_370_Ca_5_1_Mar - 1 cpmy_371_Po_5_1_Mar - 1 cpmy_373_Be_5_1_Apr + 1 cpmy_385_To_5_1_Jun + 1 cpmy_386_To_5_1_Jun - 1 uf_165_5_1_May + 1 uf_205_5_1_Jun  <= 0
+ c_uf_206_6_1_Jun: - 1 cpmy_461_Br_6_1_Mar - 1 cpmy_462_Ca_6_1_Mar - 1 cpmy_463_Po_6_1_Mar - 1 cpmy_465_Be_6_1_Apr + 1 cpmy_477_To_6_1_Jun + 1 cpmy_478_To_6_1_Jun - 1 uf_166_6_1_May + 1 uf_206_6_1_Jun  <= 0
+ c_uf_207_7_1_Jun: - 1 cpmy_553_Br_7_1_Mar - 1 cpmy_554_Ca_7_1_Mar - 1 cpmy_555_Po_7_1_Mar - 1 cpmy_557_Be_7_1_Apr + 1 cpmy_569_To_7_1_Jun + 1 cpmy_570_To_7_1_Jun - 1 uf_167_7_1_May + 1 uf_207_7_1_Jun  <= 0
+ c_uf_208_8_1_Jun: - 1 cpmy_645_Br_8_1_Mar - 1 cpmy_646_Ca_8_1_Mar - 1 cpmy_647_Po_8_1_Mar - 1 cpmy_649_Be_8_1_Apr + 1 cpmy_661_To_8_1_Jun + 1 cpmy_662_To_8_1_Jun - 1 uf_168_8_1_May + 1 uf_208_8_1_Jun  <= 0
+ c_uf_209_9_1_Jun: - 1 cpmy_737_Br_9_1_Mar - 1 cpmy_738_Ca_9_1_Mar - 1 cpmy_739_Po_9_1_Mar - 1 cpmy_741_Be_9_1_Apr + 1 cpmy_753_To_9_1_Jun + 1 cpmy_754_To_9_1_Jun - 1 uf_169_9_1_May + 1 uf_209_9_1_Jun  <= 0
+ c_uf_210_A_1_Jun: - 1 cpmy_829_Br_A_1_Mar - 1 cpmy_830_Ca_A_1_Mar - 1 cpmy_831_Po_A_1_Mar - 1 cpmy_833_Be_A_1_Apr + 1 cpmy_845_To_A_1_Jun + 1 cpmy_846_To_A_1_Jun - 1 uf_170_A_1_May + 1 uf_210_A_1_Jun  <= 0
+ c_uf_211_1_2_Jun: - 1 cpmy_24_Br_1_2_Mar - 1 cpmy_25_Ca_1_2_Mar - 1 cpmy_26_Po_1_2_Mar - 1 cpmy_28_Be_1_2_Apr + 1 cpmy_40_To_1_2_Jun + 1 cpmy_41_To_1_2_Jun - 1 uf_171_1_2_May + 1 uf_211_1_2_Jun  <= 0
+ c_uf_212_2_2_Jun: - 1 cpmy_116_Br_2_2_Mar - 1 cpmy_117_Ca_2_2_Mar - 1 cpmy_118_Po_2_2_Mar - 1 cpmy_120_Be_2_2_Apr + 1 cpmy_132_To_2_2_Jun + 1 cpmy_133_To_2_2_Jun - 1 uf_172_2_2_May + 1 uf_212_2_2_Jun  <= 0
+ c_uf_213_3_2_Jun: - 1 cpmy_208_Br_3_2_Mar - 1 cpmy_209_Ca_3_2_Mar - 1 cpmy_210_Po_3_2_Mar - 1 cpmy_212_Be_3_2_Apr + 1 cpmy_224_To_3_2_Jun + 1 cpmy_225_To_3_2_Jun - 1 uf_173_3_2_May + 1 uf_213_3_2_Jun  <= 0
+ c_uf_214_4_2_Jun: - 1 cpmy_300_Br_4_2_Mar - 1 cpmy_301_Ca_4_2_Mar - 1 cpmy_302_Po_4_2_Mar - 1 cpmy_304_Be_4_2_Apr + 1 cpmy_316_To_4_2_Jun + 1 cpmy_317_To_4_2_Jun - 1 uf_174_4_2_May + 1 uf_214_4_2_Jun  <= 0
+ c_uf_215_5_2_Jun: - 1 cpmy_392_Br_5_2_Mar - 1 cpmy_393_Ca_5_2_Mar - 1 cpmy_394_Po_5_2_Mar - 1 cpmy_396_Be_5_2_Apr + 1 cpmy_408_To_5_2_Jun + 1 cpmy_409_To_5_2_Jun - 1 uf_175_5_2_May + 1 uf_215_5_2_Jun  <= 0
+ c_uf_216_6_2_Jun: - 1 cpmy_484_Br_6_2_Mar - 1 cpmy_485_Ca_6_2_Mar - 1 cpmy_486_Po_6_2_Mar - 1 cpmy_488_Be_6_2_Apr + 1 cpmy_500_To_6_2_Jun + 1 cpmy_501_To_6_2_Jun - 1 uf_176_6_2_May + 1 uf_216_6_2_Jun  <= 0
+ c_uf_217_7_2_Jun: - 1 cpmy_576_Br_7_2_Mar - 1 cpmy_577_Ca_7_2_Mar - 1 cpmy_578_Po_7_2_Mar - 1 cpmy_580_Be_7_2_Apr + 1 cpmy_592_To_7_2_Jun + 1 cpmy_593_To_7_2_Jun - 1 uf_177_7_2_May + 1 uf_217_7_2_Jun  <= 0
+ c_uf_218_8_2_Jun: - 1 cpmy_668_Br_8_2_Mar - 1 cpmy_669_Ca_8_2_Mar - 1 cpmy_670_Po_8_2_Mar - 1 cpmy_672_Be_8_2_Apr + 1 cpmy_684_To_8_2_Jun + 1 cpmy_685_To_8_2_Jun - 1 uf_178_8_2_May + 1 uf_218_8_2_Jun  <= 0
+ c_uf_219_9_2_Jun: - 1 cpmy_760_Br_9_2_Mar - 1 cpmy_761_Ca_9_2_Mar - 1 cpmy_762_Po_9_2_Mar - 1 cpmy_764_Be_9_2_Apr + 1 cpmy_776_To_9_2_Jun + 1 cpmy_777_To_9_2_Jun - 1 uf_179_9_2_May + 1 uf_219_9_2_Jun  <= 0
+ c_uf_220_A_2_Jun: - 1 cpmy_852_Br_A_2_Mar - 1 cpmy_853_Ca_A_2_Mar - 1 cpmy_854_Po_A_2_Mar - 1 cpmy_856_Be_A_2_Apr + 1 cpmy_868_To_A_2_Jun + 1 cpmy_869_To_A_2_Jun - 1 uf_180_A_2_May + 1 uf_220_A_2_Jun  <= 0
+ c_uf_221_1_3_Jun: - 1 cpmy_47_Br_1_3_Mar - 1 cpmy_48_Ca_1_3_Mar - 1 cpmy_49_Po_1_3_Mar - 1 cpmy_51_Be_1_3_Apr + 1 cpmy_63_To_1_3_Jun + 1 cpmy_64_To_1_3_Jun - 1 uf_181_1_3_May + 1 uf_221_1_3_Jun  <= 0
+ c_uf_222_2_3_Jun: - 1 cpmy_139_Br_2_3_Mar - 1 cpmy_140_Ca_2_3_Mar - 1 cpmy_141_Po_2_3_Mar - 1 cpmy_143_Be_2_3_Apr + 1 cpmy_155_To_2_3_Jun + 1 cpmy_156_To_2_3_Jun - 1 uf_182_2_3_May + 1 uf_222_2_3_Jun  <= 0
+ c_uf_223_3_3_Jun: - 1 cpmy_231_Br_3_3_Mar - 1 cpmy_232_Ca_3_3_Mar - 1 cpmy_233_Po_3_3_Mar - 1 cpmy_235_Be_3_3_Apr + 1 cpmy_247_To_3_3_Jun + 1 cpmy_248_To_3_3_Jun - 1 uf_183_3_3_May + 1 uf_223_3_3_Jun  <= 0
+ c_uf_224_4_3_Jun: - 1 cpmy_323_Br_4_3_Mar - 1 cpmy_324_Ca_4_3_Mar - 1 cpmy_325_Po_4_3_Mar - 1 cpmy_327_Be_4_3_Apr + 1 cpmy_339_To_4_3_Jun + 1 cpmy_340_To_4_3_Jun - 1 uf_184_4_3_May + 1 uf_224_4_3_Jun  <= 0
+ c_uf_225_5_3_Jun: - 1 cpmy_415_Br_5_3_Mar - 1 cpmy_416_Ca_5_3_Mar - 1 cpmy_417_Po_5_3_Mar - 1 cpmy_419_Be_5_3_Apr + 1 cpmy_431_To_5_3_Jun + 1 cpmy_432_To_5_3_Jun - 1 uf_185_5_3_May + 1 uf_225_5_3_Jun  <= 0
+ c_uf_226_6_3_Jun: - 1 cpmy_507_Br_6_3_Mar - 1 cpmy_508_Ca_6_3_Mar - 1 cpmy_509_Po_6_3_Mar - 1 cpmy_511_Be_6_3_Apr + 1 cpmy_523_To_6_3_Jun + 1 cpmy_524_To_6_3_Jun - 1 uf_186_6_3_May + 1 uf_226_6_3_Jun  <= 0
+ c_uf_227_7_3_Jun: - 1 cpmy_599_Br_7_3_Mar - 1 cpmy_600_Ca_7_3_Mar - 1 cpmy_601_Po_7_3_Mar - 1 cpmy_603_Be_7_3_Apr + 1 cpmy_615_To_7_3_Jun + 1 cpmy_616_To_7_3_Jun - 1 uf_187_7_3_May + 1 uf_227_7_3_Jun  <= 0
+ c_uf_228_8_3_Jun: - 1 cpmy_691_Br_8_3_Mar - 1 cpmy_692_Ca_8_3_Mar - 1 cpmy_693_Po_8_3_Mar - 1 cpmy_695_Be_8_3_Apr + 1 cpmy_707_To_8_3_Jun + 1 cpmy_708_To_8_3_Jun - 1 uf_188_8_3_May + 1 uf_228_8_3_Jun  <= 0
+ c_uf_229_9_3_Jun: - 1 cpmy_783_Br_9_3_Mar - 1 cpmy_784_Ca_9_3_Mar - 1 cpmy_785_Po_9_3_Mar - 1 cpmy_787_Be_9_3_Apr + 1 cpmy_799_To_9_3_Jun + 1 cpmy_800_To_9_3_Jun - 1 uf_189_9_3_May + 1 uf_229_9_3_Jun  <= 0
+ c_uf_230_A_3_Jun: - 1 cpmy_875_Br_A_3_Mar - 1 cpmy_876_Ca_A_3_Mar - 1 cpmy_877_Po_A_3_Mar - 1 cpmy_879_Be_A_3_Apr + 1 cpmy_891_To_A_3_Jun + 1 cpmy_892_To_A_3_Jun - 1 uf_190_A_3_May + 1 uf_230_A_3_Jun  <= 0
+ c_uf_231_1_4_Jun: - 1 cpmy_70_Br_1_4_Mar - 1 cpmy_71_Ca_1_4_Mar - 1 cpmy_72_Po_1_4_Mar - 1 cpmy_74_Be_1_4_Apr + 1 cpmy_86_To_1_4_Jun + 1 cpmy_87_To_1_4_Jun - 1 uf_191_1_4_May + 1 uf_231_1_4_Jun  <= 0
+ c_uf_232_2_4_Jun: - 1 cpmy_162_Br_2_4_Mar - 1 cpmy_163_Ca_2_4_Mar - 1 cpmy_164_Po_2_4_Mar - 1 cpmy_166_Be_2_4_Apr + 1 cpmy_178_To_2_4_Jun + 1 cpmy_179_To_2_4_Jun - 1 uf_192_2_4_May + 1 uf_232_2_4_Jun  <= 0
+ c_uf_233_3_4_Jun: - 1 cpmy_254_Br_3_4_Mar - 1 cpmy_255_Ca_3_4_Mar - 1 cpmy_256_Po_3_4_Mar - 1 cpmy_258_Be_3_4_Apr + 1 cpmy_270_To_3_4_Jun + 1 cpmy_271_To_3_4_Jun - 1 uf_193_3_4_May + 1 uf_233_3_4_Jun  <= 0
+ c_uf_234_4_4_Jun: - 1 cpmy_346_Br_4_4_Mar - 1 cpmy_347_Ca_4_4_Mar - 1 cpmy_348_Po_4_4_Mar - 1 cpmy_350_Be_4_4_Apr + 1 cpmy_362_To_4_4_Jun + 1 cpmy_363_To_4_4_Jun - 1 uf_194_4_4_May + 1 uf_234_4_4_Jun  <= 0
+ c_uf_235_5_4_Jun: - 1 cpmy_438_Br_5_4_Mar - 1 cpmy_439_Ca_5_4_Mar - 1 cpmy_440_Po_5_4_Mar - 1 cpmy_442_Be_5_4_Apr + 1 cpmy_454_To_5_4_Jun + 1 cpmy_455_To_5_4_Jun - 1 uf_195_5_4_May + 1 uf_235_5_4_Jun  <= 0
+ c_uf_236_6_4_Jun: - 1 cpmy_530_Br_6_4_Mar - 1 cpmy_531_Ca_6_4_Mar - 1 cpmy_532_Po_6_4_Mar - 1 cpmy_534_Be_6_4_Apr + 1 cpmy_546_To_6_4_Jun + 1 cpmy_547_To_6_4_Jun - 1 uf_196_6_4_May + 1 uf_236_6_4_Jun  <= 0
+ c_uf_237_7_4_Jun: - 1 cpmy_622_Br_7_4_Mar - 1 cpmy_623_Ca_7_4_Mar - 1 cpmy_624_Po_7_4_Mar - 1 cpmy_626_Be_7_4_Apr + 1 cpmy_638_To_7_4_Jun + 1 cpmy_639_To_7_4_Jun - 1 uf_197_7_4_May + 1 uf_237_7_4_Jun  <= 0
+ c_uf_238_8_4_Jun: - 1 cpmy_714_Br_8_4_Mar - 1 cpmy_715_Ca_8_4_Mar - 1 cpmy_716_Po_8_4_Mar - 1 cpmy_718_Be_8_4_Apr + 1 cpmy_730_To_8_4_Jun + 1 cpmy_731_To_8_4_Jun - 1 uf_198_8_4_May + 1 uf_238_8_4_Jun  <= 0
+ c_uf_239_9_4_Jun: - 1 cpmy_806_Br_9_4_Mar - 1 cpmy_807_Ca_9_4_Mar - 1 cpmy_808_Po_9_4_Mar - 1 cpmy_810_Be_9_4_Apr + 1 cpmy_822_To_9_4_Jun + 1 cpmy_823_To_9_4_Jun - 1 uf_199_9_4_May + 1 uf_239_9_4_Jun  <= 0
+ c_uf_240_A_4_Jun: - 1 cpmy_898_Br_A_4_Mar - 1 cpmy_899_Ca_A_4_Mar - 1 cpmy_900_Po_A_4_Mar - 1 cpmy_902_Be_A_4_Apr + 1 cpmy_914_To_A_4_Jun + 1 cpmy_915_To_A_4_Jun - 1 uf_200_A_4_May + 1 uf_240_A_4_Jun  <= 0
+ c_uf_241_1_1_Jul: - 1 cpmy_4_Po_1_1_Mar - 1 cpmy_6_Br_1_1_Apr - 1 cpmy_7_Ca_1_1_Apr - 1 cpmy_8_Po_1_1_Apr - 1 cpmy_12_Be_1_1_May + 1 cpmy_19_To_1_1_Jul + 1 cpmy_20_To_1_1_Jul - 1 uf_201_1_1_Jun + 1 uf_241_1_1_Jul  <= 0
+ c_uf_242_2_1_Jul: - 1 cpmy_96_Po_2_1_Mar - 1 cpmy_98_Br_2_1_Apr - 1 cpmy_99_Ca_2_1_Apr - 1 cpmy_100_Po_2_1_Apr - 1 cpmy_104_Be_2_1_May + 1 cpmy_111_To_2_1_Jul + 1 cpmy_112_To_2_1_Jul - 1 uf_202_2_1_Jun + 1 uf_242_2_1_Jul  <= 0
+ c_uf_243_3_1_Jul: - 1 cpmy_188_Po_3_1_Mar - 1 cpmy_190_Br_3_1_Apr - 1 cpmy_191_Ca_3_1_Apr - 1 cpmy_192_Po_3_1_Apr - 1 cpmy_196_Be_3_1_May + 1 cpmy_203_To_3_1_Jul + 1 cpmy_204_To_3_1_Jul - 1 uf_203_3_1_Jun + 1 uf_243_3_1_Jul  <= 0
+ c_uf_244_4_1_Jul: - 1 cpmy_280_Po_4_1_Mar - 1 cpmy_282_Br_4_1_Apr - 1 cpmy_283_Ca_4_1_Apr - 1 cpmy_284_Po_4_1_Apr - 1 cpmy_288_Be_4_1_May + 1 cpmy_295_To_4_1_Jul + 1 cpmy_296_To_4_1_Jul - 1 uf_204_4_1_Jun + 1 uf_244_4_1_Jul  <= 0
+ c_uf_245_5_1_Jul: - 1 cpmy_372_Po_5_1_Mar - 1 cpmy_374_Br_5_1_Apr - 1 cpmy_375_Ca_5_1_Apr - 1 cpmy_376_Po_5_1_Apr - 1 cpmy_380_Be_5_1_May + 1 cpmy_387_To_5_1_Jul + 1 cpmy_388_To_5_1_Jul - 1 uf_205_5_1_Jun + 1 uf_245_5_1_Jul  <= 0
+ c_uf_246_6_1_Jul: - 1 cpmy_464_Po_6_1_Mar - 1 cpmy_466_Br_6_1_Apr - 1 cpmy_467_Ca_6_1_Apr - 1 cpmy_468_Po_6_1_Apr - 1 cpmy_472_Be_6_1_May + 1 cpmy_479_To_6_1_Jul + 1 cpmy_480_To_6_1_Jul - 1 uf_206_6_1_Jun + 1 uf_246_6_1_Jul  <= 0
+ c_uf_247_7_1_Jul: - 1 cpmy_556_Po_7_1_Mar - 1 cpmy_558_Br_7_1_Apr - 1 cpmy_559_Ca_7_1_Apr - 1 cpmy_560_Po_7_1_Apr - 1 cpmy_564_Be_7_1_May + 1 cpmy_571_To_7_1_Jul + 1 cpmy_572_To_7_1_Jul - 1 uf_207_7_1_Jun + 1 uf_247_7_1_Jul  <= 0
+ c_uf_248_8_1_Jul: - 1 cpmy_648_Po_8_1_Mar - 1 cpmy_650_Br_8_1_Apr - 1 cpmy_651_Ca_8_1_Apr - 1 cpmy_652_Po_8_1_Apr - 1 cpmy_656_Be_8_1_May + 1 cpmy_663_To_8_1_Jul + 1 cpmy_664_To_8_1_Jul - 1 uf_208_8_1_Jun + 1 uf_248_8_1_Jul  <= 0
+ c_uf_249_9_1_Jul: - 1 cpmy_740_Po_9_1_Mar - 1 cpmy_742_Br_9_1_Apr - 1 cpmy_743_Ca_9_1_Apr - 1 cpmy_744_Po_9_1_Apr - 1 cpmy_748_Be_9_1_May + 1 cpmy_755_To_9_1_Jul + 1 cpmy_756_To_9_1_Jul - 1 uf_209_9_1_Jun + 1 uf_249_9_1_Jul  <= 0
+ c_uf_250_A_1_Jul: - 1 cpmy_832_Po_A_1_Mar - 1 cpmy_834_Br_A_1_Apr - 1 cpmy_835_Ca_A_1_Apr - 1 cpmy_836_Po_A_1_Apr - 1 cpmy_840_Be_A_1_May + 1 cpmy_847_To_A_1_Jul + 1 cpmy_848_To_A_1_Jul - 1 uf_210_A_1_Jun + 1 uf_250_A_1_Jul  <= 0
+ c_uf_251_1_2_Jul: - 1 cpmy_27_Po_1_2_Mar - 1 cpmy_29_Br_1_2_Apr - 1 cpmy_30_Ca_1_2_Apr - 1 cpmy_31_Po_1_2_Apr - 1 cpmy_35_Be_1_2_May + 1 cpmy_42_To_1_2_Jul + 1 cpmy_43_To_1_2_Jul - 1 uf_211_1_2_Jun + 1 uf_251_1_2_Jul  <= 0
+ c_uf_252_2_2_Jul: - 1 cpmy_119_Po_2_2_Mar - 1 cpmy_121_Br_2_2_Apr - 1 cpmy_122_Ca_2_2_Apr - 1 cpmy_123_Po_2_2_Apr - 1 cpmy_127_Be_2_2_May + 1 cpmy_134_To_2_2_Jul + 1 cpmy_135_To_2_2_Jul - 1 uf_212_2_2_Jun + 1 uf_252_2_2_Jul  <= 0
+ c_uf_253_3_2_Jul: - 1 cpmy_211_Po_3_2_Mar - 1 cpmy_213_Br_3_2_Apr - 1 cpmy_214_Ca_3_2_Apr - 1 cpmy_215_Po_3_2_Apr - 1 cpmy_219_Be_3_2_May + 1 cpmy_226_To_3_2_Jul + 1 cpmy_227_To_3_2_Jul - 1 uf_213_3_2_Jun + 1 uf_253_3_2_Jul  <= 0
+ c_uf_254_4_2_Jul: - 1 cpmy_303_Po_4_2_Mar - 1 cpmy_305_Br_4_2_Apr - 1 cpmy_306_Ca_4_2_Apr - 1 cpmy_307_Po_4_2_Apr - 1 cpmy_311_Be_4_2_May + 1 cpmy_318_To_4_2_Jul + 1 cpmy_319_To_4_2_Jul - 1 uf_214_4_2_Jun + 1 uf_254_4_2_Jul  <= 0
+ c_uf_255_5_2_Jul: - 1 cpmy_395_Po_5_2_Mar - 1 cpmy_397_Br_5_2_Apr - 1 cpmy_398_Ca_5_2_Apr - 1 cpmy_399_Po_5_2_Apr - 1 cpmy_403_Be_5_2_May + 1 cpmy_410_To_5_2_Jul + 1 cpmy_411_To_5_2_Jul - 1 uf_215_5_2_Jun + 1 uf_255_5_2_Jul  <= 0
+ c_uf_256_6_2_Jul: - 1 cpmy_487_Po_6_2_Mar - 1 cpmy_489_Br_6_2_Apr - 1 cpmy_490_Ca_6_2_Apr - 1 cpmy_491_Po_6_2_Apr - 1 cpmy_495_Be_6_2_May + 1 cpmy_502_To_6_2_Jul + 1 cpmy_503_To_6_2_Jul - 1 uf_216_6_2_Jun + 1 uf_256_6_2_Jul  <= 0
+ c_uf_257_7_2_Jul: - 1 cpmy_579_Po_7_2_Mar - 1 cpmy_581_Br_7_2_Apr - 1 cpmy_582_Ca_7_2_Apr - 1 cpmy_583_Po_7_2_Apr - 1 cpmy_587_Be_7_2_May + 1 cpmy_594_To_7_2_Jul + 1 cpmy_595_To_7_2_Jul - 1 uf_217_7_2_Jun + 1 uf_257_7_2_Jul  <= 0
+ c_uf_258_8_2_Jul: - 1 cpmy_671_Po_8_2_Mar - 1 cpmy_673_Br_8_2_Apr - 1 cpmy_674_Ca_8_2_Apr - 1 cpmy_675_Po_8_2_Apr - 1 cpmy_679_Be_8_2_May + 1 cpmy_686_To_8_2_Jul + 1 cpmy_687_To_8_2_Jul - 1 uf_218_8_2_Jun + 1 uf_258_8_2_Jul  <= 0
+ c_uf_259_9_2_Jul: - 1 cpmy_763_Po_9_2_Mar - 1 cpmy_765_Br_9_2_Apr - 1 cpmy_766_Ca_9_2_Apr - 1 cpmy_767_Po_9_2_Apr - 1 cpmy_771_Be_9_2_May + 1 cpmy_778_To_9_2_Jul + 1 cpmy_779_To_9_2_Jul - 1 uf_219_9_2_Jun + 1 uf_259_9_2_Jul  <= 0
+ c_uf_260_A_2_Jul: - 1 cpmy_855_Po_A_2_Mar - 1 cpmy_857_Br_A_2_Apr - 1 cpmy_858_Ca_A_2_Apr - 1 cpmy_859_Po_A_2_Apr - 1 cpmy_863_Be_A_2_May + 1 cpmy_870_To_A_2_Jul + 1 cpmy_871_To_A_2_Jul - 1 uf_220_A_2_Jun + 1 uf_260_A_2_Jul  <= 0
+ c_uf_261_1_3_Jul: - 1 cpmy_50_Po_1_3_Mar - 1 cpmy_52_Br_1_3_Apr - 1 cpmy_53_Ca_1_3_Apr - 1 cpmy_54_Po_1_3_Apr - 1 cpmy_58_Be_1_3_May + 1 cpmy_65_To_1_3_Jul + 1 cpmy_66_To_1_3_Jul - 1 uf_221_1_3_Jun + 1 uf_261_1_3_Jul  <= 0
+ c_uf_262_2_3_Jul: - 1 cpmy_142_Po_2_3_Mar - 1 cpmy_144_Br_2_3_Apr - 1 cpmy_145_Ca_2_3_Apr - 1 cpmy_146_Po_2_3_Apr - 1 cpmy_150_Be_2_3_May + 1 cpmy_157_To_2_3_Jul + 1 cpmy_158_To_2_3_Jul - 1 uf_222_2_3_Jun + 1 uf_262_2_3_Jul  <= 0
+ c_uf_263_3_3_Jul: - 1 cpmy_234_Po_3_3_Mar - 1 cpmy_236_Br_3_3_Apr - 1 cpmy_237_Ca_3_3_Apr - 1 cpmy_238_Po_3_3_Apr - 1 cpmy_242_Be_3_3_May + 1 cpmy_249_To_3_3_Jul + 1 cpmy_250_To_3_3_Jul - 1 uf_223_3_3_Jun + 1 uf_263_3_3_Jul  <= 0
+ c_uf_264_4_3_Jul: - 1 cpmy_326_Po_4_3_Mar - 1 cpmy_328_Br_4_3_Apr - 1 cpmy_329_Ca_4_3_Apr - 1 cpmy_330_Po_4_3_Apr - 1 cpmy_334_Be_4_3_May + 1 cpmy_341_To_4_3_Jul + 1 cpmy_342_To_4_3_Jul - 1 uf_224_4_3_Jun + 1 uf_264_4_3_Jul  <= 0
+ c_uf_265_5_3_Jul: - 1 cpmy_418_Po_5_3_Mar - 1 cpmy_420_Br_5_3_Apr - 1 cpmy_421_Ca_5_3_Apr - 1 cpmy_422_Po_5_3_Apr - 1 cpmy_426_Be_5_3_May + 1 cpmy_433_To_5_3_Jul + 1 cpmy_434_To_5_3_Jul - 1 uf_225_5_3_Jun + 1 uf_265_5_3_Jul  <= 0
+ c_uf_266_6_3_Jul: - 1 cpmy_510_Po_6_3_Mar - 1 cpmy_512_Br_6_3_Apr - 1 cpmy_513_Ca_6_3_Apr - 1 cpmy_514_Po_6_3_Apr - 1 cpmy_518_Be_6_3_May + 1 cpmy_525_To_6_3_Jul + 1 cpmy_526_To_6_3_Jul - 1 uf_226_6_3_Jun + 1 uf_266_6_3_Jul  <= 0
+ c_uf_267_7_3_Jul: - 1 cpmy_602_Po_7_3_Mar - 1 cpmy_604_Br_7_3_Apr - 1 cpmy_605_Ca_7_3_Apr - 1 cpmy_606_Po_7_3_Apr - 1 cpmy_610_Be_7_3_May + 1 cpmy_617_To_7_3_Jul + 1 cpmy_618_To_7_3_Jul - 1 uf_227_7_3_Jun + 1 uf_267_7_3_Jul  <= 0
+ c_uf_268_8_3_Jul: - 1 cpmy_694_Po_8_3_Mar - 1 cpmy_696_Br_8_3_Apr - 1 cpmy_697_Ca_8_3_Apr - 1 cpmy_698_Po_8_3_Apr - 1 cpmy_702_Be_8_3_May + 1 cpmy_709_To_8_3_Jul + 1 cpmy_710_To_8_3_Jul - 1 uf_228_8_3_Jun + 1 uf_268_8_3_Jul  <= 0
+ c_uf_269_9_3_Jul: - 1 cpmy_786_Po_9_3_Mar - 1 cpmy_788_Br_9_3_Apr - 1 cpmy_789_Ca_9_3_Apr - 1 cpmy_790_Po_9_3_Apr - 1 cpmy_794_Be_9_3_May + 1 cpmy_801_To_9_3_Jul + 1 cpmy_802_To_9_3_Jul - 1 uf_229_9_3_Jun + 1 uf_269_9_3_Jul  <= 0
+ c_uf_270_A_3_Jul: - 1 cpmy_878_Po_A_3_Mar - 1 cpmy_880_Br_A_3_Apr - 1 cpmy_881_Ca_A_3_Apr - 1 cpmy_882_Po_A_3_Apr - 1 cpmy_886_Be_A_3_May + 1 cpmy_893_To_A_3_Jul + 1 cpmy_894_To_A_3_Jul - 1 uf_230_A_3_Jun + 1 uf_270_A_3_Jul  <= 0
+ c_uf_271_1_4_Jul: - 1 cpmy_73_Po_1_4_Mar - 1 cpmy_75_Br_1_4_Apr - 1 cpmy_76_Ca_1_4_Apr - 1 cpmy_77_Po_1_4_Apr - 1 cpmy_81_Be_1_4_May + 1 cpmy_88_To_1_4_Jul + 1 cpmy_89_To_1_4_Jul - 1 uf_231_1_4_Jun + 1 uf_271_1_4_Jul  <= 0
+ c_uf_272_2_4_Jul: - 1 cpmy_165_Po_2_4_Mar - 1 cpmy_167_Br_2_4_Apr - 1 cpmy_168_Ca_2_4_Apr - 1 cpmy_169_Po_2_4_Apr - 1 cpmy_173_Be_2_4_May + 1 cpmy_180_To_2_4_Jul + 1 cpmy_181_To_2_4_Jul - 1 uf_232_2_4_Jun + 1 uf_272_2_4_Jul  <= 0
+ c_uf_273_3_4_Jul: - 1 cpmy_257_Po_3_4_Mar - 1 cpmy_259_Br_3_4_Apr - 1 cpmy_260_Ca_3_4_Apr - 1 cpmy_261_Po_3_4_Apr - 1 cpmy_265_Be_3_4_May + 1 cpmy_272_To_3_4_Jul + 1 cpmy_273_To_3_4_Jul - 1 uf_233_3_4_Jun + 1 uf_273_3_4_Jul  <= 0
+ c_uf_274_4_4_Jul: - 1 cpmy_349_Po_4_4_Mar - 1 cpmy_351_Br_4_4_Apr - 1 cpmy_352_Ca_4_4_Apr - 1 cpmy_353_Po_4_4_Apr - 1 cpmy_357_Be_4_4_May + 1 cpmy_364_To_4_4_Jul + 1 cpmy_365_To_4_4_Jul - 1 uf_234_4_4_Jun + 1 uf_274_4_4_Jul  <= 0
+ c_uf_275_5_4_Jul: - 1 cpmy_441_Po_5_4_Mar - 1 cpmy_443_Br_5_4_Apr - 1 cpmy_444_Ca_5_4_Apr - 1 cpmy_445_Po_5_4_Apr - 1 cpmy_449_Be_5_4_May + 1 cpmy_456_To_5_4_Jul + 1 cpmy_457_To_5_4_Jul - 1 uf_235_5_4_Jun + 1 uf_275_5_4_Jul  <= 0
+ c_uf_276_6_4_Jul: - 1 cpmy_533_Po_6_4_Mar - 1 cpmy_535_Br_6_4_Apr - 1 cpmy_536_Ca_6_4_Apr - 1 cpmy_537_Po_6_4_Apr - 1 cpmy_541_Be_6_4_May + 1 cpmy_548_To_6_4_Jul + 1 cpmy_549_To_6_4_Jul - 1 uf_236_6_4_Jun + 1 uf_276_6_4_Jul  <= 0
+ c_uf_277_7_4_Jul: - 1 cpmy_625_Po_7_4_Mar - 1 cpmy_627_Br_7_4_Apr - 1 cpmy_628_Ca_7_4_Apr - 1 cpmy_629_Po_7_4_Apr - 1 cpmy_633_Be_7_4_May + 1 cpmy_640_To_7_4_Jul + 1 cpmy_641_To_7_4_Jul - 1 uf_237_7_4_Jun + 1 uf_277_7_4_Jul  <= 0
+ c_uf_278_8_4_Jul: - 1 cpmy_717_Po_8_4_Mar - 1 cpmy_719_Br_8_4_Apr - 1 cpmy_720_Ca_8_4_Apr - 1 cpmy_721_Po_8_4_Apr - 1 cpmy_725_Be_8_4_May + 1 cpmy_732_To_8_4_Jul + 1 cpmy_733_To_8_4_Jul - 1 uf_238_8_4_Jun + 1 uf_278_8_4_Jul  <= 0
+ c_uf_279_9_4_Jul: - 1 cpmy_809_Po_9_4_Mar - 1 cpmy_811_Br_9_4_Apr - 1 cpmy_812_Ca_9_4_Apr - 1 cpmy_813_Po_9_4_Apr - 1 cpmy_817_Be_9_4_May + 1 cpmy_824_To_9_4_Jul + 1 cpmy_825_To_9_4_Jul - 1 uf_239_9_4_Jun + 1 uf_279_9_4_Jul  <= 0
+ c_uf_280_A_4_Jul: - 1 cpmy_901_Po_A_4_Mar - 1 cpmy_903_Br_A_4_Apr - 1 cpmy_904_Ca_A_4_Apr - 1 cpmy_905_Po_A_4_Apr - 1 cpmy_909_Be_A_4_May + 1 cpmy_916_To_A_4_Jul + 1 cpmy_917_To_A_4_Jul - 1 uf_240_A_4_Jun + 1 uf_280_A_4_Jul  <= 0
+ c_uf_281_1_1_Aug: - 1 cpmy_9_Po_1_1_Apr - 1 cpmy_10_To_1_1_Apr - 1 cpmy_11_To_1_1_Apr - 1 cpmy_13_Po_1_1_May + 1 cpmy_21_Br_1_1_Aug + 1 cpmy_22_Br_1_1_Aug + 1 cpmy_23_Ru_1_1_Aug - 1 uf_241_1_1_Jul + 1 uf_281_1_1_Aug  <= 0
+ c_uf_282_2_1_Aug: - 1 cpmy_101_Po_2_1_Apr - 1 cpmy_102_To_2_1_Apr - 1 cpmy_103_To_2_1_Apr - 1 cpmy_105_Po_2_1_May + 1 cpmy_113_Br_2_1_Aug + 1 cpmy_114_Br_2_1_Aug + 1 cpmy_115_Ru_2_1_Aug - 1 uf_242_2_1_Jul + 1 uf_282_2_1_Aug  <= 0
+ c_uf_283_3_1_Aug: - 1 cpmy_193_Po_3_1_Apr - 1 cpmy_194_To_3_1_Apr - 1 cpmy_195_To_3_1_Apr - 1 cpmy_197_Po_3_1_May + 1 cpmy_205_Br_3_1_Aug + 1 cpmy_206_Br_3_1_Aug + 1 cpmy_207_Ru_3_1_Aug - 1 uf_243_3_1_Jul + 1 uf_283_3_1_Aug  <= 0
+ c_uf_284_4_1_Aug: - 1 cpmy_285_Po_4_1_Apr - 1 cpmy_286_To_4_1_Apr - 1 cpmy_287_To_4_1_Apr - 1 cpmy_289_Po_4_1_May + 1 cpmy_297_Br_4_1_Aug + 1 cpmy_298_Br_4_1_Aug + 1 cpmy_299_Ru_4_1_Aug - 1 uf_244_4_1_Jul + 1 uf_284_4_1_Aug  <= 0
+ c_uf_285_5_1_Aug: - 1 cpmy_377_Po_5_1_Apr - 1 cpmy_378_To_5_1_Apr - 1 cpmy_379_To_5_1_Apr - 1 cpmy_381_Po_5_1_May + 1 cpmy_389_Br_5_1_Aug + 1 cpmy_390_Br_5_1_Aug + 1 cpmy_391_Ru_5_1_Aug - 1 uf_245_5_1_Jul + 1 uf_285_5_1_Aug  <= 0
+ c_uf_286_6_1_Aug: - 1 cpmy_469_Po_6_1_Apr - 1 cpmy_470_To_6_1_Apr - 1 cpmy_471_To_6_1_Apr - 1 cpmy_473_Po_6_1_May + 1 cpmy_481_Br_6_1_Aug + 1 cpmy_482_Br_6_1_Aug + 1 cpmy_483_Ru_6_1_Aug - 1 uf_246_6_1_Jul + 1 uf_286_6_1_Aug  <= 0
+ c_uf_287_7_1_Aug: - 1 cpmy_561_Po_7_1_Apr - 1 cpmy_562_To_7_1_Apr - 1 cpmy_563_To_7_1_Apr - 1 cpmy_565_Po_7_1_May + 1 cpmy_573_Br_7_1_Aug + 1 cpmy_574_Br_7_1_Aug + 1 cpmy_575_Ru_7_1_Aug - 1 uf_247_7_1_Jul + 1 uf_287_7_1_Aug  <= 0
+ c_uf_288_8_1_Aug: - 1 cpmy_653_Po_8_1_Apr - 1 cpmy_654_To_8_1_Apr - 1 cpmy_655_To_8_1_Apr - 1 cpmy_657_Po_8_1_May + 1 cpmy_665_Br_8_1_Aug + 1 cpmy_666_Br_8_1_Aug + 1 cpmy_667_Ru_8_1_Aug - 1 uf_248_8_1_Jul + 1 uf_288_8_1_Aug  <= 0
+ c_uf_289_9_1_Aug: - 1 cpmy_745_Po_9_1_Apr - 1 cpmy_746_To_9_1_Apr - 1 cpmy_747_To_9_1_Apr - 1 cpmy_749_Po_9_1_May + 1 cpmy_757_Br_9_1_Aug + 1 cpmy_758_Br_9_1_Aug + 1 cpmy_759_Ru_9_1_Aug - 1 uf_249_9_1_Jul + 1 uf_289_9_1_Aug  <= 0
+ c_uf_290_A_1_Aug: - 1 cpmy_837_Po_A_1_Apr - 1 cpmy_838_To_A_1_Apr - 1 cpmy_839_To_A_1_Apr - 1 cpmy_841_Po_A_1_May + 1 cpmy_849_Br_A_1_Aug + 1 cpmy_850_Br_A_1_Aug + 1 cpmy_851_Ru_A_1_Aug - 1 uf_250_A_1_Jul + 1 uf_290_A_1_Aug  <= 0
+ c_uf_291_1_2_Aug: - 1 cpmy_32_Po_1_2_Apr - 1 cpmy_33_To_1_2_Apr - 1 cpmy_34_To_1_2_Apr - 1 cpmy_36_Po_1_2_May + 1 cpmy_44_Br_1_2_Aug + 1 cpmy_45_Br_1_2_Aug + 1 cpmy_46_Ru_1_2_Aug - 1 uf_251_1_2_Jul + 1 uf_291_1_2_Aug  <= 0
+ c_uf_292_2_2_Aug: - 1 cpmy_124_Po_2_2_Apr - 1 cpmy_125_To_2_2_Apr - 1 cpmy_126_To_2_2_Apr - 1 cpmy_128_Po_2_2_May + 1 cpmy_136_Br_2_2_Aug + 1 cpmy_137_Br_2_2_Aug + 1 cpmy_138_Ru_2_2_Aug - 1 uf_252_2_2_Jul + 1 uf_292_2_2_Aug  <= 0
+ c_uf_293_3_2_Aug: - 1 cpmy_216_Po_3_2_Apr - 1 cpmy_217_To_3_2_Apr - 1 cpmy_218_To_3_2_Apr - 1 cpmy_220_Po_3_2_May + 1 cpmy_228_Br_3_2_Aug + 1 cpmy_229_Br_3_2_Aug + 1 cpmy_230_Ru_3_2_Aug - 1 uf_253_3_2_Jul + 1 uf_293_3_2_Aug  <= 0
+ c_uf_294_4_2_Aug: - 1 cpmy_308_Po_4_2_Apr - 1 cpmy_309_To_4_2_Apr - 1 cpmy_310_To_4_2_Apr - 1 cpmy_312_Po_4_2_May + 1 cpmy_320_Br_4_2_Aug + 1 cpmy_321_Br_4_2_Aug + 1 cpmy_322_Ru_4_2_Aug - 1 uf_254_4_2_Jul + 1 uf_294_4_2_Aug  <= 0
+ c_uf_295_5_2_Aug: - 1 cpmy_400_Po_5_2_Apr - 1 cpmy_401_To_5_2_Apr - 1 cpmy_402_To_5_2_Apr - 1 cpmy_404_Po_5_2_May + 1 cpmy_412_Br_5_2_Aug + 1 cpmy_413_Br_5_2_Aug + 1 cpmy_414_Ru_5_2_Aug - 1 uf_255_5_2_Jul + 1 uf_295_5_2_Aug  <= 0
+ c_uf_296_6_2_Aug: - 1 cpmy_492_Po_6_2_Apr - 1 cpmy_493_To_6_2_Apr - 1 cpmy_494_To_6_2_Apr - 1 cpmy_496_Po_6_2_May + 1 cpmy_504_Br_6_2_Aug + 1 cpmy_505_Br_6_2_Aug + 1 cpmy_506_Ru_6_2_Aug - 1 uf_256_6_2_Jul + 1 uf_296_6_2_Aug  <= 0
+ c_uf_297_7_2_Aug: - 1 cpmy_584_Po_7_2_Apr - 1 cpmy_585_To_7_2_Apr - 1 cpmy_586_To_7_2_Apr - 1 cpmy_588_Po_7_2_May + 1 cpmy_596_Br_7_2_Aug + 1 cpmy_597_Br_7_2_Aug + 1 cpmy_598_Ru_7_2_Aug - 1 uf_257_7_2_Jul + 1 uf_297_7_2_Aug  <= 0
+ c_uf_298_8_2_Aug: - 1 cpmy_676_Po_8_2_Apr - 1 cpmy_677_To_8_2_Apr - 1 cpmy_678_To_8_2_Apr - 1 cpmy_680_Po_8_2_May + 1 cpmy_688_Br_8_2_Aug + 1 cpmy_689_Br_8_2_Aug + 1 cpmy_690_Ru_8_2_Aug - 1 uf_258_8_2_Jul + 1 uf_298_8_2_Aug  <= 0
+ c_uf_299_9_2_Aug: - 1 cpmy_768_Po_9_2_Apr - 1 cpmy_769_To_9_2_Apr - 1 cpmy_770_To_9_2_Apr - 1 cpmy_772_Po_9_2_May + 1 cpmy_780_Br_9_2_Aug + 1 cpmy_781_Br_9_2_Aug + 1 cpmy_782_Ru_9_2_Aug - 1 uf_259_9_2_Jul + 1 uf_299_9_2_Aug  <= 0
+ c_uf_300_A_2_Aug: - 1 cpmy_860_Po_A_2_Apr - 1 cpmy_861_To_A_2_Apr - 1 cpmy_862_To_A_2_Apr - 1 cpmy_864_Po_A_2_May + 1 cpmy_872_Br_A_2_Aug + 1 cpmy_873_Br_A_2_Aug + 1 cpmy_874_Ru_A_2_Aug - 1 uf_260_A_2_Jul + 1 uf_300_A_2_Aug  <= 0
+ c_uf_301_1_3_Aug: - 1 cpmy_55_Po_1_3_Apr - 1 cpmy_56_To_1_3_Apr - 1 cpmy_57_To_1_3_Apr - 1 cpmy_59_Po_1_3_May + 1 cpmy_67_Br_1_3_Aug + 1 cpmy_68_Br_1_3_Aug + 1 cpmy_69_Ru_1_3_Aug - 1 uf_261_1_3_Jul + 1 uf_301_1_3_Aug  <= 0
+ c_uf_302_2_3_Aug: - 1 cpmy_147_Po_2_3_Apr - 1 cpmy_148_To_2_3_Apr - 1 cpmy_149_To_2_3_Apr - 1 cpmy_151_Po_2_3_May + 1 cpmy_159_Br_2_3_Aug + 1 cpmy_160_Br_2_3_Aug + 1 cpmy_161_Ru_2_3_Aug - 1 uf_262_2_3_Jul + 1 uf_302_2_3_Aug  <= 0
+ c_uf_303_3_3_Aug: - 1 cpmy_239_Po_3_3_Apr - 1 cpmy_240_To_3_3_Apr - 1 cpmy_241_To_3_3_Apr - 1 cpmy_243_Po_3_3_May + 1 cpmy_251_Br_3_3_Aug + 1 cpmy_252_Br_3_3_Aug + 1 cpmy_253_Ru_3_3_Aug - 1 uf_263_3_3_Jul + 1 uf_303_3_3_Aug  <= 0
+ c_uf_304_4_3_Aug: - 1 cpmy_331_Po_4_3_Apr - 1 cpmy_332_To_4_3_Apr - 1 cpmy_333_To_4_3_Apr - 1 cpmy_335_Po_4_3_May + 1 cpmy_343_Br_4_3_Aug + 1 cpmy_344_Br_4_3_Aug + 1 cpmy_345_Ru_4_3_Aug - 1 uf_264_4_3_Jul + 1 uf_304_4_3_Aug  <= 0
+ c_uf_305_5_3_Aug: - 1 cpmy_423_Po_5_3_Apr - 1 cpmy_424_To_5_3_Apr - 1 cpmy_425_To_5_3_Apr - 1 cpmy_427_Po_5_3_May + 1 cpmy_435_Br_5_3_Aug + 1 cpmy_436_Br_5_3_Aug + 1 cpmy_437_Ru_5_3_Aug - 1 uf_265_5_3_Jul + 1 uf_305_5_3_Aug  <= 0
+ c_uf_306_6_3_Aug: - 1 cpmy_515_Po_6_3_Apr - 1 cpmy_516_To_6_3_Apr - 1 cpmy_517_To_6_3_Apr - 1 cpmy_519_Po_6_3_May + 1 cpmy_527_Br_6_3_Aug + 1 cpmy_528_Br_6_3_Aug + 1 cpmy_529_Ru_6_3_Aug - 1 uf_266_6_3_Jul + 1 uf_306_6_3_Aug  <= 0
+ c_uf_307_7_3_Aug: - 1 cpmy_607_Po_7_3_Apr - 1 cpmy_608_To_7_3_Apr - 1 cpmy_609_To_7_3_Apr - 1 cpmy_611_Po_7_3_May + 1 cpmy_619_Br_7_3_Aug + 1 cpmy_620_Br_7_3_Aug + 1 cpmy_621_Ru_7_3_Aug - 1 uf_267_7_3_Jul + 1 uf_307_7_3_Aug  <= 0
+ c_uf_308_8_3_Aug: - 1 cpmy_699_Po_8_3_Apr - 1 cpmy_700_To_8_3_Apr - 1 cpmy_701_To_8_3_Apr - 1 cpmy_703_Po_8_3_May + 1 cpmy_711_Br_8_3_Aug + 1 cpmy_712_Br_8_3_Aug + 1 cpmy_713_Ru_8_3_Aug - 1 uf_268_8_3_Jul + 1 uf_308_8_3_Aug  <= 0
+ c_uf_309_9_3_Aug: - 1 cpmy_791_Po_9_3_Apr - 1 cpmy_792_To_9_3_Apr - 1 cpmy_793_To_9_3_Apr - 1 cpmy_795_Po_9_3_May + 1 cpmy_803_Br_9_3_Aug + 1 cpmy_804_Br_9_3_Aug + 1 cpmy_805_Ru_9_3_Aug - 1 uf_269_9_3_Jul + 1 uf_309_9_3_Aug  <= 0
+ c_uf_310_A_3_Aug: - 1 cpmy_883_Po_A_3_Apr - 1 cpmy_884_To_A_3_Apr - 1 cpmy_885_To_A_3_Apr - 1 cpmy_887_Po_A_3_May + 1 cpmy_895_Br_A_3_Aug + 1 cpmy_896_Br_A_3_Aug + 1 cpmy_897_Ru_A_3_Aug - 1 uf_270_A_3_Jul + 1 uf_310_A_3_Aug  <= 0
+ c_uf_311_1_4_Aug: - 1 cpmy_78_Po_1_4_Apr - 1 cpmy_79_To_1_4_Apr - 1 cpmy_80_To_1_4_Apr - 1 cpmy_82_Po_1_4_May + 1 cpmy_90_Br_1_4_Aug + 1 cpmy_91_Br_1_4_Aug + 1 cpmy_92_Ru_1_4_Aug - 1 uf_271_1_4_Jul + 1 uf_311_1_4_Aug  <= 0
+ c_uf_312_2_4_Aug: - 1 cpmy_170_Po_2_4_Apr - 1 cpmy_171_To_2_4_Apr - 1 cpmy_172_To_2_4_Apr - 1 cpmy_174_Po_2_4_May + 1 cpmy_182_Br_2_4_Aug + 1 cpmy_183_Br_2_4_Aug + 1 cpmy_184_Ru_2_4_Aug - 1 uf_272_2_4_Jul + 1 uf_312_2_4_Aug  <= 0
+ c_uf_313_3_4_Aug: - 1 cpmy_262_Po_3_4_Apr - 1 cpmy_263_To_3_4_Apr - 1 cpmy_264_To_3_4_Apr - 1 cpmy_266_Po_3_4_May + 1 cpmy_274_Br_3_4_Aug + 1 cpmy_275_Br_3_4_Aug + 1 cpmy_276_Ru_3_4_Aug - 1 uf_273_3_4_Jul + 1 uf_313_3_4_Aug  <= 0
+ c_uf_314_4_4_Aug: - 1 cpmy_354_Po_4_4_Apr - 1 cpmy_355_To_4_4_Apr - 1 cpmy_356_To_4_4_Apr - 1 cpmy_358_Po_4_4_May + 1 cpmy_366_Br_4_4_Aug + 1 cpmy_367_Br_4_4_Aug + 1 cpmy_368_Ru_4_4_Aug - 1 uf_274_4_4_Jul + 1 uf_314_4_4_Aug  <= 0
+ c_uf_315_5_4_Aug: - 1 cpmy_446_Po_5_4_Apr - 1 cpmy_447_To_5_4_Apr - 1 cpmy_448_To_5_4_Apr - 1 cpmy_450_Po_5_4_May + 1 cpmy_458_Br_5_4_Aug + 1 cpmy_459_Br_5_4_Aug + 1 cpmy_460_Ru_5_4_Aug - 1 uf_275_5_4_Jul + 1 uf_315_5_4_Aug  <= 0
+ c_uf_316_6_4_Aug: - 1 cpmy_538_Po_6_4_Apr - 1 cpmy_539_To_6_4_Apr - 1 cpmy_540_To_6_4_Apr - 1 cpmy_542_Po_6_4_May + 1 cpmy_550_Br_6_4_Aug + 1 cpmy_551_Br_6_4_Aug + 1 cpmy_552_Ru_6_4_Aug - 1 uf_276_6_4_Jul + 1 uf_316_6_4_Aug  <= 0
+ c_uf_317_7_4_Aug: - 1 cpmy_630_Po_7_4_Apr - 1 cpmy_631_To_7_4_Apr - 1 cpmy_632_To_7_4_Apr - 1 cpmy_634_Po_7_4_May + 1 cpmy_642_Br_7_4_Aug + 1 cpmy_643_Br_7_4_Aug + 1 cpmy_644_Ru_7_4_Aug - 1 uf_277_7_4_Jul + 1 uf_317_7_4_Aug  <= 0
+ c_uf_318_8_4_Aug: - 1 cpmy_722_Po_8_4_Apr - 1 cpmy_723_To_8_4_Apr - 1 cpmy_724_To_8_4_Apr - 1 cpmy_726_Po_8_4_May + 1 cpmy_734_Br_8_4_Aug + 1 cpmy_735_Br_8_4_Aug + 1 cpmy_736_Ru_8_4_Aug - 1 uf_278_8_4_Jul + 1 uf_318_8_4_Aug  <= 0
+ c_uf_319_9_4_Aug: - 1 cpmy_814_Po_9_4_Apr - 1 cpmy_815_To_9_4_Apr - 1 cpmy_816_To_9_4_Apr - 1 cpmy_818_Po_9_4_May + 1 cpmy_826_Br_9_4_Aug + 1 cpmy_827_Br_9_4_Aug + 1 cpmy_828_Ru_9_4_Aug - 1 uf_279_9_4_Jul + 1 uf_319_9_4_Aug  <= 0
+ c_uf_320_A_4_Aug: - 1 cpmy_906_Po_A_4_Apr - 1 cpmy_907_To_A_4_Apr - 1 cpmy_908_To_A_4_Apr - 1 cpmy_910_Po_A_4_May + 1 cpmy_918_Br_A_4_Aug + 1 cpmy_919_Br_A_4_Aug + 1 cpmy_920_Ru_A_4_Aug - 1 uf_280_A_4_Jul + 1 uf_320_A_4_Aug  <= 0
+ c_uf_321_1_1_Sep: - 1 cpmy_14_Po_1_1_May - 1 cpmy_15_To_1_1_May - 1 cpmy_16_To_1_1_May - 1 uf_281_1_1_Aug + 1 uf_321_1_1_Sep  <= 0
+ c_uf_322_2_1_Sep: - 1 cpmy_106_Po_2_1_May - 1 cpmy_107_To_2_1_May - 1 cpmy_108_To_2_1_May - 1 uf_282_2_1_Aug + 1 uf_322_2_1_Sep  <= 0
+ c_uf_323_3_1_Sep: - 1 cpmy_198_Po_3_1_May - 1 cpmy_199_To_3_1_May - 1 cpmy_200_To_3_1_May - 1 uf_283_3_1_Aug + 1 uf_323_3_1_Sep  <= 0
+ c_uf_324_4_1_Sep: - 1 cpmy_290_Po_4_1_May - 1 cpmy_291_To_4_1_May - 1 cpmy_292_To_4_1_May - 1 uf_284_4_1_Aug + 1 uf_324_4_1_Sep  <= 0
+ c_uf_325_5_1_Sep: - 1 cpmy_382_Po_5_1_May - 1 cpmy_383_To_5_1_May - 1 cpmy_384_To_5_1_May - 1 uf_285_5_1_Aug + 1 uf_325_5_1_Sep  <= 0
+ c_uf_326_6_1_Sep: - 1 cpmy_474_Po_6_1_May - 1 cpmy_475_To_6_1_May - 1 cpmy_476_To_6_1_May - 1 uf_286_6_1_Aug + 1 uf_326_6_1_Sep  <= 0
+ c_uf_327_7_1_Sep: - 1 cpmy_566_Po_7_1_May - 1 cpmy_567_To_7_1_May - 1 cpmy_568_To_7_1_May - 1 uf_287_7_1_Aug + 1 uf_327_7_1_Sep  <= 0
+ c_uf_328_8_1_Sep: - 1 cpmy_658_Po_8_1_May - 1 cpmy_659_To_8_1_May - 1 cpmy_660_To_8_1_May - 1 uf_288_8_1_Aug + 1 uf_328_8_1_Sep  <= 0
+ c_uf_329_9_1_Sep: - 1 cpmy_750_Po_9_1_May - 1 cpmy_751_To_9_1_May - 1 cpmy_752_To_9_1_May - 1 uf_289_9_1_Aug + 1 uf_329_9_1_Sep  <= 0
+ c_uf_330_A_1_Sep: - 1 cpmy_842_Po_A_1_May - 1 cpmy_843_To_A_1_May - 1 cpmy_844_To_A_1_May - 1 uf_290_A_1_Aug + 1 uf_330_A_1_Sep  <= 0
+ c_uf_331_1_2_Sep: - 1 cpmy_37_Po_1_2_May - 1 cpmy_38_To_1_2_May - 1 cpmy_39_To_1_2_May - 1 uf_291_1_2_Aug + 1 uf_331_1_2_Sep  <= 0
+ c_uf_332_2_2_Sep: - 1 cpmy_129_Po_2_2_May - 1 cpmy_130_To_2_2_May - 1 cpmy_131_To_2_2_May - 1 uf_292_2_2_Aug + 1 uf_332_2_2_Sep  <= 0
+ c_uf_333_3_2_Sep: - 1 cpmy_221_Po_3_2_May - 1 cpmy_222_To_3_2_May - 1 cpmy_223_To_3_2_May - 1 uf_293_3_2_Aug + 1 uf_333_3_2_Sep  <= 0
+ c_uf_334_4_2_Sep: - 1 cpmy_313_Po_4_2_May - 1 cpmy_314_To_4_2_May - 1 cpmy_315_To_4_2_May - 1 uf_294_4_2_Aug + 1 uf_334_4_2_Sep  <= 0
+ c_uf_335_5_2_Sep: - 1 cpmy_405_Po_5_2_May - 1 cpmy_406_To_5_2_May - 1 cpmy_407_To_5_2_May - 1 uf_295_5_2_Aug + 1 uf_335_5_2_Sep  <= 0
+ c_uf_336_6_2_Sep: - 1 cpmy_497_Po_6_2_May - 1 cpmy_498_To_6_2_May - 1 cpmy_499_To_6_2_May - 1 uf_296_6_2_Aug + 1 uf_336_6_2_Sep  <= 0
+ c_uf_337_7_2_Sep: - 1 cpmy_589_Po_7_2_May - 1 cpmy_590_To_7_2_May - 1 cpmy_591_To_7_2_May - 1 uf_297_7_2_Aug + 1 uf_337_7_2_Sep  <= 0
+ c_uf_338_8_2_Sep: - 1 cpmy_681_Po_8_2_May - 1 cpmy_682_To_8_2_May - 1 cpmy_683_To_8_2_May - 1 uf_298_8_2_Aug + 1 uf_338_8_2_Sep  <= 0
+ c_uf_339_9_2_Sep: - 1 cpmy_773_Po_9_2_May - 1 cpmy_774_To_9_2_May - 1 cpmy_775_To_9_2_May - 1 uf_299_9_2_Aug + 1 uf_339_9_2_Sep  <= 0
+ c_uf_340_A_2_Sep: - 1 cpmy_865_Po_A_2_May - 1 cpmy_866_To_A_2_May - 1 cpmy_867_To_A_2_May - 1 uf_300_A_2_Aug + 1 uf_340_A_2_Sep  <= 0
+ c_uf_341_1_3_Sep: - 1 cpmy_60_Po_1_3_May - 1 cpmy_61_To_1_3_May - 1 cpmy_62_To_1_3_May - 1 uf_301_1_3_Aug + 1 uf_341_1_3_Sep  <= 0
+ c_uf_342_2_3_Sep: - 1 cpmy_152_Po_2_3_May - 1 cpmy_153_To_2_3_May - 1 cpmy_154_To_2_3_May - 1 uf_302_2_3_Aug + 1 uf_342_2_3_Sep  <= 0
+ c_uf_343_3_3_Sep: - 1 cpmy_244_Po_3_3_May - 1 cpmy_245_To_3_3_May - 1 cpmy_246_To_3_3_May - 1 uf_303_3_3_Aug + 1 uf_343_3_3_Sep  <= 0
+ c_uf_344_4_3_Sep: - 1 cpmy_336_Po_4_3_May - 1 cpmy_337_To_4_3_May - 1 cpmy_338_To_4_3_May - 1 uf_304_4_3_Aug + 1 uf_344_4_3_Sep  <= 0
+ c_uf_345_5_3_Sep: - 1 cpmy_428_Po_5_3_May - 1 cpmy_429_To_5_3_May - 1 cpmy_430_To_5_3_May - 1 uf_305_5_3_Aug + 1 uf_345_5_3_Sep  <= 0
+ c_uf_346_6_3_Sep: - 1 cpmy_520_Po_6_3_May - 1 cpmy_521_To_6_3_May - 1 cpmy_522_To_6_3_May - 1 uf_306_6_3_Aug + 1 uf_346_6_3_Sep  <= 0
+ c_uf_347_7_3_Sep: - 1 cpmy_612_Po_7_3_May - 1 cpmy_613_To_7_3_May - 1 cpmy_614_To_7_3_May - 1 uf_307_7_3_Aug + 1 uf_347_7_3_Sep  <= 0
+ c_uf_348_8_3_Sep: - 1 cpmy_704_Po_8_3_May - 1 cpmy_705_To_8_3_May - 1 cpmy_706_To_8_3_May - 1 uf_308_8_3_Aug + 1 uf_348_8_3_Sep  <= 0
+ c_uf_349_9_3_Sep: - 1 cpmy_796_Po_9_3_May - 1 cpmy_797_To_9_3_May - 1 cpmy_798_To_9_3_May - 1 uf_309_9_3_Aug + 1 uf_349_9_3_Sep  <= 0
+ c_uf_350_A_3_Sep: - 1 cpmy_888_Po_A_3_May - 1 cpmy_889_To_A_3_May - 1 cpmy_890_To_A_3_May - 1 uf_310_A_3_Aug + 1 uf_350_A_3_Sep  <= 0
+ c_uf_351_1_4_Sep: - 1 cpmy_83_Po_1_4_May - 1 cpmy_84_To_1_4_May - 1 cpmy_85_To_1_4_May - 1 uf_311_1_4_Aug + 1 uf_351_1_4_Sep  <= 0
+ c_uf_352_2_4_Sep: - 1 cpmy_175_Po_2_4_May - 1 cpmy_176_To_2_4_May - 1 cpmy_177_To_2_4_May - 1 uf_312_2_4_Aug + 1 uf_352_2_4_Sep  <= 0
+ c_uf_353_3_4_Sep: - 1 cpmy_267_Po_3_4_May - 1 cpmy_268_To_3_4_May - 1 cpmy_269_To_3_4_May - 1 uf_313_3_4_Aug + 1 uf_353_3_4_Sep  <= 0
+ c_uf_354_4_4_Sep: - 1 cpmy_359_Po_4_4_May - 1 cpmy_360_To_4_4_May - 1 cpmy_361_To_4_4_May - 1 uf_314_4_4_Aug + 1 uf_354_4_4_Sep  <= 0
+ c_uf_355_5_4_Sep: - 1 cpmy_451_Po_5_4_May - 1 cpmy_452_To_5_4_May - 1 cpmy_453_To_5_4_May - 1 uf_315_5_4_Aug + 1 uf_355_5_4_Sep  <= 0
+ c_uf_356_6_4_Sep: - 1 cpmy_543_Po_6_4_May - 1 cpmy_544_To_6_4_May - 1 cpmy_545_To_6_4_May - 1 uf_316_6_4_Aug + 1 uf_356_6_4_Sep  <= 0
+ c_uf_357_7_4_Sep: - 1 cpmy_635_Po_7_4_May - 1 cpmy_636_To_7_4_May - 1 cpmy_637_To_7_4_May - 1 uf_317_7_4_Aug + 1 uf_357_7_4_Sep  <= 0
+ c_uf_358_8_4_Sep: - 1 cpmy_727_Po_8_4_May - 1 cpmy_728_To_8_4_May - 1 cpmy_729_To_8_4_May - 1 uf_318_8_4_Aug + 1 uf_358_8_4_Sep  <= 0
+ c_uf_359_9_4_Sep: - 1 cpmy_819_Po_9_4_May - 1 cpmy_820_To_9_4_May - 1 cpmy_821_To_9_4_May - 1 uf_319_9_4_Aug + 1 uf_359_9_4_Sep  <= 0
+ c_uf_360_A_4_Sep: - 1 cpmy_911_Po_A_4_May - 1 cpmy_912_To_A_4_May - 1 cpmy_913_To_A_4_May - 1 uf_320_A_4_Aug + 1 uf_360_A_4_Sep  <= 0
+ c_uf_361_1_1_Oct: - 1 cpmy_17_To_1_1_Jun - 1 cpmy_18_To_1_1_Jun - 1 uf_321_1_1_Sep + 1 uf_361_1_1_Oct  <= 0
+ c_uf_362_2_1_Oct: - 1 cpmy_109_To_2_1_Jun - 1 cpmy_110_To_2_1_Jun - 1 uf_322_2_1_Sep + 1 uf_362_2_1_Oct  <= 0
+ c_uf_363_3_1_Oct: - 1 cpmy_201_To_3_1_Jun - 1 cpmy_202_To_3_1_Jun - 1 uf_323_3_1_Sep + 1 uf_363_3_1_Oct  <= 0
+ c_uf_364_4_1_Oct: - 1 cpmy_293_To_4_1_Jun - 1 cpmy_294_To_4_1_Jun - 1 uf_324_4_1_Sep + 1 uf_364_4_1_Oct  <= 0
+ c_uf_365_5_1_Oct: - 1 cpmy_385_To_5_1_Jun - 1 cpmy_386_To_5_1_Jun - 1 uf_325_5_1_Sep + 1 uf_365_5_1_Oct  <= 0
+ c_uf_366_6_1_Oct: - 1 cpmy_477_To_6_1_Jun - 1 cpmy_478_To_6_1_Jun - 1 uf_326_6_1_Sep + 1 uf_366_6_1_Oct  <= 0
+ c_uf_367_7_1_Oct: - 1 cpmy_569_To_7_1_Jun - 1 cpmy_570_To_7_1_Jun - 1 uf_327_7_1_Sep + 1 uf_367_7_1_Oct  <= 0
+ c_uf_368_8_1_Oct: - 1 cpmy_661_To_8_1_Jun - 1 cpmy_662_To_8_1_Jun - 1 uf_328_8_1_Sep + 1 uf_368_8_1_Oct  <= 0
+ c_uf_369_9_1_Oct: - 1 cpmy_753_To_9_1_Jun - 1 cpmy_754_To_9_1_Jun - 1 uf_329_9_1_Sep + 1 uf_369_9_1_Oct  <= 0
+ c_uf_370_A_1_Oct: - 1 cpmy_845_To_A_1_Jun - 1 cpmy_846_To_A_1_Jun - 1 uf_330_A_1_Sep + 1 uf_370_A_1_Oct  <= 0
+ c_uf_371_1_2_Oct: - 1 cpmy_40_To_1_2_Jun - 1 cpmy_41_To_1_2_Jun - 1 uf_331_1_2_Sep + 1 uf_371_1_2_Oct  <= 0
+ c_uf_372_2_2_Oct: - 1 cpmy_132_To_2_2_Jun - 1 cpmy_133_To_2_2_Jun - 1 uf_332_2_2_Sep + 1 uf_372_2_2_Oct  <= 0
+ c_uf_373_3_2_Oct: - 1 cpmy_224_To_3_2_Jun - 1 cpmy_225_To_3_2_Jun - 1 uf_333_3_2_Sep + 1 uf_373_3_2_Oct  <= 0
+ c_uf_374_4_2_Oct: - 1 cpmy_316_To_4_2_Jun - 1 cpmy_317_To_4_2_Jun - 1 uf_334_4_2_Sep + 1 uf_374_4_2_Oct  <= 0
+ c_uf_375_5_2_Oct: - 1 cpmy_408_To_5_2_Jun - 1 cpmy_409_To_5_2_Jun - 1 uf_335_5_2_Sep + 1 uf_375_5_2_Oct  <= 0
+ c_uf_376_6_2_Oct: - 1 cpmy_500_To_6_2_Jun - 1 cpmy_501_To_6_2_Jun - 1 uf_336_6_2_Sep + 1 uf_376_6_2_Oct  <= 0
+ c_uf_377_7_2_Oct: - 1 cpmy_592_To_7_2_Jun - 1 cpmy_593_To_7_2_Jun - 1 uf_337_7_2_Sep + 1 uf_377_7_2_Oct  <= 0
+ c_uf_378_8_2_Oct: - 1 cpmy_684_To_8_2_Jun - 1 cpmy_685_To_8_2_Jun - 1 uf_338_8_2_Sep + 1 uf_378_8_2_Oct  <= 0
+ c_uf_379_9_2_Oct: - 1 cpmy_776_To_9_2_Jun - 1 cpmy_777_To_9_2_Jun - 1 uf_339_9_2_Sep + 1 uf_379_9_2_Oct  <= 0
+ c_uf_380_A_2_Oct: - 1 cpmy_868_To_A_2_Jun - 1 cpmy_869_To_A_2_Jun - 1 uf_340_A_2_Sep + 1 uf_380_A_2_Oct  <= 0
+ c_uf_381_1_3_Oct: - 1 cpmy_63_To_1_3_Jun - 1 cpmy_64_To_1_3_Jun - 1 uf_341_1_3_Sep + 1 uf_381_1_3_Oct  <= 0
+ c_uf_382_2_3_Oct: - 1 cpmy_155_To_2_3_Jun - 1 cpmy_156_To_2_3_Jun - 1 uf_342_2_3_Sep + 1 uf_382_2_3_Oct  <= 0
+ c_uf_383_3_3_Oct: - 1 cpmy_247_To_3_3_Jun - 1 cpmy_248_To_3_3_Jun - 1 uf_343_3_3_Sep + 1 uf_383_3_3_Oct  <= 0
+ c_uf_384_4_3_Oct: - 1 cpmy_339_To_4_3_Jun - 1 cpmy_340_To_4_3_Jun - 1 uf_344_4_3_Sep + 1 uf_384_4_3_Oct  <= 0
+ c_uf_385_5_3_Oct: - 1 cpmy_431_To_5_3_Jun - 1 cpmy_432_To_5_3_Jun - 1 uf_345_5_3_Sep + 1 uf_385_5_3_Oct  <= 0
+ c_uf_386_6_3_Oct: - 1 cpmy_523_To_6_3_Jun - 1 cpmy_524_To_6_3_Jun - 1 uf_346_6_3_Sep + 1 uf_386_6_3_Oct  <= 0
+ c_uf_387_7_3_Oct: - 1 cpmy_615_To_7_3_Jun - 1 cpmy_616_To_7_3_Jun - 1 uf_347_7_3_Sep + 1 uf_387_7_3_Oct  <= 0
+ c_uf_388_8_3_Oct: - 1 cpmy_707_To_8_3_Jun - 1 cpmy_708_To_8_3_Jun - 1 uf_348_8_3_Sep + 1 uf_388_8_3_Oct  <= 0
+ c_uf_389_9_3_Oct: - 1 cpmy_799_To_9_3_Jun - 1 cpmy_800_To_9_3_Jun - 1 uf_349_9_3_Sep + 1 uf_389_9_3_Oct  <= 0
+ c_uf_390_A_3_Oct: - 1 cpmy_891_To_A_3_Jun - 1 cpmy_892_To_A_3_Jun - 1 uf_350_A_3_Sep + 1 uf_390_A_3_Oct  <= 0
+ c_uf_391_1_4_Oct: - 1 cpmy_86_To_1_4_Jun - 1 cpmy_87_To_1_4_Jun - 1 uf_351_1_4_Sep + 1 uf_391_1_4_Oct  <= 0
+ c_uf_392_2_4_Oct: - 1 cpmy_178_To_2_4_Jun - 1 cpmy_179_To_2_4_Jun - 1 uf_352_2_4_Sep + 1 uf_392_2_4_Oct  <= 0
+ c_uf_393_3_4_Oct: - 1 cpmy_270_To_3_4_Jun - 1 cpmy_271_To_3_4_Jun - 1 uf_353_3_4_Sep + 1 uf_393_3_4_Oct  <= 0
+ c_uf_394_4_4_Oct: - 1 cpmy_362_To_4_4_Jun - 1 cpmy_363_To_4_4_Jun - 1 uf_354_4_4_Sep + 1 uf_394_4_4_Oct  <= 0
+ c_uf_395_5_4_Oct: - 1 cpmy_454_To_5_4_Jun - 1 cpmy_455_To_5_4_Jun - 1 uf_355_5_4_Sep + 1 uf_395_5_4_Oct  <= 0
+ c_uf_396_6_4_Oct: - 1 cpmy_546_To_6_4_Jun - 1 cpmy_547_To_6_4_Jun - 1 uf_356_6_4_Sep + 1 uf_396_6_4_Oct  <= 0
+ c_uf_397_7_4_Oct: - 1 cpmy_638_To_7_4_Jun - 1 cpmy_639_To_7_4_Jun - 1 uf_357_7_4_Sep + 1 uf_397_7_4_Oct  <= 0
+ c_uf_398_8_4_Oct: - 1 cpmy_730_To_8_4_Jun - 1 cpmy_731_To_8_4_Jun - 1 uf_358_8_4_Sep + 1 uf_398_8_4_Oct  <= 0
+ c_uf_399_9_4_Oct: - 1 cpmy_822_To_9_4_Jun - 1 cpmy_823_To_9_4_Jun - 1 uf_359_9_4_Sep + 1 uf_399_9_4_Oct  <= 0
+ c_uf_400_A_4_Oct: - 1 cpmy_914_To_A_4_Jun - 1 cpmy_915_To_A_4_Jun - 1 uf_360_A_4_Sep + 1 uf_400_A_4_Oct  <= 0
+ c_uf_401_1_1_Nov: - 1 cpmy_19_To_1_1_Jul - 1 cpmy_20_To_1_1_Jul - 1 cpmy_21_Br_1_1_Aug - 1 uf_361_1_1_Oct + 1 uf_401_1_1_Nov  <= 0
+ c_uf_402_2_1_Nov: - 1 cpmy_111_To_2_1_Jul - 1 cpmy_112_To_2_1_Jul - 1 cpmy_113_Br_2_1_Aug - 1 uf_362_2_1_Oct + 1 uf_402_2_1_Nov  <= 0
+ c_uf_403_3_1_Nov: - 1 cpmy_203_To_3_1_Jul - 1 cpmy_204_To_3_1_Jul - 1 cpmy_205_Br_3_1_Aug - 1 uf_363_3_1_Oct + 1 uf_403_3_1_Nov  <= 0
+ c_uf_404_4_1_Nov: - 1 cpmy_295_To_4_1_Jul - 1 cpmy_296_To_4_1_Jul - 1 cpmy_297_Br_4_1_Aug - 1 uf_364_4_1_Oct + 1 uf_404_4_1_Nov  <= 0
+ c_uf_405_5_1_Nov: - 1 cpmy_387_To_5_1_Jul - 1 cpmy_388_To_5_1_Jul - 1 cpmy_389_Br_5_1_Aug - 1 uf_365_5_1_Oct + 1 uf_405_5_1_Nov  <= 0
+ c_uf_406_6_1_Nov: - 1 cpmy_479_To_6_1_Jul - 1 cpmy_480_To_6_1_Jul - 1 cpmy_481_Br_6_1_Aug - 1 uf_366_6_1_Oct + 1 uf_406_6_1_Nov  <= 0
+ c_uf_407_7_1_Nov: - 1 cpmy_571_To_7_1_Jul - 1 cpmy_572_To_7_1_Jul - 1 cpmy_573_Br_7_1_Aug - 1 uf_367_7_1_Oct + 1 uf_407_7_1_Nov  <= 0
+ c_uf_408_8_1_Nov: - 1 cpmy_663_To_8_1_Jul - 1 cpmy_664_To_8_1_Jul - 1 cpmy_665_Br_8_1_Aug - 1 uf_368_8_1_Oct + 1 uf_408_8_1_Nov  <= 0
+ c_uf_409_9_1_Nov: - 1 cpmy_755_To_9_1_Jul - 1 cpmy_756_To_9_1_Jul - 1 cpmy_757_Br_9_1_Aug - 1 uf_369_9_1_Oct + 1 uf_409_9_1_Nov  <= 0
+ c_uf_410_A_1_Nov: - 1 cpmy_847_To_A_1_Jul - 1 cpmy_848_To_A_1_Jul - 1 cpmy_849_Br_A_1_Aug - 1 uf_370_A_1_Oct + 1 uf_410_A_1_Nov  <= 0
+ c_uf_411_1_2_Nov: - 1 cpmy_42_To_1_2_Jul - 1 cpmy_43_To_1_2_Jul - 1 cpmy_44_Br_1_2_Aug - 1 uf_371_1_2_Oct + 1 uf_411_1_2_Nov  <= 0
+ c_uf_412_2_2_Nov: - 1 cpmy_134_To_2_2_Jul - 1 cpmy_135_To_2_2_Jul - 1 cpmy_136_Br_2_2_Aug - 1 uf_372_2_2_Oct + 1 uf_412_2_2_Nov  <= 0
+ c_uf_413_3_2_Nov: - 1 cpmy_226_To_3_2_Jul - 1 cpmy_227_To_3_2_Jul - 1 cpmy_228_Br_3_2_Aug - 1 uf_373_3_2_Oct + 1 uf_413_3_2_Nov  <= 0
+ c_uf_414_4_2_Nov: - 1 cpmy_318_To_4_2_Jul - 1 cpmy_319_To_4_2_Jul - 1 cpmy_320_Br_4_2_Aug - 1 uf_374_4_2_Oct + 1 uf_414_4_2_Nov  <= 0
+ c_uf_415_5_2_Nov: - 1 cpmy_410_To_5_2_Jul - 1 cpmy_411_To_5_2_Jul - 1 cpmy_412_Br_5_2_Aug - 1 uf_375_5_2_Oct + 1 uf_415_5_2_Nov  <= 0
+ c_uf_416_6_2_Nov: - 1 cpmy_502_To_6_2_Jul - 1 cpmy_503_To_6_2_Jul - 1 cpmy_504_Br_6_2_Aug - 1 uf_376_6_2_Oct + 1 uf_416_6_2_Nov  <= 0
+ c_uf_417_7_2_Nov: - 1 cpmy_594_To_7_2_Jul - 1 cpmy_595_To_7_2_Jul - 1 cpmy_596_Br_7_2_Aug - 1 uf_377_7_2_Oct + 1 uf_417_7_2_Nov  <= 0
+ c_uf_418_8_2_Nov: - 1 cpmy_686_To_8_2_Jul - 1 cpmy_687_To_8_2_Jul - 1 cpmy_688_Br_8_2_Aug - 1 uf_378_8_2_Oct + 1 uf_418_8_2_Nov  <= 0
+ c_uf_419_9_2_Nov: - 1 cpmy_778_To_9_2_Jul - 1 cpmy_779_To_9_2_Jul - 1 cpmy_780_Br_9_2_Aug - 1 uf_379_9_2_Oct + 1 uf_419_9_2_Nov  <= 0
+ c_uf_420_A_2_Nov: - 1 cpmy_870_To_A_2_Jul - 1 cpmy_871_To_A_2_Jul - 1 cpmy_872_Br_A_2_Aug - 1 uf_380_A_2_Oct + 1 uf_420_A_2_Nov  <= 0
+ c_uf_421_1_3_Nov: - 1 cpmy_65_To_1_3_Jul - 1 cpmy_66_To_1_3_Jul - 1 cpmy_67_Br_1_3_Aug - 1 uf_381_1_3_Oct + 1 uf_421_1_3_Nov  <= 0
+ c_uf_422_2_3_Nov: - 1 cpmy_157_To_2_3_Jul - 1 cpmy_158_To_2_3_Jul - 1 cpmy_159_Br_2_3_Aug - 1 uf_382_2_3_Oct + 1 uf_422_2_3_Nov  <= 0
+ c_uf_423_3_3_Nov: - 1 cpmy_249_To_3_3_Jul - 1 cpmy_250_To_3_3_Jul - 1 cpmy_251_Br_3_3_Aug - 1 uf_383_3_3_Oct + 1 uf_423_3_3_Nov  <= 0
+ c_uf_424_4_3_Nov: - 1 cpmy_341_To_4_3_Jul - 1 cpmy_342_To_4_3_Jul - 1 cpmy_343_Br_4_3_Aug - 1 uf_384_4_3_Oct + 1 uf_424_4_3_Nov  <= 0
+ c_uf_425_5_3_Nov: - 1 cpmy_433_To_5_3_Jul - 1 cpmy_434_To_5_3_Jul - 1 cpmy_435_Br_5_3_Aug - 1 uf_385_5_3_Oct + 1 uf_425_5_3_Nov  <= 0
+ c_uf_426_6_3_Nov: - 1 cpmy_525_To_6_3_Jul - 1 cpmy_526_To_6_3_Jul - 1 cpmy_527_Br_6_3_Aug - 1 uf_386_6_3_Oct + 1 uf_426_6_3_Nov  <= 0
+ c_uf_427_7_3_Nov: - 1 cpmy_617_To_7_3_Jul - 1 cpmy_618_To_7_3_Jul - 1 cpmy_619_Br_7_3_Aug - 1 uf_387_7_3_Oct + 1 uf_427_7_3_Nov  <= 0
+ c_uf_428_8_3_Nov: - 1 cpmy_709_To_8_3_Jul - 1 cpmy_710_To_8_3_Jul - 1 cpmy_711_Br_8_3_Aug - 1 uf_388_8_3_Oct + 1 uf_428_8_3_Nov  <= 0
+ c_uf_429_9_3_Nov: - 1 cpmy_801_To_9_3_Jul - 1 cpmy_802_To_9_3_Jul - 1 cpmy_803_Br_9_3_Aug - 1 uf_389_9_3_Oct + 1 uf_429_9_3_Nov  <= 0
+ c_uf_430_A_3_Nov: - 1 cpmy_893_To_A_3_Jul - 1 cpmy_894_To_A_3_Jul - 1 cpmy_895_Br_A_3_Aug - 1 uf_390_A_3_Oct + 1 uf_430_A_3_Nov  <= 0
+ c_uf_431_1_4_Nov: - 1 cpmy_88_To_1_4_Jul - 1 cpmy_89_To_1_4_Jul - 1 cpmy_90_Br_1_4_Aug - 1 uf_391_1_4_Oct + 1 uf_431_1_4_Nov  <= 0
+ c_uf_432_2_4_Nov: - 1 cpmy_180_To_2_4_Jul - 1 cpmy_181_To_2_4_Jul - 1 cpmy_182_Br_2_4_Aug - 1 uf_392_2_4_Oct + 1 uf_432_2_4_Nov  <= 0
+ c_uf_433_3_4_Nov: - 1 cpmy_272_To_3_4_Jul - 1 cpmy_273_To_3_4_Jul - 1 cpmy_274_Br_3_4_Aug - 1 uf_393_3_4_Oct + 1 uf_433_3_4_Nov  <= 0
+ c_uf_434_4_4_Nov: - 1 cpmy_364_To_4_4_Jul - 1 cpmy_365_To_4_4_Jul - 1 cpmy_366_Br_4_4_Aug - 1 uf_394_4_4_Oct + 1 uf_434_4_4_Nov  <= 0
+ c_uf_435_5_4_Nov: - 1 cpmy_456_To_5_4_Jul - 1 cpmy_457_To_5_4_Jul - 1 cpmy_458_Br_5_4_Aug - 1 uf_395_5_4_Oct + 1 uf_435_5_4_Nov  <= 0
+ c_uf_436_6_4_Nov: - 1 cpmy_548_To_6_4_Jul - 1 cpmy_549_To_6_4_Jul - 1 cpmy_550_Br_6_4_Aug - 1 uf_396_6_4_Oct + 1 uf_436_6_4_Nov  <= 0
+ c_uf_437_7_4_Nov: - 1 cpmy_640_To_7_4_Jul - 1 cpmy_641_To_7_4_Jul - 1 cpmy_642_Br_7_4_Aug - 1 uf_397_7_4_Oct + 1 uf_437_7_4_Nov  <= 0
+ c_uf_438_8_4_Nov: - 1 cpmy_732_To_8_4_Jul - 1 cpmy_733_To_8_4_Jul - 1 cpmy_734_Br_8_4_Aug - 1 uf_398_8_4_Oct + 1 uf_438_8_4_Nov  <= 0
+ c_uf_439_9_4_Nov: - 1 cpmy_824_To_9_4_Jul - 1 cpmy_825_To_9_4_Jul - 1 cpmy_826_Br_9_4_Aug - 1 uf_399_9_4_Oct + 1 uf_439_9_4_Nov  <= 0
+ c_uf_440_A_4_Nov: - 1 cpmy_916_To_A_4_Jul - 1 cpmy_917_To_A_4_Jul - 1 cpmy_918_Br_A_4_Aug - 1 uf_400_A_4_Oct + 1 uf_440_A_4_Nov  <= 0
+ c_uf_441_1_1_Dec: - 1 cpmy_23_Ru_1_1_Aug - 1 uf_401_1_1_Nov + 1 uf_441_1_1_Dec  <= 0
+ c_uf_442_2_1_Dec: - 1 cpmy_115_Ru_2_1_Aug - 1 uf_402_2_1_Nov + 1 uf_442_2_1_Dec  <= 0
+ c_uf_443_3_1_Dec: - 1 cpmy_207_Ru_3_1_Aug - 1 uf_403_3_1_Nov + 1 uf_443_3_1_Dec  <= 0
+ c_uf_444_4_1_Dec: - 1 cpmy_299_Ru_4_1_Aug - 1 uf_404_4_1_Nov + 1 uf_444_4_1_Dec  <= 0
+ c_uf_445_5_1_Dec: - 1 cpmy_391_Ru_5_1_Aug - 1 uf_405_5_1_Nov + 1 uf_445_5_1_Dec  <= 0
+ c_uf_446_6_1_Dec: - 1 cpmy_483_Ru_6_1_Aug - 1 uf_406_6_1_Nov + 1 uf_446_6_1_Dec  <= 0
+ c_uf_447_7_1_Dec: - 1 cpmy_575_Ru_7_1_Aug - 1 uf_407_7_1_Nov + 1 uf_447_7_1_Dec  <= 0
+ c_uf_448_8_1_Dec: - 1 cpmy_667_Ru_8_1_Aug - 1 uf_408_8_1_Nov + 1 uf_448_8_1_Dec  <= 0
+ c_uf_449_9_1_Dec: - 1 cpmy_759_Ru_9_1_Aug - 1 uf_409_9_1_Nov + 1 uf_449_9_1_Dec  <= 0
+ c_uf_450_A_1_Dec: - 1 cpmy_851_Ru_A_1_Aug - 1 uf_410_A_1_Nov + 1 uf_450_A_1_Dec  <= 0
+ c_uf_451_1_2_Dec: - 1 cpmy_46_Ru_1_2_Aug - 1 uf_411_1_2_Nov + 1 uf_451_1_2_Dec  <= 0
+ c_uf_452_2_2_Dec: - 1 cpmy_138_Ru_2_2_Aug - 1 uf_412_2_2_Nov + 1 uf_452_2_2_Dec  <= 0
+ c_uf_453_3_2_Dec: - 1 cpmy_230_Ru_3_2_Aug - 1 uf_413_3_2_Nov + 1 uf_453_3_2_Dec  <= 0
+ c_uf_454_4_2_Dec: - 1 cpmy_322_Ru_4_2_Aug - 1 uf_414_4_2_Nov + 1 uf_454_4_2_Dec  <= 0
+ c_uf_455_5_2_Dec: - 1 cpmy_414_Ru_5_2_Aug - 1 uf_415_5_2_Nov + 1 uf_455_5_2_Dec  <= 0
+ c_uf_456_6_2_Dec: - 1 cpmy_506_Ru_6_2_Aug - 1 uf_416_6_2_Nov + 1 uf_456_6_2_Dec  <= 0
+ c_uf_457_7_2_Dec: - 1 cpmy_598_Ru_7_2_Aug - 1 uf_417_7_2_Nov + 1 uf_457_7_2_Dec  <= 0
+ c_uf_458_8_2_Dec: - 1 cpmy_690_Ru_8_2_Aug - 1 uf_418_8_2_Nov + 1 uf_458_8_2_Dec  <= 0
+ c_uf_459_9_2_Dec: - 1 cpmy_782_Ru_9_2_Aug - 1 uf_419_9_2_Nov + 1 uf_459_9_2_Dec  <= 0
+ c_uf_460_A_2_Dec: - 1 cpmy_874_Ru_A_2_Aug - 1 uf_420_A_2_Nov + 1 uf_460_A_2_Dec  <= 0
+ c_uf_461_1_3_Dec: - 1 cpmy_69_Ru_1_3_Aug - 1 uf_421_1_3_Nov + 1 uf_461_1_3_Dec  <= 0
+ c_uf_462_2_3_Dec: - 1 cpmy_161_Ru_2_3_Aug - 1 uf_422_2_3_Nov + 1 uf_462_2_3_Dec  <= 0
+ c_uf_463_3_3_Dec: - 1 cpmy_253_Ru_3_3_Aug - 1 uf_423_3_3_Nov + 1 uf_463_3_3_Dec  <= 0
+ c_uf_464_4_3_Dec: - 1 cpmy_345_Ru_4_3_Aug - 1 uf_424_4_3_Nov + 1 uf_464_4_3_Dec  <= 0
+ c_uf_465_5_3_Dec: - 1 cpmy_437_Ru_5_3_Aug - 1 uf_425_5_3_Nov + 1 uf_465_5_3_Dec  <= 0
+ c_uf_466_6_3_Dec: - 1 cpmy_529_Ru_6_3_Aug - 1 uf_426_6_3_Nov + 1 uf_466_6_3_Dec  <= 0
+ c_uf_467_7_3_Dec: - 1 cpmy_621_Ru_7_3_Aug - 1 uf_427_7_3_Nov + 1 uf_467_7_3_Dec  <= 0
+ c_uf_468_8_3_Dec: - 1 cpmy_713_Ru_8_3_Aug - 1 uf_428_8_3_Nov + 1 uf_468_8_3_Dec  <= 0
+ c_uf_469_9_3_Dec: - 1 cpmy_805_Ru_9_3_Aug - 1 uf_429_9_3_Nov + 1 uf_469_9_3_Dec  <= 0
+ c_uf_470_A_3_Dec: - 1 cpmy_897_Ru_A_3_Aug - 1 uf_430_A_3_Nov + 1 uf_470_A_3_Dec  <= 0
+ c_uf_471_1_4_Dec: - 1 cpmy_92_Ru_1_4_Aug - 1 uf_431_1_4_Nov + 1 uf_471_1_4_Dec  <= 0
+ c_uf_472_2_4_Dec: - 1 cpmy_184_Ru_2_4_Aug - 1 uf_432_2_4_Nov + 1 uf_472_2_4_Dec  <= 0
+ c_uf_473_3_4_Dec: - 1 cpmy_276_Ru_3_4_Aug - 1 uf_433_3_4_Nov + 1 uf_473_3_4_Dec  <= 0
+ c_uf_474_4_4_Dec: - 1 cpmy_368_Ru_4_4_Aug - 1 uf_434_4_4_Nov + 1 uf_474_4_4_Dec  <= 0
+ c_uf_475_5_4_Dec: - 1 cpmy_460_Ru_5_4_Aug - 1 uf_435_5_4_Nov + 1 uf_475_5_4_Dec  <= 0
+ c_uf_476_6_4_Dec: - 1 cpmy_552_Ru_6_4_Aug - 1 uf_436_6_4_Nov + 1 uf_476_6_4_Dec  <= 0
+ c_uf_477_7_4_Dec: - 1 cpmy_644_Ru_7_4_Aug - 1 uf_437_7_4_Nov + 1 uf_477_7_4_Dec  <= 0
+ c_uf_478_8_4_Dec: - 1 cpmy_736_Ru_8_4_Aug - 1 uf_438_8_4_Nov + 1 uf_478_8_4_Dec  <= 0
+ c_uf_479_9_4_Dec: - 1 cpmy_828_Ru_9_4_Aug - 1 uf_439_9_4_Nov + 1 uf_479_9_4_Dec  <= 0
+ c_uf_480_A_4_Dec: - 1 cpmy_920_Ru_A_4_Aug - 1 uf_440_A_4_Nov + 1 uf_480_A_4_Dec  <= 0
+
+ c_ud_1_Be_1: + 18.75 cpmy_5_Be_1_1_Apr + 18.75 cpmy_12_Be_1_1_May + 18.75 cpmy_97_Be_2_1_Apr + 18.75 cpmy_104_Be_2_1_May + 18.75 cpmy_189_Be_3_1_Apr + 18.75 cpmy_196_Be_3_1_May + 18.75 cpmy_281_Be_4_1_Apr + 18.75 cpmy_288_Be_4_1_May + 18.75 cpmy_373_Be_5_1_Apr + 18.75 cpmy_380_Be_5_1_May + 18.75 cpmy_465_Be_6_1_Apr + 18.75 cpmy_472_Be_6_1_May + 18.75 cpmy_557_Be_7_1_Apr + 18.75 cpmy_564_Be_7_1_May + 18.75 cpmy_649_Be_8_1_Apr + 18.75 cpmy_656_Be_8_1_May + 18.75 cpmy_741_Be_9_1_Apr + 18.75 cpmy_748_Be_9_1_May + 18.75 cpmy_833_Be_A_1_Apr + 18.75 cpmy_840_Be_A_1_May + 1 ud_1_Be_1  >= 30
+ c_ud_2_Br_1: + 12.5 cpmy_1_Br_1_1_Mar + 12.5 cpmy_6_Br_1_1_Apr + 12.5 cpmy_93_Br_2_1_Mar + 12.5 cpmy_98_Br_2_1_Apr + 12.5 cpmy_185_Br_3_1_Mar + 12.5 cpmy_190_Br_3_1_Apr + 12.5 cpmy_277_Br_4_1_Mar + 12.5 cpmy_282_Br_4_1_Apr + 12.5 cpmy_369_Br_5_1_Mar + 12.5 cpmy_374_Br_5_1_Apr + 12.5 cpmy_461_Br_6_1_Mar + 12.5 cpmy_466_Br_6_1_Apr + 12.5 cpmy_553_Br_7_1_Mar + 12.5 cpmy_558_Br_7_1_Apr + 12.5 cpmy_645_Br_8_1_Mar + 12.5 cpmy_650_Br_8_1_Apr + 12.5 cpmy_737_Br_9_1_Mar + 12.5 cpmy_742_Br_9_1_Apr + 12.5 cpmy_829_Br_A_1_Mar + 12.5 cpmy_834_Br_A_1_Apr + 1 ud_2_Br_1  >= 10
+ c_ud_3_Br_1: + 12.5 cpmy_21_Br_1_1_Aug + 12.5 cpmy_113_Br_2_1_Aug + 12.5 cpmy_205_Br_3_1_Aug + 12.5 cpmy_297_Br_4_1_Aug + 12.5 cpmy_389_Br_5_1_Aug + 12.5 cpmy_481_Br_6_1_Aug + 12.5 cpmy_573_Br_7_1_Aug + 12.5 cpmy_665_Br_8_1_Aug + 12.5 cpmy_757_Br_9_1_Aug + 12.5 cpmy_849_Br_A_1_Aug + 1 ud_3_Br_1  >= 10
+ c_ud_4_Br_1: + 1 ud_4_Br_1  >= 15
+ c_ud_5_Ca_1: + 25 cpmy_2_Ca_1_1_Mar + 25 cpmy_7_Ca_1_1_Apr + 25 cpmy_94_Ca_2_1_Mar + 25 cpmy_99_Ca_2_1_Apr + 25 cpmy_186_Ca_3_1_Mar + 25 cpmy_191_Ca_3_1_Apr + 25 cpmy_278_Ca_4_1_Mar + 25 cpmy_283_Ca_4_1_Apr + 25 cpmy_370_Ca_5_1_Mar + 25 cpmy_375_Ca_5_1_Apr + 25 cpmy_462_Ca_6_1_Mar + 25 cpmy_467_Ca_6_1_Apr + 25 cpmy_554_Ca_7_1_Mar + 25 cpmy_559_Ca_7_1_Apr + 25 cpmy_646_Ca_8_1_Mar + 25 cpmy_651_Ca_8_1_Apr + 25 cpmy_738_Ca_9_1_Mar + 25 cpmy_743_Ca_9_1_Apr + 25 cpmy_830_Ca_A_1_Mar + 25 cpmy_835_Ca_A_1_Apr + 1 ud_5_Ca_1  >= 25
+ c_ud_6_Po_1: + 50 cpmy_3_Po_1_1_Mar + 50 cpmy_8_Po_1_1_Apr + 50 cpmy_13_Po_1_1_May + 50 cpmy_95_Po_2_1_Mar + 50 cpmy_100_Po_2_1_Apr + 50 cpmy_105_Po_2_1_May + 50 cpmy_187_Po_3_1_Mar + 50 cpmy_192_Po_3_1_Apr + 50 cpmy_197_Po_3_1_May + 50 cpmy_279_Po_4_1_Mar + 50 cpmy_284_Po_4_1_Apr + 50 cpmy_289_Po_4_1_May + 50 cpmy_371_Po_5_1_Mar + 50 cpmy_376_Po_5_1_Apr + 50 cpmy_381_Po_5_1_May + 50 cpmy_463_Po_6_1_Mar + 50 cpmy_468_Po_6_1_Apr + 50 cpmy_473_Po_6_1_May + 50 cpmy_555_Po_7_1_Mar + 50 cpmy_560_Po_7_1_Apr + 50 cpmy_565_Po_7_1_May + 50 cpmy_647_Po_8_1_Mar + 50 cpmy_652_Po_8_1_Apr + 50 cpmy_657_Po_8_1_May + 50 cpmy_739_Po_9_1_Mar + 50 cpmy_744_Po_9_1_Apr + 50 cpmy_749_Po_9_1_May + 50 cpmy_831_Po_A_1_Mar + 50 cpmy_836_Po_A_1_Apr + 50 cpmy_841_Po_A_1_May + 1 ud_6_Po_1  >= 250
+ c_ud_7_Po_1: + 50 cpmy_4_Po_1_1_Mar + 50 cpmy_9_Po_1_1_Apr + 50 cpmy_14_Po_1_1_May + 50 cpmy_96_Po_2_1_Mar + 50 cpmy_101_Po_2_1_Apr + 50 cpmy_106_Po_2_1_May + 50 cpmy_188_Po_3_1_Mar + 50 cpmy_193_Po_3_1_Apr + 50 cpmy_198_Po_3_1_May + 50 cpmy_280_Po_4_1_Mar + 50 cpmy_285_Po_4_1_Apr + 50 cpmy_290_Po_4_1_May + 50 cpmy_372_Po_5_1_Mar + 50 cpmy_377_Po_5_1_Apr + 50 cpmy_382_Po_5_1_May + 50 cpmy_464_Po_6_1_Mar + 50 cpmy_469_Po_6_1_Apr + 50 cpmy_474_Po_6_1_May + 50 cpmy_556_Po_7_1_Mar + 50 cpmy_561_Po_7_1_Apr + 50 cpmy_566_Po_7_1_May + 50 cpmy_648_Po_8_1_Mar + 50 cpmy_653_Po_8_1_Apr + 50 cpmy_658_Po_8_1_May + 50 cpmy_740_Po_9_1_Mar + 50 cpmy_745_Po_9_1_Apr + 50 cpmy_750_Po_9_1_May + 50 cpmy_832_Po_A_1_Mar + 50 cpmy_837_Po_A_1_Apr + 50 cpmy_842_Po_A_1_May + 1 ud_7_Po_1  >= 250
+ c_ud_8_Ru_1: + 22.5 cpmy_23_Ru_1_1_Aug + 22.5 cpmy_115_Ru_2_1_Aug + 22.5 cpmy_207_Ru_3_1_Aug + 22.5 cpmy_299_Ru_4_1_Aug + 22.5 cpmy_391_Ru_5_1_Aug + 22.5 cpmy_483_Ru_6_1_Aug + 22.5 cpmy_575_Ru_7_1_Aug + 22.5 cpmy_667_Ru_8_1_Aug + 22.5 cpmy_759_Ru_9_1_Aug + 22.5 cpmy_851_Ru_A_1_Aug + 1 ud_8_Ru_1  >= 20
+ c_ud_9_To_1: + 62.5 cpmy_11_To_1_1_Apr + 62.5 cpmy_16_To_1_1_May + 62.5 cpmy_18_To_1_1_Jun + 62.5 cpmy_20_To_1_1_Jul + 62.5 cpmy_103_To_2_1_Apr + 62.5 cpmy_108_To_2_1_May + 62.5 cpmy_110_To_2_1_Jun + 62.5 cpmy_112_To_2_1_Jul + 62.5 cpmy_195_To_3_1_Apr + 62.5 cpmy_200_To_3_1_May + 62.5 cpmy_202_To_3_1_Jun + 62.5 cpmy_204_To_3_1_Jul + 62.5 cpmy_287_To_4_1_Apr + 62.5 cpmy_292_To_4_1_May + 62.5 cpmy_294_To_4_1_Jun + 62.5 cpmy_296_To_4_1_Jul + 62.5 cpmy_379_To_5_1_Apr + 62.5 cpmy_384_To_5_1_May + 62.5 cpmy_386_To_5_1_Jun + 62.5 cpmy_388_To_5_1_Jul + 62.5 cpmy_471_To_6_1_Apr + 62.5 cpmy_476_To_6_1_May + 62.5 cpmy_478_To_6_1_Jun + 62.5 cpmy_480_To_6_1_Jul + 62.5 cpmy_563_To_7_1_Apr + 62.5 cpmy_568_To_7_1_May + 62.5 cpmy_570_To_7_1_Jun + 62.5 cpmy_572_To_7_1_Jul + 62.5 cpmy_655_To_8_1_Apr + 62.5 cpmy_660_To_8_1_May + 62.5 cpmy_662_To_8_1_Jun + 62.5 cpmy_664_To_8_1_Jul + 62.5 cpmy_747_To_9_1_Apr + 62.5 cpmy_752_To_9_1_May + 62.5 cpmy_754_To_9_1_Jun + 62.5 cpmy_756_To_9_1_Jul + 62.5 cpmy_839_To_A_1_Apr + 62.5 cpmy_844_To_A_1_May + 62.5 cpmy_846_To_A_1_Jun + 62.5 cpmy_848_To_A_1_Jul + 1 ud_9_To_1  >= 75
+ c_ud_10_To_1: + 62.5 cpmy_10_To_1_1_Apr + 62.5 cpmy_15_To_1_1_May + 62.5 cpmy_17_To_1_1_Jun + 62.5 cpmy_19_To_1_1_Jul + 62.5 cpmy_102_To_2_1_Apr + 62.5 cpmy_107_To_2_1_May + 62.5 cpmy_109_To_2_1_Jun + 62.5 cpmy_111_To_2_1_Jul + 62.5 cpmy_194_To_3_1_Apr + 62.5 cpmy_199_To_3_1_May + 62.5 cpmy_201_To_3_1_Jun + 62.5 cpmy_203_To_3_1_Jul + 62.5 cpmy_286_To_4_1_Apr + 62.5 cpmy_291_To_4_1_May + 62.5 cpmy_293_To_4_1_Jun + 62.5 cpmy_295_To_4_1_Jul + 62.5 cpmy_378_To_5_1_Apr + 62.5 cpmy_383_To_5_1_May + 62.5 cpmy_385_To_5_1_Jun + 62.5 cpmy_387_To_5_1_Jul + 62.5 cpmy_470_To_6_1_Apr + 62.5 cpmy_475_To_6_1_May + 62.5 cpmy_477_To_6_1_Jun + 62.5 cpmy_479_To_6_1_Jul + 62.5 cpmy_562_To_7_1_Apr + 62.5 cpmy_567_To_7_1_May + 62.5 cpmy_569_To_7_1_Jun + 62.5 cpmy_571_To_7_1_Jul + 62.5 cpmy_654_To_8_1_Apr + 62.5 cpmy_659_To_8_1_May + 62.5 cpmy_661_To_8_1_Jun + 62.5 cpmy_663_To_8_1_Jul + 62.5 cpmy_746_To_9_1_Apr + 62.5 cpmy_751_To_9_1_May + 62.5 cpmy_753_To_9_1_Jun + 62.5 cpmy_755_To_9_1_Jul + 62.5 cpmy_838_To_A_1_Apr + 62.5 cpmy_843_To_A_1_May + 62.5 cpmy_845_To_A_1_Jun + 62.5 cpmy_847_To_A_1_Jul + 1 ud_10_To_1  >= 20
+ c_ud_11_Be_2: + 18.75 cpmy_28_Be_1_2_Apr + 18.75 cpmy_35_Be_1_2_May + 18.75 cpmy_120_Be_2_2_Apr + 18.75 cpmy_127_Be_2_2_May + 18.75 cpmy_212_Be_3_2_Apr + 18.75 cpmy_219_Be_3_2_May + 18.75 cpmy_304_Be_4_2_Apr + 18.75 cpmy_311_Be_4_2_May + 18.75 cpmy_396_Be_5_2_Apr + 18.75 cpmy_403_Be_5_2_May + 18.75 cpmy_488_Be_6_2_Apr + 18.75 cpmy_495_Be_6_2_May + 18.75 cpmy_580_Be_7_2_Apr + 18.75 cpmy_587_Be_7_2_May + 18.75 cpmy_672_Be_8_2_Apr + 18.75 cpmy_679_Be_8_2_May + 18.75 cpmy_764_Be_9_2_Apr + 18.75 cpmy_771_Be_9_2_May + 18.75 cpmy_856_Be_A_2_Apr + 18.75 cpmy_863_Be_A_2_May + 1 ud_11_Be_2  >= 30
+ c_ud_12_Br_2: + 12.5 cpmy_24_Br_1_2_Mar + 12.5 cpmy_29_Br_1_2_Apr + 12.5 cpmy_116_Br_2_2_Mar + 12.5 cpmy_121_Br_2_2_Apr + 12.5 cpmy_208_Br_3_2_Mar + 12.5 cpmy_213_Br_3_2_Apr + 12.5 cpmy_300_Br_4_2_Mar + 12.5 cpmy_305_Br_4_2_Apr + 12.5 cpmy_392_Br_5_2_Mar + 12.5 cpmy_397_Br_5_2_Apr + 12.5 cpmy_484_Br_6_2_Mar + 12.5 cpmy_489_Br_6_2_Apr + 12.5 cpmy_576_Br_7_2_Mar + 12.5 cpmy_581_Br_7_2_Apr + 12.5 cpmy_668_Br_8_2_Mar + 12.5 cpmy_673_Br_8_2_Apr + 12.5 cpmy_760_Br_9_2_Mar + 12.5 cpmy_765_Br_9_2_Apr + 12.5 cpmy_852_Br_A_2_Mar + 12.5 cpmy_857_Br_A_2_Apr + 1 ud_12_Br_2  >= 10
+ c_ud_13_Br_2: + 12.5 cpmy_44_Br_1_2_Aug + 12.5 cpmy_136_Br_2_2_Aug + 12.5 cpmy_228_Br_3_2_Aug + 12.5 cpmy_320_Br_4_2_Aug + 12.5 cpmy_412_Br_5_2_Aug + 12.5 cpmy_504_Br_6_2_Aug + 12.5 cpmy_596_Br_7_2_Aug + 12.5 cpmy_688_Br_8_2_Aug + 12.5 cpmy_780_Br_9_2_Aug + 12.5 cpmy_872_Br_A_2_Aug + 1 ud_13_Br_2  >= 10
+ c_ud_14_Br_2: + 12.5 cpmy_22_Br_1_1_Aug + 12.5 cpmy_114_Br_2_1_Aug + 12.5 cpmy_206_Br_3_1_Aug + 12.5 cpmy_298_Br_4_1_Aug + 12.5 cpmy_390_Br_5_1_Aug + 12.5 cpmy_482_Br_6_1_Aug + 12.5 cpmy_574_Br_7_1_Aug + 12.5 cpmy_666_Br_8_1_Aug + 12.5 cpmy_758_Br_9_1_Aug + 12.5 cpmy_850_Br_A_1_Aug + 1 ud_14_Br_2  >= 15
+ c_ud_15_Ca_2: + 25 cpmy_25_Ca_1_2_Mar + 25 cpmy_30_Ca_1_2_Apr + 25 cpmy_117_Ca_2_2_Mar + 25 cpmy_122_Ca_2_2_Apr + 25 cpmy_209_Ca_3_2_Mar + 25 cpmy_214_Ca_3_2_Apr + 25 cpmy_301_Ca_4_2_Mar + 25 cpmy_306_Ca_4_2_Apr + 25 cpmy_393_Ca_5_2_Mar + 25 cpmy_398_Ca_5_2_Apr + 25 cpmy_485_Ca_6_2_Mar + 25 cpmy_490_Ca_6_2_Apr + 25 cpmy_577_Ca_7_2_Mar + 25 cpmy_582_Ca_7_2_Apr + 25 cpmy_669_Ca_8_2_Mar + 25 cpmy_674_Ca_8_2_Apr + 25 cpmy_761_Ca_9_2_Mar + 25 cpmy_766_Ca_9_2_Apr + 25 cpmy_853_Ca_A_2_Mar + 25 cpmy_858_Ca_A_2_Apr + 1 ud_15_Ca_2  >= 25
+ c_ud_16_Po_2: + 50 cpmy_26_Po_1_2_Mar + 50 cpmy_31_Po_1_2_Apr + 50 cpmy_36_Po_1_2_May + 50 cpmy_118_Po_2_2_Mar + 50 cpmy_123_Po_2_2_Apr + 50 cpmy_128_Po_2_2_May + 50 cpmy_210_Po_3_2_Mar + 50 cpmy_215_Po_3_2_Apr + 50 cpmy_220_Po_3_2_May + 50 cpmy_302_Po_4_2_Mar + 50 cpmy_307_Po_4_2_Apr + 50 cpmy_312_Po_4_2_May + 50 cpmy_394_Po_5_2_Mar + 50 cpmy_399_Po_5_2_Apr + 50 cpmy_404_Po_5_2_May + 50 cpmy_486_Po_6_2_Mar + 50 cpmy_491_Po_6_2_Apr + 50 cpmy_496_Po_6_2_May + 50 cpmy_578_Po_7_2_Mar + 50 cpmy_583_Po_7_2_Apr + 50 cpmy_588_Po_7_2_May + 50 cpmy_670_Po_8_2_Mar + 50 cpmy_675_Po_8_2_Apr + 50 cpmy_680_Po_8_2_May + 50 cpmy_762_Po_9_2_Mar + 50 cpmy_767_Po_9_2_Apr + 50 cpmy_772_Po_9_2_May + 50 cpmy_854_Po_A_2_Mar + 50 cpmy_859_Po_A_2_Apr + 50 cpmy_864_Po_A_2_May + 1 ud_16_Po_2  >= 250
+ c_ud_17_Po_2: + 50 cpmy_27_Po_1_2_Mar + 50 cpmy_32_Po_1_2_Apr + 50 cpmy_37_Po_1_2_May + 50 cpmy_119_Po_2_2_Mar + 50 cpmy_124_Po_2_2_Apr + 50 cpmy_129_Po_2_2_May + 50 cpmy_211_Po_3_2_Mar + 50 cpmy_216_Po_3_2_Apr + 50 cpmy_221_Po_3_2_May + 50 cpmy_303_Po_4_2_Mar + 50 cpmy_308_Po_4_2_Apr + 50 cpmy_313_Po_4_2_May + 50 cpmy_395_Po_5_2_Mar + 50 cpmy_400_Po_5_2_Apr + 50 cpmy_405_Po_5_2_May + 50 cpmy_487_Po_6_2_Mar + 50 cpmy_492_Po_6_2_Apr + 50 cpmy_497_Po_6_2_May + 50 cpmy_579_Po_7_2_Mar + 50 cpmy_584_Po_7_2_Apr + 50 cpmy_589_Po_7_2_May + 50 cpmy_671_Po_8_2_Mar + 50 cpmy_676_Po_8_2_Apr + 50 cpmy_681_Po_8_2_May + 50 cpmy_763_Po_9_2_Mar + 50 cpmy_768_Po_9_2_Apr + 50 cpmy_773_Po_9_2_May + 50 cpmy_855_Po_A_2_Mar + 50 cpmy_860_Po_A_2_Apr + 50 cpmy_865_Po_A_2_May + 1 ud_17_Po_2  >= 250
+ c_ud_18_Ru_2: + 22.5 cpmy_46_Ru_1_2_Aug + 22.5 cpmy_138_Ru_2_2_Aug + 22.5 cpmy_230_Ru_3_2_Aug + 22.5 cpmy_322_Ru_4_2_Aug + 22.5 cpmy_414_Ru_5_2_Aug + 22.5 cpmy_506_Ru_6_2_Aug + 22.5 cpmy_598_Ru_7_2_Aug + 22.5 cpmy_690_Ru_8_2_Aug + 22.5 cpmy_782_Ru_9_2_Aug + 22.5 cpmy_874_Ru_A_2_Aug + 1 ud_18_Ru_2  >= 20
+ c_ud_19_To_2: + 62.5 cpmy_34_To_1_2_Apr + 62.5 cpmy_39_To_1_2_May + 62.5 cpmy_41_To_1_2_Jun + 62.5 cpmy_43_To_1_2_Jul + 62.5 cpmy_126_To_2_2_Apr + 62.5 cpmy_131_To_2_2_May + 62.5 cpmy_133_To_2_2_Jun + 62.5 cpmy_135_To_2_2_Jul + 62.5 cpmy_218_To_3_2_Apr + 62.5 cpmy_223_To_3_2_May + 62.5 cpmy_225_To_3_2_Jun + 62.5 cpmy_227_To_3_2_Jul + 62.5 cpmy_310_To_4_2_Apr + 62.5 cpmy_315_To_4_2_May + 62.5 cpmy_317_To_4_2_Jun + 62.5 cpmy_319_To_4_2_Jul + 62.5 cpmy_402_To_5_2_Apr + 62.5 cpmy_407_To_5_2_May + 62.5 cpmy_409_To_5_2_Jun + 62.5 cpmy_411_To_5_2_Jul + 62.5 cpmy_494_To_6_2_Apr + 62.5 cpmy_499_To_6_2_May + 62.5 cpmy_501_To_6_2_Jun + 62.5 cpmy_503_To_6_2_Jul + 62.5 cpmy_586_To_7_2_Apr + 62.5 cpmy_591_To_7_2_May + 62.5 cpmy_593_To_7_2_Jun + 62.5 cpmy_595_To_7_2_Jul + 62.5 cpmy_678_To_8_2_Apr + 62.5 cpmy_683_To_8_2_May + 62.5 cpmy_685_To_8_2_Jun + 62.5 cpmy_687_To_8_2_Jul + 62.5 cpmy_770_To_9_2_Apr + 62.5 cpmy_775_To_9_2_May + 62.5 cpmy_777_To_9_2_Jun + 62.5 cpmy_779_To_9_2_Jul + 62.5 cpmy_862_To_A_2_Apr + 62.5 cpmy_867_To_A_2_May + 62.5 cpmy_869_To_A_2_Jun + 62.5 cpmy_871_To_A_2_Jul + 1 ud_19_To_2  >= 75
+ c_ud_20_To_2: + 62.5 cpmy_33_To_1_2_Apr + 62.5 cpmy_38_To_1_2_May + 62.5 cpmy_40_To_1_2_Jun + 62.5 cpmy_42_To_1_2_Jul + 62.5 cpmy_125_To_2_2_Apr + 62.5 cpmy_130_To_2_2_May + 62.5 cpmy_132_To_2_2_Jun + 62.5 cpmy_134_To_2_2_Jul + 62.5 cpmy_217_To_3_2_Apr + 62.5 cpmy_222_To_3_2_May + 62.5 cpmy_224_To_3_2_Jun + 62.5 cpmy_226_To_3_2_Jul + 62.5 cpmy_309_To_4_2_Apr + 62.5 cpmy_314_To_4_2_May + 62.5 cpmy_316_To_4_2_Jun + 62.5 cpmy_318_To_4_2_Jul + 62.5 cpmy_401_To_5_2_Apr + 62.5 cpmy_406_To_5_2_May + 62.5 cpmy_408_To_5_2_Jun + 62.5 cpmy_410_To_5_2_Jul + 62.5 cpmy_493_To_6_2_Apr + 62.5 cpmy_498_To_6_2_May + 62.5 cpmy_500_To_6_2_Jun + 62.5 cpmy_502_To_6_2_Jul + 62.5 cpmy_585_To_7_2_Apr + 62.5 cpmy_590_To_7_2_May + 62.5 cpmy_592_To_7_2_Jun + 62.5 cpmy_594_To_7_2_Jul + 62.5 cpmy_677_To_8_2_Apr + 62.5 cpmy_682_To_8_2_May + 62.5 cpmy_684_To_8_2_Jun + 62.5 cpmy_686_To_8_2_Jul + 62.5 cpmy_769_To_9_2_Apr + 62.5 cpmy_774_To_9_2_May + 62.5 cpmy_776_To_9_2_Jun + 62.5 cpmy_778_To_9_2_Jul + 62.5 cpmy_861_To_A_2_Apr + 62.5 cpmy_866_To_A_2_May + 62.5 cpmy_868_To_A_2_Jun + 62.5 cpmy_870_To_A_2_Jul + 1 ud_20_To_2  >= 20
+ c_ud_21_Be_3: + 18.75 cpmy_51_Be_1_3_Apr + 18.75 cpmy_58_Be_1_3_May + 18.75 cpmy_143_Be_2_3_Apr + 18.75 cpmy_150_Be_2_3_May + 18.75 cpmy_235_Be_3_3_Apr + 18.75 cpmy_242_Be_3_3_May + 18.75 cpmy_327_Be_4_3_Apr + 18.75 cpmy_334_Be_4_3_May + 18.75 cpmy_419_Be_5_3_Apr + 18.75 cpmy_426_Be_5_3_May + 18.75 cpmy_511_Be_6_3_Apr + 18.75 cpmy_518_Be_6_3_May + 18.75 cpmy_603_Be_7_3_Apr + 18.75 cpmy_610_Be_7_3_May + 18.75 cpmy_695_Be_8_3_Apr + 18.75 cpmy_702_Be_8_3_May + 18.75 cpmy_787_Be_9_3_Apr + 18.75 cpmy_794_Be_9_3_May + 18.75 cpmy_879_Be_A_3_Apr + 18.75 cpmy_886_Be_A_3_May + 1 ud_21_Be_3  >= 30
+ c_ud_22_Br_3: + 12.5 cpmy_47_Br_1_3_Mar + 12.5 cpmy_52_Br_1_3_Apr + 12.5 cpmy_139_Br_2_3_Mar + 12.5 cpmy_144_Br_2_3_Apr + 12.5 cpmy_231_Br_3_3_Mar + 12.5 cpmy_236_Br_3_3_Apr + 12.5 cpmy_323_Br_4_3_Mar + 12.5 cpmy_328_Br_4_3_Apr + 12.5 cpmy_415_Br_5_3_Mar + 12.5 cpmy_420_Br_5_3_Apr + 12.5 cpmy_507_Br_6_3_Mar + 12.5 cpmy_512_Br_6_3_Apr + 12.5 cpmy_599_Br_7_3_Mar + 12.5 cpmy_604_Br_7_3_Apr + 12.5 cpmy_691_Br_8_3_Mar + 12.5 cpmy_696_Br_8_3_Apr + 12.5 cpmy_783_Br_9_3_Mar + 12.5 cpmy_788_Br_9_3_Apr + 12.5 cpmy_875_Br_A_3_Mar + 12.5 cpmy_880_Br_A_3_Apr + 1 ud_22_Br_3  >= 10
+ c_ud_23_Br_3: + 12.5 cpmy_67_Br_1_3_Aug + 12.5 cpmy_159_Br_2_3_Aug + 12.5 cpmy_251_Br_3_3_Aug + 12.5 cpmy_343_Br_4_3_Aug + 12.5 cpmy_435_Br_5_3_Aug + 12.5 cpmy_527_Br_6_3_Aug + 12.5 cpmy_619_Br_7_3_Aug + 12.5 cpmy_711_Br_8_3_Aug + 12.5 cpmy_803_Br_9_3_Aug + 12.5 cpmy_895_Br_A_3_Aug + 1 ud_23_Br_3  >= 10
+ c_ud_24_Br_3: + 12.5 cpmy_45_Br_1_2_Aug + 12.5 cpmy_137_Br_2_2_Aug + 12.5 cpmy_229_Br_3_2_Aug + 12.5 cpmy_321_Br_4_2_Aug + 12.5 cpmy_413_Br_5_2_Aug + 12.5 cpmy_505_Br_6_2_Aug + 12.5 cpmy_597_Br_7_2_Aug + 12.5 cpmy_689_Br_8_2_Aug + 12.5 cpmy_781_Br_9_2_Aug + 12.5 cpmy_873_Br_A_2_Aug + 1 ud_24_Br_3  >= 15
+ c_ud_25_Ca_3: + 25 cpmy_48_Ca_1_3_Mar + 25 cpmy_53_Ca_1_3_Apr + 25 cpmy_140_Ca_2_3_Mar + 25 cpmy_145_Ca_2_3_Apr + 25 cpmy_232_Ca_3_3_Mar + 25 cpmy_237_Ca_3_3_Apr + 25 cpmy_324_Ca_4_3_Mar + 25 cpmy_329_Ca_4_3_Apr + 25 cpmy_416_Ca_5_3_Mar + 25 cpmy_421_Ca_5_3_Apr + 25 cpmy_508_Ca_6_3_Mar + 25 cpmy_513_Ca_6_3_Apr + 25 cpmy_600_Ca_7_3_Mar + 25 cpmy_605_Ca_7_3_Apr + 25 cpmy_692_Ca_8_3_Mar + 25 cpmy_697_Ca_8_3_Apr + 25 cpmy_784_Ca_9_3_Mar + 25 cpmy_789_Ca_9_3_Apr + 25 cpmy_876_Ca_A_3_Mar + 25 cpmy_881_Ca_A_3_Apr + 1 ud_25_Ca_3  >= 25
+ c_ud_26_Po_3: + 50 cpmy_49_Po_1_3_Mar + 50 cpmy_54_Po_1_3_Apr + 50 cpmy_59_Po_1_3_May + 50 cpmy_141_Po_2_3_Mar + 50 cpmy_146_Po_2_3_Apr + 50 cpmy_151_Po_2_3_May + 50 cpmy_233_Po_3_3_Mar + 50 cpmy_238_Po_3_3_Apr + 50 cpmy_243_Po_3_3_May + 50 cpmy_325_Po_4_3_Mar + 50 cpmy_330_Po_4_3_Apr + 50 cpmy_335_Po_4_3_May + 50 cpmy_417_Po_5_3_Mar + 50 cpmy_422_Po_5_3_Apr + 50 cpmy_427_Po_5_3_May + 50 cpmy_509_Po_6_3_Mar + 50 cpmy_514_Po_6_3_Apr + 50 cpmy_519_Po_6_3_May + 50 cpmy_601_Po_7_3_Mar + 50 cpmy_606_Po_7_3_Apr + 50 cpmy_611_Po_7_3_May + 50 cpmy_693_Po_8_3_Mar + 50 cpmy_698_Po_8_3_Apr + 50 cpmy_703_Po_8_3_May + 50 cpmy_785_Po_9_3_Mar + 50 cpmy_790_Po_9_3_Apr + 50 cpmy_795_Po_9_3_May + 50 cpmy_877_Po_A_3_Mar + 50 cpmy_882_Po_A_3_Apr + 50 cpmy_887_Po_A_3_May + 1 ud_26_Po_3  >= 250
+ c_ud_27_Po_3: + 50 cpmy_50_Po_1_3_Mar + 50 cpmy_55_Po_1_3_Apr + 50 cpmy_60_Po_1_3_May + 50 cpmy_142_Po_2_3_Mar + 50 cpmy_147_Po_2_3_Apr + 50 cpmy_152_Po_2_3_May + 50 cpmy_234_Po_3_3_Mar + 50 cpmy_239_Po_3_3_Apr + 50 cpmy_244_Po_3_3_May + 50 cpmy_326_Po_4_3_Mar + 50 cpmy_331_Po_4_3_Apr + 50 cpmy_336_Po_4_3_May + 50 cpmy_418_Po_5_3_Mar + 50 cpmy_423_Po_5_3_Apr + 50 cpmy_428_Po_5_3_May + 50 cpmy_510_Po_6_3_Mar + 50 cpmy_515_Po_6_3_Apr + 50 cpmy_520_Po_6_3_May + 50 cpmy_602_Po_7_3_Mar + 50 cpmy_607_Po_7_3_Apr + 50 cpmy_612_Po_7_3_May + 50 cpmy_694_Po_8_3_Mar + 50 cpmy_699_Po_8_3_Apr + 50 cpmy_704_Po_8_3_May + 50 cpmy_786_Po_9_3_Mar + 50 cpmy_791_Po_9_3_Apr + 50 cpmy_796_Po_9_3_May + 50 cpmy_878_Po_A_3_Mar + 50 cpmy_883_Po_A_3_Apr + 50 cpmy_888_Po_A_3_May + 1 ud_27_Po_3  >= 250
+ c_ud_28_Ru_3: + 22.5 cpmy_69_Ru_1_3_Aug + 22.5 cpmy_161_Ru_2_3_Aug + 22.5 cpmy_253_Ru_3_3_Aug + 22.5 cpmy_345_Ru_4_3_Aug + 22.5 cpmy_437_Ru_5_3_Aug + 22.5 cpmy_529_Ru_6_3_Aug + 22.5 cpmy_621_Ru_7_3_Aug + 22.5 cpmy_713_Ru_8_3_Aug + 22.5 cpmy_805_Ru_9_3_Aug + 22.5 cpmy_897_Ru_A_3_Aug + 1 ud_28_Ru_3  >= 20
+ c_ud_29_To_3: + 62.5 cpmy_57_To_1_3_Apr + 62.5 cpmy_62_To_1_3_May + 62.5 cpmy_64_To_1_3_Jun + 62.5 cpmy_66_To_1_3_Jul + 62.5 cpmy_149_To_2_3_Apr + 62.5 cpmy_154_To_2_3_May + 62.5 cpmy_156_To_2_3_Jun + 62.5 cpmy_158_To_2_3_Jul + 62.5 cpmy_241_To_3_3_Apr + 62.5 cpmy_246_To_3_3_May + 62.5 cpmy_248_To_3_3_Jun + 62.5 cpmy_250_To_3_3_Jul + 62.5 cpmy_333_To_4_3_Apr + 62.5 cpmy_338_To_4_3_May + 62.5 cpmy_340_To_4_3_Jun + 62.5 cpmy_342_To_4_3_Jul + 62.5 cpmy_425_To_5_3_Apr + 62.5 cpmy_430_To_5_3_May + 62.5 cpmy_432_To_5_3_Jun + 62.5 cpmy_434_To_5_3_Jul + 62.5 cpmy_517_To_6_3_Apr + 62.5 cpmy_522_To_6_3_May + 62.5 cpmy_524_To_6_3_Jun + 62.5 cpmy_526_To_6_3_Jul + 62.5 cpmy_609_To_7_3_Apr + 62.5 cpmy_614_To_7_3_May + 62.5 cpmy_616_To_7_3_Jun + 62.5 cpmy_618_To_7_3_Jul + 62.5 cpmy_701_To_8_3_Apr + 62.5 cpmy_706_To_8_3_May + 62.5 cpmy_708_To_8_3_Jun + 62.5 cpmy_710_To_8_3_Jul + 62.5 cpmy_793_To_9_3_Apr + 62.5 cpmy_798_To_9_3_May + 62.5 cpmy_800_To_9_3_Jun + 62.5 cpmy_802_To_9_3_Jul + 62.5 cpmy_885_To_A_3_Apr + 62.5 cpmy_890_To_A_3_May + 62.5 cpmy_892_To_A_3_Jun + 62.5 cpmy_894_To_A_3_Jul + 1 ud_29_To_3  >= 75
+ c_ud_30_To_3: + 62.5 cpmy_56_To_1_3_Apr + 62.5 cpmy_61_To_1_3_May + 62.5 cpmy_63_To_1_3_Jun + 62.5 cpmy_65_To_1_3_Jul + 62.5 cpmy_148_To_2_3_Apr + 62.5 cpmy_153_To_2_3_May + 62.5 cpmy_155_To_2_3_Jun + 62.5 cpmy_157_To_2_3_Jul + 62.5 cpmy_240_To_3_3_Apr + 62.5 cpmy_245_To_3_3_May + 62.5 cpmy_247_To_3_3_Jun + 62.5 cpmy_249_To_3_3_Jul + 62.5 cpmy_332_To_4_3_Apr + 62.5 cpmy_337_To_4_3_May + 62.5 cpmy_339_To_4_3_Jun + 62.5 cpmy_341_To_4_3_Jul + 62.5 cpmy_424_To_5_3_Apr + 62.5 cpmy_429_To_5_3_May + 62.5 cpmy_431_To_5_3_Jun + 62.5 cpmy_433_To_5_3_Jul + 62.5 cpmy_516_To_6_3_Apr + 62.5 cpmy_521_To_6_3_May + 62.5 cpmy_523_To_6_3_Jun + 62.5 cpmy_525_To_6_3_Jul + 62.5 cpmy_608_To_7_3_Apr + 62.5 cpmy_613_To_7_3_May + 62.5 cpmy_615_To_7_3_Jun + 62.5 cpmy_617_To_7_3_Jul + 62.5 cpmy_700_To_8_3_Apr + 62.5 cpmy_705_To_8_3_May + 62.5 cpmy_707_To_8_3_Jun + 62.5 cpmy_709_To_8_3_Jul + 62.5 cpmy_792_To_9_3_Apr + 62.5 cpmy_797_To_9_3_May + 62.5 cpmy_799_To_9_3_Jun + 62.5 cpmy_801_To_9_3_Jul + 62.5 cpmy_884_To_A_3_Apr + 62.5 cpmy_889_To_A_3_May + 62.5 cpmy_891_To_A_3_Jun + 62.5 cpmy_893_To_A_3_Jul + 1 ud_30_To_3  >= 20
+ c_ud_31_Be_4: + 18.75 cpmy_74_Be_1_4_Apr + 18.75 cpmy_81_Be_1_4_May + 18.75 cpmy_166_Be_2_4_Apr + 18.75 cpmy_173_Be_2_4_May + 18.75 cpmy_258_Be_3_4_Apr + 18.75 cpmy_265_Be_3_4_May + 18.75 cpmy_350_Be_4_4_Apr + 18.75 cpmy_357_Be_4_4_May + 18.75 cpmy_442_Be_5_4_Apr + 18.75 cpmy_449_Be_5_4_May + 18.75 cpmy_534_Be_6_4_Apr + 18.75 cpmy_541_Be_6_4_May + 18.75 cpmy_626_Be_7_4_Apr + 18.75 cpmy_633_Be_7_4_May + 18.75 cpmy_718_Be_8_4_Apr + 18.75 cpmy_725_Be_8_4_May + 18.75 cpmy_810_Be_9_4_Apr + 18.75 cpmy_817_Be_9_4_May + 18.75 cpmy_902_Be_A_4_Apr + 18.75 cpmy_909_Be_A_4_May + 1 ud_31_Be_4  >= 30
+ c_ud_32_Br_4: + 12.5 cpmy_70_Br_1_4_Mar + 12.5 cpmy_75_Br_1_4_Apr + 12.5 cpmy_162_Br_2_4_Mar + 12.5 cpmy_167_Br_2_4_Apr + 12.5 cpmy_254_Br_3_4_Mar + 12.5 cpmy_259_Br_3_4_Apr + 12.5 cpmy_346_Br_4_4_Mar + 12.5 cpmy_351_Br_4_4_Apr + 12.5 cpmy_438_Br_5_4_Mar + 12.5 cpmy_443_Br_5_4_Apr + 12.5 cpmy_530_Br_6_4_Mar + 12.5 cpmy_535_Br_6_4_Apr + 12.5 cpmy_622_Br_7_4_Mar + 12.5 cpmy_627_Br_7_4_Apr + 12.5 cpmy_714_Br_8_4_Mar + 12.5 cpmy_719_Br_8_4_Apr + 12.5 cpmy_806_Br_9_4_Mar + 12.5 cpmy_811_Br_9_4_Apr + 12.5 cpmy_898_Br_A_4_Mar + 12.5 cpmy_903_Br_A_4_Apr + 1 ud_32_Br_4  >= 10
+ c_ud_33_Br_4: + 12.5 cpmy_90_Br_1_4_Aug + 12.5 cpmy_182_Br_2_4_Aug + 12.5 cpmy_274_Br_3_4_Aug + 12.5 cpmy_366_Br_4_4_Aug + 12.5 cpmy_458_Br_5_4_Aug + 12.5 cpmy_550_Br_6_4_Aug + 12.5 cpmy_642_Br_7_4_Aug + 12.5 cpmy_734_Br_8_4_Aug + 12.5 cpmy_826_Br_9_4_Aug + 12.5 cpmy_918_Br_A_4_Aug + 1 ud_33_Br_4  >= 10
+ c_ud_34_Br_4: + 12.5 cpmy_68_Br_1_3_Aug + 12.5 cpmy_160_Br_2_3_Aug + 12.5 cpmy_252_Br_3_3_Aug + 12.5 cpmy_344_Br_4_3_Aug + 12.5 cpmy_436_Br_5_3_Aug + 12.5 cpmy_528_Br_6_3_Aug + 12.5 cpmy_620_Br_7_3_Aug + 12.5 cpmy_712_Br_8_3_Aug + 12.5 cpmy_804_Br_9_3_Aug + 12.5 cpmy_896_Br_A_3_Aug + 1 ud_34_Br_4  >= 15
+ c_ud_35_Ca_4: + 25 cpmy_71_Ca_1_4_Mar + 25 cpmy_76_Ca_1_4_Apr + 25 cpmy_163_Ca_2_4_Mar + 25 cpmy_168_Ca_2_4_Apr + 25 cpmy_255_Ca_3_4_Mar + 25 cpmy_260_Ca_3_4_Apr + 25 cpmy_347_Ca_4_4_Mar + 25 cpmy_352_Ca_4_4_Apr + 25 cpmy_439_Ca_5_4_Mar + 25 cpmy_444_Ca_5_4_Apr + 25 cpmy_531_Ca_6_4_Mar + 25 cpmy_536_Ca_6_4_Apr + 25 cpmy_623_Ca_7_4_Mar + 25 cpmy_628_Ca_7_4_Apr + 25 cpmy_715_Ca_8_4_Mar + 25 cpmy_720_Ca_8_4_Apr + 25 cpmy_807_Ca_9_4_Mar + 25 cpmy_812_Ca_9_4_Apr + 25 cpmy_899_Ca_A_4_Mar + 25 cpmy_904_Ca_A_4_Apr + 1 ud_35_Ca_4  >= 25
+ c_ud_36_Po_4: + 50 cpmy_72_Po_1_4_Mar + 50 cpmy_77_Po_1_4_Apr + 50 cpmy_82_Po_1_4_May + 50 cpmy_164_Po_2_4_Mar + 50 cpmy_169_Po_2_4_Apr + 50 cpmy_174_Po_2_4_May + 50 cpmy_256_Po_3_4_Mar + 50 cpmy_261_Po_3_4_Apr + 50 cpmy_266_Po_3_4_May + 50 cpmy_348_Po_4_4_Mar + 50 cpmy_353_Po_4_4_Apr + 50 cpmy_358_Po_4_4_May + 50 cpmy_440_Po_5_4_Mar + 50 cpmy_445_Po_5_4_Apr + 50 cpmy_450_Po_5_4_May + 50 cpmy_532_Po_6_4_Mar + 50 cpmy_537_Po_6_4_Apr + 50 cpmy_542_Po_6_4_May + 50 cpmy_624_Po_7_4_Mar + 50 cpmy_629_Po_7_4_Apr + 50 cpmy_634_Po_7_4_May + 50 cpmy_716_Po_8_4_Mar + 50 cpmy_721_Po_8_4_Apr + 50 cpmy_726_Po_8_4_May + 50 cpmy_808_Po_9_4_Mar + 50 cpmy_813_Po_9_4_Apr + 50 cpmy_818_Po_9_4_May + 50 cpmy_900_Po_A_4_Mar + 50 cpmy_905_Po_A_4_Apr + 50 cpmy_910_Po_A_4_May + 1 ud_36_Po_4  >= 250
+ c_ud_37_Po_4: + 50 cpmy_73_Po_1_4_Mar + 50 cpmy_78_Po_1_4_Apr + 50 cpmy_83_Po_1_4_May + 50 cpmy_165_Po_2_4_Mar + 50 cpmy_170_Po_2_4_Apr + 50 cpmy_175_Po_2_4_May + 50 cpmy_257_Po_3_4_Mar + 50 cpmy_262_Po_3_4_Apr + 50 cpmy_267_Po_3_4_May + 50 cpmy_349_Po_4_4_Mar + 50 cpmy_354_Po_4_4_Apr + 50 cpmy_359_Po_4_4_May + 50 cpmy_441_Po_5_4_Mar + 50 cpmy_446_Po_5_4_Apr + 50 cpmy_451_Po_5_4_May + 50 cpmy_533_Po_6_4_Mar + 50 cpmy_538_Po_6_4_Apr + 50 cpmy_543_Po_6_4_May + 50 cpmy_625_Po_7_4_Mar + 50 cpmy_630_Po_7_4_Apr + 50 cpmy_635_Po_7_4_May + 50 cpmy_717_Po_8_4_Mar + 50 cpmy_722_Po_8_4_Apr + 50 cpmy_727_Po_8_4_May + 50 cpmy_809_Po_9_4_Mar + 50 cpmy_814_Po_9_4_Apr + 50 cpmy_819_Po_9_4_May + 50 cpmy_901_Po_A_4_Mar + 50 cpmy_906_Po_A_4_Apr + 50 cpmy_911_Po_A_4_May + 1 ud_37_Po_4  >= 250
+ c_ud_38_Ru_4: + 22.5 cpmy_92_Ru_1_4_Aug + 22.5 cpmy_184_Ru_2_4_Aug + 22.5 cpmy_276_Ru_3_4_Aug + 22.5 cpmy_368_Ru_4_4_Aug + 22.5 cpmy_460_Ru_5_4_Aug + 22.5 cpmy_552_Ru_6_4_Aug + 22.5 cpmy_644_Ru_7_4_Aug + 22.5 cpmy_736_Ru_8_4_Aug + 22.5 cpmy_828_Ru_9_4_Aug + 22.5 cpmy_920_Ru_A_4_Aug + 1 ud_38_Ru_4  >= 20
+ c_ud_39_To_4: + 62.5 cpmy_80_To_1_4_Apr + 62.5 cpmy_85_To_1_4_May + 62.5 cpmy_87_To_1_4_Jun + 62.5 cpmy_89_To_1_4_Jul + 62.5 cpmy_172_To_2_4_Apr + 62.5 cpmy_177_To_2_4_May + 62.5 cpmy_179_To_2_4_Jun + 62.5 cpmy_181_To_2_4_Jul + 62.5 cpmy_264_To_3_4_Apr + 62.5 cpmy_269_To_3_4_May + 62.5 cpmy_271_To_3_4_Jun + 62.5 cpmy_273_To_3_4_Jul + 62.5 cpmy_356_To_4_4_Apr + 62.5 cpmy_361_To_4_4_May + 62.5 cpmy_363_To_4_4_Jun + 62.5 cpmy_365_To_4_4_Jul + 62.5 cpmy_448_To_5_4_Apr + 62.5 cpmy_453_To_5_4_May + 62.5 cpmy_455_To_5_4_Jun + 62.5 cpmy_457_To_5_4_Jul + 62.5 cpmy_540_To_6_4_Apr + 62.5 cpmy_545_To_6_4_May + 62.5 cpmy_547_To_6_4_Jun + 62.5 cpmy_549_To_6_4_Jul + 62.5 cpmy_632_To_7_4_Apr + 62.5 cpmy_637_To_7_4_May + 62.5 cpmy_639_To_7_4_Jun + 62.5 cpmy_641_To_7_4_Jul + 62.5 cpmy_724_To_8_4_Apr + 62.5 cpmy_729_To_8_4_May + 62.5 cpmy_731_To_8_4_Jun + 62.5 cpmy_733_To_8_4_Jul + 62.5 cpmy_816_To_9_4_Apr + 62.5 cpmy_821_To_9_4_May + 62.5 cpmy_823_To_9_4_Jun + 62.5 cpmy_825_To_9_4_Jul + 62.5 cpmy_908_To_A_4_Apr + 62.5 cpmy_913_To_A_4_May + 62.5 cpmy_915_To_A_4_Jun + 62.5 cpmy_917_To_A_4_Jul + 1 ud_39_To_4  >= 75
+ c_ud_40_To_4: + 62.5 cpmy_79_To_1_4_Apr + 62.5 cpmy_84_To_1_4_May + 62.5 cpmy_86_To_1_4_Jun + 62.5 cpmy_88_To_1_4_Jul + 62.5 cpmy_171_To_2_4_Apr + 62.5 cpmy_176_To_2_4_May + 62.5 cpmy_178_To_2_4_Jun + 62.5 cpmy_180_To_2_4_Jul + 62.5 cpmy_263_To_3_4_Apr + 62.5 cpmy_268_To_3_4_May + 62.5 cpmy_270_To_3_4_Jun + 62.5 cpmy_272_To_3_4_Jul + 62.5 cpmy_355_To_4_4_Apr + 62.5 cpmy_360_To_4_4_May + 62.5 cpmy_362_To_4_4_Jun + 62.5 cpmy_364_To_4_4_Jul + 62.5 cpmy_447_To_5_4_Apr + 62.5 cpmy_452_To_5_4_May + 62.5 cpmy_454_To_5_4_Jun + 62.5 cpmy_456_To_5_4_Jul + 62.5 cpmy_539_To_6_4_Apr + 62.5 cpmy_544_To_6_4_May + 62.5 cpmy_546_To_6_4_Jun + 62.5 cpmy_548_To_6_4_Jul + 62.5 cpmy_631_To_7_4_Apr + 62.5 cpmy_636_To_7_4_May + 62.5 cpmy_638_To_7_4_Jun + 62.5 cpmy_640_To_7_4_Jul + 62.5 cpmy_723_To_8_4_Apr + 62.5 cpmy_728_To_8_4_May + 62.5 cpmy_730_To_8_4_Jun + 62.5 cpmy_732_To_8_4_Jul + 62.5 cpmy_815_To_9_4_Apr + 62.5 cpmy_820_To_9_4_May + 62.5 cpmy_822_To_9_4_Jun + 62.5 cpmy_824_To_9_4_Jul + 62.5 cpmy_907_To_A_4_Apr + 62.5 cpmy_912_To_A_4_May + 62.5 cpmy_914_To_A_4_Jun + 62.5 cpmy_916_To_A_4_Jul + 1 ud_40_To_4  >= 20
+
+binary
+ cpmy_1_Br_1_1_Mar
+ cpmy_2_Ca_1_1_Mar
+ cpmy_3_Po_1_1_Mar
+ cpmy_4_Po_1_1_Mar
+ cpmy_5_Be_1_1_Apr
+ cpmy_6_Br_1_1_Apr
+ cpmy_7_Ca_1_1_Apr
+ cpmy_8_Po_1_1_Apr
+ cpmy_9_Po_1_1_Apr
+ cpmy_10_To_1_1_Apr
+ cpmy_11_To_1_1_Apr
+ cpmy_12_Be_1_1_May
+ cpmy_13_Po_1_1_May
+ cpmy_14_Po_1_1_May
+ cpmy_15_To_1_1_May
+ cpmy_16_To_1_1_May
+ cpmy_17_To_1_1_Jun
+ cpmy_18_To_1_1_Jun
+ cpmy_19_To_1_1_Jul
+ cpmy_20_To_1_1_Jul
+ cpmy_21_Br_1_1_Aug
+ cpmy_22_Br_1_1_Aug
+ cpmy_23_Ru_1_1_Aug
+ cpmy_24_Br_1_2_Mar
+ cpmy_25_Ca_1_2_Mar
+ cpmy_26_Po_1_2_Mar
+ cpmy_27_Po_1_2_Mar
+ cpmy_28_Be_1_2_Apr
+ cpmy_29_Br_1_2_Apr
+ cpmy_30_Ca_1_2_Apr
+ cpmy_31_Po_1_2_Apr
+ cpmy_32_Po_1_2_Apr
+ cpmy_33_To_1_2_Apr
+ cpmy_34_To_1_2_Apr
+ cpmy_35_Be_1_2_May
+ cpmy_36_Po_1_2_May
+ cpmy_37_Po_1_2_May
+ cpmy_38_To_1_2_May
+ cpmy_39_To_1_2_May
+ cpmy_40_To_1_2_Jun
+ cpmy_41_To_1_2_Jun
+ cpmy_42_To_1_2_Jul
+ cpmy_43_To_1_2_Jul
+ cpmy_44_Br_1_2_Aug
+ cpmy_45_Br_1_2_Aug
+ cpmy_46_Ru_1_2_Aug
+ cpmy_47_Br_1_3_Mar
+ cpmy_48_Ca_1_3_Mar
+ cpmy_49_Po_1_3_Mar
+ cpmy_50_Po_1_3_Mar
+ cpmy_51_Be_1_3_Apr
+ cpmy_52_Br_1_3_Apr
+ cpmy_53_Ca_1_3_Apr
+ cpmy_54_Po_1_3_Apr
+ cpmy_55_Po_1_3_Apr
+ cpmy_56_To_1_3_Apr
+ cpmy_57_To_1_3_Apr
+ cpmy_58_Be_1_3_May
+ cpmy_59_Po_1_3_May
+ cpmy_60_Po_1_3_May
+ cpmy_61_To_1_3_May
+ cpmy_62_To_1_3_May
+ cpmy_63_To_1_3_Jun
+ cpmy_64_To_1_3_Jun
+ cpmy_65_To_1_3_Jul
+ cpmy_66_To_1_3_Jul
+ cpmy_67_Br_1_3_Aug
+ cpmy_68_Br_1_3_Aug
+ cpmy_69_Ru_1_3_Aug
+ cpmy_70_Br_1_4_Mar
+ cpmy_71_Ca_1_4_Mar
+ cpmy_72_Po_1_4_Mar
+ cpmy_73_Po_1_4_Mar
+ cpmy_74_Be_1_4_Apr
+ cpmy_75_Br_1_4_Apr
+ cpmy_76_Ca_1_4_Apr
+ cpmy_77_Po_1_4_Apr
+ cpmy_78_Po_1_4_Apr
+ cpmy_79_To_1_4_Apr
+ cpmy_80_To_1_4_Apr
+ cpmy_81_Be_1_4_May
+ cpmy_82_Po_1_4_May
+ cpmy_83_Po_1_4_May
+ cpmy_84_To_1_4_May
+ cpmy_85_To_1_4_May
+ cpmy_86_To_1_4_Jun
+ cpmy_87_To_1_4_Jun
+ cpmy_88_To_1_4_Jul
+ cpmy_89_To_1_4_Jul
+ cpmy_90_Br_1_4_Aug
+ cpmy_91_Br_1_4_Aug
+ cpmy_92_Ru_1_4_Aug
+ cpmy_93_Br_2_1_Mar
+ cpmy_94_Ca_2_1_Mar
+ cpmy_95_Po_2_1_Mar
+ cpmy_96_Po_2_1_Mar
+ cpmy_97_Be_2_1_Apr
+ cpmy_98_Br_2_1_Apr
+ cpmy_99_Ca_2_1_Apr
+ cpmy_100_Po_2_1_Apr
+ cpmy_101_Po_2_1_Apr
+ cpmy_102_To_2_1_Apr
+ cpmy_103_To_2_1_Apr
+ cpmy_104_Be_2_1_May
+ cpmy_105_Po_2_1_May
+ cpmy_106_Po_2_1_May
+ cpmy_107_To_2_1_May
+ cpmy_108_To_2_1_May
+ cpmy_109_To_2_1_Jun
+ cpmy_110_To_2_1_Jun
+ cpmy_111_To_2_1_Jul
+ cpmy_112_To_2_1_Jul
+ cpmy_113_Br_2_1_Aug
+ cpmy_114_Br_2_1_Aug
+ cpmy_115_Ru_2_1_Aug
+ cpmy_116_Br_2_2_Mar
+ cpmy_117_Ca_2_2_Mar
+ cpmy_118_Po_2_2_Mar
+ cpmy_119_Po_2_2_Mar
+ cpmy_120_Be_2_2_Apr
+ cpmy_121_Br_2_2_Apr
+ cpmy_122_Ca_2_2_Apr
+ cpmy_123_Po_2_2_Apr
+ cpmy_124_Po_2_2_Apr
+ cpmy_125_To_2_2_Apr
+ cpmy_126_To_2_2_Apr
+ cpmy_127_Be_2_2_May
+ cpmy_128_Po_2_2_May
+ cpmy_129_Po_2_2_May
+ cpmy_130_To_2_2_May
+ cpmy_131_To_2_2_May
+ cpmy_132_To_2_2_Jun
+ cpmy_133_To_2_2_Jun
+ cpmy_134_To_2_2_Jul
+ cpmy_135_To_2_2_Jul
+ cpmy_136_Br_2_2_Aug
+ cpmy_137_Br_2_2_Aug
+ cpmy_138_Ru_2_2_Aug
+ cpmy_139_Br_2_3_Mar
+ cpmy_140_Ca_2_3_Mar
+ cpmy_141_Po_2_3_Mar
+ cpmy_142_Po_2_3_Mar
+ cpmy_143_Be_2_3_Apr
+ cpmy_144_Br_2_3_Apr
+ cpmy_145_Ca_2_3_Apr
+ cpmy_146_Po_2_3_Apr
+ cpmy_147_Po_2_3_Apr
+ cpmy_148_To_2_3_Apr
+ cpmy_149_To_2_3_Apr
+ cpmy_150_Be_2_3_May
+ cpmy_151_Po_2_3_May
+ cpmy_152_Po_2_3_May
+ cpmy_153_To_2_3_May
+ cpmy_154_To_2_3_May
+ cpmy_155_To_2_3_Jun
+ cpmy_156_To_2_3_Jun
+ cpmy_157_To_2_3_Jul
+ cpmy_158_To_2_3_Jul
+ cpmy_159_Br_2_3_Aug
+ cpmy_160_Br_2_3_Aug
+ cpmy_161_Ru_2_3_Aug
+ cpmy_162_Br_2_4_Mar
+ cpmy_163_Ca_2_4_Mar
+ cpmy_164_Po_2_4_Mar
+ cpmy_165_Po_2_4_Mar
+ cpmy_166_Be_2_4_Apr
+ cpmy_167_Br_2_4_Apr
+ cpmy_168_Ca_2_4_Apr
+ cpmy_169_Po_2_4_Apr
+ cpmy_170_Po_2_4_Apr
+ cpmy_171_To_2_4_Apr
+ cpmy_172_To_2_4_Apr
+ cpmy_173_Be_2_4_May
+ cpmy_174_Po_2_4_May
+ cpmy_175_Po_2_4_May
+ cpmy_176_To_2_4_May
+ cpmy_177_To_2_4_May
+ cpmy_178_To_2_4_Jun
+ cpmy_179_To_2_4_Jun
+ cpmy_180_To_2_4_Jul
+ cpmy_181_To_2_4_Jul
+ cpmy_182_Br_2_4_Aug
+ cpmy_183_Br_2_4_Aug
+ cpmy_184_Ru_2_4_Aug
+ cpmy_185_Br_3_1_Mar
+ cpmy_186_Ca_3_1_Mar
+ cpmy_187_Po_3_1_Mar
+ cpmy_188_Po_3_1_Mar
+ cpmy_189_Be_3_1_Apr
+ cpmy_190_Br_3_1_Apr
+ cpmy_191_Ca_3_1_Apr
+ cpmy_192_Po_3_1_Apr
+ cpmy_193_Po_3_1_Apr
+ cpmy_194_To_3_1_Apr
+ cpmy_195_To_3_1_Apr
+ cpmy_196_Be_3_1_May
+ cpmy_197_Po_3_1_May
+ cpmy_198_Po_3_1_May
+ cpmy_199_To_3_1_May
+ cpmy_200_To_3_1_May
+ cpmy_201_To_3_1_Jun
+ cpmy_202_To_3_1_Jun
+ cpmy_203_To_3_1_Jul
+ cpmy_204_To_3_1_Jul
+ cpmy_205_Br_3_1_Aug
+ cpmy_206_Br_3_1_Aug
+ cpmy_207_Ru_3_1_Aug
+ cpmy_208_Br_3_2_Mar
+ cpmy_209_Ca_3_2_Mar
+ cpmy_210_Po_3_2_Mar
+ cpmy_211_Po_3_2_Mar
+ cpmy_212_Be_3_2_Apr
+ cpmy_213_Br_3_2_Apr
+ cpmy_214_Ca_3_2_Apr
+ cpmy_215_Po_3_2_Apr
+ cpmy_216_Po_3_2_Apr
+ cpmy_217_To_3_2_Apr
+ cpmy_218_To_3_2_Apr
+ cpmy_219_Be_3_2_May
+ cpmy_220_Po_3_2_May
+ cpmy_221_Po_3_2_May
+ cpmy_222_To_3_2_May
+ cpmy_223_To_3_2_May
+ cpmy_224_To_3_2_Jun
+ cpmy_225_To_3_2_Jun
+ cpmy_226_To_3_2_Jul
+ cpmy_227_To_3_2_Jul
+ cpmy_228_Br_3_2_Aug
+ cpmy_229_Br_3_2_Aug
+ cpmy_230_Ru_3_2_Aug
+ cpmy_231_Br_3_3_Mar
+ cpmy_232_Ca_3_3_Mar
+ cpmy_233_Po_3_3_Mar
+ cpmy_234_Po_3_3_Mar
+ cpmy_235_Be_3_3_Apr
+ cpmy_236_Br_3_3_Apr
+ cpmy_237_Ca_3_3_Apr
+ cpmy_238_Po_3_3_Apr
+ cpmy_239_Po_3_3_Apr
+ cpmy_240_To_3_3_Apr
+ cpmy_241_To_3_3_Apr
+ cpmy_242_Be_3_3_May
+ cpmy_243_Po_3_3_May
+ cpmy_244_Po_3_3_May
+ cpmy_245_To_3_3_May
+ cpmy_246_To_3_3_May
+ cpmy_247_To_3_3_Jun
+ cpmy_248_To_3_3_Jun
+ cpmy_249_To_3_3_Jul
+ cpmy_250_To_3_3_Jul
+ cpmy_251_Br_3_3_Aug
+ cpmy_252_Br_3_3_Aug
+ cpmy_253_Ru_3_3_Aug
+ cpmy_254_Br_3_4_Mar
+ cpmy_255_Ca_3_4_Mar
+ cpmy_256_Po_3_4_Mar
+ cpmy_257_Po_3_4_Mar
+ cpmy_258_Be_3_4_Apr
+ cpmy_259_Br_3_4_Apr
+ cpmy_260_Ca_3_4_Apr
+ cpmy_261_Po_3_4_Apr
+ cpmy_262_Po_3_4_Apr
+ cpmy_263_To_3_4_Apr
+ cpmy_264_To_3_4_Apr
+ cpmy_265_Be_3_4_May
+ cpmy_266_Po_3_4_May
+ cpmy_267_Po_3_4_May
+ cpmy_268_To_3_4_May
+ cpmy_269_To_3_4_May
+ cpmy_270_To_3_4_Jun
+ cpmy_271_To_3_4_Jun
+ cpmy_272_To_3_4_Jul
+ cpmy_273_To_3_4_Jul
+ cpmy_274_Br_3_4_Aug
+ cpmy_275_Br_3_4_Aug
+ cpmy_276_Ru_3_4_Aug
+ cpmy_277_Br_4_1_Mar
+ cpmy_278_Ca_4_1_Mar
+ cpmy_279_Po_4_1_Mar
+ cpmy_280_Po_4_1_Mar
+ cpmy_281_Be_4_1_Apr
+ cpmy_282_Br_4_1_Apr
+ cpmy_283_Ca_4_1_Apr
+ cpmy_284_Po_4_1_Apr
+ cpmy_285_Po_4_1_Apr
+ cpmy_286_To_4_1_Apr
+ cpmy_287_To_4_1_Apr
+ cpmy_288_Be_4_1_May
+ cpmy_289_Po_4_1_May
+ cpmy_290_Po_4_1_May
+ cpmy_291_To_4_1_May
+ cpmy_292_To_4_1_May
+ cpmy_293_To_4_1_Jun
+ cpmy_294_To_4_1_Jun
+ cpmy_295_To_4_1_Jul
+ cpmy_296_To_4_1_Jul
+ cpmy_297_Br_4_1_Aug
+ cpmy_298_Br_4_1_Aug
+ cpmy_299_Ru_4_1_Aug
+ cpmy_300_Br_4_2_Mar
+ cpmy_301_Ca_4_2_Mar
+ cpmy_302_Po_4_2_Mar
+ cpmy_303_Po_4_2_Mar
+ cpmy_304_Be_4_2_Apr
+ cpmy_305_Br_4_2_Apr
+ cpmy_306_Ca_4_2_Apr
+ cpmy_307_Po_4_2_Apr
+ cpmy_308_Po_4_2_Apr
+ cpmy_309_To_4_2_Apr
+ cpmy_310_To_4_2_Apr
+ cpmy_311_Be_4_2_May
+ cpmy_312_Po_4_2_May
+ cpmy_313_Po_4_2_May
+ cpmy_314_To_4_2_May
+ cpmy_315_To_4_2_May
+ cpmy_316_To_4_2_Jun
+ cpmy_317_To_4_2_Jun
+ cpmy_318_To_4_2_Jul
+ cpmy_319_To_4_2_Jul
+ cpmy_320_Br_4_2_Aug
+ cpmy_321_Br_4_2_Aug
+ cpmy_322_Ru_4_2_Aug
+ cpmy_323_Br_4_3_Mar
+ cpmy_324_Ca_4_3_Mar
+ cpmy_325_Po_4_3_Mar
+ cpmy_326_Po_4_3_Mar
+ cpmy_327_Be_4_3_Apr
+ cpmy_328_Br_4_3_Apr
+ cpmy_329_Ca_4_3_Apr
+ cpmy_330_Po_4_3_Apr
+ cpmy_331_Po_4_3_Apr
+ cpmy_332_To_4_3_Apr
+ cpmy_333_To_4_3_Apr
+ cpmy_334_Be_4_3_May
+ cpmy_335_Po_4_3_May
+ cpmy_336_Po_4_3_May
+ cpmy_337_To_4_3_May
+ cpmy_338_To_4_3_May
+ cpmy_339_To_4_3_Jun
+ cpmy_340_To_4_3_Jun
+ cpmy_341_To_4_3_Jul
+ cpmy_342_To_4_3_Jul
+ cpmy_343_Br_4_3_Aug
+ cpmy_344_Br_4_3_Aug
+ cpmy_345_Ru_4_3_Aug
+ cpmy_346_Br_4_4_Mar
+ cpmy_347_Ca_4_4_Mar
+ cpmy_348_Po_4_4_Mar
+ cpmy_349_Po_4_4_Mar
+ cpmy_350_Be_4_4_Apr
+ cpmy_351_Br_4_4_Apr
+ cpmy_352_Ca_4_4_Apr
+ cpmy_353_Po_4_4_Apr
+ cpmy_354_Po_4_4_Apr
+ cpmy_355_To_4_4_Apr
+ cpmy_356_To_4_4_Apr
+ cpmy_357_Be_4_4_May
+ cpmy_358_Po_4_4_May
+ cpmy_359_Po_4_4_May
+ cpmy_360_To_4_4_May
+ cpmy_361_To_4_4_May
+ cpmy_362_To_4_4_Jun
+ cpmy_363_To_4_4_Jun
+ cpmy_364_To_4_4_Jul
+ cpmy_365_To_4_4_Jul
+ cpmy_366_Br_4_4_Aug
+ cpmy_367_Br_4_4_Aug
+ cpmy_368_Ru_4_4_Aug
+ cpmy_369_Br_5_1_Mar
+ cpmy_370_Ca_5_1_Mar
+ cpmy_371_Po_5_1_Mar
+ cpmy_372_Po_5_1_Mar
+ cpmy_373_Be_5_1_Apr
+ cpmy_374_Br_5_1_Apr
+ cpmy_375_Ca_5_1_Apr
+ cpmy_376_Po_5_1_Apr
+ cpmy_377_Po_5_1_Apr
+ cpmy_378_To_5_1_Apr
+ cpmy_379_To_5_1_Apr
+ cpmy_380_Be_5_1_May
+ cpmy_381_Po_5_1_May
+ cpmy_382_Po_5_1_May
+ cpmy_383_To_5_1_May
+ cpmy_384_To_5_1_May
+ cpmy_385_To_5_1_Jun
+ cpmy_386_To_5_1_Jun
+ cpmy_387_To_5_1_Jul
+ cpmy_388_To_5_1_Jul
+ cpmy_389_Br_5_1_Aug
+ cpmy_390_Br_5_1_Aug
+ cpmy_391_Ru_5_1_Aug
+ cpmy_392_Br_5_2_Mar
+ cpmy_393_Ca_5_2_Mar
+ cpmy_394_Po_5_2_Mar
+ cpmy_395_Po_5_2_Mar
+ cpmy_396_Be_5_2_Apr
+ cpmy_397_Br_5_2_Apr
+ cpmy_398_Ca_5_2_Apr
+ cpmy_399_Po_5_2_Apr
+ cpmy_400_Po_5_2_Apr
+ cpmy_401_To_5_2_Apr
+ cpmy_402_To_5_2_Apr
+ cpmy_403_Be_5_2_May
+ cpmy_404_Po_5_2_May
+ cpmy_405_Po_5_2_May
+ cpmy_406_To_5_2_May
+ cpmy_407_To_5_2_May
+ cpmy_408_To_5_2_Jun
+ cpmy_409_To_5_2_Jun
+ cpmy_410_To_5_2_Jul
+ cpmy_411_To_5_2_Jul
+ cpmy_412_Br_5_2_Aug
+ cpmy_413_Br_5_2_Aug
+ cpmy_414_Ru_5_2_Aug
+ cpmy_415_Br_5_3_Mar
+ cpmy_416_Ca_5_3_Mar
+ cpmy_417_Po_5_3_Mar
+ cpmy_418_Po_5_3_Mar
+ cpmy_419_Be_5_3_Apr
+ cpmy_420_Br_5_3_Apr
+ cpmy_421_Ca_5_3_Apr
+ cpmy_422_Po_5_3_Apr
+ cpmy_423_Po_5_3_Apr
+ cpmy_424_To_5_3_Apr
+ cpmy_425_To_5_3_Apr
+ cpmy_426_Be_5_3_May
+ cpmy_427_Po_5_3_May
+ cpmy_428_Po_5_3_May
+ cpmy_429_To_5_3_May
+ cpmy_430_To_5_3_May
+ cpmy_431_To_5_3_Jun
+ cpmy_432_To_5_3_Jun
+ cpmy_433_To_5_3_Jul
+ cpmy_434_To_5_3_Jul
+ cpmy_435_Br_5_3_Aug
+ cpmy_436_Br_5_3_Aug
+ cpmy_437_Ru_5_3_Aug
+ cpmy_438_Br_5_4_Mar
+ cpmy_439_Ca_5_4_Mar
+ cpmy_440_Po_5_4_Mar
+ cpmy_441_Po_5_4_Mar
+ cpmy_442_Be_5_4_Apr
+ cpmy_443_Br_5_4_Apr
+ cpmy_444_Ca_5_4_Apr
+ cpmy_445_Po_5_4_Apr
+ cpmy_446_Po_5_4_Apr
+ cpmy_447_To_5_4_Apr
+ cpmy_448_To_5_4_Apr
+ cpmy_449_Be_5_4_May
+ cpmy_450_Po_5_4_May
+ cpmy_451_Po_5_4_May
+ cpmy_452_To_5_4_May
+ cpmy_453_To_5_4_May
+ cpmy_454_To_5_4_Jun
+ cpmy_455_To_5_4_Jun
+ cpmy_456_To_5_4_Jul
+ cpmy_457_To_5_4_Jul
+ cpmy_458_Br_5_4_Aug
+ cpmy_459_Br_5_4_Aug
+ cpmy_460_Ru_5_4_Aug
+ cpmy_461_Br_6_1_Mar
+ cpmy_462_Ca_6_1_Mar
+ cpmy_463_Po_6_1_Mar
+ cpmy_464_Po_6_1_Mar
+ cpmy_465_Be_6_1_Apr
+ cpmy_466_Br_6_1_Apr
+ cpmy_467_Ca_6_1_Apr
+ cpmy_468_Po_6_1_Apr
+ cpmy_469_Po_6_1_Apr
+ cpmy_470_To_6_1_Apr
+ cpmy_471_To_6_1_Apr
+ cpmy_472_Be_6_1_May
+ cpmy_473_Po_6_1_May
+ cpmy_474_Po_6_1_May
+ cpmy_475_To_6_1_May
+ cpmy_476_To_6_1_May
+ cpmy_477_To_6_1_Jun
+ cpmy_478_To_6_1_Jun
+ cpmy_479_To_6_1_Jul
+ cpmy_480_To_6_1_Jul
+ cpmy_481_Br_6_1_Aug
+ cpmy_482_Br_6_1_Aug
+ cpmy_483_Ru_6_1_Aug
+ cpmy_484_Br_6_2_Mar
+ cpmy_485_Ca_6_2_Mar
+ cpmy_486_Po_6_2_Mar
+ cpmy_487_Po_6_2_Mar
+ cpmy_488_Be_6_2_Apr
+ cpmy_489_Br_6_2_Apr
+ cpmy_490_Ca_6_2_Apr
+ cpmy_491_Po_6_2_Apr
+ cpmy_492_Po_6_2_Apr
+ cpmy_493_To_6_2_Apr
+ cpmy_494_To_6_2_Apr
+ cpmy_495_Be_6_2_May
+ cpmy_496_Po_6_2_May
+ cpmy_497_Po_6_2_May
+ cpmy_498_To_6_2_May
+ cpmy_499_To_6_2_May
+ cpmy_500_To_6_2_Jun
+ cpmy_501_To_6_2_Jun
+ cpmy_502_To_6_2_Jul
+ cpmy_503_To_6_2_Jul
+ cpmy_504_Br_6_2_Aug
+ cpmy_505_Br_6_2_Aug
+ cpmy_506_Ru_6_2_Aug
+ cpmy_507_Br_6_3_Mar
+ cpmy_508_Ca_6_3_Mar
+ cpmy_509_Po_6_3_Mar
+ cpmy_510_Po_6_3_Mar
+ cpmy_511_Be_6_3_Apr
+ cpmy_512_Br_6_3_Apr
+ cpmy_513_Ca_6_3_Apr
+ cpmy_514_Po_6_3_Apr
+ cpmy_515_Po_6_3_Apr
+ cpmy_516_To_6_3_Apr
+ cpmy_517_To_6_3_Apr
+ cpmy_518_Be_6_3_May
+ cpmy_519_Po_6_3_May
+ cpmy_520_Po_6_3_May
+ cpmy_521_To_6_3_May
+ cpmy_522_To_6_3_May
+ cpmy_523_To_6_3_Jun
+ cpmy_524_To_6_3_Jun
+ cpmy_525_To_6_3_Jul
+ cpmy_526_To_6_3_Jul
+ cpmy_527_Br_6_3_Aug
+ cpmy_528_Br_6_3_Aug
+ cpmy_529_Ru_6_3_Aug
+ cpmy_530_Br_6_4_Mar
+ cpmy_531_Ca_6_4_Mar
+ cpmy_532_Po_6_4_Mar
+ cpmy_533_Po_6_4_Mar
+ cpmy_534_Be_6_4_Apr
+ cpmy_535_Br_6_4_Apr
+ cpmy_536_Ca_6_4_Apr
+ cpmy_537_Po_6_4_Apr
+ cpmy_538_Po_6_4_Apr
+ cpmy_539_To_6_4_Apr
+ cpmy_540_To_6_4_Apr
+ cpmy_541_Be_6_4_May
+ cpmy_542_Po_6_4_May
+ cpmy_543_Po_6_4_May
+ cpmy_544_To_6_4_May
+ cpmy_545_To_6_4_May
+ cpmy_546_To_6_4_Jun
+ cpmy_547_To_6_4_Jun
+ cpmy_548_To_6_4_Jul
+ cpmy_549_To_6_4_Jul
+ cpmy_550_Br_6_4_Aug
+ cpmy_551_Br_6_4_Aug
+ cpmy_552_Ru_6_4_Aug
+ cpmy_553_Br_7_1_Mar
+ cpmy_554_Ca_7_1_Mar
+ cpmy_555_Po_7_1_Mar
+ cpmy_556_Po_7_1_Mar
+ cpmy_557_Be_7_1_Apr
+ cpmy_558_Br_7_1_Apr
+ cpmy_559_Ca_7_1_Apr
+ cpmy_560_Po_7_1_Apr
+ cpmy_561_Po_7_1_Apr
+ cpmy_562_To_7_1_Apr
+ cpmy_563_To_7_1_Apr
+ cpmy_564_Be_7_1_May
+ cpmy_565_Po_7_1_May
+ cpmy_566_Po_7_1_May
+ cpmy_567_To_7_1_May
+ cpmy_568_To_7_1_May
+ cpmy_569_To_7_1_Jun
+ cpmy_570_To_7_1_Jun
+ cpmy_571_To_7_1_Jul
+ cpmy_572_To_7_1_Jul
+ cpmy_573_Br_7_1_Aug
+ cpmy_574_Br_7_1_Aug
+ cpmy_575_Ru_7_1_Aug
+ cpmy_576_Br_7_2_Mar
+ cpmy_577_Ca_7_2_Mar
+ cpmy_578_Po_7_2_Mar
+ cpmy_579_Po_7_2_Mar
+ cpmy_580_Be_7_2_Apr
+ cpmy_581_Br_7_2_Apr
+ cpmy_582_Ca_7_2_Apr
+ cpmy_583_Po_7_2_Apr
+ cpmy_584_Po_7_2_Apr
+ cpmy_585_To_7_2_Apr
+ cpmy_586_To_7_2_Apr
+ cpmy_587_Be_7_2_May
+ cpmy_588_Po_7_2_May
+ cpmy_589_Po_7_2_May
+ cpmy_590_To_7_2_May
+ cpmy_591_To_7_2_May
+ cpmy_592_To_7_2_Jun
+ cpmy_593_To_7_2_Jun
+ cpmy_594_To_7_2_Jul
+ cpmy_595_To_7_2_Jul
+ cpmy_596_Br_7_2_Aug
+ cpmy_597_Br_7_2_Aug
+ cpmy_598_Ru_7_2_Aug
+ cpmy_599_Br_7_3_Mar
+ cpmy_600_Ca_7_3_Mar
+ cpmy_601_Po_7_3_Mar
+ cpmy_602_Po_7_3_Mar
+ cpmy_603_Be_7_3_Apr
+ cpmy_604_Br_7_3_Apr
+ cpmy_605_Ca_7_3_Apr
+ cpmy_606_Po_7_3_Apr
+ cpmy_607_Po_7_3_Apr
+ cpmy_608_To_7_3_Apr
+ cpmy_609_To_7_3_Apr
+ cpmy_610_Be_7_3_May
+ cpmy_611_Po_7_3_May
+ cpmy_612_Po_7_3_May
+ cpmy_613_To_7_3_May
+ cpmy_614_To_7_3_May
+ cpmy_615_To_7_3_Jun
+ cpmy_616_To_7_3_Jun
+ cpmy_617_To_7_3_Jul
+ cpmy_618_To_7_3_Jul
+ cpmy_619_Br_7_3_Aug
+ cpmy_620_Br_7_3_Aug
+ cpmy_621_Ru_7_3_Aug
+ cpmy_622_Br_7_4_Mar
+ cpmy_623_Ca_7_4_Mar
+ cpmy_624_Po_7_4_Mar
+ cpmy_625_Po_7_4_Mar
+ cpmy_626_Be_7_4_Apr
+ cpmy_627_Br_7_4_Apr
+ cpmy_628_Ca_7_4_Apr
+ cpmy_629_Po_7_4_Apr
+ cpmy_630_Po_7_4_Apr
+ cpmy_631_To_7_4_Apr
+ cpmy_632_To_7_4_Apr
+ cpmy_633_Be_7_4_May
+ cpmy_634_Po_7_4_May
+ cpmy_635_Po_7_4_May
+ cpmy_636_To_7_4_May
+ cpmy_637_To_7_4_May
+ cpmy_638_To_7_4_Jun
+ cpmy_639_To_7_4_Jun
+ cpmy_640_To_7_4_Jul
+ cpmy_641_To_7_4_Jul
+ cpmy_642_Br_7_4_Aug
+ cpmy_643_Br_7_4_Aug
+ cpmy_644_Ru_7_4_Aug
+ cpmy_645_Br_8_1_Mar
+ cpmy_646_Ca_8_1_Mar
+ cpmy_647_Po_8_1_Mar
+ cpmy_648_Po_8_1_Mar
+ cpmy_649_Be_8_1_Apr
+ cpmy_650_Br_8_1_Apr
+ cpmy_651_Ca_8_1_Apr
+ cpmy_652_Po_8_1_Apr
+ cpmy_653_Po_8_1_Apr
+ cpmy_654_To_8_1_Apr
+ cpmy_655_To_8_1_Apr
+ cpmy_656_Be_8_1_May
+ cpmy_657_Po_8_1_May
+ cpmy_658_Po_8_1_May
+ cpmy_659_To_8_1_May
+ cpmy_660_To_8_1_May
+ cpmy_661_To_8_1_Jun
+ cpmy_662_To_8_1_Jun
+ cpmy_663_To_8_1_Jul
+ cpmy_664_To_8_1_Jul
+ cpmy_665_Br_8_1_Aug
+ cpmy_666_Br_8_1_Aug
+ cpmy_667_Ru_8_1_Aug
+ cpmy_668_Br_8_2_Mar
+ cpmy_669_Ca_8_2_Mar
+ cpmy_670_Po_8_2_Mar
+ cpmy_671_Po_8_2_Mar
+ cpmy_672_Be_8_2_Apr
+ cpmy_673_Br_8_2_Apr
+ cpmy_674_Ca_8_2_Apr
+ cpmy_675_Po_8_2_Apr
+ cpmy_676_Po_8_2_Apr
+ cpmy_677_To_8_2_Apr
+ cpmy_678_To_8_2_Apr
+ cpmy_679_Be_8_2_May
+ cpmy_680_Po_8_2_May
+ cpmy_681_Po_8_2_May
+ cpmy_682_To_8_2_May
+ cpmy_683_To_8_2_May
+ cpmy_684_To_8_2_Jun
+ cpmy_685_To_8_2_Jun
+ cpmy_686_To_8_2_Jul
+ cpmy_687_To_8_2_Jul
+ cpmy_688_Br_8_2_Aug
+ cpmy_689_Br_8_2_Aug
+ cpmy_690_Ru_8_2_Aug
+ cpmy_691_Br_8_3_Mar
+ cpmy_692_Ca_8_3_Mar
+ cpmy_693_Po_8_3_Mar
+ cpmy_694_Po_8_3_Mar
+ cpmy_695_Be_8_3_Apr
+ cpmy_696_Br_8_3_Apr
+ cpmy_697_Ca_8_3_Apr
+ cpmy_698_Po_8_3_Apr
+ cpmy_699_Po_8_3_Apr
+ cpmy_700_To_8_3_Apr
+ cpmy_701_To_8_3_Apr
+ cpmy_702_Be_8_3_May
+ cpmy_703_Po_8_3_May
+ cpmy_704_Po_8_3_May
+ cpmy_705_To_8_3_May
+ cpmy_706_To_8_3_May
+ cpmy_707_To_8_3_Jun
+ cpmy_708_To_8_3_Jun
+ cpmy_709_To_8_3_Jul
+ cpmy_710_To_8_3_Jul
+ cpmy_711_Br_8_3_Aug
+ cpmy_712_Br_8_3_Aug
+ cpmy_713_Ru_8_3_Aug
+ cpmy_714_Br_8_4_Mar
+ cpmy_715_Ca_8_4_Mar
+ cpmy_716_Po_8_4_Mar
+ cpmy_717_Po_8_4_Mar
+ cpmy_718_Be_8_4_Apr
+ cpmy_719_Br_8_4_Apr
+ cpmy_720_Ca_8_4_Apr
+ cpmy_721_Po_8_4_Apr
+ cpmy_722_Po_8_4_Apr
+ cpmy_723_To_8_4_Apr
+ cpmy_724_To_8_4_Apr
+ cpmy_725_Be_8_4_May
+ cpmy_726_Po_8_4_May
+ cpmy_727_Po_8_4_May
+ cpmy_728_To_8_4_May
+ cpmy_729_To_8_4_May
+ cpmy_730_To_8_4_Jun
+ cpmy_731_To_8_4_Jun
+ cpmy_732_To_8_4_Jul
+ cpmy_733_To_8_4_Jul
+ cpmy_734_Br_8_4_Aug
+ cpmy_735_Br_8_4_Aug
+ cpmy_736_Ru_8_4_Aug
+ cpmy_737_Br_9_1_Mar
+ cpmy_738_Ca_9_1_Mar
+ cpmy_739_Po_9_1_Mar
+ cpmy_740_Po_9_1_Mar
+ cpmy_741_Be_9_1_Apr
+ cpmy_742_Br_9_1_Apr
+ cpmy_743_Ca_9_1_Apr
+ cpmy_744_Po_9_1_Apr
+ cpmy_745_Po_9_1_Apr
+ cpmy_746_To_9_1_Apr
+ cpmy_747_To_9_1_Apr
+ cpmy_748_Be_9_1_May
+ cpmy_749_Po_9_1_May
+ cpmy_750_Po_9_1_May
+ cpmy_751_To_9_1_May
+ cpmy_752_To_9_1_May
+ cpmy_753_To_9_1_Jun
+ cpmy_754_To_9_1_Jun
+ cpmy_755_To_9_1_Jul
+ cpmy_756_To_9_1_Jul
+ cpmy_757_Br_9_1_Aug
+ cpmy_758_Br_9_1_Aug
+ cpmy_759_Ru_9_1_Aug
+ cpmy_760_Br_9_2_Mar
+ cpmy_761_Ca_9_2_Mar
+ cpmy_762_Po_9_2_Mar
+ cpmy_763_Po_9_2_Mar
+ cpmy_764_Be_9_2_Apr
+ cpmy_765_Br_9_2_Apr
+ cpmy_766_Ca_9_2_Apr
+ cpmy_767_Po_9_2_Apr
+ cpmy_768_Po_9_2_Apr
+ cpmy_769_To_9_2_Apr
+ cpmy_770_To_9_2_Apr
+ cpmy_771_Be_9_2_May
+ cpmy_772_Po_9_2_May
+ cpmy_773_Po_9_2_May
+ cpmy_774_To_9_2_May
+ cpmy_775_To_9_2_May
+ cpmy_776_To_9_2_Jun
+ cpmy_777_To_9_2_Jun
+ cpmy_778_To_9_2_Jul
+ cpmy_779_To_9_2_Jul
+ cpmy_780_Br_9_2_Aug
+ cpmy_781_Br_9_2_Aug
+ cpmy_782_Ru_9_2_Aug
+ cpmy_783_Br_9_3_Mar
+ cpmy_784_Ca_9_3_Mar
+ cpmy_785_Po_9_3_Mar
+ cpmy_786_Po_9_3_Mar
+ cpmy_787_Be_9_3_Apr
+ cpmy_788_Br_9_3_Apr
+ cpmy_789_Ca_9_3_Apr
+ cpmy_790_Po_9_3_Apr
+ cpmy_791_Po_9_3_Apr
+ cpmy_792_To_9_3_Apr
+ cpmy_793_To_9_3_Apr
+ cpmy_794_Be_9_3_May
+ cpmy_795_Po_9_3_May
+ cpmy_796_Po_9_3_May
+ cpmy_797_To_9_3_May
+ cpmy_798_To_9_3_May
+ cpmy_799_To_9_3_Jun
+ cpmy_800_To_9_3_Jun
+ cpmy_801_To_9_3_Jul
+ cpmy_802_To_9_3_Jul
+ cpmy_803_Br_9_3_Aug
+ cpmy_804_Br_9_3_Aug
+ cpmy_805_Ru_9_3_Aug
+ cpmy_806_Br_9_4_Mar
+ cpmy_807_Ca_9_4_Mar
+ cpmy_808_Po_9_4_Mar
+ cpmy_809_Po_9_4_Mar
+ cpmy_810_Be_9_4_Apr
+ cpmy_811_Br_9_4_Apr
+ cpmy_812_Ca_9_4_Apr
+ cpmy_813_Po_9_4_Apr
+ cpmy_814_Po_9_4_Apr
+ cpmy_815_To_9_4_Apr
+ cpmy_816_To_9_4_Apr
+ cpmy_817_Be_9_4_May
+ cpmy_818_Po_9_4_May
+ cpmy_819_Po_9_4_May
+ cpmy_820_To_9_4_May
+ cpmy_821_To_9_4_May
+ cpmy_822_To_9_4_Jun
+ cpmy_823_To_9_4_Jun
+ cpmy_824_To_9_4_Jul
+ cpmy_825_To_9_4_Jul
+ cpmy_826_Br_9_4_Aug
+ cpmy_827_Br_9_4_Aug
+ cpmy_828_Ru_9_4_Aug
+ cpmy_829_Br_A_1_Mar
+ cpmy_830_Ca_A_1_Mar
+ cpmy_831_Po_A_1_Mar
+ cpmy_832_Po_A_1_Mar
+ cpmy_833_Be_A_1_Apr
+ cpmy_834_Br_A_1_Apr
+ cpmy_835_Ca_A_1_Apr
+ cpmy_836_Po_A_1_Apr
+ cpmy_837_Po_A_1_Apr
+ cpmy_838_To_A_1_Apr
+ cpmy_839_To_A_1_Apr
+ cpmy_840_Be_A_1_May
+ cpmy_841_Po_A_1_May
+ cpmy_842_Po_A_1_May
+ cpmy_843_To_A_1_May
+ cpmy_844_To_A_1_May
+ cpmy_845_To_A_1_Jun
+ cpmy_846_To_A_1_Jun
+ cpmy_847_To_A_1_Jul
+ cpmy_848_To_A_1_Jul
+ cpmy_849_Br_A_1_Aug
+ cpmy_850_Br_A_1_Aug
+ cpmy_851_Ru_A_1_Aug
+ cpmy_852_Br_A_2_Mar
+ cpmy_853_Ca_A_2_Mar
+ cpmy_854_Po_A_2_Mar
+ cpmy_855_Po_A_2_Mar
+ cpmy_856_Be_A_2_Apr
+ cpmy_857_Br_A_2_Apr
+ cpmy_858_Ca_A_2_Apr
+ cpmy_859_Po_A_2_Apr
+ cpmy_860_Po_A_2_Apr
+ cpmy_861_To_A_2_Apr
+ cpmy_862_To_A_2_Apr
+ cpmy_863_Be_A_2_May
+ cpmy_864_Po_A_2_May
+ cpmy_865_Po_A_2_May
+ cpmy_866_To_A_2_May
+ cpmy_867_To_A_2_May
+ cpmy_868_To_A_2_Jun
+ cpmy_869_To_A_2_Jun
+ cpmy_870_To_A_2_Jul
+ cpmy_871_To_A_2_Jul
+ cpmy_872_Br_A_2_Aug
+ cpmy_873_Br_A_2_Aug
+ cpmy_874_Ru_A_2_Aug
+ cpmy_875_Br_A_3_Mar
+ cpmy_876_Ca_A_3_Mar
+ cpmy_877_Po_A_3_Mar
+ cpmy_878_Po_A_3_Mar
+ cpmy_879_Be_A_3_Apr
+ cpmy_880_Br_A_3_Apr
+ cpmy_881_Ca_A_3_Apr
+ cpmy_882_Po_A_3_Apr
+ cpmy_883_Po_A_3_Apr
+ cpmy_884_To_A_3_Apr
+ cpmy_885_To_A_3_Apr
+ cpmy_886_Be_A_3_May
+ cpmy_887_Po_A_3_May
+ cpmy_888_Po_A_3_May
+ cpmy_889_To_A_3_May
+ cpmy_890_To_A_3_May
+ cpmy_891_To_A_3_Jun
+ cpmy_892_To_A_3_Jun
+ cpmy_893_To_A_3_Jul
+ cpmy_894_To_A_3_Jul
+ cpmy_895_Br_A_3_Aug
+ cpmy_896_Br_A_3_Aug
+ cpmy_897_Ru_A_3_Aug
+ cpmy_898_Br_A_4_Mar
+ cpmy_899_Ca_A_4_Mar
+ cpmy_900_Po_A_4_Mar
+ cpmy_901_Po_A_4_Mar
+ cpmy_902_Be_A_4_Apr
+ cpmy_903_Br_A_4_Apr
+ cpmy_904_Ca_A_4_Apr
+ cpmy_905_Po_A_4_Apr
+ cpmy_906_Po_A_4_Apr
+ cpmy_907_To_A_4_Apr
+ cpmy_908_To_A_4_Apr
+ cpmy_909_Be_A_4_May
+ cpmy_910_Po_A_4_May
+ cpmy_911_Po_A_4_May
+ cpmy_912_To_A_4_May
+ cpmy_913_To_A_4_May
+ cpmy_914_To_A_4_Jun
+ cpmy_915_To_A_4_Jun
+ cpmy_916_To_A_4_Jul
+ cpmy_917_To_A_4_Jul
+ cpmy_918_Br_A_4_Aug
+ cpmy_919_Br_A_4_Aug
+ cpmy_920_Ru_A_4_Aug
+ uf_1_1_1_Jan
+ uf_2_2_1_Jan
+ uf_3_3_1_Jan
+ uf_4_4_1_Jan
+ uf_5_5_1_Jan
+ uf_6_6_1_Jan
+ uf_7_7_1_Jan
+ uf_8_8_1_Jan
+ uf_9_9_1_Jan
+ uf_10_A_1_Jan
+ uf_11_1_2_Jan
+ uf_12_2_2_Jan
+ uf_13_3_2_Jan
+ uf_14_4_2_Jan
+ uf_15_5_2_Jan
+ uf_16_6_2_Jan
+ uf_17_7_2_Jan
+ uf_18_8_2_Jan
+ uf_19_9_2_Jan
+ uf_20_A_2_Jan
+ uf_21_1_3_Jan
+ uf_22_2_3_Jan
+ uf_23_3_3_Jan
+ uf_24_4_3_Jan
+ uf_25_5_3_Jan
+ uf_26_6_3_Jan
+ uf_27_7_3_Jan
+ uf_28_8_3_Jan
+ uf_29_9_3_Jan
+ uf_30_A_3_Jan
+ uf_31_1_4_Jan
+ uf_32_2_4_Jan
+ uf_33_3_4_Jan
+ uf_34_4_4_Jan
+ uf_35_5_4_Jan
+ uf_36_6_4_Jan
+ uf_37_7_4_Jan
+ uf_38_8_4_Jan
+ uf_39_9_4_Jan
+ uf_40_A_4_Jan
+ uf_41_1_1_Feb
+ uf_42_2_1_Feb
+ uf_43_3_1_Feb
+ uf_44_4_1_Feb
+ uf_45_5_1_Feb
+ uf_46_6_1_Feb
+ uf_47_7_1_Feb
+ uf_48_8_1_Feb
+ uf_49_9_1_Feb
+ uf_50_A_1_Feb
+ uf_51_1_2_Feb
+ uf_52_2_2_Feb
+ uf_53_3_2_Feb
+ uf_54_4_2_Feb
+ uf_55_5_2_Feb
+ uf_56_6_2_Feb
+ uf_57_7_2_Feb
+ uf_58_8_2_Feb
+ uf_59_9_2_Feb
+ uf_60_A_2_Feb
+ uf_61_1_3_Feb
+ uf_62_2_3_Feb
+ uf_63_3_3_Feb
+ uf_64_4_3_Feb
+ uf_65_5_3_Feb
+ uf_66_6_3_Feb
+ uf_67_7_3_Feb
+ uf_68_8_3_Feb
+ uf_69_9_3_Feb
+ uf_70_A_3_Feb
+ uf_71_1_4_Feb
+ uf_72_2_4_Feb
+ uf_73_3_4_Feb
+ uf_74_4_4_Feb
+ uf_75_5_4_Feb
+ uf_76_6_4_Feb
+ uf_77_7_4_Feb
+ uf_78_8_4_Feb
+ uf_79_9_4_Feb
+ uf_80_A_4_Feb
+ uf_81_1_1_Mar
+ uf_82_2_1_Mar
+ uf_83_3_1_Mar
+ uf_84_4_1_Mar
+ uf_85_5_1_Mar
+ uf_86_6_1_Mar
+ uf_87_7_1_Mar
+ uf_88_8_1_Mar
+ uf_89_9_1_Mar
+ uf_90_A_1_Mar
+ uf_91_1_2_Mar
+ uf_92_2_2_Mar
+ uf_93_3_2_Mar
+ uf_94_4_2_Mar
+ uf_95_5_2_Mar
+ uf_96_6_2_Mar
+ uf_97_7_2_Mar
+ uf_98_8_2_Mar
+ uf_99_9_2_Mar
+ uf_100_A_2_Mar
+ uf_101_1_3_Mar
+ uf_102_2_3_Mar
+ uf_103_3_3_Mar
+ uf_104_4_3_Mar
+ uf_105_5_3_Mar
+ uf_106_6_3_Mar
+ uf_107_7_3_Mar
+ uf_108_8_3_Mar
+ uf_109_9_3_Mar
+ uf_110_A_3_Mar
+ uf_111_1_4_Mar
+ uf_112_2_4_Mar
+ uf_113_3_4_Mar
+ uf_114_4_4_Mar
+ uf_115_5_4_Mar
+ uf_116_6_4_Mar
+ uf_117_7_4_Mar
+ uf_118_8_4_Mar
+ uf_119_9_4_Mar
+ uf_120_A_4_Mar
+ uf_121_1_1_Apr
+ uf_122_2_1_Apr
+ uf_123_3_1_Apr
+ uf_124_4_1_Apr
+ uf_125_5_1_Apr
+ uf_126_6_1_Apr
+ uf_127_7_1_Apr
+ uf_128_8_1_Apr
+ uf_129_9_1_Apr
+ uf_130_A_1_Apr
+ uf_131_1_2_Apr
+ uf_132_2_2_Apr
+ uf_133_3_2_Apr
+ uf_134_4_2_Apr
+ uf_135_5_2_Apr
+ uf_136_6_2_Apr
+ uf_137_7_2_Apr
+ uf_138_8_2_Apr
+ uf_139_9_2_Apr
+ uf_140_A_2_Apr
+ uf_141_1_3_Apr
+ uf_142_2_3_Apr
+ uf_143_3_3_Apr
+ uf_144_4_3_Apr
+ uf_145_5_3_Apr
+ uf_146_6_3_Apr
+ uf_147_7_3_Apr
+ uf_148_8_3_Apr
+ uf_149_9_3_Apr
+ uf_150_A_3_Apr
+ uf_151_1_4_Apr
+ uf_152_2_4_Apr
+ uf_153_3_4_Apr
+ uf_154_4_4_Apr
+ uf_155_5_4_Apr
+ uf_156_6_4_Apr
+ uf_157_7_4_Apr
+ uf_158_8_4_Apr
+ uf_159_9_4_Apr
+ uf_160_A_4_Apr
+ uf_161_1_1_May
+ uf_162_2_1_May
+ uf_163_3_1_May
+ uf_164_4_1_May
+ uf_165_5_1_May
+ uf_166_6_1_May
+ uf_167_7_1_May
+ uf_168_8_1_May
+ uf_169_9_1_May
+ uf_170_A_1_May
+ uf_171_1_2_May
+ uf_172_2_2_May
+ uf_173_3_2_May
+ uf_174_4_2_May
+ uf_175_5_2_May
+ uf_176_6_2_May
+ uf_177_7_2_May
+ uf_178_8_2_May
+ uf_179_9_2_May
+ uf_180_A_2_May
+ uf_181_1_3_May
+ uf_182_2_3_May
+ uf_183_3_3_May
+ uf_184_4_3_May
+ uf_185_5_3_May
+ uf_186_6_3_May
+ uf_187_7_3_May
+ uf_188_8_3_May
+ uf_189_9_3_May
+ uf_190_A_3_May
+ uf_191_1_4_May
+ uf_192_2_4_May
+ uf_193_3_4_May
+ uf_194_4_4_May
+ uf_195_5_4_May
+ uf_196_6_4_May
+ uf_197_7_4_May
+ uf_198_8_4_May
+ uf_199_9_4_May
+ uf_200_A_4_May
+ uf_201_1_1_Jun
+ uf_202_2_1_Jun
+ uf_203_3_1_Jun
+ uf_204_4_1_Jun
+ uf_205_5_1_Jun
+ uf_206_6_1_Jun
+ uf_207_7_1_Jun
+ uf_208_8_1_Jun
+ uf_209_9_1_Jun
+ uf_210_A_1_Jun
+ uf_211_1_2_Jun
+ uf_212_2_2_Jun
+ uf_213_3_2_Jun
+ uf_214_4_2_Jun
+ uf_215_5_2_Jun
+ uf_216_6_2_Jun
+ uf_217_7_2_Jun
+ uf_218_8_2_Jun
+ uf_219_9_2_Jun
+ uf_220_A_2_Jun
+ uf_221_1_3_Jun
+ uf_222_2_3_Jun
+ uf_223_3_3_Jun
+ uf_224_4_3_Jun
+ uf_225_5_3_Jun
+ uf_226_6_3_Jun
+ uf_227_7_3_Jun
+ uf_228_8_3_Jun
+ uf_229_9_3_Jun
+ uf_230_A_3_Jun
+ uf_231_1_4_Jun
+ uf_232_2_4_Jun
+ uf_233_3_4_Jun
+ uf_234_4_4_Jun
+ uf_235_5_4_Jun
+ uf_236_6_4_Jun
+ uf_237_7_4_Jun
+ uf_238_8_4_Jun
+ uf_239_9_4_Jun
+ uf_240_A_4_Jun
+ uf_241_1_1_Jul
+ uf_242_2_1_Jul
+ uf_243_3_1_Jul
+ uf_244_4_1_Jul
+ uf_245_5_1_Jul
+ uf_246_6_1_Jul
+ uf_247_7_1_Jul
+ uf_248_8_1_Jul
+ uf_249_9_1_Jul
+ uf_250_A_1_Jul
+ uf_251_1_2_Jul
+ uf_252_2_2_Jul
+ uf_253_3_2_Jul
+ uf_254_4_2_Jul
+ uf_255_5_2_Jul
+ uf_256_6_2_Jul
+ uf_257_7_2_Jul
+ uf_258_8_2_Jul
+ uf_259_9_2_Jul
+ uf_260_A_2_Jul
+ uf_261_1_3_Jul
+ uf_262_2_3_Jul
+ uf_263_3_3_Jul
+ uf_264_4_3_Jul
+ uf_265_5_3_Jul
+ uf_266_6_3_Jul
+ uf_267_7_3_Jul
+ uf_268_8_3_Jul
+ uf_269_9_3_Jul
+ uf_270_A_3_Jul
+ uf_271_1_4_Jul
+ uf_272_2_4_Jul
+ uf_273_3_4_Jul
+ uf_274_4_4_Jul
+ uf_275_5_4_Jul
+ uf_276_6_4_Jul
+ uf_277_7_4_Jul
+ uf_278_8_4_Jul
+ uf_279_9_4_Jul
+ uf_280_A_4_Jul
+ uf_281_1_1_Aug
+ uf_282_2_1_Aug
+ uf_283_3_1_Aug
+ uf_284_4_1_Aug
+ uf_285_5_1_Aug
+ uf_286_6_1_Aug
+ uf_287_7_1_Aug
+ uf_288_8_1_Aug
+ uf_289_9_1_Aug
+ uf_290_A_1_Aug
+ uf_291_1_2_Aug
+ uf_292_2_2_Aug
+ uf_293_3_2_Aug
+ uf_294_4_2_Aug
+ uf_295_5_2_Aug
+ uf_296_6_2_Aug
+ uf_297_7_2_Aug
+ uf_298_8_2_Aug
+ uf_299_9_2_Aug
+ uf_300_A_2_Aug
+ uf_301_1_3_Aug
+ uf_302_2_3_Aug
+ uf_303_3_3_Aug
+ uf_304_4_3_Aug
+ uf_305_5_3_Aug
+ uf_306_6_3_Aug
+ uf_307_7_3_Aug
+ uf_308_8_3_Aug
+ uf_309_9_3_Aug
+ uf_310_A_3_Aug
+ uf_311_1_4_Aug
+ uf_312_2_4_Aug
+ uf_313_3_4_Aug
+ uf_314_4_4_Aug
+ uf_315_5_4_Aug
+ uf_316_6_4_Aug
+ uf_317_7_4_Aug
+ uf_318_8_4_Aug
+ uf_319_9_4_Aug
+ uf_320_A_4_Aug
+ uf_321_1_1_Sep
+ uf_322_2_1_Sep
+ uf_323_3_1_Sep
+ uf_324_4_1_Sep
+ uf_325_5_1_Sep
+ uf_326_6_1_Sep
+ uf_327_7_1_Sep
+ uf_328_8_1_Sep
+ uf_329_9_1_Sep
+ uf_330_A_1_Sep
+ uf_331_1_2_Sep
+ uf_332_2_2_Sep
+ uf_333_3_2_Sep
+ uf_334_4_2_Sep
+ uf_335_5_2_Sep
+ uf_336_6_2_Sep
+ uf_337_7_2_Sep
+ uf_338_8_2_Sep
+ uf_339_9_2_Sep
+ uf_340_A_2_Sep
+ uf_341_1_3_Sep
+ uf_342_2_3_Sep
+ uf_343_3_3_Sep
+ uf_344_4_3_Sep
+ uf_345_5_3_Sep
+ uf_346_6_3_Sep
+ uf_347_7_3_Sep
+ uf_348_8_3_Sep
+ uf_349_9_3_Sep
+ uf_350_A_3_Sep
+ uf_351_1_4_Sep
+ uf_352_2_4_Sep
+ uf_353_3_4_Sep
+ uf_354_4_4_Sep
+ uf_355_5_4_Sep
+ uf_356_6_4_Sep
+ uf_357_7_4_Sep
+ uf_358_8_4_Sep
+ uf_359_9_4_Sep
+ uf_360_A_4_Sep
+ uf_361_1_1_Oct
+ uf_362_2_1_Oct
+ uf_363_3_1_Oct
+ uf_364_4_1_Oct
+ uf_365_5_1_Oct
+ uf_366_6_1_Oct
+ uf_367_7_1_Oct
+ uf_368_8_1_Oct
+ uf_369_9_1_Oct
+ uf_370_A_1_Oct
+ uf_371_1_2_Oct
+ uf_372_2_2_Oct
+ uf_373_3_2_Oct
+ uf_374_4_2_Oct
+ uf_375_5_2_Oct
+ uf_376_6_2_Oct
+ uf_377_7_2_Oct
+ uf_378_8_2_Oct
+ uf_379_9_2_Oct
+ uf_380_A_2_Oct
+ uf_381_1_3_Oct
+ uf_382_2_3_Oct
+ uf_383_3_3_Oct
+ uf_384_4_3_Oct
+ uf_385_5_3_Oct
+ uf_386_6_3_Oct
+ uf_387_7_3_Oct
+ uf_388_8_3_Oct
+ uf_389_9_3_Oct
+ uf_390_A_3_Oct
+ uf_391_1_4_Oct
+ uf_392_2_4_Oct
+ uf_393_3_4_Oct
+ uf_394_4_4_Oct
+ uf_395_5_4_Oct
+ uf_396_6_4_Oct
+ uf_397_7_4_Oct
+ uf_398_8_4_Oct
+ uf_399_9_4_Oct
+ uf_400_A_4_Oct
+ uf_401_1_1_Nov
+ uf_402_2_1_Nov
+ uf_403_3_1_Nov
+ uf_404_4_1_Nov
+ uf_405_5_1_Nov
+ uf_406_6_1_Nov
+ uf_407_7_1_Nov
+ uf_408_8_1_Nov
+ uf_409_9_1_Nov
+ uf_410_A_1_Nov
+ uf_411_1_2_Nov
+ uf_412_2_2_Nov
+ uf_413_3_2_Nov
+ uf_414_4_2_Nov
+ uf_415_5_2_Nov
+ uf_416_6_2_Nov
+ uf_417_7_2_Nov
+ uf_418_8_2_Nov
+ uf_419_9_2_Nov
+ uf_420_A_2_Nov
+ uf_421_1_3_Nov
+ uf_422_2_3_Nov
+ uf_423_3_3_Nov
+ uf_424_4_3_Nov
+ uf_425_5_3_Nov
+ uf_426_6_3_Nov
+ uf_427_7_3_Nov
+ uf_428_8_3_Nov
+ uf_429_9_3_Nov
+ uf_430_A_3_Nov
+ uf_431_1_4_Nov
+ uf_432_2_4_Nov
+ uf_433_3_4_Nov
+ uf_434_4_4_Nov
+ uf_435_5_4_Nov
+ uf_436_6_4_Nov
+ uf_437_7_4_Nov
+ uf_438_8_4_Nov
+ uf_439_9_4_Nov
+ uf_440_A_4_Nov
+ uf_441_1_1_Dec
+ uf_442_2_1_Dec
+ uf_443_3_1_Dec
+ uf_444_4_1_Dec
+ uf_445_5_1_Dec
+ uf_446_6_1_Dec
+ uf_447_7_1_Dec
+ uf_448_8_1_Dec
+ uf_449_9_1_Dec
+ uf_450_A_1_Dec
+ uf_451_1_2_Dec
+ uf_452_2_2_Dec
+ uf_453_3_2_Dec
+ uf_454_4_2_Dec
+ uf_455_5_2_Dec
+ uf_456_6_2_Dec
+ uf_457_7_2_Dec
+ uf_458_8_2_Dec
+ uf_459_9_2_Dec
+ uf_460_A_2_Dec
+ uf_461_1_3_Dec
+ uf_462_2_3_Dec
+ uf_463_3_3_Dec
+ uf_464_4_3_Dec
+ uf_465_5_3_Dec
+ uf_466_6_3_Dec
+ uf_467_7_3_Dec
+ uf_468_8_3_Dec
+ uf_469_9_3_Dec
+ uf_470_A_3_Dec
+ uf_471_1_4_Dec
+ uf_472_2_4_Dec
+ uf_473_3_4_Dec
+ uf_474_4_4_Dec
+ uf_475_5_4_Dec
+ uf_476_6_4_Dec
+ uf_477_7_4_Dec
+ uf_478_8_4_Dec
+ uf_479_9_4_Dec
+ uf_480_A_4_Dec
+
+general
+ ud_1_Be_1
+ ud_2_Br_1
+ ud_3_Br_1
+ ud_4_Br_1
+ ud_5_Ca_1
+ ud_6_Po_1
+ ud_7_Po_1
+ ud_8_Ru_1
+ ud_9_To_1
+ ud_10_To_1
+ ud_11_Be_2
+ ud_12_Br_2
+ ud_13_Br_2
+ ud_14_Br_2
+ ud_15_Ca_2
+ ud_16_Po_2
+ ud_17_Po_2
+ ud_18_Ru_2
+ ud_19_To_2
+ ud_20_To_2
+ ud_21_Be_3
+ ud_22_Br_3
+ ud_23_Br_3
+ ud_24_Br_3
+ ud_25_Ca_3
+ ud_26_Po_3
+ ud_27_Po_3
+ ud_28_Ru_3
+ ud_29_To_3
+ ud_30_To_3
+ ud_31_Be_4
+ ud_32_Br_4
+ ud_33_Br_4
+ ud_34_Br_4
+ ud_35_Ca_4
+ ud_36_Po_4
+ ud_37_Po_4
+ ud_38_Ru_4
+ ud_39_To_4
+ ud_40_To_4
+end
+
