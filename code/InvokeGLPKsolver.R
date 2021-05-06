@@ -243,7 +243,7 @@ write(binary, file = filePath, ncolumns = 1, append = TRUE)
 write(general, file = filePath, ncolumns = 1, append = TRUE)
 
 # Append terminator
-write(c("end", ""), file = filePath, ncolumns = 1, append = TRUE)
+write(c("", "end", ""), file = filePath, ncolumns = 1, append = TRUE)
 
 # SOLVER INVOCATION ############################################################
 glpkData <- Rglpk_read_file(filePath, type = "CPLEX_LP")
@@ -258,12 +258,21 @@ glpkResults <- Rglpk_solve_LP(glpkData$objective,
 if (glpkResults$status != 0) {
   print("Optimal solution NOT FOUND")
 } else {
-  glpkResults$solution
+  glpkResults$optimum
 }
 
-attr(x = glpkData, which = 'names')
+# attr(x = glpkData, which = 'names')
 vars <- attributes(x = glpkData)$objective_vars_names
 values <- glpkResults$solution
 results <- data.frame(vars, values)
 resultsNonZero <- results %>% filter(values != 0)
-print(resultsNonZero)
+# print(resultsNonZero)
+resultsCrops <- 
+filter(resultsNonZero, substr(vars,1,4) == "cpmy") %>%
+  left_join(varCropsPlantingMonthYearFieldFull, by = c("vars" = "varID")) %>%
+  select(Year, Field, Crop, PlantingMonth, "Release Field Month") %>%
+  arrange(Year, PlantingMonth, Field, Crop) %>%
+  rename('Plant On' = PlantingMonth, 'Harvest On' = 'Release Field Month')
+
+
+
