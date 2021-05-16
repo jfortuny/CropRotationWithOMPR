@@ -9,6 +9,8 @@ library(dplyr)
 # To construct model variables we'll use the following naming convention:
 # Suffixes: c = crop; f = field, y = year, m = month
 c <- cropsIncluded[,'Crop']
+bf <- distinct(cropsIncluded, Family)
+b <- bf[, 'Family']
 f <- fieldsIncluded[,'Field']
 y <- seq(1:4)
 # y <- 1
@@ -21,7 +23,8 @@ m <- month.abb
 cropFieldOccupation <- cropsIncluded %>%
   select('Crop', 'Days To Maturity')
 cropFieldRelease <- cropFieldOccupation %>% 
-  mutate('Months In Field' = round(`Days To Maturity`/30)) %>%
+#  mutate('Months In Field' = round(`Days To Maturity`/30)) %>% 
+  mutate('Months In Field' = ceiling(`Days To Maturity`/30)) %>%
   select('Crop', 'Months In Field')
 cropFieldOccupation <- left_join(cropFieldOccupation, cropFieldRelease, by = 'Crop')
 
@@ -89,6 +92,7 @@ varCropsPlantingMonthYearField <- varCropsPlantingMonthYearField %>%
 
 varCropsPlantingMonthYearField <- inner_join(varCropsPlantingMonthYearField, varCropsPlantingMonthYear,
                                              by = 'CropMonthYear')
+
 varCropsPlantingMonthYearFieldFull <- inner_join(varCropsPlantingMonthYearField, cropPlantingMonths,
                                              by = 'CropMonth') %>%
   select(Crop, PlantingMonth, 'Release Field Month', SameYearRelease, CropMonth, CropMonthRelease,
@@ -137,7 +141,22 @@ varCropsPlantingMonthYearFieldFull <- varCropsPlantingMonthYearFieldFull %>%
 #          'CropMonthYearField', 'FieldYearMonthRelease', 'varIDlong') %>%
 #   rename('varID' = 'varIDlong')
 # # Long variable names **********************************************************
-# Clean up unneeded variables
+
+# NOT SURE THIS IS NEEDED HERE *************************************************
+# Add crop rotation constraints required variables #############################
+varCropsPlantingMonthYearFieldRotation <- left_join(varCropsPlantingMonthYearFieldFull, cropsIncluded, by = 'Crop')
+varCropsPlantingMonthYearFieldRotation <- 
+  varCropsPlantingMonthYearFieldRotation[, which(colnames(varCropsPlantingMonthYearFieldRotation)=='Crop'):
+                                           which(colnames(varCropsPlantingMonthYearFieldRotation)=='Months between plantings on same field')]
+# set Months between plantings on same field to 12 if undefined
+varCropsPlantingMonthYearFieldRotation$'Months between plantings on same field'[is.na(varCropsPlantingMonthYearFieldRotation$'Months between plantings on same field')]<-12
+# Add months in field of the planted crop
+varCropsPlantingMonthYearFieldRotation <- left_join(varCropsPlantingMonthYearFieldRotation, cropFieldRelease, by = 'Crop')
+varCropsPlantingMonthYearFieldRotation <- varCropsPlantingMonthYearFieldRotation %>%
+  rename(MonthsBetweenPlantings = `Months between plantings on same field`,
+         MonthsInField = `Months In Field`)
+
+# Clean up unneeded variables ##################################################
 rm(varCropsPlantingMonthYear)
 rm(varCropsPlantingMonthYearField)
 
@@ -196,4 +215,17 @@ varCropsPlantedInFirstMonthFirstYear <- varCropsPlantingMonthYearFieldFull %>%
 varFieldsUnusedInFirstMonthFirstYear <- varUnusedFieldYearMonth %>% 
   filter(Year == "1" & Month == "Jan") %>% 
   select(FieldYearMonth)
+
+# CONTINUE WORK HERE ************************************************************************
+# Variables related to Rotation Relaxed in Year y and Month m for botanical family b
+varRotationRelaxedFieldFamilyYearMonth <- merge(f, b,  by = NULL)
+varRotationRelaxedFieldFamilyYearMonth <- varRotationRelaxedFieldFamilyYearMonth %>%
+  rename(Field = x, Family = y)
+varRotationRelaxedFieldFamilyYearMonth <- merge(varRotationRelaxedFieldFamilyYearMonth, as.character(y), by = NULL)
+varRotationRelaxedFieldFamilyYearMonth <- varRotationRelaxedFieldFamilyYearMonth %>%
+  rename(Year = y)
+varRotationRelaxedFieldFamilyYearMonth <- merge(varRotationRelaxedFieldFamilyYearMonth, m, by = NULL)
+varRotationRelaxedFieldFamilyYearMonth <- varRotationRelaxedFieldFamilyYearMonth %>%
+  rename(Month = y )%>%
+  mutate(varID = paste('rr', as.character(row_number()), sep = '_'))
 

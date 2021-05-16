@@ -3,8 +3,8 @@ title: "Crop Rotation Documentation"
 author: "José Fortuny"
 date: "3/12/2021"
 output:
-  pdf_document: default
   word_document: default
+  pdf_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -120,7 +120,7 @@ In this type of model we optimize (maximize or minimize) a linear function subje
 
 ## Objective Function
 
-In general terms, we try to minimize the unmet demand, i.e., we want to produce as much of each crop as needed and, if it isn't possible to produce all that is needed, then we minimize the gap. In addition, we want to always have something planted in the field, so we will encourage the use of cover crops or crops in general at any point in time.
+In general terms, we try to minimize the unmet demand, i.e., we want to produce as much of each crop as needed and, if it isn't possible to produce all that is needed, then we minimize the gap. In addition, we want to always have something planted in the field, so we will encourage the use of cover crops or crops in general at any point in time. The objective function will also try to minimize the failure of meeting the crop rotation constraints.
 
 ## Variables
 
@@ -137,12 +137,12 @@ There are a number of types of constraints that we will implement to manage the 
 
 ### Constraints that manage land transfers/availability over time periods
 
-Succinctly, every field in the farm can be either planted or not planted in every month of every year; if it is planted, it will become available again once the crop is harvested and, if it is not planted, the field will be available for planting next month. Thus, we will have constraints $C_{fym}$ for each field in each month and year to represent the balance of land in the field: the sum of Field f freed in year y month m + Field f not planted in year y month m-1 must equal the Field f not planted in year y month m + the sum of field f planted in crop c in year y and month m. In mathematical terms:
+Succinctly, every field in the farm can be either planted or not planted in every month of every year; if it is planted, it will become available again once the crop is harvested and, if it is not planted, the field will be available for planting next month. Thus, we will have constraints $C_{fym}$ for each field in each month and year to represent the balance of land in the field: the sum of Field f freed (harvested) in year y month m + Field f not planted in year y month m-1 must equal the Field f not planted in year y month m + the sum of field f planted in crop c in year y and month m. In mathematical terms:
 
 $$
 \begin{aligned}
 \text C_{fym} : \quad & - \sum_f F - \sum_{y(m-1)} N + \sum_{ym} N + \sum_{c} P = 0 \qquad\forall fym\\ 
-             &F: Freed \\ 
+             &F: Freed/Harvested \\ 
              &N: Not \ Planted\\
              &P: Planted
 \end{aligned}
@@ -150,13 +150,41 @@ $$
 
 ### Constraints that manage unmet demand for the year
 
-Every field planted will eventually produce a crop that meets the demand for one of the **Is Same Crop As** crops. These constraints summarize the production balance of those crops by all fields for every year: the crop **Yield per Unit of Field** of all fields that produce a similar crop during the year y plus the **Unmet Demand** for the year must be greater than the **Demand** for the product loaded from the data spreadsheet. In mathematical terms:
+Every field planted will eventually produce a crop that meets the demand for one of the **Is Same Crop As** crops. These constraints summarize the production balance of those crops by all fields for every year: the crop **Yield per Unit of Field** of all fields that produce a similar crop during the year y plus the **Unmet Demand** for the year must be greater than the **Demand** for the product, $d_{c}$, loaded from the data spreadsheet. In mathematical terms:
 
 $$
 \begin{aligned}
 \text C_{cy} : \quad & \sum_c yC + \sum_{s} U \geq d_{c} \qquad\forall cy\\
                      &y: Yields \ of \ planted \ "same \ as" crops \\
                      &U: Unmet \ Demand \ of \ "same \ as" crops
+\end{aligned}
+$$
+
+### Constraints that manage crop rotation and planting rules
+
+There are a number of constraint sets implemented in the model. eventually the user will be able to determine which sets to implement and enforce strictly, which sets to implement with relaxed enforcement and which sets to ignore completely.
+
+The list of such rules/constraints is as follows:
+
+* After a field is release by a crop, plant crops of a different botanical family in that field. We can restate this principle slightly to simplify our modeling: After a field is released by a crop, do not plant crops of the same botanical family in the field for a period determines by _Months between plantings on same field_ or 12 months if that is not defined.
+* Include cover crops at any time when there is a field released by a crop. Cover crops can follow a crop of any family.
+* Keep the fields planted all the time or as much of the time a possible.
+* Nitrogen demanding crops follow Nitrogen fixing crops.
+* Heavy feeder crops, such as tomatoes, peppers, corn or lettuce, follow Light feeder crops, such as carrots, turnips or beets.
+* Weed suppressing crops (leafy crops) follow weed permitting (slow growing and nt bushy) crops.
+* High root biomass crops (red clover or orchard grass) follow low crop biomass crops.
+* Deep rooted crops follow Shallow rooted crops.
+* Fast growing crops (buckwheat, radishes or sun hemp) follow slow growing crops.
+
+#### Crop Family Rotation
+
+For each crop $c$ of botanical family $b$ planted on field $f$ in year $y$ and month $m$, we need to prohibit plantings of crops of the same botanical family in that field for the period determined by _Months between plantings on same field_. This strict constraint may be relaxed by defining (high objective function penalty) relaxation variables $R$ for each combination of field, botanical family and year and month of planting, $fbym$. Thus, we implement the following constraints:
+
+$$
+\begin{aligned}
+\text C_{fbcym} : \quad & \sum_{crop\ \in b\  \neg\ c_{fym}} P \ + \sum_{fbym} R \ <= c_{fym} \qquad\forall fbcym\\ 
+             &P: Planted \\
+             &R: Relaxation\ of\ Rotation
 \end{aligned}
 $$
 
