@@ -182,9 +182,14 @@ For each crop $c$ of botanical family $b$ planted on field $f$ in year $y$ and m
 
 $$
 \begin{aligned}
-\text C_{fbcym} : \quad & \sum_{crop\ \in b\  \neg\ c_{fym}} P \ + \sum_{fbym} R \ <= c_{fym} \qquad\forall fbcym\\ 
+\text C_{fbym} : \quad & \sum_{\ \in b_{fym}} P \ + \sum_{fbym} R \ <= M\ \delta_{fbym} \qquad \qquad\forall fbym\\ 
+S_{fby(m+1)} : \quad & \sum_{\ \in b_{fy(m+1)}} P \ + \sum_{fby(m+1)} R \ <= M\ (1 - \delta_{fbym}) \qquad \qquad\forall fby(m+1)\\
+             &\delta \in {0,1} \\
+             &P \in {0,1} \\
+             &M = 1 \\
              &P: Planted \\
-             &R: Relaxation\ of\ Rotation
+             &R: Relaxation\ of\ Rotation \\
+             &\delta: Botanical\ family\ indicator
 \end{aligned}
 $$
 

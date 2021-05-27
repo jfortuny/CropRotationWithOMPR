@@ -15,6 +15,7 @@ source(filePath)
 
 # Set hard coded parameters
 penaltyForUnmetDemand <- 1000
+penaltyForRelaxedRotation <- penaltyForUnmetDemand/2
 valueOfCoverCrop <- penaltyForUnmetDemand/5
 
 # Invoke a solver
