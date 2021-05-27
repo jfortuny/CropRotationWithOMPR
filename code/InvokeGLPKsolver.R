@@ -159,6 +159,7 @@ for (i in 1:nrow(varCropsPlantingMonthYearFieldFull)) {
 
 # BUILD ROTATION CONSTRAINTS ###################################################
 # Build empty dataframe for matrix #############################################
+bigM <- 1
 dfColNames3 <- c(varCropsPlantingMonthYearFieldRotation$varID, varRotationRelaxedFieldFamilyYearMonth$varID)
 # dfRN3 <- select(varCropsPlantingMonthYearFieldRotation, Crop, varID, MonthsBetweenPlantings, MonthsInField) %>%
 #   mutate(Counter = MonthsBetweenPlantings + MonthsInField) %>%
@@ -181,6 +182,8 @@ colnames(dfMatrix3) <- c(dfColNames3, "RHS")
 # dfMatrix3$Sense <- rep("<=", length(dfRowNames3))
 
 relaxedRotationcounter <- 0
+completedBotanicalFamilies <- data.frame(matrix(0, nrow = 0, ncol = 1), stringsAsFactors = FALSE)
+colnames(completedBotanicalFamilies) <- "Family"
 for (i_f in fieldsIncluded$Field) {
   thisField <- i_f
   for (i_y in y) {
@@ -198,7 +201,8 @@ for (i_f in fieldsIncluded$Field) {
             filter(
               varCropsPlantingMonthYearFieldRotation,
               Crop == thisCrop &
-                Field == thisField & Year == thisYear & PlantingMonth == thisMonth
+                Field == thisField &
+                Year == thisYear & PlantingMonth == thisMonth
             )
           
           if (nrow(thisCropIDrotation) != 0) {
@@ -239,70 +243,85 @@ for (i_f in fieldsIncluded$Field) {
                 MonthsInField,
                 MonthsBetweenPlantings
               ) %>%
-              mutate(Counter = MonthsInField + MonthsBetweenPlantings) 
+              mutate(Counter = MonthsInField + MonthsBetweenPlantings)
             # Calculate the FamilyCounter as the interval between plantings for the crop
             # with the longest interval in this family
-            thisFamilyCounter <- thisCropFamilyRotation %>% 
-              group_by(Family, Year, PlantingMonth) %>% 
+            thisFamilyCounter <- thisCropFamilyRotation %>%
+              group_by(Family, Year, PlantingMonth) %>%
               summarise(FamilyCounter = max(Counter))
-            # thisCropFamilyRotation <- 
-            #   left_join(thisCropFamilyRotation, thisFamilyCounter, by = c("Family", "Year", "PlantingMonth"))
             
-            for (i in seq(1,thisFamilyCounter$FamilyCounter)) {
-              
+            deltaRotationVarID <-
+              varRotationDeltaFieldFamilyYearMonth %>%
+              filter(
+                Field == thisField &
+                  Family == thisBotanicalFamily &
+                  Year == thisYear &
+                  Month == thisMonth
+              ) %>%
+              select(varID)
+            
+            relaxedRotationVarID <-
+              varRotationRelaxedFieldFamilyYearMonth %>%
+              filter(
+                Field == thisField &
+                  Family == thisBotanicalFamily &
+                  Year == thisYear &
+                  Month == thisMonth
+              ) %>%
+              select(varID)
+            
+            # Rows counter
+            for (i in seq(1, thisFamilyCounter$FamilyCounter)) {
               relaxedRotationcounter <- relaxedRotationcounter + 1
               
-              relaxedRotationVarID <-
-                paste("rr_",
-                      as.character(relaxedRotationcounter),
-                      sep = "")
+              thisRow <-
+                paste(
+                  "c_",
+                  thisCropFamilyRotation[i, "varID"],
+                  "_",
+                  thisCropFamilyRotation[i, "Year"],
+                  "_",
+                  thisCropFamilyRotation[i, "PlantingMonth"],
+                  "_",
+                  as.character(i),
+                  sep = ""
+                )
+
+              dfMatrix3[thisRow, relaxedRotationVarID$varID] <- " +1"
+              dfMatrix3[thisRow, "Sense"] <- "<="
+              dfMatrix3[thisRow, "RHS"] <- 0
               
-              for (i in 1:thisCropIDrotation$Counter) {
-                thisRow <-
-                  paste("c_",
-                        thisCropIDrotation$varID,
-                        "_",
-                        as.character(i),
-                        sep = "")
-                
-                dfMatrix3[thisRow, thisCropIDrotation$varID] <-
-                  "- 1"
-                dfMatrix3[thisRow, relaxedRotationVarID] <- "+ 1"
-                
-                theseColumns <-
-                  filter(
-                    varCropsPlantingMonthYearFieldRotation,
-                    Field == thisField &
-                      Family == thisBotanicalFamily &
-                      Crop != thisCrop &
-                      Year == thisYear &
-                      PlantingMonth == thisMonth
-                  ) %>%
-                  select(varID)
-                
-                for (j in 1:othersInFamily) {
-                  dfMatrix3[thisRow, theseColumns[j, "varID"]] <- "+ 1"
+              for (j in 1:ncol(thisCropFamilyRotation)) {
+                if (i == 1) {
+                  # Big M constraint
+                  thisColumn <- thisCropFamilyRotation[j, "varID"]
+                  dfMatrix3[thisRow, thisColumn] <- " +1"
+                  dfMatrix3[thisRow, deltaRotationVarID$varID] <-
+                    paste(" -", as.character(bigM), sep = "")
+                  
+                } else {
+                  # Remaining rows of the big M set
+                  thisColumn <- thisCropFamilyRotation[j, "varID"]
+                  dfMatrix3[thisRow, thisColumn] <- " +1"
+                  dfMatrix3[thisRow, deltaRotationVarID] <-
+                    paste(" +", as.character(bigM), sep = "")
+                  dfMatrix3[thisRow, "RHS"] <- as.character(bigM)
+                  
                 }
               }
-              
             }
             
+            # Family has been completed
+            completedBotanicalFamilies <- rbind(completedBotanicalFamilies, thisBotanicalFamily)
+            colnames(completedBotanicalFamilies) <- "Family"
             
-            
-            # print(paste("Field: ", thisField,
-            #             "; Botanical Family: ", thisBotanicalFamily,
-            #             "; Crop: ", thisCrop,
-            #             "; Year: ", as.character(thisYear),
-            #             "; Month: ", thisMonth,
-            #             sep = ""))
           }
-          
         }
       }
     }
   }
-  
 }
+
 
 # Write it temporarily here ####################################################
 write.csv(dfMatrix, file = paste(dataDir, "/dfMatrix.csv", sep = ""))
