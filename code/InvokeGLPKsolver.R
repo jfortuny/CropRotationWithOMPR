@@ -227,7 +227,7 @@ for (i_f in fieldsIncluded$Field) {
               ) %>%
               mutate(Counter = MonthsInField + MonthsBetweenPlantings)
             thisBotanicalFamily <- thisCropIDrotation$Family
-            
+  print("In row 230")          
             # Has this botanical family been completed for this field, year and month?
             if (thisBotanicalFamily %in% completedBotanicalFamilies) {
               # Continue
@@ -256,7 +256,7 @@ for (i_f in fieldsIncluded$Field) {
               thisFamilyCounter <- thisCropFamilyRotation %>%
                 group_by(Family, Year, PlantingMonth) %>%
                 summarise(FamilyCounter = max(Counter))
-              
+print("in row 259")              
               deltaRotationVarID <-
                 varRotationDeltaFieldFamilyYearMonth %>%
                 filter(
@@ -297,8 +297,8 @@ for (i_f in fieldsIncluded$Field) {
                 dfMatrix3[thisRow, relaxedRotationVarID$varID] <- " +1"
                 dfMatrix3[thisRow, "Sense"] <- "<="
                 dfMatrix3[thisRow, "RHS"] <- 0
-                
-                for (j in 1:ncol(thisCropFamilyRotation)) {
+print("in row 300")                
+                for (j in 1:nrow(thisCropFamilyRotation)) {
                   if (i == 1) {
                     # Big M constraint
                     thisColumn <- thisCropFamilyRotation[j, "varID"]
@@ -337,156 +337,157 @@ write.csv(dfMatrix, file = paste(dataDir, "/dfMatrix.csv", sep = ""))
 write.csv(dfMatrix2, file = paste(dataDir, "/dfMatrix2.csv", sep = ""))
 write.csv(dfMatrix3, file = paste(dataDir, "/dfMatrix3.csv", sep = ""))
 
-# 
-# # BUILD CPLEX-LP FORMATTED MILP FILE ###########################################
-# # BUILD VARIABLES ##############################################################
-# # Add Variables related to Crops Planted: varCropsPlantingMonthYearFieldFull$varID
-# binary = c(binary, paste(' ', varCropsPlantingMonthYearFieldFull$varID, sep = ''))
-# 
-# # Add variables related to fields not planted: varUnusedFieldYearMonth$varID
-# binary = c(binary, paste(" ", varUnusedFieldYearMonth$varID, sep = ""))
-# 
-# # Add delta variables related to crop rotation: varRotationDeltaFieldFamilyYearMonth$varID
-# binary = c(binary, paste(" ", varRotationDeltaFieldFamilyYearMonth$varID, sep = ""))
-# 
-# # Add variables related to unmet demand: varUnmetDemandProductYear$varID
-# general <- c(general, paste(" ", varUnmetDemandProductYear$varID, sep = ""))
-# 
-# # Add variables related to relaxed crop rotation: varRotationRelaxedFieldFamilyYearMonth$varID
-# general <- c(general, paste(" ", varRotationRelaxedFieldFamilyYearMonth$varID, sep = ""))
-# 
-# # BUILD OBJECTIVE FUNCTION
-# Zrow <- paste(' + ', as.character(penaltyForUnmetDemand), ' ', varUnmetDemandProductYear$varID,
-#               ' + ', as.character(penaltyForRelaxedRotation), ' ', varRotationRelaxedFieldFamilyYearMonth$varID, sep = '')
-# ZrowSingle <- paste(Zrow, collapse = "")
-# objective <- c(objective, ZrowSingle)
-# 
-# 
-# # BUILD LAND TRANSFERS CONSTRAINTS #############################################
-# for (i in 1:nrow(dfMatrix)) {
-#   thisConstraint <- paste(rownames(dfMatrix)[i], ": ", sep = "")
-#   thiConstraintSingle <- ""
-#   for (j in 1:ncol(dfMatrix)) {
-#     thisColumn <- colnames(dfMatrix)[j]
-#     if (thisColumn == "RHS") {
-#       thisRHS <- dfMatrix[i, j]
-#     } else if (thisColumn == "Sense") {
-#       thisSense <- dfMatrix[i, j]
-#     } else {
-#       if (dfMatrix[i, j] != "0") {
-#         thisConstraint <-
-#           paste(thisConstraint, dfMatrix[i, j], " ", thisColumn, " ", sep = "")
-#       }
-#     }
-#   }
-#   thisConstraint <-
-#     paste(" ", thisConstraint, " ", thisSense, " ", thisRHS, sep = "")
-#   thisConstraintSingle <- paste(thisConstraint, collapse = "")
-#   constraintsLand <- c(constraintsLand, thisConstraintSingle)
-# }
-# 
-# 
-# # BUILD DEMAND CONSTRAINTS #####################################################
-# for (i in 1:nrow(dfMatrix2)) {
-#   thisConstraint <- paste(rownames(dfMatrix2)[i], ": ", sep = "")
-#   thiConstraintSingle <- ""
-#   for (j in 1:ncol(dfMatrix2)) {
-#     thisColumn <- colnames(dfMatrix2)[j]
-#     if (thisColumn == "RHS") {
-#       thisRHS <- dfMatrix2[i, j]
-#     } else if (thisColumn == "Sense") {
-#       thisSense <- dfMatrix2[i, j]
-#     } else {
-#       if (dfMatrix2[i, j] != "0") {
-#         thisConstraint <-
-#           paste(thisConstraint, dfMatrix2[i, j], " ", thisColumn, " ", sep = "")
-#       }
-#     }
-#   }
-#   thisConstraint <-
-#     paste(" ", thisConstraint, " ", thisSense, " ", thisRHS, sep = "")
-#   thisConstraintSingle <- paste(thisConstraint, collapse = "")
-#   constraintsDemand <- c(constraintsDemand, thisConstraintSingle)
-# }
-# 
-# 
-# # BUILD ROTATION CONSTRAINTS ###################################################
-# for (i in 1:nrow(dfMatrix3)) {
-#   thisConstraint <- paste(rownames(dfMatrix3)[i], ": ", sep = "")
-#   thiConstraintSingle <- ""
-#   for (j in 1:ncol(dfMatrix3)) {
-#     thisColumn <- colnames(dfMatrix3)[j]
-#     if (thisColumn == "RHS") {
-#       thisRHS <- dfMatrix3[i, j]
-#     } else if (thisColumn == "Sense") {
-#       thisSense <- dfMatrix3[i, j]
-#     } else {
-#       if ( (!is.na(dfMatrix3[i, j])) & (dfMatrix3[i, j] != "0") ) {
-#         thisConstraint <-
-#           paste(thisConstraint, dfMatrix3[i, j], " ", thisColumn, " ", sep = "")
-#       }
-#     }
-#   }
-#   thisConstraint <-
-#     paste(" ", thisConstraint, " ", thisSense, " ", thisRHS, sep = "")
-#   thisConstraintSingle <- paste(thisConstraint, collapse = "")
-#   constraintsLand <- c(constraintsLand, thisConstraintSingle)
-# }
-# 
-# 
-# # WRITE TO FILE ################################################################
-# # Write the title with overwrite
-# write(title, file = filePath, ncolumns = 1, append = FALSE)
-# 
-# # Append the Objective function
-# write(objective, file = filePath, ncolumns = 1, append = TRUE)
-# 
-# # Append constraints header
-# constraints <- c(constraints, constraintsLand, constraintsDemand)
-# write(constraints, file = filePath, ncolumns = 1, append = TRUE)
-# 
-# # Append Binary Variables
-# write(binary, file = filePath, ncolumns = 1, append = TRUE)
-# 
-# # Append Continuous/general Variables
-# write(general, file = filePath, ncolumns = 1, append = TRUE)
-# 
-# # Append terminator
-# write(c("", "end", ""), file = filePath, ncolumns = 1, append = TRUE)
-# 
-# # SOLVER INVOCATION ############################################################
-# glpkData <- Rglpk_read_file(filePath, type = "CPLEX_LP")
-# glpkResults <- Rglpk_solve_LP(glpkData$objective, 
-#                               glpkData$constraints[[1]], 
-#                               glpkData$constraints[[2]], 
-#                               glpkData$constraints[[3]],
-#                               bounds = NULL,
-#                               types = glpkData$types,
-#                               max = glpkData$maximum)
-# # Examine the results
-# if (glpkResults$status != 0) {
-#   print("Optimal solution NOT FOUND")
-# } else {
-#   glpkResults$optimum
-# }
-# 
-# # attr(x = glpkData, which = 'names')
-# vars <- attributes(x = glpkData)$objective_vars_names
-# values <- glpkResults$solution
-# results <- data.frame(vars, values)
-# resultsNonZero <- results %>% filter(values != 0)
-# # print(resultsNonZero)
-# resultsCrops <- 
-# filter(resultsNonZero, substr(vars,1,4) == "cpmy") %>%
-#   left_join(varCropsPlantingMonthYearFieldFull, by = c("vars" = "varID")) %>%
-#   select(Year, Field, Crop, PlantingMonth, "Release Field Month", vars) %>%
-#   arrange(Year, match(PlantingMonth, month.abb), Field, Crop) %>%
-#   rename('Plant On' = PlantingMonth, 'Harvest On' = 'Release Field Month')
-# resultsField <- 
-#   filter(resultsNonZero, substr(vars,1,4) == "cpmy") %>%
-#   left_join(varCropsPlantingMonthYearFieldFull, by = c("vars" = "varID")) %>%
-#   select(Year, Field, Crop, PlantingMonth, "Release Field Month", vars) %>%
-#   arrange(Year, Field, match(PlantingMonth, month.abb), Crop) %>%
-#   rename('Plant On' = PlantingMonth, 'Harvest On' = 'Release Field Month')
-# 
-# 
+
+# BUILD CPLEX-LP FORMATTED MILP FILE ###########################################
+# BUILD VARIABLES ##############################################################
+# Add Variables related to Crops Planted: varCropsPlantingMonthYearFieldFull$varID
+binary = c(binary, paste(' ', varCropsPlantingMonthYearFieldFull$varID, sep = ''))
+
+# Add variables related to fields not planted: varUnusedFieldYearMonth$varID
+binary = c(binary, paste(" ", varUnusedFieldYearMonth$varID, sep = ""))
+
+# Add delta variables related to crop rotation: varRotationDeltaFieldFamilyYearMonth$varID
+binary = c(binary, paste(" ", varRotationDeltaFieldFamilyYearMonth$varID, sep = ""))
+
+# Add variables related to unmet demand: varUnmetDemandProductYear$varID
+general <- c(general, paste(" ", varUnmetDemandProductYear$varID, sep = ""))
+
+# Add variables related to relaxed crop rotation: varRotationRelaxedFieldFamilyYearMonth$varID
+general <- c(general, paste(" ", varRotationRelaxedFieldFamilyYearMonth$varID, sep = ""))
+
+# BUILD OBJECTIVE FUNCTION
+Zrow <- paste(' + ', as.character(penaltyForUnmetDemand), ' ', varUnmetDemandProductYear$varID,
+              ' + ', as.character(penaltyForRelaxedRotation), ' ', varRotationRelaxedFieldFamilyYearMonth$varID, 
+              sep = '')
+ZrowSingle <- paste(Zrow, collapse = "")
+objective <- c(objective, ZrowSingle)
+
+
+# BUILD LAND TRANSFERS CONSTRAINTS #############################################
+for (i in 1:nrow(dfMatrix)) {
+  thisConstraint <- paste(rownames(dfMatrix)[i], ": ", sep = "")
+  thiConstraintSingle <- ""
+  for (j in 1:ncol(dfMatrix)) {
+    thisColumn <- colnames(dfMatrix)[j]
+    if (thisColumn == "RHS") {
+      thisRHS <- dfMatrix[i, j]
+    } else if (thisColumn == "Sense") {
+      thisSense <- dfMatrix[i, j]
+    } else {
+      if (dfMatrix[i, j] != "0") {
+        thisConstraint <-
+          paste(thisConstraint, dfMatrix[i, j], " ", thisColumn, " ", sep = "")
+      }
+    }
+  }
+  thisConstraint <-
+    paste(" ", thisConstraint, " ", thisSense, " ", thisRHS, sep = "")
+  thisConstraintSingle <- paste(thisConstraint, collapse = "")
+  constraintsLand <- c(constraintsLand, thisConstraintSingle)
+}
+
+
+# BUILD DEMAND CONSTRAINTS #####################################################
+for (i in 1:nrow(dfMatrix2)) {
+  thisConstraint <- paste(rownames(dfMatrix2)[i], ": ", sep = "")
+  thiConstraintSingle <- ""
+  for (j in 1:ncol(dfMatrix2)) {
+    thisColumn <- colnames(dfMatrix2)[j]
+    if (thisColumn == "RHS") {
+      thisRHS <- dfMatrix2[i, j]
+    } else if (thisColumn == "Sense") {
+      thisSense <- dfMatrix2[i, j]
+    } else {
+      if (dfMatrix2[i, j] != "0") {
+        thisConstraint <-
+          paste(thisConstraint, dfMatrix2[i, j], " ", thisColumn, " ", sep = "")
+      }
+    }
+  }
+  thisConstraint <-
+    paste(" ", thisConstraint, " ", thisSense, " ", thisRHS, sep = "")
+  thisConstraintSingle <- paste(thisConstraint, collapse = "")
+  constraintsDemand <- c(constraintsDemand, thisConstraintSingle)
+}
+
+
+# BUILD ROTATION CONSTRAINTS ###################################################
+for (i in 1:nrow(dfMatrix3)) {
+  thisConstraint <- paste(rownames(dfMatrix3)[i], ": ", sep = "")
+  thiConstraintSingle <- ""
+  for (j in 1:ncol(dfMatrix3)) {
+    thisColumn <- colnames(dfMatrix3)[j]
+    if (thisColumn == "RHS") {
+      thisRHS <- dfMatrix3[i, j]
+    } else if (thisColumn == "Sense") {
+      thisSense <- dfMatrix3[i, j]
+    } else {
+      if ( (!is.na(dfMatrix3[i, j])) & (dfMatrix3[i, j] != "0") ) {
+        thisConstraint <-
+          paste(thisConstraint, dfMatrix3[i, j], " ", thisColumn, " ", sep = "")
+      }
+    }
+  }
+  thisConstraint <-
+    paste(" ", thisConstraint, " ", thisSense, " ", thisRHS, sep = "")
+  thisConstraintSingle <- paste(thisConstraint, collapse = "")
+  constraintsLand <- c(constraintsLand, thisConstraintSingle)
+}
+
+
+# WRITE TO FILE ################################################################
+# Write the title with overwrite
+write(title, file = filePath, ncolumns = 1, append = FALSE)
+
+# Append the Objective function
+write(objective, file = filePath, ncolumns = 1, append = TRUE)
+
+# Append constraints header
+constraints <- c(constraints, constraintsLand, constraintsDemand)
+write(constraints, file = filePath, ncolumns = 1, append = TRUE)
+
+# Append Binary Variables
+write(binary, file = filePath, ncolumns = 1, append = TRUE)
+
+# Append Continuous/general Variables
+write(general, file = filePath, ncolumns = 1, append = TRUE)
+
+# Append terminator
+write(c("", "end", ""), file = filePath, ncolumns = 1, append = TRUE)
+
+# SOLVER INVOCATION ############################################################
+glpkData <- Rglpk_read_file(filePath, type = "CPLEX_LP")
+glpkResults <- Rglpk_solve_LP(glpkData$objective,
+                              glpkData$constraints[[1]],
+                              glpkData$constraints[[2]],
+                              glpkData$constraints[[3]],
+                              bounds = NULL,
+                              types = glpkData$types,
+                              max = glpkData$maximum)
+# Examine the results
+if (glpkResults$status != 0) {
+  print("Optimal solution NOT FOUND")
+} else {
+  glpkResults$optimum
+}
+
+# attr(x = glpkData, which = 'names')
+vars <- attributes(x = glpkData)$objective_vars_names
+values <- glpkResults$solution
+results <- data.frame(vars, values)
+resultsNonZero <- results %>% filter(values != 0)
+# print(resultsNonZero)
+resultsCrops <-
+filter(resultsNonZero, substr(vars,1,4) == "cpmy") %>%
+  left_join(varCropsPlantingMonthYearFieldFull, by = c("vars" = "varID")) %>%
+  select(Year, Field, Crop, PlantingMonth, "Release Field Month", vars) %>%
+  arrange(Year, match(PlantingMonth, month.abb), Field, Crop) %>%
+  rename('Plant On' = PlantingMonth, 'Harvest On' = 'Release Field Month')
+resultsField <-
+  filter(resultsNonZero, substr(vars,1,4) == "cpmy") %>%
+  left_join(varCropsPlantingMonthYearFieldFull, by = c("vars" = "varID")) %>%
+  select(Year, Field, Crop, PlantingMonth, "Release Field Month", vars) %>%
+  arrange(Year, Field, match(PlantingMonth, month.abb), Crop) %>%
+  rename('Plant On' = PlantingMonth, 'Harvest On' = 'Release Field Month')
+
+
