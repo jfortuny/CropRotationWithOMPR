@@ -12,16 +12,6 @@ dataDir <- paste(baseDir, '/data/cplexData', sep = '')
 fileName <- paste('model-', as.character(Sys.Date()), sep = '')
 filePath <- file.path(paste(dataDir, '/', fileName, '.lpt', sep = ''))
 
-# Create the stub for the problem sections
-title = paste('\\* Crop Rotation ', as.character(lubridate::year(Sys.Date())), ' *\\', sep = '')
-objective = c('', 'minimize', 'Z:')
-constraints = c('', 'Subject to')
-constraintsLand = ''
-constraintsDemand = ''
-bounds = ''
-general = c('', 'general')
-integer = c('', 'integer')
-binary = c('', 'binary')
 
 # BUILD CONSTRAINTS ############################################################
 # Land transfers: field, year and month
@@ -183,7 +173,6 @@ colnames(dfMatrix3) <- c(dfColNames3, "RHS")
 # Add column for the Sense of the constraint
 # dfMatrix3$Sense <- rep("<=", length(dfRowNames3))
 
-relaxedRotationcounter <- 0
 for (i_f in fieldsIncluded$Field) {
   thisField <- i_f
   for (i_y in y) {
@@ -227,12 +216,12 @@ for (i_f in fieldsIncluded$Field) {
               ) %>%
               mutate(Counter = MonthsInField + MonthsBetweenPlantings)
             thisBotanicalFamily <- thisCropIDrotation$Family
-  print("In row 230")          
+#  print("In row 230")          
             # Has this botanical family been completed for this field, year and month?
             if (thisBotanicalFamily %in% completedBotanicalFamilies) {
               # Continue
             } else {
-              # Are there any other plants in the same family that can be planted in the same month and year?
+              # Are there any plants in the same family that can be planted in the same month and year?
               thisCropFamilyRotation <-
                 filter(
                   varCropsPlantingMonthYearFieldRotation,
@@ -256,7 +245,7 @@ for (i_f in fieldsIncluded$Field) {
               thisFamilyCounter <- thisCropFamilyRotation %>%
                 group_by(Family, Year, PlantingMonth) %>%
                 summarise(FamilyCounter = max(Counter))
-print("in row 259")              
+#print("in row 259")              
               deltaRotationVarID <-
                 varRotationDeltaFieldFamilyYearMonth %>%
                 filter(
@@ -278,37 +267,56 @@ print("in row 259")
                 select(varID)
               
               # Rows counter
-              for (i in seq(1, thisFamilyCounter$FamilyCounter)) {
-                relaxedRotationcounter <- relaxedRotationcounter + 1
-                
+              counterMonth <- 0
+              counterYear <- 0
+              for (ir in seq(1, thisFamilyCounter$FamilyCounter)) {
+# CONTINUE HERE - Counter error #################################################                
                 thisRow <-
                   paste(
                     "c_",
-                    thisCropFamilyRotation[i, "varID"],
+                    thisCropFamilyRotation[1, "varID"],
                     "_",
-                    thisCropFamilyRotation[i, "Year"],
+                    thisCropFamilyRotation[1, "Year"],
                     "_",
-                    thisCropFamilyRotation[i, "PlantingMonth"],
+                    thisCropFamilyRotation[1, "PlantingMonth"],
                     "_",
-                    as.character(i),
+                    as.character(ir),
                     sep = ""
                   )
-                
+
+                if (counterMonth == 0) {
+                  counterMonth <- match(thisCropFamilyRotation[1, "PlantingMonth"], month.abb)
+                  counterYear <- as.numeric(thisCropFamilyRotation[1, "Year"])
+                } else {
+                  counterMonth <- counterMonth + 1
+                  if (counterMonth == 13) {
+                    counterMonth <- 1
+                    counterYear <- counterYear + 1
+                  }
+                }
+                counterMonthAlpha <- month.abb[counterMonth]
+                counterYearAlpha <- as.character(counterYear)
+# CONTINUE HERE ################################################################
+# This is probably not needed here if we only create rows with crops that can be
+# planted in the counterMonth and counterYear
                 dfMatrix3[thisRow, relaxedRotationVarID$varID] <- " +1"
                 dfMatrix3[thisRow, "Sense"] <- "<="
                 dfMatrix3[thisRow, "RHS"] <- 0
-print("in row 300")                
-                for (j in 1:nrow(thisCropFamilyRotation)) {
-                  if (i == 1) {
+#print("in row 300")                
+                for (jC in 1:nrow(thisCropFamilyRotation)) {
+                  if (ir == 1) {
                     # Big M constraint
-                    thisColumn <- thisCropFamilyRotation[j, "varID"]
+                    thisColumn <- thisCropFamilyRotation[jC, "varID"]
                     dfMatrix3[thisRow, thisColumn] <- " +1"
                     dfMatrix3[thisRow, deltaRotationVarID$varID] <-
                       paste(" -", as.character(bigM), sep = "")
+                    dfMatrix3[thisRow, relaxedRotationVarID$varID] <- " +1"
+                    dfMatrix3[thisRow, "Sense"] <- "<="
+                    dfMatrix3[thisRow, "RHS"] <- 0
                     
                   } else {
                     # Remaining rows of the big M set
-                    thisColumn <- thisCropFamilyRotation[j, "varID"]
+                    thisColumn <- thisCropFamilyRotation[jC, "varID"]
                     dfMatrix3[thisRow, thisColumn] <- " +1"
                     dfMatrix3[thisRow, deltaRotationVarID$varID] <-
                       paste(" +", as.character(bigM), sep = "")
@@ -339,6 +347,20 @@ write.csv(dfMatrix3, file = paste(dataDir, "/dfMatrix3.csv", sep = ""))
 
 
 # BUILD CPLEX-LP FORMATTED MILP FILE ###########################################
+
+# Create the stub for the problem sections
+title = paste('\\* Crop Rotation ', as.character(lubridate::year(Sys.Date())), ' *\\', sep = '')
+objective = c('', 'minimize', 'Z:')
+constraints = c('', 'Subject to')
+constraintsLand = ''
+constraintsDemand = ''
+constraintsRotation <- ""
+bounds = ''
+general = c('', 'general')
+integer = c('', 'integer')
+binary = c('', 'binary')
+
+
 # BUILD VARIABLES ##############################################################
 # Add Variables related to Crops Planted: varCropsPlantingMonthYearFieldFull$varID
 binary = c(binary, paste(' ', varCropsPlantingMonthYearFieldFull$varID, sep = ''))
@@ -356,9 +378,11 @@ general <- c(general, paste(" ", varUnmetDemandProductYear$varID, sep = ""))
 general <- c(general, paste(" ", varRotationRelaxedFieldFamilyYearMonth$varID, sep = ""))
 
 # BUILD OBJECTIVE FUNCTION
-Zrow <- paste(' + ', as.character(penaltyForUnmetDemand), ' ', varUnmetDemandProductYear$varID,
-              ' + ', as.character(penaltyForRelaxedRotation), ' ', varRotationRelaxedFieldFamilyYearMonth$varID, 
+Zrow1 <- paste(' + ', as.character(penaltyForUnmetDemand), ' ', varUnmetDemandProductYear$varID,
               sep = '')
+Zrow2 <- paste(' + ', as.character(penaltyForRelaxedRotation), ' ', varRotationRelaxedFieldFamilyYearMonth$varID,
+    sep = '')
+Zrow <- c(Zrow1, Zrow2)
 ZrowSingle <- paste(Zrow, collapse = "")
 objective <- c(objective, ZrowSingle)
 
@@ -431,7 +455,7 @@ for (i in 1:nrow(dfMatrix3)) {
   thisConstraint <-
     paste(" ", thisConstraint, " ", thisSense, " ", thisRHS, sep = "")
   thisConstraintSingle <- paste(thisConstraint, collapse = "")
-  constraintsLand <- c(constraintsLand, thisConstraintSingle)
+  constraintsRotation <- c(constraintsRotation, thisConstraintSingle)
 }
 
 
@@ -443,7 +467,7 @@ write(title, file = filePath, ncolumns = 1, append = FALSE)
 write(objective, file = filePath, ncolumns = 1, append = TRUE)
 
 # Append constraints header
-constraints <- c(constraints, constraintsLand, constraintsDemand)
+constraints <- c(constraints, constraintsLand, constraintsDemand, constraintsRotation)
 write(constraints, file = filePath, ncolumns = 1, append = TRUE)
 
 # Append Binary Variables
