@@ -7,8 +7,8 @@ baseDir <- getwd()
 dataDir <- paste(baseDir, '/data', sep = '')
 # filePath <- file.path(paste(dataDir, '/Crop Rotation Sample Template.xlsx', sep = ''))
 # filePath <- file.path(paste(dataDir, '/Crop Rotation Sample Template - 2 crops and 2 fields.xlsx', sep = ''))
-filePath <- file.path(paste(dataDir, '/Crop Rotation Sample Template - 1 crop and 1 field.xlsx', sep = ''))
-# filePath <- file.path(paste(dataDir, '/Crop Rotation Sample Template - Botanical Family test.xlsx', sep = ''))
+# filePath <- file.path(paste(dataDir, '/Crop Rotation Sample Template - 1 crop and 1 field.xlsx', sep = ''))
+filePath <- file.path(paste(dataDir, '/Crop Rotation Sample Template - Botanical Family test.xlsx', sep = ''))
 
 # List the sheets/tabs in the sample template spreadsheet
 #sheets <- excel_sheets(filePath)

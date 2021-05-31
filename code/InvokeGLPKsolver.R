@@ -69,8 +69,6 @@ for (i in 1:nrow(dfPredecessors)) {
   dfMatrix[dfPredecessors[i, "constraint"], "Sense"] <- "<="
 }
 
-
-
 # Set Field Use for Planted Crops ##############################################
 # Since the unused field settings are already taken care of, the only variables we
 # need to worry about here are the "Crops Planted" variables (cpmy_i) both as they
@@ -94,9 +92,6 @@ for (i in 1:nrow(irows)) {
   # dfMatrix[irows[i, "constraint"], "Sense"] <- "="
 }
 # 
-
-
-
 
 # BUILD DEMAND CONSTRAINTS #####################################################
 # Build empty dataframe for matrix #############################################
@@ -299,9 +294,9 @@ for (i_f in fieldsIncluded$Field) {
 # CONTINUE HERE ################################################################
 # This is probably not needed here if we only create rows with crops that can be
 # planted in the counterMonth and counterYear
-                dfMatrix3[thisRow, relaxedRotationVarID$varID] <- " +1"
-                dfMatrix3[thisRow, "Sense"] <- "<="
-                dfMatrix3[thisRow, "RHS"] <- 0
+                # dfMatrix3[thisRow, relaxedRotationVarID$varID] <- " +1"
+                # dfMatrix3[thisRow, "Sense"] <- "<="
+                # dfMatrix3[thisRow, "RHS"] <- 0
 #print("in row 300")                
                 for (jC in 1:nrow(thisCropFamilyRotation)) {
                   if (ir == 1) {
@@ -316,12 +311,29 @@ for (i_f in fieldsIncluded$Field) {
                     
                   } else {
                     # Remaining rows of the big M set
-                    thisColumn <- thisCropFamilyRotation[jC, "varID"]
-                    dfMatrix3[thisRow, thisColumn] <- " +1"
-                    dfMatrix3[thisRow, deltaRotationVarID$varID] <-
-                      paste(" +", as.character(bigM), sep = "")
-                    dfMatrix3[thisRow, "RHS"] <- as.character(bigM)
-                    
+                    plantable <- filter(
+                      varCropsPlantingMonthYearFieldRotation,
+                      Crop == thisCrop &
+                        Field == thisField &
+                        Year == counterYearAlpha &
+                        PlantingMonth == counterMonthAlpha
+                    ) %>% summarise(n()) %>% 
+                      rename("cnt" = "n()")
+                    if (plantable$cnt != 0) {
+                      thisColumn <- filter(
+                        varCropsPlantingMonthYearFieldRotation,
+                        Crop == thisCrop &
+                          Field == thisField &
+                          Year == counterYearAlpha &
+                          PlantingMonth == counterMonthAlpha
+                      ) %>% select("varID")
+                      dfMatrix3[thisRow, thisColumn$varID] <- " +1"
+                      dfMatrix3[thisRow, deltaRotationVarID$varID] <-
+                        paste(" +", as.character(bigM), sep = "")
+                      dfMatrix3[thisRow, relaxedRotationVarID$varID] <- " +1"
+                      dfMatrix3[thisRow, "Sense"] <- "<="
+                      dfMatrix3[thisRow, "RHS"] <- as.character(bigM)
+                    }
                   }
                 }
               }
