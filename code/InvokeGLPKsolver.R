@@ -216,13 +216,15 @@ for (i_f in fieldsIncluded$Field) {
             if (thisBotanicalFamily %in% completedBotanicalFamilies) {
               # Continue
             } else {
-              # Are there any plants in the same family that can be planted in the same month and year?
+              # Are there any plants in the same family that can be planted in the same field
+              # in this month and year?
               thisCropFamilyRotation <-
                 filter(
                   varCropsPlantingMonthYearFieldRotation,
                   Family == thisBotanicalFamily &
                     Year == thisYear &
-                    PlantingMonth == thisMonth
+                    PlantingMonth == thisMonth &
+                    Field == thisField
                 ) %>%
                 select(
                   varID,
