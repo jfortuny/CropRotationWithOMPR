@@ -170,17 +170,20 @@ colnames(dfMatrix3) <- c(dfColNames3, "RHS")
 
 for (i_f in fieldsIncluded$Field) {
   thisField <- i_f
+print(paste("In row 173, thisField = ", thisField, sep=""))
   for (i_y in y) {
     thisYear <- i_y
     for (i_m in m) {
       thisMonth <- i_m
-      completedBotanicalFamilies <-
-        data.frame(matrix("0", nrow = 0, ncol = 1), stringsAsFactors = FALSE)
-      colnames(completedBotanicalFamilies) <- "Family"
+      # completedBotanicalFamilies <-
+      #   data.frame(matrix("0", nrow = 0, ncol = 1), stringsAsFactors = FALSE)
+      # colnames(completedBotanicalFamilies) <- "Family"
       
       # Deal with crops other than cover crops
       for (i_c in cropsIncluded$Crop) {
         thisCrop <- i_c
+print(paste("In row 184, thisCrop = ", thisCrop, " thisField = ", thisField, "thisYear = ", as.character(thisYear), "thisMonth = ", 
+         as.character(thisMonth), sep=""))
         if (cropsIncluded[cropsIncluded$Crop == thisCrop, 'Is Cover Crop?'] == "Y") {
           # continue
         } else {
@@ -213,9 +216,9 @@ for (i_f in fieldsIncluded$Field) {
             thisBotanicalFamily <- thisCropIDrotation$Family
 #  print("In row 230")          
             # Has this botanical family been completed for this field, year and month?
-            if (thisBotanicalFamily %in% completedBotanicalFamilies) {
+            # if (thisBotanicalFamily %in% completedBotanicalFamilies) {
               # Continue
-            } else {
+            # } else {
               # Are there any plants in the same family that can be planted in the same field
               # in this month and year?
               thisCropFamilyRotation <-
@@ -280,7 +283,7 @@ for (i_f in fieldsIncluded$Field) {
                     as.character(ir),
                     sep = ""
                   )
-
+print(paste("In row 284, thisRow = ", thisRow, " ir = ", as.character(ir), sep=""))
                 if (counterMonth == 0) {
                   counterMonth <- match(thisCropFamilyRotation[1, "PlantingMonth"], month.abb)
                   counterYear <- as.numeric(thisCropFamilyRotation[1, "Year"])
@@ -303,7 +306,9 @@ for (i_f in fieldsIncluded$Field) {
                 for (jC in 1:nrow(thisCropFamilyRotation)) {
                   if (ir == 1) {
                     # Big M constraint
-                    thisColumn <- thisCropFamilyRotation[jC, "varID"]
+                    thisColumn <- thisCropIDrotation$varID
+print(paste("In row 307, thisRow = ", thisRow, " thisColumn = ", thisColumn, " ir = ", as.character(ir), " jc = ", 
+        as.character(jC),sep=""))
                     dfMatrix3[thisRow, thisColumn] <- " +1"
                     dfMatrix3[thisRow, deltaRotationVarID$varID] <-
                       paste(" -", as.character(bigM), sep = "")
@@ -329,6 +334,7 @@ for (i_f in fieldsIncluded$Field) {
                           Year == counterYearAlpha &
                           PlantingMonth == counterMonthAlpha
                       ) %>% select("varID")
+print(paste("In row 336, thisRow = ", thisRow, " thisColumn = ", thisColumn, " ir = ", as.character(ir), " jc = ", as.character(jC), sep=""))
                       dfMatrix3[thisRow, thisColumn$varID] <- " +1"
                       dfMatrix3[thisRow, deltaRotationVarID$varID] <-
                         paste(" +", as.character(bigM), sep = "")
@@ -341,12 +347,12 @@ for (i_f in fieldsIncluded$Field) {
               }
               
               # Family has been completed
-              completedBotanicalFamilies <-
-                rbind(completedBotanicalFamilies,
-                      thisBotanicalFamily)
-              colnames(completedBotanicalFamilies) <- "Family"
-            }
-          }
+              # completedBotanicalFamilies <-
+              #   rbind(completedBotanicalFamilies,
+              #         thisBotanicalFamily)
+              # colnames(completedBotanicalFamilies) <- "Family"
+            # }
+        }
         }
       }
     }
@@ -493,39 +499,39 @@ write(general, file = filePath, ncolumns = 1, append = TRUE)
 # Append terminator
 write(c("", "end", ""), file = filePath, ncolumns = 1, append = TRUE)
 
-# SOLVER INVOCATION ############################################################
-glpkData <- Rglpk_read_file(filePath, type = "CPLEX_LP")
-glpkResults <- Rglpk_solve_LP(glpkData$objective,
-                              glpkData$constraints[[1]],
-                              glpkData$constraints[[2]],
-                              glpkData$constraints[[3]],
-                              bounds = NULL,
-                              types = glpkData$types,
-                              max = glpkData$maximum)
-# Examine the results
-if (glpkResults$status != 0) {
-  print("Optimal solution NOT FOUND")
-} else {
-  glpkResults$optimum
-}
-
-# attr(x = glpkData, which = 'names')
-vars <- attributes(x = glpkData)$objective_vars_names
-values <- glpkResults$solution
-results <- data.frame(vars, values)
-resultsNonZero <- results %>% filter(values != 0)
-# print(resultsNonZero)
-resultsCrops <-
-filter(resultsNonZero, substr(vars,1,4) == "cpmy") %>%
-  left_join(varCropsPlantingMonthYearFieldFull, by = c("vars" = "varID")) %>%
-  select(Year, Field, Crop, PlantingMonth, "Release Field Month", vars) %>%
-  arrange(Year, match(PlantingMonth, month.abb), Field, Crop) %>%
-  rename('Plant On' = PlantingMonth, 'Harvest On' = 'Release Field Month')
-resultsField <-
-  filter(resultsNonZero, substr(vars,1,4) == "cpmy") %>%
-  left_join(varCropsPlantingMonthYearFieldFull, by = c("vars" = "varID")) %>%
-  select(Year, Field, Crop, PlantingMonth, "Release Field Month", vars) %>%
-  arrange(Year, Field, match(PlantingMonth, month.abb), Crop) %>%
-  rename('Plant On' = PlantingMonth, 'Harvest On' = 'Release Field Month')
-
-
+# # SOLVER INVOCATION ############################################################
+# glpkData <- Rglpk_read_file(filePath, type = "CPLEX_LP")
+# glpkResults <- Rglpk_solve_LP(glpkData$objective,
+#                               glpkData$constraints[[1]],
+#                               glpkData$constraints[[2]],
+#                               glpkData$constraints[[3]],
+#                               bounds = NULL,
+#                               types = glpkData$types,
+#                               max = glpkData$maximum)
+# # Examine the results
+# if (glpkResults$status != 0) {
+#   print("Optimal solution NOT FOUND")
+# } else {
+#   glpkResults$optimum
+# }
+# 
+# # attr(x = glpkData, which = 'names')
+# vars <- attributes(x = glpkData)$objective_vars_names
+# values <- glpkResults$solution
+# results <- data.frame(vars, values)
+# resultsNonZero <- results %>% filter(values != 0)
+# # print(resultsNonZero)
+# resultsCrops <-
+# filter(resultsNonZero, substr(vars,1,4) == "cpmy") %>%
+#   left_join(varCropsPlantingMonthYearFieldFull, by = c("vars" = "varID")) %>%
+#   select(Year, Field, Crop, PlantingMonth, "Release Field Month", vars) %>%
+#   arrange(Year, match(PlantingMonth, month.abb), Field, Crop) %>%
+#   rename('Plant On' = PlantingMonth, 'Harvest On' = 'Release Field Month')
+# resultsField <-
+#   filter(resultsNonZero, substr(vars,1,4) == "cpmy") %>%
+#   left_join(varCropsPlantingMonthYearFieldFull, by = c("vars" = "varID")) %>%
+#   select(Year, Field, Crop, PlantingMonth, "Release Field Month", vars) %>%
+#   arrange(Year, Field, match(PlantingMonth, month.abb), Crop) %>%
+#   rename('Plant On' = PlantingMonth, 'Harvest On' = 'Release Field Month')
+# 
+# 
