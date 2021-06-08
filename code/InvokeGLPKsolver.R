@@ -10,7 +10,7 @@ library(Rglpk)
 baseDir <- getwd()
 dataDir <- paste(baseDir, '/data/cplexData', sep = '')
 fileName <- paste('model-', as.character(Sys.Date()), sep = '')
-filePath <- file.path(paste(dataDir, '/', fileName, '.lpt', sep = ''))
+filePath <- file.path(paste(dataDir, '/', fileName, '.lp', sep = ''))
 
 
 # BUILD CONSTRAINTS ############################################################
