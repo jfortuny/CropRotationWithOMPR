@@ -16,6 +16,7 @@ y <- seq(1:4)
 # y <- 1
 m <- month.abb
 
+
 # Crops planted variables: #####################################################
 # A crop can be planted on a field in a year and a month; we need to create
 # the binary variables that represent possible planting dates
@@ -234,4 +235,17 @@ varRotationRelaxedFieldFamilyYearMonth <- varRotationRelaxedFieldFamilyYearMonth
 varRotationDeltaFieldFamilyYearMonth <- varRotationRelaxedFieldFamilyYearMonth %>%
   select(! contains("varID")) %>%
   mutate(varID = paste('dr', as.character(row_number()), sep = '_'))
+
+# Save variables to File #######################################################
+cropVars <- varCropsPlantingMonthYearFieldRotation %>%
+  select(varID, Crop, Field, PlantingMonth, Year)
+fileName <- paste(baseDir, "/data/cplexData/cropVars.csv", sep = "")
+write.csv(cropVars, fileName, row.names = FALSE)
+
+# Timing the code
+endTime <- Sys.time()
+lapsedTime <- difftime(startTime,  endTime, units = "secs")
+print(paste("Extracting Data from Spreadsheet: ", as.character(lapsedTime), sep=''))
+startTime <- Sys.time()
+
 
