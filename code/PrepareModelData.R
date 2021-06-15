@@ -221,19 +221,28 @@ varFieldsUnusedInFirstMonthFirstYear <- varUnusedFieldYearMonth %>%
 
 # Variables related to Rotation Relaxed in Year y and Month m for botanical family b
 # Pick only month family combinations that have planting going on!
-varRotationRelaxedFieldFamilyYearMonth <- varCropsPlantingMonthYearFieldRotation %>% 
-  select(Family, Year, PlantingMonth) 
-varRotationRelaxedFieldFamilyYearMonth <- distinct(varRotationRelaxedFieldFamilyYearMonth)
-
-varRotationRelaxedFieldFamilyYearMonth <- merge(f, varRotationRelaxedFieldFamilyYearMonth,  by = NULL)
-
-varRotationRelaxedFieldFamilyYearMonth <- varRotationRelaxedFieldFamilyYearMonth %>%
-  rename(Field = x, Month = PlantingMonth) %>%
+# varRotationRelaxedFieldFamilyYearMonth <- varCropsPlantingMonthYearFieldRotation %>% 
+#   select(Family, Year, PlantingMonth) 
+# varRotationRelaxedFieldFamilyYearMonth <- distinct(varRotationRelaxedFieldFamilyYearMonth)
+# 
+# varRotationRelaxedFieldFamilyYearMonth <- merge(f, varRotationRelaxedFieldFamilyYearMonth,  by = NULL)
+# 
+# varRotationRelaxedFieldFamilyYearMonth <- varRotationRelaxedFieldFamilyYearMonth %>%
+#   rename(Field = x, Month = PlantingMonth) %>%
+#   mutate(varID = paste('rr', as.character(row_number()), sep = '_'))
+varRotationRelaxedFieldFamilyYearMonth <- varCropsPlantingMonthYearFieldRotation %>%
+  select(Crop, Family, Field, Year, PlantingMonth, varID) %>%
+  rename(Month = PlantingMonth, cropVarID = varID) %>%
   mutate(varID = paste('rr', as.character(row_number()), sep = '_'))
 
+
 # Variables related to big M botanical family rotation constraints also added here
-varRotationDeltaFieldFamilyYearMonth <- varRotationRelaxedFieldFamilyYearMonth %>%
-  select(! contains("varID")) %>%
+# varRotationDeltaFieldFamilyYearMonth <- varRotationRelaxedFieldFamilyYearMonth %>%
+#   select(! contains("varID")) %>%
+#   mutate(varID = paste('dr', as.character(row_number()), sep = '_'))
+varRotationDeltaFieldFamilyYearMonth <- varCropsPlantingMonthYearFieldRotation %>%
+  select(Crop, Family, Field, Year, PlantingMonth, varID) %>%
+  rename(Month = PlantingMonth, cropVarID = varID) %>%
   mutate(varID = paste('dr', as.character(row_number()), sep = '_'))
 
 # Save variables to File #######################################################

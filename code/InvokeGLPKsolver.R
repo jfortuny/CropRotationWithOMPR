@@ -227,15 +227,18 @@ for (i_f in fieldsIncluded$Field) {
             #  print("In row 230")
            
               #print("in row 259")
-              deltaRotationVarID <-
-                varRotationDeltaFieldFamilyYearMonth %>%
-                filter(
-                  Field == thisField &
-                    Family == thisBotanicalFamily &
-                    Year == thisYear &
-                    Month == thisMonth
-                ) %>%
-                select(varID)
+            deltaRotationVarID <- varRotationDeltaFieldFamilyYearMonth %>%
+              filter(cropVarID == thisVarID) %>%
+              select(varID)
+              # deltaRotationVarID <- 
+              #   varRotationDeltaFieldFamilyYearMonth %>%
+              #   filter(
+              #     Field == thisField &
+              #       Family == thisBotanicalFamily &
+              #       Year == thisYear &
+              #       Month == thisMonth
+              #   ) %>%
+              #   select(varID)
               
               # relaxedRotationVarID <-
               #   varRotationRelaxedFieldFamilyYearMonth %>%
